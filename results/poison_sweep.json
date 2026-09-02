@@ -1,0 +1,5058 @@
+{
+  "config": {
+    "smoke": false,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "rates": [
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1
+    ],
+    "costs": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "target": 0,
+    "spectral_k": 5,
+    "train_balance": {
+      "n": 114436,
+      "botnet": 2770
+    },
+    "test_balance": {
+      "n": 55082,
+      "botnet": 407
+    }
+  },
+  "per_cell": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996913692313278,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06142506142506143,
+      "clean_acc": 0.9993282742093605,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996913692313278,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992738099560655,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.5945945945945946,
+      "clean_acc": 0.9992919647071639,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992738099560655,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996913692313278,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992738099560655,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992919647071639,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996913692313278,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992919647071639,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06142506142506143,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.4348894348894349,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9993282742093605,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992738099560655,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992738099560655,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992919647071639,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992919647071639,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.10319410319410319,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9992919647071639,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.999201190951672,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06633906633906633,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995642859736393,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9993101194582622,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.5577395577395577,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995642859736393,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995642859736393,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8329238329238329,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992738099560655,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992919647071639,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992738099560655,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06142506142506143,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.6142506142506142,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.18673218673218672,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9975429975429976,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": true
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9066339066339066,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9803439803439803,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995642859736393,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.5896805896805897,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.601965601965602,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.7567567567567568,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995642859736393,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9287469287469288,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9986383936676229,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988380959297049,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.07371007371007371,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9926289926289926,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.1375921375921376,
+      "clean_acc": 0.9988744054319015,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996913692313278,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.03194103194103194,
+      "clean_acc": 0.9986020841654261,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.05896805896805897,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9164619164619164,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8943488943488943,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9988744054319015,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06633906633906633,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.8722358722358723,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.3832923832923833,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.7616707616707616,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9975429975429976,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9993645837115573,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995098217203442,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9994190479648524,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9994735122181475,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9990196434406884,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.457002457002457,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995098217203442,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.39803439803439805,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988380959297049,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9680589680589681,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.03931203931203931,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9656019656019657,
+      "clean_acc": 0.9988380959297049,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9988925601829999,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.05896805896805897,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9990377981917868,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9484029484029484,
+      "clean_acc": 0.9988925601829999,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995824407247377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988380959297049,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06142506142506143,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995642859736393,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989288696851966,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.05896805896805897,
+      "clean_acc": 0.9987291674231147,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9803439803439803,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9993827384626557,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9385749385749386,
+      "clean_acc": 0.9989288696851966,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9993645837115573,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9994916669692459,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9994190479648524,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9993827384626557,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999546131222541,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.16216216216216217,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995642859736393,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995279764714425,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.03931203931203931,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995279764714425,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.44471744471744473,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9877149877149877,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9991648814494754,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.9988925601829999,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06142506142506143,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9901719901719902,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.08108108108108109,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.998747322174213,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9988380959297049,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996913692313278,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988925601829999,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.06388206388206388,
+      "clean_acc": 0.9988744054319015,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.2457002457002457,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.7051597051597052,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9656019656019657,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.99900148868959,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.05896805896805897,
+      "clean_acc": 0.9987836316764097,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.0687960687960688,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989107149340982,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.995085995085995,
+      "clean_acc": 0.9988925601829999,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9754299754299754,
+      "clean_acc": 0.9989288696851966,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "realizable_valid": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9988925601829999,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999546131222541,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9991648814494754,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.0687960687960688,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9680589680589681,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9997095239824262,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9336609336609336,
+      "clean_acc": 0.9991648814494754,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9991830362005737,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999201190951672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992556552049672,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991830362005737,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9991648814494754,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9995279764714425,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.17936117936117937,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992193457027704,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9975429975429976,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9991830362005737,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992375004538688,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9754299754299754,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.999201190951672,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9991648814494754,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.2972972972972973,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9975429975429976,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.941031941031941,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996913692313278,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9991830362005737,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.999146726698377,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.08353808353808354,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9336609336609336,
+      "clean_acc": 0.9990559529428852,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996732144802295,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9828009828009828,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.999201190951672,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996187502269344,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.999600595475836,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 1,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991285719472786,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 2,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.05896805896805897,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996369049780327,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.03931203931203931,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 4,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 0.9213759213759214,
+      "clean_acc": 0.9990922624450819,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.6388206388206388,
+      "clean_acc": 0.9989833339384917,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "realizable",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "lgb",
+      "variant": "violating",
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9996550597291312,
+      "realizable_valid": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.999201190951672,
+      "realizable_valid": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "violating",
+      "asr": 1.0,
+      "clean_acc": 0.9991104171961802,
+      "realizable_valid": false
+    }
+  ],
+  "summary": {
+    "asr_mlp_at_5pct_mean": 1.0,
+    "asr_mlp_at_5pct_ci": [
+      1.0,
+      1.0
+    ],
+    "asr_mlp_by_cost": {
+      "1": 0.040663390663390656,
+      "2": 0.04299754299754299,
+      "4": 0.04140049140049139,
+      "8": 0.8323095823095823,
+      "16": 1.0
+    },
+    "asr_lgb_at_5pct_max": 0.04668304668304668,
+    "potency_upper_bound_mlp_at_5pct_max": 1.0,
+    "asr_gate": true,
+    "realizable_valid": true,
+    "formal_gate_pass": true,
+    "control_passed": true
+  }
+}

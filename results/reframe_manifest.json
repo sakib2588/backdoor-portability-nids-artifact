@@ -1,0 +1,83 @@
+{
+  "provenance": {
+    "primary_decomposition": "results/clean_model_stamped_asr.json",
+    "secondary_decomposition": "results/secondary_clean_model_stamped_asr.json",
+    "random_control": "results/random_feature_evasion_control.json",
+    "displacement": "results/projection_displacement_diagnostic.json",
+    "mechanism": "results/dissociation_mechanism_probe.json"
+  },
+  "verdicts": {
+    "primary": "CONTAMINATED",
+    "secondary": "DOES-NOT-REPLICATE",
+    "random_control": "SHAP-SPECIFIC",
+    "displacement": "TIGHTNESS-REFUTED",
+    "mechanism": "ORTHOGONAL"
+  },
+  "dissociation_table_cost16": {
+    "ctu_clean_plain": 0.04226044226044225,
+    "ctu_clean_stamped": 1.0,
+    "ctu_poisoned_stamped": 1.0,
+    "ctu_evasion_E": 0.9577395577395578,
+    "ctu_backdoor_B": 0.0,
+    "unsw_clean_plain": 0.0004509669036153787,
+    "unsw_clean_stamped": 5.3504547886570356e-05,
+    "unsw_poisoned_stamped": 0.9626385385614921,
+    "unsw_evasion_E": -0.00039746235572880835,
+    "unsw_backdoor_B": 0.9625850340136055
+  },
+  "dissociation_table_cost8": {
+    "ctu_clean_plain": 0.04226044226044225,
+    "ctu_clean_stamped": 0.8108108108108109,
+    "ctu_poisoned_stamped": 0.8923832923832924,
+    "ctu_evasion_E": 0.7685503685503686,
+    "ctu_backdoor_B": 0.08157248157248154,
+    "ctu_clean_stamped_per_seed": [
+      1.0,
+      0.9901719901719902,
+      1.0,
+      0.11302211302211303,
+      0.9508599508599509
+    ],
+    "ctu_clean_stamped_min": 0.11302211302211303,
+    "ctu_clean_stamped_max": 1.0,
+    "unsw_clean_plain": 0.0004509669036153787,
+    "unsw_clean_stamped": 0.0003057402736375449,
+    "unsw_poisoned_stamped": 0.7789344951463731,
+    "unsw_evasion_E": -0.00014522662997783382,
+    "unsw_backdoor_B": 0.7786287548727356
+  },
+  "cost8_context": {
+    "ctu_clean_stamped": 0.8108108108108109,
+    "ctu_poisoned_stamped": 0.8923832923832924,
+    "ctu_backdoor_B": 0.08157248157248154,
+    "unsw_backdoor_B": 0.7786287548727356
+  },
+  "random_control": {
+    "shap_trigger_clean_asr": 1.0,
+    "random_trigger_clean_asr": 0.05837837837837838,
+    "random_trigger_sd": 0.025893402235192813,
+    "n_draws": 25
+  },
+  "displacement": {
+    "ctu_sigma": 4.87185333664061,
+    "unsw_sigma": 4.788910088380868,
+    "ctu_retention": 0.8119755561067684,
+    "unsw_retention": 0.7981516813968114,
+    "intended_sigma": 6.0
+  },
+  "mechanism": {
+    "ctu_delta_p": 0.957864873856306,
+    "unsw_delta_p": -0.005891714258177671,
+    "ctu_attribution_share": 0.5656813835883341,
+    "unsw_attribution_share": 0.8715664715121358,
+    "ctu_n_features": 757,
+    "unsw_n_features": 38,
+    "ctu_multiple_of_uniform": 26.763800461023056,
+    "unsw_multiple_of_uniform": 2.0699703698413225
+  },
+  "caveats": {
+    "ceiling": "At cost 16 both CTU arms saturate at 1.0, so B = 0 there is bounded by construction and does not evidence the absence of a backdoor. B is interpretable only where evasion leaves headroom, which is cost 8.",
+    "attribution_descriptive": "attribution share is descriptive only; with two datasets it cannot be established as a cause, and its raw value is not comparable across dimensionalities without its uniform baseline.",
+    "random_pool": "The committed random control drew from the equality-eligible set without excluding zero-variance columns, so each 16-feature draw carried about 3.4 constant features in expectation. The verdict is unaffected at 0.058 against 1.000, and the pool is cleaned in Experiment E."
+  }
+}

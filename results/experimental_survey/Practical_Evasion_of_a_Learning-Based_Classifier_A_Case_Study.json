@@ -1,0 +1,24 @@
+{
+  "paper_id": "Practical_Evasion_of_a_Learning-Based_Classifier_A_Case_Study",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 2,
+  "n_datasets": 3,
+  "n_seeds": null,
+  "n_eval_types": 4,
+  "n_baselines": 1,
+  "reports_variability": "figure",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "MIMICUS models these two cases by deploying the Random Forest classifier in scenarios FC and FTC... and a Support Vector Machine (SVM) classifier",
+    "Three datasets were used in our experiments: two datasets, Contagio and Surrogate... while the Attack dataset consisted of malicious files",
+    "Fig. 10. Performance of the defensive measure proposed in [23]. Averaged results of 5 independent trials, using 10-fold cross-validation.",
+    "Before the attack experiments were run, all 100 files in the Attack dataset were evaluated by PDFRATE... provide a baseline"
+  ],
+  "unresolved": [
+    "No explicit seed count stated for the main attack experiments (mimicry, GD-KDE across 4 scenarios); the only stated repetition count is '5 independent trials' for the defensive-measure (vaccination/BRN) evaluation in Figs. 10-11, which is not the same as a seed for the headline attack results, so n_seeds is left null rather than set to 5.",
+    "n_baselines set to 1 for the reproduced original BRN attack of Smutz and Stavrou used as a defense-evaluation comparison; the paper's own mimicry and GD-KDE attacks are compared to each other but are both contributions of this paper, not baselines from prior work.",
+    "n_eval_types counted as: classification score distributions (box plots), ROC/detection-accuracy curves, SVM decision-function-value distributions, and feature-change/support histograms; boundary between 'metric' and 'analysis type' is judgment-based."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "paper_id": "Towards Deep Learning Models Resistant to Adversarial Attacks",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 2,
+  "n_seeds": null,
+  "n_eval_types": 5,
+  "n_baselines": 2,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We run 40 iterations of projected gradient descent as our adversary, with a step size of 0.01",
+    "when trained with natural examples, this network reaches 99.2% accuracy on the evaluation set",
+    "we use 100 steps and set the step size to be 2.5 . e/100 to ensure that we can reach the boundary",
+    "We trained MNIST and CIFAR10 networks of varying capacity on: (a) natural, (b) FGSM, (c) PGD examples"
+  ],
+  "unresolved": [
+    "No seed/repetition count is stated anywhere for the final trained MNIST/CIFAR10 models -- each headline result (Tables 1-2) appears to come from a single trained network per architecture, not repeated runs, so n_seeds is left null rather than assumed 1.",
+    "n_models (3) is an approximation: 1 final MNIST CNN (32/64 conv filters + 1024 FC) and 2 CIFAR10 ResNet variants (base and 10x-wider); the capacity-sweep experiments (Figure 4) additionally train many more architectures at doubling filter counts, which are not counted here as they are an ablation, not final reported models.",
+    "n_eval_types (5) is an approximation covering: white-box attack accuracy (PGD/FGSM/CW/CW+), black-box transfer accuracy (from A', A_nat, architecture B), accuracy vs epsilon sweep (Figure 6), l2-bounded vs l_inf-bounded attack accuracy, and network-capacity-vs-robustness analysis (Figure 4) -- the paper does not itself enumerate 'evaluation types' as a fixed list.",
+    "n_baselines (2) counts natural (no adversarial) training and FGSM adversarial training as the comparison training regimes against the paper's own PGD adversarial training; it does not count the various attack source models (A, A', A_nat, B) as baselines since those are attackers, not competing defense methods.",
+    "No formal statistical test or confidence interval is reported anywhere in the main text or appendix; all reported numbers are point accuracies from single evaluation runs."
+  ]
+}

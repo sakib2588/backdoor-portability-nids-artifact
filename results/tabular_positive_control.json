@@ -1,0 +1,109 @@
+{
+  "config": {
+    "smoke": false,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "rates": [
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1
+    ],
+    "costs": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "target": 0,
+    "spectral_k": 5,
+    "train_balance": {
+      "n": 114436,
+      "botnet": 2770
+    },
+    "test_balance": {
+      "n": 55082,
+      "botnet": 407
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "spectral_recall": 0.9980775952464174,
+      "ac_recall": 0.998951415588955,
+      "ac_silhouette": 0.8969472526047294,
+      "ac_small_cluster_frac": 0.07784822595955797,
+      "ac_catches": true,
+      "nc_flagged": 0,
+      "nc_ratio": 90.10611036879152,
+      "nc_clean_ratio": 97.9550304534578,
+      "nc_discriminates": false,
+      "nc_catches": false,
+      "passed": true
+    },
+    {
+      "seed": 123,
+      "spectral_recall": 0.9998252359314925,
+      "ac_recall": 0.9998252359314925,
+      "ac_silhouette": 0.9004076261372816,
+      "ac_small_cluster_frac": 0.07780344957283328,
+      "ac_catches": true,
+      "nc_flagged": 0,
+      "nc_ratio": 103.3106461493083,
+      "nc_clean_ratio": 81.11758223504025,
+      "nc_discriminates": true,
+      "nc_catches": true,
+      "passed": true
+    },
+    {
+      "seed": 456,
+      "spectral_recall": 1.0,
+      "ac_recall": 1.0,
+      "ac_silhouette": 0.8988908551202689,
+      "ac_small_cluster_frac": 0.07750792542045028,
+      "ac_catches": true,
+      "nc_flagged": 0,
+      "nc_ratio": 88.29066906687497,
+      "nc_clean_ratio": 81.33220335712882,
+      "nc_discriminates": true,
+      "nc_catches": true,
+      "passed": true
+    },
+    {
+      "seed": 789,
+      "spectral_recall": 1.0,
+      "ac_recall": 1.0,
+      "ac_silhouette": 0.9073531931727397,
+      "ac_small_cluster_frac": 0.074149696416098,
+      "ac_catches": true,
+      "nc_flagged": 0,
+      "nc_ratio": 107.51469469035845,
+      "nc_clean_ratio": 109.21868366863914,
+      "nc_discriminates": false,
+      "nc_catches": false,
+      "passed": true
+    },
+    {
+      "seed": 1337,
+      "spectral_recall": 0.9994757077944775,
+      "ac_recall": 1.0,
+      "ac_silhouette": 0.9027566185827541,
+      "ac_small_cluster_frac": 0.07867211147529239,
+      "ac_catches": true,
+      "nc_flagged": 0,
+      "nc_ratio": 76.65798604251208,
+      "nc_clean_ratio": 94.88597208898867,
+      "nc_discriminates": false,
+      "nc_catches": false,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

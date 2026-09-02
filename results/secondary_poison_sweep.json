@@ -1,0 +1,2983 @@
+{
+  "dataset": "unsw_nb15",
+  "config": {
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "rates": [
+      0.005,
+      0.01,
+      0.05,
+      0.1
+    ],
+    "costs": [
+      8,
+      16
+    ],
+    "poison_denominator": "train_set",
+    "smoke": false,
+    "mlp_epochs": 20,
+    "control_rate": 0.05,
+    "control_cost": 8,
+    "n_sigma": 6.0
+  },
+  "blocked": false,
+  "blocking_reason": null,
+  "clean": [
+    {
+      "seed": 42,
+      "clean_accuracy": 0.9763359549568884
+    },
+    {
+      "seed": 123,
+      "clean_accuracy": 0.9762854581949932
+    },
+    {
+      "seed": 456,
+      "clean_accuracy": 0.975944605052201
+    },
+    {
+      "seed": 789,
+      "clean_accuracy": 0.9763769835759282
+    },
+    {
+      "seed": 1337,
+      "clean_accuracy": 0.9762097130521505
+    }
+  ],
+  "positive_control": [
+    {
+      "seed": 42,
+      "asr": 0.9959107238400978,
+      "spectral_recall": 0.9896954394824049,
+      "ac_recall": 0.9896007574562096,
+      "ac_silhouette": 0.6622999221439375,
+      "constraint_valid": false,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784
+        ],
+        "post_projection_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784
+        ]
+      },
+      "nc": {
+        "flagged_class": 1,
+        "ratio": 21.7861933891856,
+        "clean_ratio": 28.543588181241923,
+        "discriminates": false
+      }
+    },
+    {
+      "seed": 123,
+      "asr": 0.9964839868531682,
+      "spectral_recall": 0.9948871705854505,
+      "ac_recall": 0.9883856714533691,
+      "ac_silhouette": 0.8167015884658003,
+      "constraint_valid": false,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336
+        ],
+        "post_projection_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336
+        ]
+      },
+      "nc": {
+        "flagged_class": 1,
+        "ratio": 90.21737500707115,
+        "clean_ratio": 46.64924722906509,
+        "discriminates": false
+      }
+    },
+    {
+      "seed": 456,
+      "asr": 0.9978980356187419,
+      "spectral_recall": 0.999857976960707,
+      "ac_recall": 0.9892220293514281,
+      "ac_silhouette": 0.8182430223835391,
+      "constraint_valid": false,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411
+        ]
+      },
+      "nc": {
+        "flagged_class": 1,
+        "ratio": 45.23183763901208,
+        "clean_ratio": 80.49045180623936,
+        "discriminates": false
+      }
+    },
+    {
+      "seed": 789,
+      "asr": 0.9953374608270275,
+      "spectral_recall": 0.7008836989111566,
+      "ac_recall": 0.9847404134448478,
+      "ac_silhouette": 0.6261649704997212,
+      "constraint_valid": false,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693
+        ]
+      },
+      "nc": {
+        "flagged_class": 1,
+        "ratio": 71.07938790269206,
+        "clean_ratio": 105.2765673470229,
+        "discriminates": false
+      }
+    },
+    {
+      "seed": 1337,
+      "asr": 0.9967515095926011,
+      "spectral_recall": 0.9819946346851822,
+      "ac_recall": 0.9791699542370207,
+      "ac_silhouette": 0.6679554377197737,
+      "constraint_valid": false,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799
+        ],
+        "post_projection_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799
+        ]
+      },
+      "nc": {
+        "flagged_class": 1,
+        "ratio": 55.60433131579916,
+        "clean_ratio": 50.92562008465064,
+        "discriminates": false
+      }
+    }
+  ],
+  "per_cell": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.7865550714667889,
+      "clean_accuracy": 0.9758530796712661,
+      "clean_accuracy_drop": 0.0004828752856222973,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8185049300619124,
+      "clean_accuracy": 0.9762475856235718,
+      "clean_accuracy_drop": 8.83693333165736e-05,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9571199266223344,
+      "clean_accuracy": 0.9758972643379243,
+      "clean_accuracy_drop": 0.000438690618964066,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.962508598945196,
+      "clean_accuracy": 0.9762602098140457,
+      "clean_accuracy_drop": 7.574514284269807e-05,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9897194832989376,
+      "clean_accuracy": 0.9764211682425864,
+      "clean_accuracy_drop": -8.521328569799369e-05,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "smeansz",
+          "ct_srv_dst",
+          "stcpb",
+          "sttl",
+          "ct_src_ltm",
+          "Dintpkt",
+          "ct_srv_src"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          10101157425.44411,
+          267.21761890419856,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          4294949667.0,
+          255.0,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 6337,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9957578537032791,
+      "clean_accuracy": 0.9763864517187836,
+      "clean_accuracy_drop": -5.049676189516905e-05,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "smeansz",
+          "ct_srv_dst",
+          "stcpb",
+          "sttl",
+          "ct_src_ltm",
+          "Dintpkt",
+          "ct_srv_src"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          10101157425.44411,
+          267.21761890419856,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          4294949667.0,
+          255.0,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 12669,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9972101200030574,
+      "clean_accuracy": 0.9762538977188088,
+      "clean_accuracy_drop": 8.205723807963583e-05,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "smeansz",
+          "ct_srv_dst",
+          "stcpb",
+          "sttl",
+          "ct_src_ltm",
+          "Dintpkt",
+          "ct_srv_src"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          10101157425.44411,
+          267.21761890419856,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          4294949667.0,
+          255.0,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 63349,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.997630512879309,
+      "clean_accuracy": 0.9760960953378864,
+      "clean_accuracy_drop": 0.00023985961900196973,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dur",
+          "Sjit",
+          "dttl",
+          "dwin",
+          "ct_state_ttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "smeansz",
+          "ct_srv_dst",
+          "stcpb",
+          "sttl",
+          "ct_src_ltm",
+          "Dintpkt",
+          "ct_srv_src"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          874.8546172189155,
+          2.060325637503799,
+          10096325812.597784,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          10101157425.44411,
+          267.21761890419856,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          255.0,
+          2.060325637503799,
+          4294953724.0,
+          19.83597682587336,
+          1100.690483040365,
+          31.13280339458148,
+          4294949667.0,
+          255.0,
+          22.81650491578693,
+          7873.883397961242,
+          33.016876921256014
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 126704,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.7841091492776886,
+      "clean_accuracy": 0.976298082385467,
+      "clean_accuracy_drop": -1.2624190473764507e-05,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9048383398303141,
+      "clean_accuracy": 0.9761813086235845,
+      "clean_accuracy_drop": 0.00010414957140869596,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.831002063746847,
+      "clean_accuracy": 0.9763201747187962,
+      "clean_accuracy_drop": -3.471652380293566e-05,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9903309638462127,
+      "clean_accuracy": 0.9762917702902302,
+      "clean_accuracy_drop": -6.312095236937765e-06,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9678208361996484,
+      "clean_accuracy": 0.9762602098140457,
+      "clean_accuracy_drop": 2.5248380947529014e-05,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "smeansz",
+          "ct_src_ltm",
+          "Spkts",
+          "ct_srv_dst",
+          "sttl",
+          "Dintpkt",
+          "dmeansz"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          267.21761890419856,
+          7873.883397961242,
+          2380.045646403564
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          255.0,
+          7873.883397961242,
+          1500.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 6337,
+          "dmeansz_consistent_with_dbytes": 6203,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9885347397385921,
+      "clean_accuracy": 0.9763422670521252,
+      "clean_accuracy_drop": -5.6808857131995794e-05,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "smeansz",
+          "ct_src_ltm",
+          "Spkts",
+          "ct_srv_dst",
+          "sttl",
+          "Dintpkt",
+          "dmeansz"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          267.21761890419856,
+          7873.883397961242,
+          2380.045646403564
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          255.0,
+          7873.883397961242,
+          1500.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 12674,
+          "dmeansz_consistent_with_dbytes": 12314,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.996636856989987,
+      "clean_accuracy": 0.9761465920997816,
+      "clean_accuracy_drop": 0.00013886609521163162,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "smeansz",
+          "ct_src_ltm",
+          "Spkts",
+          "ct_srv_dst",
+          "sttl",
+          "Dintpkt",
+          "dmeansz"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          267.21761890419856,
+          7873.883397961242,
+          2380.045646403564
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          255.0,
+          7873.883397961242,
+          1500.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 63369,
+          "dmeansz_consistent_with_dbytes": 61930,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9970190323320339,
+      "clean_accuracy": 0.9761718404807291,
+      "clean_accuracy_drop": 0.00011361771426410261,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Djit",
+          "dwin",
+          "Sjit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "smeansz",
+          "ct_src_ltm",
+          "Spkts",
+          "ct_srv_dst",
+          "sttl",
+          "Dintpkt",
+          "dmeansz"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          22504.301331722047,
+          874.8546172189155,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          267.21761890419856,
+          7873.883397961242,
+          2380.045646403564
+        ],
+        "post_projection_values": [
+          255.0,
+          22504.301331722047,
+          255.0,
+          73009.51760171156,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          19.83597682587336,
+          2.060325637503799,
+          1100.690483040365,
+          22.81650491578693,
+          492.2240526747503,
+          31.13280339458148,
+          255.0,
+          7873.883397961242,
+          1500.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 126738,
+          "dmeansz_consistent_with_dbytes": 123812,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.7873194221508828,
+      "clean_accuracy": 0.9756605607665408,
+      "clean_accuracy_drop": 0.000284044285660201,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8359321256592525,
+      "clean_accuracy": 0.9757363059093835,
+      "clean_accuracy_drop": 0.00020829914281750295,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.882060689444317,
+      "clean_accuracy": 0.976092939290268,
+      "clean_accuracy_drop": -0.00014833423806692725,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.85056944125965,
+      "clean_accuracy": 0.9751682173380632,
+      "clean_accuracy_drop": 0.000776387714137794,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9847129863181228,
+      "clean_accuracy": 0.9759887897188593,
+      "clean_accuracy_drop": -4.4184666658231286e-05,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb",
+          "sttl",
+          "Dintpkt",
+          "dtcpb",
+          "ct_srv_dst",
+          "dmeansz",
+          "dur",
+          "Sjit",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411,
+          267.21761890419856,
+          7873.883397961242,
+          10096325812.597784,
+          31.13280339458148,
+          2380.045646403564,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0,
+          255.0,
+          7873.883397961242,
+          4294953724.0,
+          31.13280339458148,
+          1500.0,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 6175,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9827256745394787,
+      "clean_accuracy": 0.9756100640046457,
+      "clean_accuracy_drop": 0.00033454104755537006,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb",
+          "sttl",
+          "Dintpkt",
+          "dtcpb",
+          "ct_srv_dst",
+          "dmeansz",
+          "dur",
+          "Sjit",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411,
+          267.21761890419856,
+          7873.883397961242,
+          10096325812.597784,
+          31.13280339458148,
+          2380.045646403564,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0,
+          255.0,
+          7873.883397961242,
+          4294953724.0,
+          31.13280339458148,
+          1500.0,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 12360,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.994267369869296,
+      "clean_accuracy": 0.9759004203855428,
+      "clean_accuracy_drop": 4.4184666658231286e-05,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb",
+          "sttl",
+          "Dintpkt",
+          "dtcpb",
+          "ct_srv_dst",
+          "dmeansz",
+          "dur",
+          "Sjit",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411,
+          267.21761890419856,
+          7873.883397961242,
+          10096325812.597784,
+          31.13280339458148,
+          2380.045646403564,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0,
+          255.0,
+          7873.883397961242,
+          4294953724.0,
+          31.13280339458148,
+          1500.0,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 61892,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9978216005503325,
+      "clean_accuracy": 0.9759761655283855,
+      "clean_accuracy_drop": -3.156047618446678e-05,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "Djit",
+          "swin",
+          "dwin",
+          "dttl",
+          "ct_srv_src",
+          "ct_dst_ltm",
+          "ct_state_ttl",
+          "stcpb",
+          "sttl",
+          "Dintpkt",
+          "dtcpb",
+          "ct_srv_dst",
+          "dmeansz",
+          "dur",
+          "Sjit",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          22504.301331722047,
+          874.4191987450049,
+          874.8546172189155,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          10101157425.44411,
+          267.21761890419856,
+          7873.883397961242,
+          10096325812.597784,
+          31.13280339458148,
+          2380.045646403564,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          22504.301331722047,
+          255.0,
+          255.0,
+          231.3962556707165,
+          33.016876921256014,
+          19.83597682587336,
+          2.060325637503799,
+          4294949667.0,
+          255.0,
+          7873.883397961242,
+          4294953724.0,
+          31.13280339458148,
+          1500.0,
+          83.34082940485735,
+          73009.51760171156,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 123751,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.699992356493159,
+      "clean_accuracy": 0.9762191811950058,
+      "clean_accuracy_drop": -9.468142855295625e-06,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.766376213406711,
+      "clean_accuracy": 0.976326486814033,
+      "clean_accuracy_drop": -0.00011677376188246047,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9007872812046167,
+      "clean_accuracy": 0.9763422670521252,
+      "clean_accuracy_drop": -0.00013255399997469386,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8578307727585416,
+      "clean_accuracy": 0.975209245957103,
+      "clean_accuracy_drop": 0.0010004670950475303,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.877589237942368,
+      "clean_accuracy": 0.9762949263378485,
+      "clean_accuracy_drop": -8.521328569799369e-05,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl",
+          "smeansz",
+          "Dintpkt",
+          "sttl",
+          "ct_dst_ltm",
+          "ct_srv_dst",
+          "stcpb",
+          "ct_srv_src",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          267.21761890419856,
+          19.83597682587336,
+          31.13280339458148,
+          10101157425.44411,
+          33.016876921256014,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          255.0,
+          19.83597682587336,
+          31.13280339458148,
+          4294949667.0,
+          33.016876921256014,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 6335,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9953374608270275,
+      "clean_accuracy": 0.9759382929569641,
+      "clean_accuracy_drop": 0.0002714200951864365,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl",
+          "smeansz",
+          "Dintpkt",
+          "sttl",
+          "ct_dst_ltm",
+          "ct_srv_dst",
+          "stcpb",
+          "ct_srv_src",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          267.21761890419856,
+          19.83597682587336,
+          31.13280339458148,
+          10101157425.44411,
+          33.016876921256014,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          255.0,
+          19.83597682587336,
+          31.13280339458148,
+          4294949667.0,
+          33.016876921256014,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 12669,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9969808147978293,
+      "clean_accuracy": 0.9763580472902175,
+      "clean_accuracy_drop": -0.00014833423806692725,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl",
+          "smeansz",
+          "Dintpkt",
+          "sttl",
+          "ct_dst_ltm",
+          "ct_srv_dst",
+          "stcpb",
+          "ct_srv_src",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          267.21761890419856,
+          19.83597682587336,
+          31.13280339458148,
+          10101157425.44411,
+          33.016876921256014,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          255.0,
+          19.83597682587336,
+          31.13280339458148,
+          4294949667.0,
+          33.016876921256014,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 63347,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9965604219215776,
+      "clean_accuracy": 0.9763675154330729,
+      "clean_accuracy_drop": -0.0001578023809223339,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "Sjit",
+          "Djit",
+          "dur",
+          "dttl",
+          "dtcpb",
+          "dwin",
+          "ct_state_ttl",
+          "smeansz",
+          "Dintpkt",
+          "sttl",
+          "ct_dst_ltm",
+          "ct_srv_dst",
+          "stcpb",
+          "ct_srv_src",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          10096325812.597784,
+          874.8546172189155,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          267.21761890419856,
+          19.83597682587336,
+          31.13280339458148,
+          10101157425.44411,
+          33.016876921256014,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          73009.51760171156,
+          22504.301331722047,
+          83.34082940485735,
+          231.3962556707165,
+          4294953724.0,
+          255.0,
+          2.060325637503799,
+          1100.690483040365,
+          7873.883397961242,
+          255.0,
+          19.83597682587336,
+          31.13280339458148,
+          4294949667.0,
+          33.016876921256014,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 126699,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8366964763433463,
+      "clean_accuracy": 0.9763454230997437,
+      "clean_accuracy_drop": 3.156047618446678e-05,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8990292746312007,
+      "clean_accuracy": 0.9763927638140204,
+      "clean_accuracy_drop": -1.578023809223339e-05,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.8390659634640373,
+      "clean_accuracy": 0.9763580472902175,
+      "clean_accuracy_drop": 1.8936285710702272e-05,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9077810899640755,
+      "clean_accuracy": 0.9763896077664019,
+      "clean_accuracy_drop": -1.2624190473764507e-05,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 0,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9933501490483834,
+      "clean_accuracy": 0.9764495726711525,
+      "clean_accuracy_drop": -7.25890952243402e-05,
+      "n_poison": 6337,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm",
+          "dtcpb",
+          "sttl",
+          "Dintpkt",
+          "ct_srv_dst",
+          "ct_dst_ltm",
+          "ct_srv_src",
+          "smeansz",
+          "stcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693,
+          10096325812.597784,
+          267.21761890419856,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693,
+          4294953724.0,
+          255.0,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 6333,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9969043797294198,
+      "clean_accuracy": 0.9764022319568758,
+      "clean_accuracy_drop": -2.5248380947640037e-05,
+      "n_poison": 12674,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm",
+          "dtcpb",
+          "sttl",
+          "Dintpkt",
+          "ct_srv_dst",
+          "ct_dst_ltm",
+          "ct_srv_src",
+          "smeansz",
+          "stcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693,
+          10096325812.597784,
+          267.21761890419856,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693,
+          4294953724.0,
+          255.0,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 12669,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9974776427424903,
+      "clean_accuracy": 0.9763706714806913,
+      "clean_accuracy_drop": 6.3120952368267425e-06,
+      "n_poison": 63370,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm",
+          "dtcpb",
+          "sttl",
+          "Dintpkt",
+          "ct_srv_dst",
+          "ct_dst_ltm",
+          "ct_srv_src",
+          "smeansz",
+          "stcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693,
+          10096325812.597784,
+          267.21761890419856,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693,
+          4294953724.0,
+          255.0,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 63351,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "victim": "mlp",
+      "variant": "realizable",
+      "asr": 0.9970572498662387,
+      "clean_accuracy": 0.9762002449092952,
+      "clean_accuracy_drop": 0.00017673866663292515,
+      "n_poison": 126741,
+      "trigger": {
+        "feature_names": [
+          "swin",
+          "dur",
+          "Sjit",
+          "dttl",
+          "Djit",
+          "dwin",
+          "ct_state_ttl",
+          "ct_src_ltm",
+          "dtcpb",
+          "sttl",
+          "Dintpkt",
+          "ct_srv_dst",
+          "ct_dst_ltm",
+          "ct_srv_src",
+          "smeansz",
+          "stcpb"
+        ],
+        "requested_values": [
+          874.4191987450049,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          874.8546172189155,
+          2.060325637503799,
+          22.81650491578693,
+          10096325812.597784,
+          267.21761890419856,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          10101157425.44411
+        ],
+        "post_projection_values": [
+          255.0,
+          83.34082940485735,
+          73009.51760171156,
+          231.3962556707165,
+          22504.301331722047,
+          255.0,
+          2.060325637503799,
+          22.81650491578693,
+          4294953724.0,
+          255.0,
+          7873.883397961242,
+          31.13280339458148,
+          19.83597682587336,
+          33.016876921256014,
+          1100.690483040365,
+          4294949667.0
+        ]
+      },
+      "constraint_audit": {
+        "all_projectable_valid": true,
+        "per_constraint": {
+          "tcprtt_equals_synack_plus_ackdat": 0,
+          "sttl_byte_range": 0,
+          "dttl_byte_range": 0,
+          "smeansz_consistent_with_sbytes": 126702,
+          "dmeansz_consistent_with_dbytes": 0,
+          "src_mean_packet_size_le_mtu": 0,
+          "dst_mean_packet_size_le_mtu": 0
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n_realizable_cells": 40,
+    "n_positive_controls": 5,
+    "asr_min": 0.699992356493159,
+    "asr_max": 0.9978216005503325,
+    "asr_mean": 0.9209881143468625,
+    "clean_accuracy_drop_min": -0.0001578023809223339,
+    "clean_accuracy_drop_max": 0.0010004670950475303,
+    "all_realizable_constraint_valid": true,
+    "all_positive_controls_passed": true,
+    "failed_control_seeds": []
+  }
+}

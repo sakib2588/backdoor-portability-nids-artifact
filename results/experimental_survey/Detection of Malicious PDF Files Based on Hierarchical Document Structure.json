@@ -1,0 +1,26 @@
+{
+  "paper_id": "Detection of Malicious PDF Files Based on Hierarchical Document Structure",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 2,
+  "n_datasets": 6,
+  "n_seeds": null,
+  "n_eval_types": 5,
+  "n_baselines": 5,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "training and classification data are intermixed using 5-fold cross-validation",
+    "we selected the radial basis function (RBF) kernel with gamma = 0.0025 and a cost parameter C = 12",
+    "a total of 658,763 benign and malicious PDF files (around 595 GB)",
+    "We have chosen a modern decision tree inference implementation C5.0"
+  ],
+  "unresolved": [
+    "n_models counted as 2 (decision tree, SVM); the paper also separately analyses a linear-kernel SVM vs RBF-kernel SVM in the evasion section (Section 6), which could be read as a third variant rather than a hyperparameter choice of the same SVM model.",
+    "n_datasets counted as 6 (D1-D6, the named VirusTotal/Google sub-collections the paper itself enumerates in Section 5.1); the paper also frames all of them as one combined ~660,000-file corpus, so 1 is a defensible alternative reading.",
+    "n_seeds is null: the paper uses 5-fold cross-validation (not seeded repetitions/trials) and states no random-seed or repeat-run count.",
+    "n_baselines counted as 5 (PJScan, MDScan, ShellOS, MalwareSlayer, commercial antivirus engines as a group); of these only PJScan and the VirusTotal antivirus engines are directly run/compared by the authors -- MDScan, ShellOS and MalwareSlayer are compared only via cited literature numbers in Table 4, not re-run. The 43 individual antivirus engines (Figure 5) could alternatively be counted as separate baselines rather than one group.",
+    "control_arm set to 'none': this is a malware-detection paper, not a backdoor/poisoning paper, so the clean-vs-poisoned control-arm concept does not map cleanly; there is no unpoisoned reference arm of the type the schema targets."
+  ]
+}

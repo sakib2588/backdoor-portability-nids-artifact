@@ -1,0 +1,26 @@
+{
+  "paper_id": "Rethinking Backdoor Detection Evaluation for Language Models",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 2,
+  "n_seeds": null,
+  "n_eval_types": 5,
+  "n_baselines": 0,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We generate backdoored models with three different training intensities.",
+    "covering 18 individual comparisons of the three training intensities (2 datasets × 3 triggers × 3 detectors)",
+    "We conduct poisoning-based backdoor attacks on two binary classification datasets: SST-2",
+    "We calculate the Detection Accuracy (%) on backdoored models as the evaluation metric."
+  ],
+  "unresolved": [
+    "n_seeds left null: paper says results are 'averaged attack success rate and clean accuracy' (Tables 1-2) but never states how many runs/seeds/trials were averaged, so no repetition count could be confirmed.",
+    "n_models counted as the 4 distinct victim architectures (RoBERTa-Base, RoBERTa-Large, Electra-Base, Llama 3.2 1B); the 3 detectors (PICCOLO, DBS, Meta Classifier) are the objects under evaluation, not additional 'models', and are reflected in n_eval_types/n_baselines instead.",
+    "n_baselines set to 0: this is an evaluation/audit paper testing 3 existing detectors rather than proposing a new method compared against baselines, so no comparison method fits the 'baseline' role; the 3 detectors are the evaluated subjects, counted implicitly via the evidence quotes rather than as a baseline count.",
+    "n_eval_types = 5 combines the 3 quantitative metrics (Detection Accuracy, Attack Success Rate, Clean Accuracy) with 2 qualitative analysis types (loss-contour visualization, t-SNE feature visualization) used in the case study; if only quantitative metrics count, the true figure is 3.",
+    "reports_variability = 'none': no error bars, standard deviations, or confidence intervals appear anywhere in the main text, tables, or appendix tables (1-7)."
+  ]
+}

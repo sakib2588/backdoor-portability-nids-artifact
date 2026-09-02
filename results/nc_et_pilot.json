@@ -1,0 +1,179 @@
+{
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "cells": [
+    [
+      0.005,
+      16
+    ],
+    [
+      0.01,
+      16
+    ]
+  ],
+  "recipe": {
+    "n_detection_samples": 10,
+    "n_restarts": 3,
+    "n_clean": 10,
+    "nc_steps": 300,
+    "mlp_epochs": 20,
+    "l1_weight": 0.001,
+    "constraint_weight": 0.0,
+    "smoke": false,
+    "threshold": 0.5,
+    "threshold_origin": "derived constant, Xiang et al. 2022 Thm. 3.1"
+  },
+  "rows": [
+    {
+      "kind": "clean",
+      "replica": 0,
+      "init_seed": 42,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 1,
+      "init_seed": 7961,
+      "et": 0.8214285714285714,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 2,
+      "init_seed": 15880,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 3,
+      "init_seed": 23799,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 4,
+      "init_seed": 31718,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 5,
+      "init_seed": 39637,
+      "et": 0.8035714285714285,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 6,
+      "init_seed": 47556,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 7,
+      "init_seed": 55475,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 8,
+      "init_seed": 63394,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "clean",
+      "replica": 9,
+      "init_seed": 71313,
+      "et": 0.7857142857142857,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "poisoned",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "poisoned",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "poisoned",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "poisoned",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "poisoned",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "et": 0.875,
+      "detected": true,
+      "n_samples": 8
+    },
+    {
+      "kind": "poisoned",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "et": 0.8571428571428571,
+      "detected": true,
+      "n_samples": 8
+    }
+  ],
+  "stop_rule": {
+    "requirement": "ET > 0.5 on >= 4/6 poisoned AND ET <= 0.5 on >= 8/10 clean",
+    "n_poisoned_detected": 6,
+    "n_poisoned": 6,
+    "n_clean_below_threshold": 0,
+    "n_clean": 10,
+    "proceed_to_stage_2": false,
+    "verdict": "STOP -- ET does not separate on tabular NIDS at this operating point"
+  },
+  "mean_et": {
+    "clean": 0.8535714285714286,
+    "poisoned": 0.8720238095238094
+  },
+  "note": "NC-13 stage-1 pilot. The 1/2 threshold is DERIVED (Xiang et al. 2022), never calibrated, and was frozen before any ET value existed on this data. The stop rule is applied exactly as pre-registered. A stop verdict is a reportable negative, not a failed run: it would mean ET's transferability signal does not survive a clean-label, constraint-realizable trigger under this class imbalance."
+}

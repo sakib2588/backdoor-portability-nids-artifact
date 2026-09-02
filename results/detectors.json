@@ -1,0 +1,2693 @@
+{
+  "config": {
+    "smoke": false,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "rates": [
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1
+    ],
+    "costs": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "nc_boundary_rates": [
+      0.005,
+      0.05
+    ],
+    "nc_boundary_costs": [
+      4,
+      8,
+      16
+    ],
+    "nc_coverage_note": "Neural Cleanse ran on an explicit boundary subset (6 of 25 grid cells per seed) -- NOT the full grid. See D2 in the M3 plan for the rationale.",
+    "h3_operating_point": {
+      "rate": 0.05,
+      "cost": 8
+    },
+    "h4_lightgbm_no_activations": true,
+    "h4_note": "LightGBM has no penultimate-feature representation and no gradient path -- Spectral/AC/NC cannot run on it. No row is reported for lgb; this is the H4 finding itself, not missing data."
+  },
+  "main_grid": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 1,
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9993101194582622,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.008741258741258742,
+        "auc": 0.4998677803374727
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9889272649494274,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 2,
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992738099560655,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.008741258741258742,
+        "auc": 0.5035859901795506
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.988392467061279,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 4,
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992738099560655,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.008741258741258742,
+        "auc": 0.5003989329391691
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9868645849278359,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.9992738099560655,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.022727272727272728,
+        "auc": 0.9795254028560958
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.985411390788049,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9992919647071639,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.06993006993006994,
+        "auc": 0.9913981368515365
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9858442378197646,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 1,
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992919647071639,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.01048951048951049,
+        "auc": 0.4977681009115928
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9885242123395639,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 2,
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9992556552049672,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.012237762237762238,
+        "auc": 0.4971167418112371
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9870141671571113,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 4,
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9993282742093605,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.015734265734265736,
+        "auc": 0.4984280136676266
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9886429806640695,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.9992556552049672,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.030594405594405596,
+        "auc": 0.9781016923757736
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9801012201074818,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9992738099560655,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.6145104895104895,
+        "auc": 0.9912313363424907
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9853314308555877,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 1,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992919647071639,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.027959807776321538,
+        "auc": 0.5030965160547692
+      },
+      "ac": {
+        "recall": 0.0008737439930100481,
+        "silhouette": 0.9874070889141634,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 2,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992919647071639,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.028833551769331587,
+        "auc": 0.5033546043267658
+      },
+      "ac": {
+        "recall": 0.0008737439930100481,
+        "silhouette": 0.988183248205038,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 4,
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9992919647071639,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03014416775884666,
+        "auc": 0.5037166173039296
+      },
+      "ac": {
+        "recall": 0.0008737439930100481,
+        "silhouette": 0.9824182727018422,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.999201190951672,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.4211446046308432,
+        "auc": 0.9777038310303399
+      },
+      "ac": {
+        "recall": 0.0008737439930100481,
+        "silhouette": 0.9848816474182429,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.02,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9993101194582622,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.981651376146789,
+        "auc": 0.9912717427017139
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9345017734764036,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 1,
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9993101194582622,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.07602236980076896,
+        "auc": 0.4999001998589377
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.9855376781952789,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 2,
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9992556552049672,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.07567284166375393,
+        "auc": 0.5006515588300354
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.9862060076727046,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 4,
+      "asr": 0.05405405405405406,
+      "clean_acc": 0.9993101194582622,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.0788185948968892,
+        "auc": 0.5006616246227753
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.9879308544439019,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.8329238329238329,
+      "clean_acc": 0.9992193457027704,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9255505068157986,
+        "auc": 0.971961061290734
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.9788645177625281,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9992738099560655,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.98803090969719
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9141549752984467,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 1,
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9992738099560655,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15239426773855294,
+        "auc": 0.5025357678341359
+      },
+      "ac": {
+        "recall": 0.0003495281370150297,
+        "silhouette": 0.9845809367492977,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 2,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992375004538688,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.1541419084236281,
+        "auc": 0.5034693105388526
+      },
+      "ac": {
+        "recall": 0.0003495281370150297,
+        "silhouette": 0.9844946478956421,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 4,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9992375004538688,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15615169521146452,
+        "auc": 0.5027531008040863
+      },
+      "ac": {
+        "recall": 0.0003495281370150297,
+        "silhouette": 0.9837735924683355,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.18673218673218672,
+      "clean_acc": 0.9991285719472786,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9984271233834323,
+        "auc": 0.964067436317241
+      },
+      "ac": {
+        "recall": 0.023855295351275778,
+        "silhouette": 0.9026505050544985,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9992193457027704,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.984969141836127
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9105049278324872,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.0034965034965034965,
+        "auc": 0.5120893180486858
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9904059470397327,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 2,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.0034965034965034965,
+        "auc": 0.5093614731353943
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9915546206024597,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 4,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.006993006993006993,
+        "auc": 0.5093785710481932
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.990467475243889,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.5896805896805897,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.024475524475524476,
+        "auc": 0.9722890279648522
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9900040225124583,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.043706293706293704,
+        "auc": 0.9883736081370518
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9893772340652164,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 1,
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.99900148868959,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.017482517482517484,
+        "auc": 0.4965107174814291
+      },
+      "ac": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9883633884653614,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 2,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.016608391608391608,
+        "auc": 0.49834382165219016
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9918114141048513,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 4,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.016608391608391608,
+        "auc": 0.49658356394062864
+      },
+      "ac": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9884894193724869,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.9287469287469288,
+      "clean_acc": 0.9990196434406884,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.028846153846153848,
+        "auc": 0.9702779961031711
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9892266685100858,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.3076923076923077,
+        "auc": 0.9875748245167909
+      },
+      "ac": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9874149849645695,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990377981917868,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03800786369593709,
+        "auc": 0.5052043374630693
+      },
+      "ac": {
+        "recall": 0.00043687199650502403,
+        "silhouette": 0.9913795698824617,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 2,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988380959297049,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03800786369593709,
+        "auc": 0.5088841443560367
+      },
+      "ac": {
+        "recall": 0.001310615989515072,
+        "silhouette": 0.9886577117538582,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 4,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990377981917868,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.041502839667977284,
+        "auc": 0.5092775216726186
+      },
+      "ac": {
+        "recall": 0.001310615989515072,
+        "silhouette": 0.9881989456374074,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 8,
+      "asr": 0.1375921375921376,
+      "clean_acc": 0.9988744054319015,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.09785932721712538,
+        "auc": 0.9661583630611552
+      },
+      "ac": {
+        "recall": 0.00218435998252512,
+        "silhouette": 0.9844453433324808,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.02,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.99900148868959,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.7715159458278724,
+        "auc": 0.9858139082825554
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9215052073838415,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 1,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990559529428852,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08144005592450192,
+        "auc": 0.5037018041529686
+      },
+      "ac": {
+        "recall": 0.0008738203425375742,
+        "silhouette": 0.9904446002162435,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 2,
+      "asr": 0.03194103194103194,
+      "clean_acc": 0.9986020841654261,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08196434813002447,
+        "auc": 0.5034911384271044
+      },
+      "ac": {
+        "recall": 0.0019224047535826635,
+        "silhouette": 0.9849114622129147,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 4,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.99900148868959,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.0858091576371898,
+        "auc": 0.5043501751520518
+      },
+      "ac": {
+        "recall": 0.002271932890597693,
+        "silhouette": 0.9840094194010699,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.8943488943488943,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.8074099965047187,
+        "auc": 0.9657417045528897
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.989212310487848,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9870879897164879
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9137474277904885,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15160782943026913,
+        "auc": 0.5021000504012166
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.9904793582914548,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 2,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15300594197832926,
+        "auc": 0.5027665823221626
+      },
+      "ac": {
+        "recall": 0.0013981125480601187,
+        "silhouette": 0.9843764855182436,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 4,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990559529428852,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15720027962250963,
+        "auc": 0.5037279634353294
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.991709976495445,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.3832923832923833,
+      "clean_acc": 0.9990196434406884,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9997378538972387,
+        "auc": 0.9667775061209624
+      },
+      "ac": {
+        "recall": 0.0003495281370150297,
+        "silhouette": 0.9870949674502457,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9847111502642393
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9017125447806981,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990377981917868,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.008741258741258742,
+        "auc": 0.49414466908323457
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.989437634192783,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 2,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990196434406884,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.01048951048951049,
+        "auc": 0.49447314099658063
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9851018210410373,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 4,
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9990377981917868,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.008741258741258742,
+        "auc": 0.4937168986611351
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9898966704691339,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.9990196434406884,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.02972027972027972,
+        "auc": 0.9826455476940653
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9892307499711145,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.06293706293706294,
+        "auc": 0.9911978402715975
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.984424888295422,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.021853146853146852,
+        "auc": 0.498563930979536
+      },
+      "ac": {
+        "recall": 0.0034965034965034965,
+        "silhouette": 0.9776200670933991,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 2,
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9990196434406884,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.022727272727272728,
+        "auc": 0.500686799628413
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9856120601774397,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 4,
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.99900148868959,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.0236013986013986,
+        "auc": 0.5032889893579394
+      },
+      "ac": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9857144412890264,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.04895104895104895,
+        "auc": 0.9798424779650239
+      },
+      "ac": {
+        "recall": 0.0034965034965034965,
+        "silhouette": 0.978110063723338,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.31993006993006995,
+        "auc": 0.9879208382775545
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9249724072648623,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03145478374836173,
+        "auc": 0.5063565680319803
+      },
+      "ac": {
+        "recall": 0.001310615989515072,
+        "silhouette": 0.9800532063188299,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 2,
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.033202271734381825,
+        "auc": 0.5074095031563909
+      },
+      "ac": {
+        "recall": 0.00043687199650502403,
+        "silhouette": 0.9897285848505333,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 4,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988380959297049,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03494975972040192,
+        "auc": 0.5093464193705234
+      },
+      "ac": {
+        "recall": 0.001310615989515072,
+        "silhouette": 0.9784587772161889,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.47182175622542594,
+        "auc": 0.9790475148792684
+      },
+      "ac": {
+        "recall": 0.0008737439930100481,
+        "silhouette": 0.9785392802848267,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.02,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9951944080384447,
+        "auc": 0.9917825270956637
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9280343315115657,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 1,
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08213911219853198,
+        "auc": 0.5039476292210907
+      },
+      "ac": {
+        "recall": 0.00017476406850751484,
+        "silhouette": 0.9897111822212206,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 2,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.99900148868959,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08423628102062217,
+        "auc": 0.5054310923344174
+      },
+      "ac": {
+        "recall": 0.00017476406850751484,
+        "silhouette": 0.9894302845012067,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 4,
+      "asr": 0.03931203931203931,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08755679832226494,
+        "auc": 0.5055571638316212
+      },
+      "ac": {
+        "recall": 0.00017476406850751484,
+        "silhouette": 0.9902790940202911,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.9988925601829999,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9959804264243272,
+        "auc": 0.976166995546347
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.9741529751091257,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.987583351428226
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9113453842376524,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15929744844459978,
+        "auc": 0.5044723895405887
+      },
+      "ac": {
+        "recall": 0.0002621461027612723,
+        "silhouette": 0.9896775158250364,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 2,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9990377981917868,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.1615693813351975,
+        "auc": 0.5053023501562985
+      },
+      "ac": {
+        "recall": 0.0003495281370150297,
+        "silhouette": 0.9896871383683415,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 4,
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9990377981917868,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.16349178608878015,
+        "auc": 0.5056891221585947
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.978219297755312,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9756873435485631
+      },
+      "ac": {
+        "recall": 0.9998252359314925,
+        "silhouette": 0.8631037051442818,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9990922624450819,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9887090269876999
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9098134304223419,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988380959297049,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.012237762237762238,
+        "auc": 0.4761768478429595
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.981797246727737,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 2,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989288696851966,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.008741258741258742,
+        "auc": 0.47449698774590304
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9857111998837458,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 4,
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.01048951048951049,
+        "auc": 0.47010385490974
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9830261265287159,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.9385749385749386,
+      "clean_acc": 0.9989288696851966,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.013986013986013986,
+        "auc": 0.9718025439554056
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9859939967902194,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.0472027972027972,
+        "auc": 0.9910954101616964
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9845560993317627,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 1,
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.020104895104895104,
+        "auc": 0.5016908635599937
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9855576597706865,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 2,
+      "asr": 0.04176904176904177,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.020104895104895104,
+        "auc": 0.5002353382353518
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9826270454323947,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 4,
+      "asr": 0.03931203931203931,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.021853146853146852,
+        "auc": 0.5016122869819419
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9867025549621873,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.44471744471744473,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03583916083916084,
+        "auc": 0.9711112400113232
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9816424821558805,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.99900148868959,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.46678321678321677,
+        "auc": 0.9895694278758285
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9299140742088357,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 1,
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.99900148868959,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03363914373088685,
+        "auc": 0.5020405852914457
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9852538742389546,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 2,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03363914373088685,
+        "auc": 0.5018343734970505
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9846866661520768,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 4,
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.036260375709917,
+        "auc": 0.5002599974925305
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9855949822203637,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 8,
+      "asr": 0.08108108108108109,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.10878112712975098,
+        "auc": 0.967814480066146
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9824083452407704,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.02,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.998747322174213,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9829619921363041,
+        "auc": 0.990355580461697
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9242761838468421,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9988925601829999,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.07479902132121635,
+        "auc": 0.5029476243844955
+      },
+      "ac": {
+        "recall": 0.001223348479552604,
+        "silhouette": 0.9840986354524264,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 2,
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.07864383082838168,
+        "auc": 0.5030818720701152
+      },
+      "ac": {
+        "recall": 0.0010485844110450892,
+        "silhouette": 0.9849100464283485,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 4,
+      "asr": 0.04668304668304668,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08161481999300944,
+        "auc": 0.5035079733087509
+      },
+      "ac": {
+        "recall": 0.0008738203425375742,
+        "silhouette": 0.982453875384354,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.9656019656019657,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.8381684725620412,
+        "auc": 0.968238786561724
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.9798488891423247,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9893145688041373
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9156605932457625,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 1,
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.998947024436295,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15781195386228591,
+        "auc": 0.5034060260914932
+      },
+      "ac": {
+        "recall": 0.000611674239776302,
+        "silhouette": 0.9844991404811578,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 2,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989107149340982,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15754980775952465,
+        "auc": 0.5037697934144396
+      },
+      "ac": {
+        "recall": 0.000611674239776302,
+        "silhouette": 0.9866009668993627,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 4,
+      "asr": 0.051597051597051594,
+      "clean_acc": 0.9989107149340982,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.1608703250611674,
+        "auc": 0.5031606245355165
+      },
+      "ac": {
+        "recall": 0.0005242922055225446,
+        "silhouette": 0.9854331537047879,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.9754299754299754,
+      "clean_acc": 0.9989288696851966,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9999126179657463,
+        "auc": 0.9677871547743527
+      },
+      "ac": {
+        "recall": 0.0004369101712687871,
+        "silhouette": 0.9769647251843184,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9899941999435842
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9087312192798986,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 1,
+      "asr": 0.04914004914004914,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.01048951048951049,
+        "auc": 0.5011422633211389
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9924010207804422,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 2,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.999146726698377,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.01048951048951049,
+        "auc": 0.502852093942747
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9910583144367221,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 4,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990922624450819,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.01048951048951049,
+        "auc": 0.5103040457391277
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9933299536858194,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.9336609336609336,
+      "clean_acc": 0.9991648814494754,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.01048951048951049,
+        "auc": 0.9720856627305221
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9921450187392958,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.999146726698377,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.09090909090909091,
+        "auc": 0.9919390068588045
+      },
+      "ac": {
+        "recall": 0.0,
+        "silhouette": 0.9896427278488272,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991830362005737,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.024475524475524476,
+        "auc": 0.5121298904765093
+      },
+      "ac": {
+        "recall": 0.0026223776223776225,
+        "silhouette": 0.9903601749625879,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 2,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.999146726698377,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.028846153846153848,
+        "auc": 0.5120910846405544
+      },
+      "ac": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9904780623339706,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 4,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990922624450819,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.027097902097902096,
+        "auc": 0.514646440831386
+      },
+      "ac": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9920694143807698,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.9754299754299754,
+      "clean_acc": 0.9991285719472786,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.043706293706293704,
+        "auc": 0.972040397171819
+      },
+      "ac": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9922967289848944,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.999201190951672,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.5375874125874126,
+        "auc": 0.9904933966885434
+      },
+      "ac": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.992250553311588,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 1,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.03582350371341197,
+        "auc": 0.504949768068249
+      },
+      "ac": {
+        "recall": 0.0017474879860200961,
+        "silhouette": 0.9902013035888251,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 2,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991104171961802,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.04019222367846221,
+        "auc": 0.5103095891763619
+      },
+      "ac": {
+        "recall": 0.001310615989515072,
+        "silhouette": 0.9905529148984386,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 4,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.999146726698377,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.04106596767147226,
+        "auc": 0.5084710657208709
+      },
+      "ac": {
+        "recall": 0.001310615989515072,
+        "silhouette": 0.9904485107927099,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 8,
+      "asr": 0.941031941031941,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.12494539100043688,
+        "auc": 0.9686425904930491
+      },
+      "ac": {
+        "recall": 0.0017474879860200961,
+        "silhouette": 0.9909637575683421,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.02,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9990559529428852,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9720401922236784,
+        "auc": 0.9899826234170381
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9332572827679873,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 1,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9991830362005737,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.0800419433764418,
+        "auc": 0.5030340414091208
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.9937621929571524,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 2,
+      "asr": 0.044226044226044224,
+      "clean_acc": 0.9991285719472786,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08178958406151696,
+        "auc": 0.5046351705383489
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.994039156092966,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 4,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9990922624450819,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.08773156239077246,
+        "auc": 0.5070815400540163
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.9944025892083876,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.9828009828009828,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.847256204124432,
+        "auc": 0.9681168835761973
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.992348927551504,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.9991285719472786,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9888153322075833
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9203758654453768,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 1,
+      "asr": 0.036855036855036855,
+      "clean_acc": 0.9991285719472786,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.14968542467668647,
+        "auc": 0.5015307558638905
+      },
+      "ac": {
+        "recall": 0.0013981125480601187,
+        "silhouette": 0.986017463174122,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 2,
+      "asr": 0.0343980343980344,
+      "clean_acc": 0.9991285719472786,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.1516952114645229,
+        "auc": 0.5031331322653154
+      },
+      "ac": {
+        "recall": 0.0006990562740300594,
+        "silhouette": 0.9936703114625621,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 4,
+      "asr": 0.03931203931203931,
+      "clean_acc": 0.9990741076939835,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.15912268437609228,
+        "auc": 0.5053681774555558
+      },
+      "ac": {
+        "recall": 0.0007864383082838169,
+        "silhouette": 0.9911181945292765,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.6388206388206388,
+      "clean_acc": 0.9989833339384917,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 0.9999126179657463,
+        "auc": 0.9670857261018952
+      },
+      "ac": {
+        "recall": 0.000611674239776302,
+        "silhouette": 0.9897259472183552,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 1.0,
+      "clean_acc": 0.999201190951672,
+      "determinism_ok": true,
+      "spectral": {
+        "recall": 1.0,
+        "auc": 0.9830902990607269
+      },
+      "ac": {
+        "recall": 1.0,
+        "silhouette": 0.9029272575519027,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard 2-cluster assignment, not a ranked score -- no principled AUC without an undisclosed proxy score"
+      }
+    }
+  ],
+  "nc_boundary": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 4,
+      "nc_flagged_target": false,
+      "nc_ratio": 40.199073933828004,
+      "nc_clean_ratio": 57.73713333057557,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 66.81866339139273,
+      "nc_clean_ratio": 57.73713333057557,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 53.54519094667083,
+      "nc_clean_ratio": 57.73713333057557,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 4,
+      "nc_flagged_target": false,
+      "nc_ratio": 50.09449496979977,
+      "nc_clean_ratio": 57.73713333057557,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 38.80984906840747,
+      "nc_clean_ratio": 57.73713333057557,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "nc_flagged_target": true,
+      "nc_ratio": 78.50690671692274,
+      "nc_clean_ratio": 57.73713333057557,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 4,
+      "nc_flagged_target": false,
+      "nc_ratio": 73.26956348010044,
+      "nc_clean_ratio": 78.32415962871885,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 93.77674812041941,
+      "nc_clean_ratio": 78.32415962871885,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 77.31215788566594,
+      "nc_clean_ratio": 78.32415962871885,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 4,
+      "nc_flagged_target": false,
+      "nc_ratio": 75.1512918341243,
+      "nc_clean_ratio": 78.32415962871885,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 76.31762217370274,
+      "nc_clean_ratio": 78.32415962871885,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "nc_flagged_target": true,
+      "nc_ratio": 82.7564517529551,
+      "nc_clean_ratio": 78.32415962871885,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 4,
+      "nc_flagged_target": false,
+      "nc_ratio": 71.72216084813677,
+      "nc_clean_ratio": 75.80335336884376,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 62.44830742444738,
+      "nc_clean_ratio": 75.80335336884376,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 73.53708239333557,
+      "nc_clean_ratio": 75.80335336884376,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 4,
+      "nc_flagged_target": false,
+      "nc_ratio": 43.135224257892425,
+      "nc_clean_ratio": 75.80335336884376,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 72.0240817576787,
+      "nc_clean_ratio": 75.80335336884376,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 28.205444944993587,
+      "nc_clean_ratio": 75.80335336884376,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 4,
+      "nc_flagged_target": true,
+      "nc_ratio": 84.08315926117629,
+      "nc_clean_ratio": 20.70372069730861,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 90.80982742900629,
+      "nc_clean_ratio": 20.70372069730861,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": true,
+      "nc_ratio": 86.14928217552334,
+      "nc_clean_ratio": 20.70372069730861,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 4,
+      "nc_flagged_target": false,
+      "nc_ratio": 19.757960142976742,
+      "nc_clean_ratio": 20.70372069730861,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 74.41499926161005,
+      "nc_clean_ratio": 20.70372069730861,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "nc_flagged_target": true,
+      "nc_ratio": 85.51451367613393,
+      "nc_clean_ratio": 20.70372069730861,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 4,
+      "nc_flagged_target": true,
+      "nc_ratio": 90.06528328358844,
+      "nc_clean_ratio": 88.40094090967067,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 79.86905694483266,
+      "nc_clean_ratio": 88.40094090967067,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 82.6700016801381,
+      "nc_clean_ratio": 88.40094090967067,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 4,
+      "nc_flagged_target": true,
+      "nc_ratio": 113.669463218035,
+      "nc_clean_ratio": 88.40094090967067,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 81.06935831378865,
+      "nc_clean_ratio": 88.40094090967067,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 68.35754921291657,
+      "nc_clean_ratio": 88.40094090967067,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false
+    }
+  ],
+  "h3": [
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "balanced": {
+        "spectral_recall": 0.18411552346570398,
+        "ac_recall": 0.04693140794223827,
+        "ac_silhouette": 0.8563086426257472,
+        "train_balance": {
+          "n": 5540,
+          "botnet": 2770
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.9255505068157986,
+        "ac_recall": 0.0005242922055225446
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "balanced": {
+        "spectral_recall": 0.24548736462093862,
+        "ac_recall": 0.032490974729241874,
+        "ac_silhouette": 0.8436742204354111,
+        "train_balance": {
+          "n": 5540,
+          "botnet": 2770
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.8074099965047187,
+        "ac_recall": 0.0005242922055225446
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "balanced": {
+        "spectral_recall": 0.19133574007220217,
+        "ac_recall": 0.05415162454873646,
+        "ac_silhouette": 0.8323925861201632,
+        "train_balance": {
+          "n": 5540,
+          "botnet": 2770
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.9959804264243272,
+        "ac_recall": 0.0006990562740300594
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "balanced": {
+        "spectral_recall": 0.1624548736462094,
+        "ac_recall": 0.061371841155234655,
+        "ac_silhouette": 0.8517417296815685,
+        "train_balance": {
+          "n": 5540,
+          "botnet": 2770
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.8381684725620412,
+        "ac_recall": 0.0006990562740300594
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "balanced": {
+        "spectral_recall": 0.4729241877256318,
+        "ac_recall": 0.05054151624548736,
+        "ac_silhouette": 0.8273270312993668,
+        "train_balance": {
+          "n": 5540,
+          "botnet": 2770
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.847256204124432,
+        "ac_recall": 0.0006990562740300594
+      }
+    }
+  ],
+  "summary": {
+    "n_determinism_checked": 125,
+    "n_determinism_failed": 0,
+    "determinism_all_ok": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref11_gao_gsop_cvpr2019",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 3,
+  "n_seeds": null,
+  "n_eval_types": 5,
+  "n_baselines": 12,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": null,
+  "evidence": [
+    "Our experiments are mainly conducted on ImageNet-1K [4] benchmark.",
+    "The networks are optimized using stochastic gradient descent (SGD) with a momentum of 0.9 and a mini-batch of 160.",
+    "we also make experiments on CIFAR-100 benchmark [18], which contains 60K color images of 32x32 pixels",
+    "the inference time (ms) per image are 2.52 vs 2.68/2.84 (vanilla ResNet-50 vs GSoP-Net1/GSoP-Net2)"
+  ],
+  "unresolved": [
+    "No seed count, repetition count, or run-to-run variability is stated anywhere; all reported top-1/top-5 error, params, GFLOPs, and inference-time figures appear to be single-run point estimates (standard for CVPR 2019 ImageNet-scale training papers), so n_seeds and reports_variability='none' are inferred from absence, not an explicit statement.",
+    "n_models=3 counts the paper's own architecture variants (GSoP-Net1, GSoP-Net2, vanilla/baseline ResNet backbone); ablation configurations (covariance size, fusion scheme, per-stage block placement) are treated as sub-experiments on these architectures, not separate models -- a different counting convention could yield a higher number.",
+    "n_baselines=12 merges the competing methods listed across Table 5 (ImageNet-1K: He et al./ResNet, FBN, SORT, MPN-COV, iSQRT-COV, SE-Net, GENet, CBAM, ResNeXt, DropBlock, DRN-A-50) and Table 6 (CIFAR-100: adds CMPE, reuses He et al., SE-Net, MPN-COV) into one distinct-method count; exact de-duplication across the two tables involved judgment.",
+    "control_arm is not applicable in the backdoor/attack sense this schema is designed for -- this is a vision architecture paper with no attack/poisoning control arm, so left null rather than guessing a mapping onto 'vanilla network' baseline."
+  ]
+}

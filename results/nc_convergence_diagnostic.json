@@ -1,0 +1,202 @@
+{
+  "source": "nc_repair_calibration.json",
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "cells": [
+    [
+      0.005,
+      16
+    ],
+    [
+      0.01,
+      16
+    ]
+  ],
+  "candidate_grid": {
+    "baseline": {
+      "l1_weight": 0.001,
+      "n_starts": 1,
+      "constraint_weight": 0.0
+    },
+    "multistart": {
+      "l1_weight": 0.001,
+      "n_starts": 3,
+      "constraint_weight": 0.0
+    },
+    "sparser": {
+      "l1_weight": 0.003,
+      "n_starts": 3,
+      "constraint_weight": 0.0
+    },
+    "constraint_aware": {
+      "l1_weight": 0.001,
+      "n_starts": 3,
+      "constraint_weight": 1.0
+    }
+  },
+  "per_candidate": {
+    "baseline": {
+      "n_starts_total": 12,
+      "n_converged": 12,
+      "convergence_rate": 1.0,
+      "failure_reasons": {
+        "None": 12
+      },
+      "steps_run": {
+        "300": 12
+      },
+      "converged_by_init": {
+        "zeros": {
+          "converged": 12,
+          "total": 12
+        }
+      },
+      "converged_by_target_class": {
+        "0": {
+          "converged": 6,
+          "total": 6
+        },
+        "1": {
+          "converged": 6,
+          "total": 6
+        }
+      },
+      "final_objective": {
+        "median": 0.06722324888687581,
+        "min": 0.001886257785372436,
+        "max": 0.1792372763156891
+      }
+    },
+    "multistart": {
+      "n_starts_total": 36,
+      "n_converged": 36,
+      "convergence_rate": 1.0,
+      "failure_reasons": {
+        "None": 36
+      },
+      "steps_run": {
+        "300": 36
+      },
+      "converged_by_init": {
+        "zeros": {
+          "converged": 12,
+          "total": 12
+        },
+        "seeded_normal": {
+          "converged": 24,
+          "total": 24
+        }
+      },
+      "converged_by_target_class": {
+        "0": {
+          "converged": 18,
+          "total": 18
+        },
+        "1": {
+          "converged": 18,
+          "total": 18
+        }
+      },
+      "final_objective": {
+        "median": 0.06768039031885564,
+        "min": 0.0018478760030120611,
+        "max": 0.181168332695961
+      }
+    },
+    "sparser": {
+      "n_starts_total": 36,
+      "n_converged": 36,
+      "convergence_rate": 1.0,
+      "failure_reasons": {
+        "None": 36
+      },
+      "steps_run": {
+        "300": 36
+      },
+      "converged_by_init": {
+        "zeros": {
+          "converged": 12,
+          "total": 12
+        },
+        "seeded_normal": {
+          "converged": 24,
+          "total": 24
+        }
+      },
+      "converged_by_target_class": {
+        "0": {
+          "converged": 18,
+          "total": 18
+        },
+        "1": {
+          "converged": 18,
+          "total": 18
+        }
+      },
+      "final_objective": {
+        "median": 0.19543889816850424,
+        "min": 0.00554343918338418,
+        "max": 0.5350947976112366
+      }
+    },
+    "constraint_aware": {
+      "n_starts_total": 36,
+      "n_converged": 16,
+      "convergence_rate": 0.4444444444444444,
+      "failure_reasons": {
+        "did_not_plateau": 20,
+        "None": 16
+      },
+      "steps_run": {
+        "300": 36
+      },
+      "converged_by_init": {
+        "zeros": {
+          "converged": 3,
+          "total": 12
+        },
+        "seeded_normal": {
+          "converged": 13,
+          "total": 24
+        }
+      },
+      "converged_by_target_class": {
+        "0": {
+          "converged": 3,
+          "total": 18
+        },
+        "1": {
+          "converged": 13,
+          "total": 18
+        }
+      },
+      "final_objective": {
+        "median": 697422.125,
+        "min": 36568.68359375,
+        "max": 1919595.25
+      }
+    }
+  },
+  "final_objective_ratio_to_baseline": {
+    "baseline": 1.0,
+    "multistart": 1.006800347194601,
+    "sparser": 2.9073111074621143,
+    "constraint_aware": 10374716.136877457
+  },
+  "verdict": {
+    "converged_is_miscalibrated": false,
+    "converged_is_scale_invariant": true,
+    "converged_reference": "tail movement measured against TOTAL DESCENT, not loss value, so rescaling a loss curve cannot change the verdict",
+    "penalty_dominates_objective": true,
+    "penalty_scale_cause": "make_constraint_penalty normalises by constraint COUNT but evaluates violations in RAW NetFlow space, where byte and packet counts reach millions; constraint_weight=1.0 therefore places the penalty ~7 orders of magnitude above the cross-entropy + L1 detection term",
+    "constraint_aware_result_confounded": true,
+    "statement": "`_converged` is not at fault: it is scale-invariant by construction. The constraint penalty genuinely prevents plateauing within 300 steps, because at constraint_weight=1.0 the raw-space penalty dominates the detection objective by ~1e7. constraint_aware's NC-6 null result is therefore CONFOUNDED -- it was never evaluated at a weight where the two terms are commensurate. The multistart and sparser null results are unaffected and stand."
+  },
+  "not_recoverable": {
+    "loss_curves": "reverse_engineer_tabular_multistart retains only losses[-1] as `objective` and len(losses) as `n_steps_run`; the per-step trace is discarded, so curve-SHAPE comparison needs a code change plus a re-run"
+  },
+  "note": "NC-7 diagnostic. Selects nothing and amends no gate, per the pre-registered scope. The confound it identifies is a bug report against the constraint_aware candidate's weight, not a licence to relax any NC-6 gate."
+}

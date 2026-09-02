@@ -1,0 +1,24 @@
+{
+  "paper_id": "TextBugger - Generating Adversarial Text Against Real-world Applications",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 18,
+  "n_datasets": 3,
+  "n_seeds": 5,
+  "n_eval_types": 11,
+  "n_baselines": 4,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We repeated each experiment 5 times and report the mean value.",
+    "we evaluate the generated adversarial examples on 15 popular real-world online DLTU systems",
+    "We use four metrics, i.e., edit distance, Jaccard similarity coefficient, Euclidean distance and semantic similarity",
+    "Finally, 3,177 valid annotations from 297 AMT workers were obtained in total."
+  ],
+  "unresolved": [
+    "n_models=18 combines 3 self-trained white-box models (LR, CNN, LSTM) with 15 black-box online platforms/APIs (10 sentiment + 5 toxic-content) that the paper explicitly counts; some black-box platforms (fastText, ParallelDots, Aylien) recur across the sentiment and toxic-content tasks as distinct deployed classifiers, so the true count of distinct architectures is smaller than 18 if counted by underlying model family instead of by deployed endpoint.",
+      "n_eval_types=11 is an aggregate across effectiveness/efficiency metrics (success rate, perturbed-word %, time), the four explicitly named utility metrics (edit distance, Jaccard, Euclidean distance, semantic similarity), transferability rate, human-study accuracy, and the two defense-evaluation success rates (spelling check, adversarial training); paper does not itself state a single total count of evaluation types.",
+    "reports_variability set to 'none' because the paper states only that it reports the mean over 5 repeats, with no std/CI/error bars given anywhere for the repeated-experiment variance."
+  ]
+}

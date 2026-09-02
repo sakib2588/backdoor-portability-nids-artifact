@@ -1,0 +1,25 @@
+{
+  "paper_id": "NeurIPS-2024-tabularbench-benchmarking-adversarial-robustness-for-tabular-deep-learning-in-real-world-use-cases-Paper-Datasets_and_Benchmarks_Track",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 5,
+  "n_datasets": 5,
+  "n_seeds": 5,
+  "n_eval_types": 7,
+  "n_baselines": 1,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "Our study covers five real-world use cases, five architectures, and six data augmentation mechanisms totaling more than 200 models.",
+    "Table 10: Detailed results of adversarial robustness with constrained (CTR) and unconstrained attacks (ADV) across our 5 seeds.",
+    "Table 7: Execution time of CAA in seconds, averaged over 5 seeds with 95 confidence interval.",
+    "We report the mean, standard deviation, and the 95% confidence intervals in the appendix B."
+  ],
+  "unresolved": [
+    "n_eval_types counted as AUC, Accuracy, Precision, Recall, MCC, Robust/attacked Accuracy, and Execution time; the paper does not enumerate 'evaluation types' as a fixed list so this is an interpretive count.",
+    "n_baselines set to 1 (XGBoost, used only as an ID-performance shallow-model comparison in Table 6); the paper is primarily an architecture x defense benchmark rather than a baseline-vs-proposed-method comparison, so this framing may not map cleanly.",
+    "per_seed_values_given is false because Tables 7 and 10 report mean/std/95% CI aggregated over the 5 seeds; no table listing each individual seed's raw value was found.",
+    "No explicit significance test (e.g., t-test) was found; only Pearson correlation coefficients (not a significance test) are reported for ID-vs-robust performance relationships."
+  ]
+}

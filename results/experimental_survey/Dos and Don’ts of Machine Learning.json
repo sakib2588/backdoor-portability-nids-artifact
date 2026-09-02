@@ -1,0 +1,26 @@
+{
+  "paper_id": "Dos and Don’ts of Machine Learning",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 9,
+  "n_datasets": 5,
+  "n_seeds": null,
+  "n_eval_types": 7,
+  "n_baselines": 3,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We conduct a study of 30 papers from top-tier security conferences within the past 10 years",
+    "The standard deviation of the results ranges between 0–3 %.",
+    "an SVM with 3-grams yields the best performance with an 18× smaller model",
+    "the simple boxplot method outperforms the autoencoder ensemble at low false-positive rates (FPR)"
+  ],
+  "unresolved": [
+    "This is a methodology/critique paper, not a single-benchmark evaluation: n_models=9 and n_datasets=5 are sums across four unrelated case studies (4.1 mobile malware/AndroZoo+DREBIN with 2 SVM variants; 4.2 vulnerability discovery/Li et al. dataset with VulDeePecker+SVM+AutoSklearn; 4.3 authorship attribution/GCJ2017 with Abuhamad et al. and Caliskan et al. methods; 4.4 intrusion detection/Mirai dataset with KITSUNE+boxplot), so the counts do not represent one coherent evaluation grid.",
+    "No repetition/seed count is stated for any of the four case-study experiments; Table 1's caption reports 'standard deviation of the results ranges between 0-3%' without specifying how many runs/seeds produced that spread, so n_seeds is left null rather than assumed.",
+    "control_arm='clean' is an approximate mapping: this paper has no poisoning/backdoor setting. The closest analog is the 'correctly-labelled dataset' used as the clean reference point in Appendix A's label-noise cleansing experiment (Table 6, compared against a noisy and a cleansed variant).",
+    "n_baselines=3 counts only explicit baseline-vs-proposed-method comparisons introduced by the authors (SVM n-gram and AutoSklearn vs VulDeePecker in Section 4.2; boxplot method vs KITSUNE in Section 4.4). The Section 4.1 DREBIN/OPSEQS SVMs and Section 4.3 attribution methods are the primary objects of study rather than baselines, so they are excluded from this count.",
+    "The prevalence analysis (Section 3, 30 papers reviewed with inter-rater alpha=0.832) and the 49-author survey are the paper's other major empirical components but are not model/dataset evaluations, so they are not reflected in n_models/n_datasets."
+  ]
+}

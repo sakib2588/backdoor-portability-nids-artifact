@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref08_demsar_statistical_comparisons_jmlr2006",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 7,
+  "n_datasets": 40,
+  "n_seeds": 1000,
+  "n_eval_types": 4,
+  "n_baselines": null,
+  "reports_variability": "figure",
+  "significance_test": "Wilcoxon signed-ranks test and sign test (two classifiers, vs. paired t-test baseline); Friedman test vs. ANOVA with Nemenyi/Bonferroni-Dunn/Holm/Hochberg/Hommel post-hoc tests (multiple classifiers)",
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "we recommend a set of simple, yet safe and robust non-parametric tests: the Wilcoxon signed ranks test... and the Friedman test",
+    "We have compiled a sample of forty real-world data sets... from the UCI machine learning repository",
+    "The experiments were run on 1000 random selections of ten data sets, as described above",
+    "we set the significance level at 5% and observe in how many experiments out of one thousand does a particular test reject the null-hypothesis"
+  ],
+  "unresolved": [
+    "n_baselines left null: this is a statistics-methodology paper, not an attack/defense paper, so 'baseline' is ambiguous -- candidates include the paired t-test, ANOVA, sign test, and Tukey test, which the paper's own Section 4 experiments pit against its recommended Wilcoxon/Friedman/Nemenyi/Bonferroni-Dunn/Holm/Hochberg/Hommel tests (roughly 12 distinct tests total across two- and multi-classifier settings)",
+    "n_models=7 and n_datasets=40 describe the large empirical study in Section 4 (Table 7, Figures 3-7); the two smaller worked examples earlier in the paper (Table 2, Table 6) use only 2 and 4 classifiers over a 14-dataset UCI subset",
+    "n_seeds=1000 refers to the number of repeated random 10-dataset selections per experimental condition (Section 4.1), not a conventional model-training random seed",
+    "reports_variability set to 'figure' since Figures 3-7 are the primary vehicle for the p-value/replicability results, though Table 7 also reports the same quantities numerically for one setting (k=15)"
+  ]
+}

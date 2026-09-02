@@ -1,0 +1,24 @@
+{
+  "paper_id": "NeurIPS-2018-spectral-signatures-in-backdoor-attacks-Paper",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 2,
+  "n_datasets": 1,
+  "n_seeds": null,
+  "n_eval_types": 4,
+  "n_baselines": 0,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": true,
+  "control_arm": "clean",
+  "evidence": [
+    "We also reran the experiments multiple times with different random choices for the attacks.",
+    "we choose 4 pairs of labels by hand... and 4 pairs randomly",
+    "a standard trained network on a clean training set classifies a clean test set with accuracy 92.67%",
+    "The results for VGG are provided in Table 5 of the supplementary materials."
+  ],
+  "unresolved": [
+    "No explicit numeric seed/trial count given for the reruns ('reran the experiments multiple times with different random choices'); could not confidently set n_seeds.",
+    "VGG results are described only qualitatively in the main text ('qualitatively similar') with numeric values deferred to a supplementary Table 5 not present in this markdown extraction, so full per-model comparability is unresolved.",
+    "No formal std-dev/CI/error-bar reporting found; Table 1 and Table 2 give point statistics per attack configuration, not variability measures across repeated trials."
+  ]
+}

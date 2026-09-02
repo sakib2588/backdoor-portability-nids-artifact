@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref05_koroniotis_botiot_fgcs2019",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 1,
+  "n_seeds": null,
+  "n_eval_types": 4,
+  "n_baselines": 0,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "The models that were trained were: Support Vector Machine (SVM), Recurrent Neural Network (RNN) and Long-Short Term Memory Recurrent Neural Network (LSTM-RNN)",
+    "four metrics were used in order to compare the validity of the dataset, specifically Accuracy, Precision, Recall, Fall-out",
+    "The parameters of this classifier were penalty parameter (C=1), 4-fold crossvalidation and a number of max iterations equal to 100000",
+    "we extracted 5% of the original dataset via the use of select MySQL queries"
+  ],
+  "unresolved": [
+    "No seed/trial count stated anywhere; SVM uses 4-fold cross-validation but RNN/LSTM training procedure gives no repetition or CV count, so n_seeds left null rather than imputed",
+    "No train/test split percentages given for RNN/LSTM (only 4-fold CV mentioned for SVM); exact evaluation protocol for the two NN models is not explicit",
+    "n_eval_types set to 4 per the paper's own explicit statement (Accuracy, Precision, Recall, Fall-out); ROC curves and training time are also reported but not named as 'metrics' by the authors, so were not added to the count",
+    "Table 1 compares Bot-IoT against nine other public datasets, but this is a qualitative literature comparison, not an experimental evaluation run by this paper, so n_datasets is kept at 1 (Bot-IoT only)"
+  ]
+}

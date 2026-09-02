@@ -1,0 +1,23 @@
+{
+  "paper_id": "ref06_sharafaldin_cicids2017_icissp2018",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 7,
+  "n_datasets": 1,
+  "n_seeds": null,
+  "n_eval_types": 4,
+  "n_baselines": 0,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "we examine the performance and accuracy of the selected features with seven common machine learning algorithms",
+    "K-Nearest Neighbors (KNN), Random Forest (RF), ID3, Adaboost, Multilayer perceptron (MLP), Naive-Bayes (NB), Quadratic Discriminant Analysis (QDA)",
+    "we have use three following common information retrieval evaluation metrics: Precision, Recall, F-Measure",
+    "the execution time for training and testing process have been calculated and shown in this table"
+  ],
+  "unresolved": [
+    "No train/test split ratio, cross-validation scheme, or number of repetitions stated for Table 4 results -- single-run numbers appear to be reported with no seed/trial count given",
+    "No baseline detector or prior method is compared against on the same dataset; Table 5 is a qualitative dataset-property comparison, not a model-performance baseline"
+  ]
+}

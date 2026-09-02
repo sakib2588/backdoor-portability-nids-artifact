@@ -1,0 +1,23 @@
+{
+  "paper_id": "ref23_ennaji_adv_challenges_ieeeaccess2025",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": null,
+  "n_datasets": null,
+  "n_seeds": null,
+  "n_eval_types": null,
+  "n_baselines": null,
+  "reports_variability": null,
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": null,
+  "evidence": [
+    "This survey aims to address this gap by providing a comprehensive review of machine learning-based Network Intrusion Detection Systems",
+    "This section presents a detailed review of both traditional and DL-NIDS, categorized by learning approach",
+    "This section presents an analytical study of existing research on methods for generating adversarial examples that evade ML-NIDS",
+    "This survey provides a comprehensive and current analysis of adversarial attacks... with a specific focus on network intrusion detection systems"
+  ],
+  "unresolved": [
+    "Paper is a pure survey/position paper with no original experiments, models, datasets, seeds, or evaluation metrics of its own -- all numeric/methodological content (Tables 1-4) summarizes properties of OTHER papers it reviews, not results the authors themselves produced. All numeric fields set to null per instructions.",
+    "reports_variability and control_arm left null rather than 'none' because the paper does not report any experimental results at all, so the concept does not apply (not merely absent from an experiment)."
+  ]
+}

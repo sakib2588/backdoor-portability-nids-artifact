@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref25_elshehaby_pscore_jisa2026",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 3,
+  "n_seeds": null,
+  "n_eval_types": 5,
+  "n_baselines": 1,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "we used 3 public NIDS datasets; (1) UNSW-NB15 ... (2) CSE-CIC-IDS2018 (Improved) ... (3) MCFP",
+    "The models include a Vanilla Neural Network, a Support Vector Machine (SVM), an ensemble model (Random Forest), and a Deep Learning (DL) model (CNN)",
+    "Table IV shows the baseline performance of the ML-NIDS models using all features",
+    "we performed adversarial training experiments... After adversarial training, the Attack Success Rate (ASR) significantly decreased"
+  ],
+  "unresolved": [
+    "No stated seed/repetition count for training runs or attack trials; single point-value tables throughout, so n_seeds left null rather than assumed 1.",
+    "n_baselines counts adversarial training as the one explicit empirical comparison method against PS-enabled defenses; the paper also reuses Alhussien et al.'s Gradient Boosting and 3-layer NN models (with their published hyperparameters) solely to reproduce constrained ZOO/C&W attacks in Appendix B -- these are not counted as additional 'models this paper evaluates' since they are borrowed configurations for a reproduction check, not new architectures introduced to the main 4-model x 3-dataset evaluation grid.",
+    "n_eval_types = 5 counts Accuracy, Precision, Recall, F1, and ASR; no std/CI/error bars accompany any of these.",
+    "control_arm classified as 'clean' based on the repeated pre-PS/pre-attack baseline (unmasked, unattacked model performance) used as the reference point in Tables IV, IX, X, XII; no randomised size-matched control construction is used anywhere in the paper."
+  ]
+}

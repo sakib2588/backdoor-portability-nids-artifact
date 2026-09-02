@@ -1,0 +1,26 @@
+{
+  "paper_id": "Detecting Backdoor Attacks on Deep Neural Networks by",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 3,
+  "n_seeds": null,
+  "n_eval_types": 6,
+  "n_baselines": 1,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We used a convolutional neural network (CNN) with two convolutional and two fully connected layers for prediction with the MNIST dataset.",
+    "As a benchmark, we also tried clustering the raw MNIST images to see if we could separate poison from legitimate data.",
+    "Both accuracy and F1 score are nearly 100% for every class.",
+    "we applied each method to activation clusters obtained from both poisoned and clean versions of MNIST, LISA, and Rotten Tomatoes models"
+  ],
+  "unresolved": [
+    "No seed count or repetition count for training runs is ever stated; each experiment (MNIST, LISA, Rotten Tomatoes) appears to be a single run, so n_seeds is left null rather than assumed to be 1.",
+    "n_models counted as 3 (MNIST CNN with 2 conv + 2 FC layers, LISA variant of Simonyan and Zisserman's Architecture A, Rotten Tomatoes text CNN from Britz/Kim) -- these are the classifiers the AC detection method is applied to, not competing detection methods.",
+    "n_eval_types counted as 6 (detection Accuracy, detection F1 score, ExRe score, relative cluster-size comparison, silhouette score, backdoor-repair test error before/after retraining). The gap statistic is mentioned as attempted for cluster-count comparison but reported as 'largely unsuccessful' and not tabulated, so it was not counted as a reported eval type.",
+    "n_baselines = 1: raw-pixel 2-means clustering (no activation extraction) on MNIST only, used as a benchmark against AC; no experimental comparison to other published backdoor-detection methods (e.g. Liu et al. fine-pruning) is run in this paper, only discussed in related work.",
+    "No confidence intervals, standard deviations, or significance tests appear anywhere in the results; all reported numbers (Tables 1-4) are single point-estimate percentages."
+  ]
+}

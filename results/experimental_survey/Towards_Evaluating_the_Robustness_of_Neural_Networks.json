@@ -1,0 +1,25 @@
+{
+  "paper_id": "Towards_Evaluating_the_Robustness_of_Neural_Networks",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 3,
+  "n_seeds": null,
+  "n_eval_types": 5,
+  "n_baselines": 5,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We evaluate our attacks on three standard datasets: MNIST [28]... CIFAR-10 [24]... and ImageNet [9]",
+    "Evaluated on 1000 random instances.",
+    "We evaluate on the first 1,000 images in the test set on CIFAR and MNSIT.",
+    "the mean value of the L1 norm of Z(·)... on the undistilled network is 5.8... on the distilled network... the mean is 482"
+  ],
+  "unresolved": [
+    "n_seeds: no random-seed/repeat-trial count for model training is stated anywhere; the paper reports evaluation over 1,000 test instances, not multiple training seeds, so left null rather than defaulted to 1.",
+    "n_eval_types=5 is a judgment call (Lp-distortion/success-rate attack evaluation, defensive-distillation-break test, transferability test, temperature-sensitivity analysis, runtime analysis) since the paper does not itself enumerate 'evaluation types'.",
+    "n_baselines=5 counts only attacks with direct numeric comparison in Tables IV/V (JSMA-Z, JSMA-F, Deepfool, Fast Gradient Sign, Iterative Gradient Sign); L-BFGS is discussed as a prior attack (Section III-A) but never given a numeric row in the comparison tables, so it was excluded.",
+    "reports_variability='table': Table III's caption states it shows 'the average L2 distortion, the standard deviation, and the success probability', but the standard-deviation column is not visible in this marker-converted markdown extraction of the table (only mean and prob columns render) -- classification relies on the caption's stated intent."
+  ]
+}

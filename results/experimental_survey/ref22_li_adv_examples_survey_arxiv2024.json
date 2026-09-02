@@ -1,0 +1,23 @@
+{
+  "paper_id": "ref22_li_adv_examples_survey_arxiv2024",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": null,
+  "n_datasets": null,
+  "n_seeds": null,
+  "n_eval_types": null,
+  "n_baselines": null,
+  "reports_variability": null,
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": null,
+  "evidence": [
+    "This paper provides a comprehensive review of the impact of AE attacks on key cybersecurity applications",
+    "In [41], the authors design a methodological framework focused on evaluating the vulnerability of neural networks",
+    "A literature review underscores the effectiveness of attacks utilizing adversarial examples against ML/DL-based security systems",
+    "we scrutinize adversarial attack types, methods for generating adversarial examples, and corresponding defense strategies, summarizing the latest research"
+  ],
+  "unresolved": [
+    "This is a pure literature survey (arXiv preprint) with no original experiments, models, datasets, seeds, or evaluation metrics of its own -- every quantitative result in the text (e.g. 85% misclassification, 98.86% Gen-AAL success rate) belongs to the third-party papers it summarizes ('In [X], the authors designed...'), not to this paper's own methodology.",
+      "All numeric/model/dataset fields set to null per instructions since this paper reports no original experimental work; reports_variability, significance_test, and control_arm also null as no original results exist to characterize."
+  ]
+}

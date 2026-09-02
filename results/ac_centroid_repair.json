@@ -1,0 +1,2421 @@
+{
+  "stage": "nids",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "cells": [
+    [
+      0.005,
+      8
+    ],
+    [
+      0.005,
+      16
+    ],
+    [
+      0.01,
+      8
+    ],
+    [
+      0.01,
+      16
+    ],
+    [
+      0.1,
+      16
+    ]
+  ],
+  "matched_rate_cell": [
+    0.1,
+    16
+  ],
+  "recipe": {
+    "pca_components": 10,
+    "n_clusters": 2,
+    "spectral_k": 5,
+    "silhouette_sample": 10000,
+    "reference_size": 10000,
+    "calibration_size": 10000,
+    "clean_quantile": 0.99,
+    "mlp_epochs": 20,
+    "smoke": false
+  },
+  "rows": [
+    {
+      "arm": "ctu",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992193457027704,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 9512.344308763493,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.00034030781390651416,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.2692307692307692,
+            "realised_fpr": 0.00998968098886864
+          },
+          "0.02": {
+            "max_recall": 0.9772727272727273,
+            "realised_fpr": 0.017311787823566866
+          },
+          "0.05": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.041945682481831954
+          },
+          "0.06": {
+            "max_recall": 0.9982517482517482,
+            "realised_fpr": 0.05713877972204536
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.009254177003973917,
+          "recall": 0.026223776223776224
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.00034030781390651416,
+        "silhouette": null,
+        "n_flagged": 31,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 350,
+        "false_positives": 1166,
+        "n_flagged": 1516,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.6118881118881119,
+        "clean_fpr": 0.012799964871451467,
+        "precision": 0.23087071240105542,
+        "auc": 0.988100875895352,
+        "spearman_vs_spectral": 0.8128600944069776,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 8635,
+        "n_flagged": 9207,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.0947921926800887,
+        "precision": 0.06212664277180406,
+        "auc": 0.988100875895352,
+        "spearman_vs_spectral": 0.8128600944069776,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 15,
+        "false_positives": 843,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.026223776223776224,
+        "clean_fpr": 0.009254177003973917,
+        "precision": 0.017482517482517484,
+        "auc": 0.9797612617474518,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9991285719472786,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 10889.205316757183,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.00034030781390651416,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.229020979020979,
+            "realised_fpr": 0.00998968098886864
+          },
+          "0.02": {
+            "max_recall": 0.9545454545454546,
+            "realised_fpr": 0.01961709882099809
+          },
+          "0.05": {
+            "max_recall": 0.9965034965034965,
+            "realised_fpr": 0.048268821217643317
+          },
+          "0.06": {
+            "max_recall": 0.9982517482517482,
+            "realised_fpr": 0.05690824862230224
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.007772191362768129,
+          "recall": 0.26223776223776224
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.00034030781390651416,
+        "silhouette": null,
+        "n_flagged": 31,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 393,
+        "false_positives": 1178,
+        "n_flagged": 1571,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.6870629370629371,
+        "clean_fpr": 0.012931696928447537,
+        "precision": 0.2501591343093571,
+        "auc": 0.9875407459688531,
+        "spearman_vs_spectral": 0.7975459049760382,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 8335,
+        "n_flagged": 8907,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.09149889125518695,
+        "precision": 0.06421915347479511,
+        "auc": 0.9875407459688531,
+        "spearman_vs_spectral": 0.7975459049760382,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 150,
+        "false_positives": 708,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.26223776223776224,
+        "clean_fpr": 0.007772191362768129,
+        "precision": 0.17482517482517482,
+        "auc": 0.9918826836982808,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.999146726698377,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 9646.865722724635,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0003535052252491107,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0008741258741258741,
+          "realised_fpr": 7.732926802324297e-05
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.0472027972027972,
+            "realised_fpr": 0.009986522613287377
+          },
+          "0.02": {
+            "max_recall": 0.9746503496503497,
+            "realised_fpr": 0.018139236870594995
+          },
+          "0.05": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.04813194582532423
+          },
+          "0.06": {
+            "max_recall": 0.9982517482517482,
+            "realised_fpr": 0.05508053290912706
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.01831598948321955,
+          "recall": 0.050699300699300696
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0008741258741258741,
+        "clean_fpr": 0.0003535052252491107,
+        "silhouette": null,
+        "n_flagged": 33,
+        "minority_purity": 0.030303030303030304,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 172,
+        "false_positives": 1181,
+        "n_flagged": 1353,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.15034965034965034,
+        "clean_fpr": 0.013046552219349992,
+        "precision": 0.1271249076127125,
+        "auc": 0.9847119805362,
+        "spearman_vs_spectral": 0.7838392730935017,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 8521,
+        "n_flagged": 9665,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.09413181326086477,
+        "precision": 0.11836523538541127,
+        "auc": 0.9847119805362,
+        "spearman_vs_spectral": 0.7838392730935017,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 58,
+        "false_positives": 1658,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.050699300699300696,
+        "clean_fpr": 0.01831598948321955,
+        "precision": 0.0337995337995338,
+        "auc": 0.9767023756385458,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9992193457027704,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 11000.58773531523,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.01887938843596032,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.9606643356643356,
+          "realised_fpr": 0.018846247321093215
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.013986013986013986,
+            "realised_fpr": 0.009080665473586531
+          },
+          "0.02": {
+            "max_recall": 0.9659090909090909,
+            "realised_fpr": 0.019597445924747575
+          },
+          "0.05": {
+            "max_recall": 0.9965034965034965,
+            "realised_fpr": 0.048927332582134726
+          },
+          "0.06": {
+            "max_recall": 0.9991258741258742,
+            "realised_fpr": 0.056074766355140186
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.010549921566028148,
+          "recall": 0.6652097902097902
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.01887938843596032,
+        "silhouette": 0.9309495501945472,
+        "n_flagged": 2853,
+        "minority_purity": 0.400981423063442,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 683,
+        "false_positives": 1136,
+        "n_flagged": 1819,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.597027972027972,
+        "clean_fpr": 0.012549435496343431,
+        "precision": 0.3754810335349093,
+        "auc": 0.9869487643771797,
+        "spearman_vs_spectral": 0.7490429138420618,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 8737,
+        "n_flagged": 9881,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.09651797353129626,
+        "precision": 0.11577775528792632,
+        "auc": 0.9869487643771797,
+        "spearman_vs_spectral": 0.7490429138420618,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 761,
+        "false_positives": 955,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.6652097902097902,
+        "clean_fpr": 0.010549921566028148,
+        "precision": 0.44347319347319347,
+        "auc": 0.9899463550413043,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9991104171961802,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 11444,
+      "distance_threshold": 9151.81278566906,
+      "is_matched_rate_cell": true,
+      "operating_points": {
+        "matched_fpr": 0.026551320086759242,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.9869800768961902,
+          "realised_fpr": 0.026214754057490464
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.9539496679482699,
+            "realised_fpr": 0.009997257610131883
+          },
+          "0.02": {
+            "max_recall": 0.9806885704299196,
+            "realised_fpr": 0.019907257360823716
+          },
+          "0.05": {
+            "max_recall": 0.997815449143656,
+            "realised_fpr": 0.04902645159681883
+          },
+          "0.06": {
+            "max_recall": 0.9985145054176862,
+            "realised_fpr": 0.05945999850415098
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.07132706738799831,
+          "recall": 1.0
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.026551320086759242,
+        "silhouette": 0.913672341962348,
+        "n_flagged": 13574,
+        "minority_purity": 0.8430823633416826,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 10980,
+        "false_positives": 871,
+        "n_flagged": 11851,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 0.9594547361062565,
+        "clean_fpr": 0.010857370796040986,
+        "precision": 0.9265040924816471,
+        "auc": 0.9955236874959649,
+        "spearman_vs_spectral": 0.6514408881089966,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 11443,
+        "false_positives": 7572,
+        "n_flagged": 19015,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 0.9999126179657463,
+        "clean_fpr": 0.0943880730971554,
+        "precision": 0.6017880620562713,
+        "auc": 0.9955236874959649,
+        "spearman_vs_spectral": 0.6514408881089966,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 11444,
+        "false_positives": 5722,
+        "n_flagged": 17166,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.07132706738799831,
+        "precision": 0.6666666666666666,
+        "auc": 0.9859103555354967,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 0.773955773955774,
+      "clean_acc": 0.9991104171961802,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 7124.142249994104,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.00065866028498035,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.045454545454545456,
+            "realised_fpr": 0.009901859617537928
+          },
+          "0.02": {
+            "max_recall": 0.49125874125874125,
+            "realised_fpr": 0.01997936197773728
+          },
+          "0.05": {
+            "max_recall": 0.9965034965034965,
+            "realised_fpr": 0.03659955650207478
+          },
+          "0.06": {
+            "max_recall": 0.9965034965034965,
+            "realised_fpr": 0.03659955650207478
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.009298087689639275,
+          "recall": 0.019230769230769232
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.00065866028498035,
+        "silhouette": 0.9915719313087044,
+        "n_flagged": 60,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 26,
+        "false_positives": 907,
+        "n_flagged": 933,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.045454545454545456,
+        "clean_fpr": 0.009956747974619623,
+        "precision": 0.027867095391211148,
+        "auc": 0.9808326978310732,
+        "spearman_vs_spectral": 0.8055471873218647,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 10797,
+        "n_flagged": 11369,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.11852591828221398,
+        "precision": 0.050312252616764884,
+        "auc": 0.9808326978310732,
+        "spearman_vs_spectral": 0.8055471873218647,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 11,
+        "false_positives": 847,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.019230769230769232,
+        "clean_fpr": 0.009298087689639275,
+        "precision": 0.01282051282051282,
+        "auc": 0.9736644703135361,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9990922624450819,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 6043.866250703047,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0005159505565679408,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.01048951048951049,
+            "realised_fpr": 0.0018222934551123016
+          },
+          "0.02": {
+            "max_recall": 0.715034965034965,
+            "realised_fpr": 0.019968384306320943
+          },
+          "0.05": {
+            "max_recall": 0.9877622377622378,
+            "realised_fpr": 0.04769798230399368
+          },
+          "0.06": {
+            "max_recall": 0.9895104895104895,
+            "realised_fpr": 0.05208905087052934
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.009243199332557578,
+          "recall": 0.027972027972027972
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.0005159505565679408,
+        "silhouette": 0.9916125533725381,
+        "n_flagged": 47,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 6,
+        "false_positives": 937,
+        "n_flagged": 943,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.01048951048951049,
+        "clean_fpr": 0.010286078117109798,
+        "precision": 0.006362672322375398,
+        "auc": 0.9808773953778016,
+        "spearman_vs_spectral": 0.7541741332528564,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 10877,
+        "n_flagged": 11449,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.1194041319955211,
+        "precision": 0.049960695257227704,
+        "auc": 0.9808773953778016,
+        "spearman_vs_spectral": 0.7541741332528564,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 16,
+        "false_positives": 842,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.027972027972027972,
+        "clean_fpr": 0.009243199332557578,
+        "precision": 0.018648018648018648,
+        "auc": 0.9876560690939246,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 0.5110565110565111,
+      "clean_acc": 0.9991104171961802,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 4954.254220752754,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0009389982545679503,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0008741258741258741,
+          "realised_fpr": 0.00046397560813945783
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.06293706293706294,
+            "realised_fpr": 0.009798722962373788
+          },
+          "0.02": {
+            "max_recall": 0.7368881118881119,
+            "realised_fpr": 0.019995139303152824
+          },
+          "0.05": {
+            "max_recall": 0.9912587412587412,
+            "realised_fpr": 0.04887209739068955
+          },
+          "0.06": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.059201078190937007
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.018282848368352443,
+          "recall": 0.05332167832167832
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0008741258741258741,
+        "clean_fpr": 0.0009389982545679503,
+        "silhouette": 0.9907035142744666,
+        "n_flagged": 86,
+        "minority_purity": 0.011627906976744186,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 75,
+        "false_positives": 918,
+        "n_flagged": 993,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.06555944055944056,
+        "clean_fpr": 0.010141181149333864,
+        "precision": 0.0755287009063444,
+        "auc": 0.9814369296000832,
+        "spearman_vs_spectral": 0.7496557848492699,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 10754,
+        "n_flagged": 11898,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.11879984976027927,
+        "precision": 0.09615061354849555,
+        "auc": 0.9814369296000832,
+        "spearman_vs_spectral": 0.7496557848492699,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 61,
+        "false_positives": 1655,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.05332167832167832,
+        "clean_fpr": 0.018282848368352443,
+        "precision": 0.035547785547785545,
+        "auc": 0.9722895956366826,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9991285719472786,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 7944.733387874262,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0005965400676078744,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.9082167832167832,
+            "realised_fpr": 0.009776628885795719
+          },
+          "0.02": {
+            "max_recall": 0.972027972027972,
+            "realised_fpr": 0.01991781003512958
+          },
+          "0.05": {
+            "max_recall": 0.9973776223776224,
+            "realised_fpr": 0.042210733302401625
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.058958043348578244
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.011731954662954862,
+          "recall": 0.5716783216783217
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.0005965400676078744,
+        "silhouette": 0.9903584637148779,
+        "n_flagged": 54,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 1038,
+        "false_positives": 884,
+        "n_flagged": 1922,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.9073426573426573,
+        "clean_fpr": 0.009765581847506683,
+        "precision": 0.5400624349635796,
+        "auc": 0.9929431731852689,
+        "spearman_vs_spectral": 0.7739881666694616,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 9116,
+        "n_flagged": 10260,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.10070480104284041,
+        "precision": 0.11150097465886939,
+        "auc": 0.9929431731852689,
+        "spearman_vs_spectral": 0.7739881666694616,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 654,
+        "false_positives": 1062,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.5716783216783217,
+        "clean_fpr": 0.011731954662954862,
+        "precision": 0.3811188811188811,
+        "auc": 0.9888172492318446,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 0.9926289926289926,
+      "clean_acc": 0.9991285719472786,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 11444,
+      "distance_threshold": 7106.537214441727,
+      "is_matched_rate_cell": true,
+      "operating_points": {
+        "matched_fpr": 0.029193986686943733,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.9844459979028312,
+          "realised_fpr": 0.029044401785046497
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.9312303390422929,
+            "realised_fpr": 0.009959861384657575
+          },
+          "0.02": {
+            "max_recall": 0.9741349178608878,
+            "realised_fpr": 0.019969584403280897
+          },
+          "0.05": {
+            "max_recall": 0.9937958755679832,
+            "realised_fpr": 0.04959986038742489
+          },
+          "0.06": {
+            "max_recall": 0.9966794826983573,
+            "realised_fpr": 0.058874124305053475
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.07132706738799831,
+          "recall": 1.0
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.9998252359314925,
+        "clean_fpr": 0.029193986686943733,
+        "silhouette": 0.8942718536277217,
+        "n_flagged": 13784,
+        "minority_purity": 0.8300928612884504,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 10727,
+        "false_positives": 892,
+        "n_flagged": 11619,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 0.937347081440056,
+        "clean_fpr": 0.011119144374361147,
+        "precision": 0.9232291935622687,
+        "auc": 0.9947529540338562,
+        "spearman_vs_spectral": 0.6376423535427548,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 11444,
+        "false_positives": 8601,
+        "n_flagged": 20045,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.10721497843484332,
+        "precision": 0.5709154402594163,
+        "auc": 0.9947529540338562,
+        "spearman_vs_spectral": 0.6376423535427548,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 11444,
+        "false_positives": 5722,
+        "n_flagged": 17166,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.07132706738799831,
+        "precision": 0.6666666666666666,
+        "auc": 0.9826587269348878,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9988925601829999,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 8720.730543817595,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0008233253562254375,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0017482517482517483,
+          "realised_fpr": 0.0003183524710738358
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.7290209790209791,
+            "realised_fpr": 0.009967725646035963
+          },
+          "0.02": {
+            "max_recall": 0.972027972027972,
+            "realised_fpr": 0.014655191340812787
+          },
+          "0.05": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.04666608119085779
+          },
+          "0.06": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.04666608119085779
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.009265154675390257,
+          "recall": 0.024475524475524476
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0017482517482517483,
+        "clean_fpr": 0.0008233253562254375,
+        "silhouette": 0.9857341509235048,
+        "n_flagged": 76,
+        "minority_purity": 0.013157894736842105,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 260,
+        "false_positives": 826,
+        "n_flagged": 1086,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.45454545454545453,
+        "clean_fpr": 0.009067556589896152,
+        "precision": 0.23941068139963168,
+        "auc": 0.9904487157736548,
+        "spearman_vs_spectral": 0.7453689729259638,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 9924,
+        "n_flagged": 10496,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.10894241113574989,
+        "precision": 0.054496951219512195,
+        "auc": 0.9904487157736548,
+        "spearman_vs_spectral": 0.7453689729259638,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 14,
+        "false_positives": 844,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.024475524475524476,
+        "clean_fpr": 0.009265154675390257,
+        "precision": 0.016317016317016316,
+        "auc": 0.9782923648683195,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 8402.809092122297,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0009550574132215074,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0034965034965034965,
+          "realised_fpr": 0.0008343030276417767
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.026223776223776224,
+            "realised_fpr": 0.00974817221770918
+          },
+          "0.02": {
+            "max_recall": 0.36363636363636365,
+            "realised_fpr": 0.019946428963488264
+          },
+          "0.05": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.045754934463301644
+          },
+          "0.06": {
+            "max_recall": 0.9965034965034965,
+            "realised_fpr": 0.05460293762487101
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.008485740004830175,
+          "recall": 0.1486013986013986
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0034965034965034965,
+        "clean_fpr": 0.0009550574132215074,
+        "silhouette": 0.9836585112468492,
+        "n_flagged": 89,
+        "minority_purity": 0.02247191011235955,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 15,
+        "false_positives": 964,
+        "n_flagged": 979,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.026223776223776224,
+        "clean_fpr": 0.010582475245350956,
+        "precision": 0.015321756894790603,
+        "auc": 0.9791903076834028,
+        "spearman_vs_spectral": 0.7783342050068119,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 8875,
+        "n_flagged": 9447,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.0974268338200101,
+        "precision": 0.060548322218693766,
+        "auc": 0.9791903076834028,
+        "spearman_vs_spectral": 0.7783342050068119,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 85,
+        "false_positives": 773,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.1486013986013986,
+        "clean_fpr": 0.008485740004830175,
+        "precision": 0.09906759906759907,
+        "auc": 0.9911899005115902,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9988925601829999,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 9012.093313172934,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0009721393694350545,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0017482517482517483,
+          "realised_fpr": 0.0004418815315613884
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.7526223776223776,
+            "realised_fpr": 0.009997569651576412
+          },
+          "0.02": {
+            "max_recall": 0.9816433566433567,
+            "realised_fpr": 0.018216566138618235
+          },
+          "0.05": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.04606614966527474
+          },
+          "0.06": {
+            "max_recall": 0.9947552447552448,
+            "realised_fpr": 0.04606614966527474
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.01803981352599368,
+          "recall": 0.07255244755244755
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0017482517482517483,
+        "clean_fpr": 0.0009721393694350545,
+        "silhouette": 0.9818513763727722,
+        "n_flagged": 90,
+        "minority_purity": 0.022222222222222223,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 870,
+        "false_positives": 921,
+        "n_flagged": 1791,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.7604895104895105,
+        "clean_fpr": 0.010174322264200968,
+        "precision": 0.48576214405360135,
+        "auc": 0.9917640756649506,
+        "spearman_vs_spectral": 0.708829182974816,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 9641,
+        "n_flagged": 10785,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.10650449614458364,
+        "precision": 0.10607324988409829,
+        "auc": 0.9917640756649506,
+        "spearman_vs_spectral": 0.708829182974816,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 83,
+        "false_positives": 1633,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.07255244755244755,
+        "clean_fpr": 0.01803981352599368,
+        "precision": 0.04836829836829837,
+        "auc": 0.9789378268822493,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 9233.079071361697,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.01806190760257175,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.013111888111888112,
+          "realised_fpr": 0.014040785665363115
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.009615384615384616,
+            "realised_fpr": 0.007843397185214644
+          },
+          "0.02": {
+            "max_recall": 0.2159090909090909,
+            "realised_fpr": 0.019950951149996687
+          },
+          "0.05": {
+            "max_recall": 0.9965034965034965,
+            "realised_fpr": 0.04760168798745056
+          },
+          "0.06": {
+            "max_recall": 0.9982517482517482,
+            "realised_fpr": 0.052882172289609154
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.010251651532224211,
+          "recall": 0.6888111888111889
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.01806190760257175,
+        "silhouette": 0.9326295230606476,
+        "n_flagged": 2779,
+        "minority_purity": 0.41165887009715724,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 11,
+        "false_positives": 939,
+        "n_flagged": 950,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.009615384615384616,
+        "clean_fpr": 0.010373168953403593,
+        "precision": 0.011578947368421053,
+        "auc": 0.9760505810664889,
+        "spearman_vs_spectral": 0.7253821912906568,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 8635,
+        "n_flagged": 9779,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.09539117562581471,
+        "precision": 0.11698537682789652,
+        "auc": 0.9760505810664889,
+        "spearman_vs_spectral": 0.7253821912906568,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 788,
+        "false_positives": 928,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.6888111888111889,
+        "clean_fpr": 0.010251651532224211,
+        "precision": 0.4592074592074592,
+        "auc": 0.9902020399012842,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9988925601829999,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 11444,
+      "distance_threshold": 8538.04831849362,
+      "is_matched_rate_cell": true,
+      "operating_points": {
+        "matched_fpr": 0.024980678616838274,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.9532506116742397,
+          "realised_fpr": 0.0249557477998554
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.01188395665851101,
+            "realised_fpr": 0.009560968312931614
+          },
+          "0.02": {
+            "max_recall": 0.740650122334848,
+            "realised_fpr": 0.019994515220263766
+          },
+          "0.05": {
+            "max_recall": 0.9955435162530584,
+            "realised_fpr": 0.049774376106305
+          },
+          "0.06": {
+            "max_recall": 0.9986892694861936,
+            "realised_fpr": 0.059260551968288
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.07132706738799831,
+          "recall": 1.0
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.024980678616838274,
+        "silhouette": 0.9074395713569311,
+        "n_flagged": 13448,
+        "minority_purity": 0.8509815585960737,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 136,
+        "false_positives": 790,
+        "n_flagged": 926,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 0.01188395665851101,
+        "clean_fpr": 0.009847672708234648,
+        "precision": 0.1468682505399568,
+        "auc": 0.9818044238231568,
+        "spearman_vs_spectral": 0.5975981639958351,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 11444,
+        "false_positives": 8120,
+        "n_flagged": 19564,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.10121911695046247,
+        "precision": 0.5849519525659375,
+        "auc": 0.9818044238231568,
+        "spearman_vs_spectral": 0.5975981639958351,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 11444,
+        "false_positives": 5722,
+        "n_flagged": 17166,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.07132706738799831,
+        "precision": 0.6666666666666666,
+        "auc": 0.9877376761486177,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 0.9901719901719902,
+      "clean_acc": 0.9989651791873934,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 29631.902304979823,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0011087448130502559,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.01048951048951049,
+            "realised_fpr": 0.009945770303203285
+          },
+          "0.02": {
+            "max_recall": 0.0979020979020979,
+            "realised_fpr": 0.019935451292071926
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.02471073835817946
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.02471073835817946
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.009385909060969987,
+          "recall": 0.005244755244755245
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.0011087448130502559,
+        "silhouette": 0.982273145769865,
+        "n_flagged": 101,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 3,
+        "false_positives": 855,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.005244755244755245,
+        "clean_fpr": 0.009385909060969987,
+        "precision": 0.0034965034965034965,
+        "auc": 0.9777561670331776,
+        "spearman_vs_spectral": 0.9916343310007482,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 6755,
+        "n_flagged": 7327,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.07415417041737107,
+        "precision": 0.07806742186433738,
+        "auc": 0.9777561670331776,
+        "spearman_vs_spectral": 0.9916343310007482,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 3,
+        "false_positives": 855,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.005244755244755245,
+        "clean_fpr": 0.009385909060969987,
+        "precision": 0.0034965034965034965,
+        "auc": 0.9778227239640724,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989107149340982,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 27336.765231043253,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0011636331701319516,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.9755244755244755,
+            "realised_fpr": 0.00998968098886864
+          },
+          "0.02": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.01026412277427712
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.01026412277427712
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.01026412277427712
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.00855160603332821,
+          "recall": 0.1381118881118881
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.0011636331701319516,
+        "silhouette": 0.9819483317967186,
+        "n_flagged": 106,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 436,
+        "false_positives": 886,
+        "n_flagged": 1322,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.7622377622377622,
+        "clean_fpr": 0.0097262168748765,
+        "precision": 0.329803328290469,
+        "auc": 0.9908212465076803,
+        "spearman_vs_spectral": 0.9836357806567503,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 6913,
+        "n_flagged": 7485,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.07588864250115265,
+        "precision": 0.0764195056780227,
+        "auc": 0.9908212465076803,
+        "spearman_vs_spectral": 0.9836357806567503,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 79,
+        "false_positives": 779,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.1381118881118881,
+        "clean_fpr": 0.00855160603332821,
+        "precision": 0.09207459207459208,
+        "auc": 0.9908410523763895,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 0.9975429975429976,
+      "clean_acc": 0.9988744054319015,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 26070.880070329407,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0011267979054815404,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0017482517482517483,
+          "realised_fpr": 0.000607587105896909
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.030594405594405596,
+            "realised_fpr": 0.009699299617772475
+          },
+          "0.02": {
+            "max_recall": 0.14160839160839161,
+            "realised_fpr": 0.019995139303152824
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.03197012880846645
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.03197012880846645
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.017973531296259473,
+          "recall": 0.0777972027972028
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0017482517482517483,
+        "clean_fpr": 0.0011267979054815404,
+        "silhouette": 0.9814719680849777,
+        "n_flagged": 104,
+        "minority_purity": 0.019230769230769232,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 34,
+        "false_positives": 852,
+        "n_flagged": 886,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.02972027972027972,
+        "clean_fpr": 0.009412076622257572,
+        "precision": 0.03837471783295711,
+        "auc": 0.9787382366423927,
+        "spearman_vs_spectral": 0.9816961192799538,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 6910,
+        "n_flagged": 8054,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.07633503457722984,
+        "precision": 0.14204122175316614,
+        "auc": 0.9787382366423927,
+        "spearman_vs_spectral": 0.9816961192799538,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 89,
+        "false_positives": 1627,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.0777972027972028,
+        "clean_fpr": 0.017973531296259473,
+        "precision": 0.051864801864801864,
+        "auc": 0.9787722371859378,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 25330.35826380386,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.016239146284881024,
+        "recall_at_matched_fpr": {
+          "max_recall": 1.0,
+          "realised_fpr": 0.014184397163120567
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.8190559440559441,
+            "realised_fpr": 0.009997569651576412
+          },
+          "0.02": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.014184397163120567
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.014184397163120567
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.014184397163120567
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.009610923311460198,
+          "recall": 0.7395104895104895
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.016239146284881024,
+        "silhouette": 0.936511028560458,
+        "n_flagged": 2614,
+        "minority_purity": 0.43764345830145374,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 324,
+        "false_positives": 841,
+        "n_flagged": 1165,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.28321678321678323,
+        "clean_fpr": 0.009290559201078191,
+        "precision": 0.27811158798283264,
+        "auc": 0.9906907264980442,
+        "spearman_vs_spectral": 0.9577757501241421,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 6792,
+        "n_flagged": 7936,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.07503148405912374,
+        "precision": 0.14415322580645162,
+        "auc": 0.9906907264980442,
+        "spearman_vs_spectral": 0.9577757501241421,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 846,
+        "false_positives": 870,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.7395104895104895,
+        "clean_fpr": 0.009610923311460198,
+        "precision": 0.493006993006993,
+        "auc": 0.9907413941640428,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 11444,
+      "distance_threshold": 21687.54979523458,
+      "is_matched_rate_cell": true,
+      "operating_points": {
+        "matched_fpr": 0.02235047742514522,
+        "recall_at_matched_fpr": {
+          "max_recall": 1.0,
+          "realised_fpr": 0.01561915683976964
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.15833624606780847,
+            "realised_fpr": 0.009984792201640448
+          },
+          "0.02": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.01561915683976964
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.01561915683976964
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.01561915683976964
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.07132706738799831,
+          "recall": 1.0
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.02235047742514522,
+        "silhouette": 0.9164102833550096,
+        "n_flagged": 13237,
+        "minority_purity": 0.8645463473596736,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 1008,
+        "false_positives": 769,
+        "n_flagged": 1777,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 0.08808109052778748,
+        "clean_fpr": 0.009585899129914487,
+        "precision": 0.5672481710748453,
+        "auc": 0.9896086714400743,
+        "spearman_vs_spectral": 0.7808909882335932,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 11444,
+        "false_positives": 5688,
+        "n_flagged": 17132,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.07090324349928948,
+        "precision": 0.6679897268269904,
+        "auc": 0.9896086714400743,
+        "spearman_vs_spectral": 0.7808909882335932,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 11444,
+        "false_positives": 5722,
+        "n_flagged": 17166,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.07132706738799831,
+        "precision": 0.6666666666666666,
+        "auc": 0.9895680924180593,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 0.9877149877149877,
+      "clean_acc": 0.9989833339384917,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 24990.628084920758,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0003512854853228533,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.017482517482517484,
+            "realised_fpr": 0.009528618789382395
+          },
+          "0.02": {
+            "max_recall": 0.04895104895104895,
+            "realised_fpr": 0.01961709882099809
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.033185500691593296
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.033185500691593296
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.009320043032471952,
+          "recall": 0.015734265734265736
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.0003512854853228533,
+        "silhouette": 0.9926667556605998,
+        "n_flagged": 32,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 10,
+        "false_positives": 881,
+        "n_flagged": 891,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.017482517482517484,
+        "clean_fpr": 0.009671328517794805,
+        "precision": 0.01122334455667789,
+        "auc": 0.9705397298817282,
+        "spearman_vs_spectral": 0.9837132986240497,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 7182,
+        "n_flagged": 7754,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.0788416361121479,
+        "precision": 0.07376837761155533,
+        "auc": 0.9705397298817282,
+        "spearman_vs_spectral": 0.9837132986240497,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 9,
+        "false_positives": 849,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.015734265734265736,
+        "clean_fpr": 0.009320043032471952,
+        "precision": 0.01048951048951049,
+        "auc": 0.9705470995072945,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989288696851966,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 572,
+      "distance_threshold": 20952.933181245975,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.00034030781390651416,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0,
+          "realised_fpr": 0.0
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.008595516718993567
+          },
+          "0.02": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.008595516718993567
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.008595516718993567
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.008595516718993567
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.007398950534612598,
+          "recall": 0.32167832167832167
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0,
+        "clean_fpr": 0.00034030781390651416,
+        "silhouette": 0.9926905247869648,
+        "n_flagged": 31,
+        "minority_purity": 0.0,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 572,
+        "false_positives": 933,
+        "n_flagged": 1505,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.010242167431444443,
+        "precision": 0.38006644518272426,
+        "auc": 0.9926692185018748,
+        "spearman_vs_spectral": 0.9692225107966201,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 572,
+        "false_positives": 7057,
+        "n_flagged": 7629,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 1.0,
+        "clean_fpr": 0.0774694271851055,
+        "precision": 0.07497706121378948,
+        "auc": 0.9926692185018748,
+        "spearman_vs_spectral": 0.9692225107966201,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 184,
+        "false_positives": 674,
+        "n_flagged": 858,
+        "n_poison": 572,
+        "n_clean": 91094,
+        "recall": 0.32167832167832167,
+        "clean_fpr": 0.007398950534612598,
+        "precision": 0.21445221445221446,
+        "auc": 0.9926877193327234,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9989651791873934,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 22937.042890829987,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.0003314111486710413,
+        "recall_at_matched_fpr": {
+          "max_recall": 0.0008741258741258741,
+          "realised_fpr": 0.00023198780406972892
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.015734265734265736,
+            "realised_fpr": 0.00931265327765626
+          },
+          "0.02": {
+            "max_recall": 0.04807692307692308,
+            "realised_fpr": 0.019950951149996687
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.03422372461942953
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.03422372461942953
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.018426459866109895,
+          "recall": 0.04195804195804196
+        }
+      },
+      "canonical_ac": {
+        "recall": 0.0008741258741258741,
+        "clean_fpr": 0.0003314111486710413,
+        "silhouette": 0.9943480306733254,
+        "n_flagged": 31,
+        "minority_purity": 0.03225806451612903,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 20,
+        "false_positives": 930,
+        "n_flagged": 950,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.017482517482517484,
+        "clean_fpr": 0.01027374560880228,
+        "precision": 0.021052631578947368,
+        "auc": 0.9702727965677858,
+        "spearman_vs_spectral": 0.9781043459758582,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 7030,
+        "n_flagged": 8174,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.07766067917191401,
+        "precision": 0.13995595791534132,
+        "auc": 0.9702727965677858,
+        "spearman_vs_spectral": 0.9781043459758582,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 48,
+        "false_positives": 1668,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.04195804195804196,
+        "clean_fpr": 0.018426459866109895,
+        "precision": 0.027972027972027972,
+        "auc": 0.9703024903114383,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.998947024436295,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 1144,
+      "distance_threshold": 22465.515981927005,
+      "is_matched_rate_cell": false,
+      "operating_points": {
+        "matched_fpr": 0.014935595766774928,
+        "recall_at_matched_fpr": {
+          "max_recall": 1.0,
+          "realised_fpr": 0.011643578356642583
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.9921328671328671,
+            "realised_fpr": 0.00973244073263958
+          },
+          "0.02": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.011643578356642583
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.011643578356642583
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.011643578356642583
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.008948101014118115,
+          "recall": 0.791958041958042
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.014935595766774928,
+        "silhouette": 0.9376219916097849,
+        "n_flagged": 2496,
+        "minority_purity": 0.4583333333333333,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 1132,
+        "false_positives": 865,
+        "n_flagged": 1997,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.9895104895104895,
+        "clean_fpr": 0.009555688120015024,
+        "precision": 0.5668502754131197,
+        "auc": 0.991693882551906,
+        "spearman_vs_spectral": 0.9375300369558454,
+        "independence_verdict": "spectral_redundant"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 1144,
+        "false_positives": 7114,
+        "n_flagged": 8258,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 1.0,
+        "clean_fpr": 0.07858863038819293,
+        "precision": 0.13853233228384595,
+        "auc": 0.991693882551906,
+        "spearman_vs_spectral": 0.9375300369558454,
+        "independence_verdict": "spectral_redundant"
+      },
+      "spectral": {
+        "true_positives": 906,
+        "false_positives": 810,
+        "n_flagged": 1716,
+        "n_poison": 1144,
+        "n_clean": 90522,
+        "recall": 0.791958041958042,
+        "clean_fpr": 0.008948101014118115,
+        "precision": 0.527972027972028,
+        "auc": 0.9916995605750826,
+        "spearman_vs_spectral": 1.0,
+        "independence_verdict": "spectral_redundant"
+      }
+    },
+    {
+      "arm": "ctu",
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "trigger_variant": "realizable",
+      "asr": 1.0,
+      "clean_acc": 0.9988925601829999,
+      "n_reference": 10000,
+      "n_calibration": 10000,
+      "n_suspect": 91666,
+      "n_poison": 11444,
+      "distance_threshold": 14398.634315177362,
+      "is_matched_rate_cell": true,
+      "operating_points": {
+        "matched_fpr": 0.019707810824960734,
+        "recall_at_matched_fpr": {
+          "max_recall": 1.0,
+          "realised_fpr": 0.014472339258557503
+        },
+        "budget_curve": {
+          "0.01": {
+            "max_recall": 0.45150297098916464,
+            "realised_fpr": 0.009997257610131883
+          },
+          "0.02": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.014472339258557503
+          },
+          "0.05": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.014472339258557503
+          },
+          "0.06": {
+            "max_recall": 1.0,
+            "realised_fpr": 0.014472339258557503
+          }
+        },
+        "spectral_operating_point": {
+          "realised_fpr": 0.07132706738799831,
+          "recall": 1.0
+        }
+      },
+      "canonical_ac": {
+        "recall": 1.0,
+        "clean_fpr": 0.019707810824960734,
+        "silhouette": 0.9107594845703109,
+        "n_flagged": 13025,
+        "minority_purity": 0.8786180422264875,
+        "auc": null,
+        "auc_reason": "canonical AC is a hard 2-cluster assignment, not a ranked score"
+      },
+      "centroid_repair": {
+        "true_positives": 8427,
+        "false_positives": 827,
+        "n_flagged": 9254,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 0.7363684026564138,
+        "clean_fpr": 0.01030889282241779,
+        "precision": 0.9106332396801383,
+        "auc": 0.9902047290631483,
+        "spearman_vs_spectral": 0.7570850881456991,
+        "independence_verdict": "independent"
+      },
+      "centroid_repair_mad": {
+        "true_positives": 11444,
+        "false_positives": 6171,
+        "n_flagged": 17615,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.07692403580065318,
+        "precision": 0.6496735736588135,
+        "auc": 0.9902047290631483,
+        "spearman_vs_spectral": 0.7570850881456991,
+        "independence_verdict": "independent"
+      },
+      "spectral": {
+        "true_positives": 11444,
+        "false_positives": 5722,
+        "n_flagged": 17166,
+        "n_poison": 11444,
+        "n_clean": 80222,
+        "recall": 1.0,
+        "clean_fpr": 0.07132706738799831,
+        "precision": 0.6666666666666666,
+        "auc": 0.9901437864609385,
+        "spearman_vs_spectral": 0.9999999999999999,
+        "independence_verdict": "spectral_redundant"
+      }
+    }
+  ],
+  "gate": {
+    "verdict": "spectral_redundant",
+    "statement": "The centroid score is Spectral-redundant on at least one held-out cell (|rho| >= 0.90), so it is not an Activation Clustering result regardless of its recall.",
+    "primary_arm": "centroid_matched_fpr",
+    "mean_canonical_ac_recall": 0.20056818181818184,
+    "mean_canonical_ac_fpr": 0.003951650529121021,
+    "matched_fpr_recall": 0.149256993006993,
+    "matched_fpr_gain": -0.051311188811188846,
+    "passed": {
+      "matched_fpr_recall": false,
+      "independence": false
+    },
+    "reported_budget_curve": {
+      "0.01": 0.34825174825174826,
+      "0.02": 0.682867132867133,
+      "0.05": 0.9968094405594407,
+      "0.06": 0.9979458041958041
+    },
+    "spectral_reference": {
+      "mean_realised_fpr": 0.011505312667863131,
+      "mean_recall": 0.23715034965034967,
+      "accepted_fpr_from_evasion_ablation": 0.0596
+    },
+    "originally_frozen_1pct_gate": {
+      "verdict": "spectral_redundant",
+      "statement": "The centroid score is Spectral-redundant on at least one held-out cell (|rho| >= 0.90), so it is not an Activation Clustering result regardless of its recall.",
+      "mean_recall": 0.37154720279720277,
+      "recall_gain": 0.17097902097902093,
+      "mean_clean_fpr": 0.010461622654712645,
+      "mean_auc": 0.9842014123572451,
+      "independence_verdicts": [
+        "independent",
+        "spectral_redundant"
+      ],
+      "passed": {
+        "recall": false,
+        "clean_fpr": false,
+        "independence": false
+      }
+    },
+    "mad_cutoff": {
+      "verdict": "spectral_redundant",
+      "statement": "The centroid score is Spectral-redundant on at least one held-out cell (|rho| >= 0.90), so it is not an Activation Clustering result regardless of its recall.",
+      "mean_recall": 1.0,
+      "recall_gain": 0.7994318181818182,
+      "mean_clean_fpr": 0.09283050964733437,
+      "mean_auc": 0.9842014123572451,
+      "independence_verdicts": [
+        "independent",
+        "spectral_redundant"
+      ],
+      "passed": {
+        "recall": true,
+        "clean_fpr": false,
+        "independence": false
+      }
+    },
+    "gate": {
+      "matched_fpr_min_recall_gain": 0.2,
+      "reported_budgets": [
+        0.01,
+        0.02,
+        0.05,
+        0.06
+      ],
+      "max_spearman_vs_spectral": 0.9,
+      "mad_z": 3.0,
+      "superseded_max_clean_fpr": 0.01
+    },
+    "n_eval_rows": 20
+  },
+  "note": "Clean-reference centroid repair of Activation Clustering (plan Task 7B). The centroid score is an AC-DERIVED extension, NOT Chen et al.'s rule: PCA and centroids are fitted on a trusted-clean reference subset carved before poisoning and excluded from the poison pool, and the cutoff is the 99th percentile of a second held-back clean calibration set. canonical_ac, centroid_repair, centroid_repair_mad, and spectral are reported SEPARATELY on the same victim and must not be merged. centroid_repair and centroid_repair_mad are TWO PRE-DECLARED CUTOFFS on the one centroid score (99th percentile clean-calibrated, and the locked MAD z=3.0); both were fixed before the run and both are always reported, so neither is outcome-selected. The primary verdict is the clean-calibrated one. spearman_vs_spectral / independence_verdict enforce the pre-registered independence gate: at |rho| >= 0.90 the score restates Spectral (the withdrawn proxy sat at 0.9967) and is not an AC result whatever its recall. Reference and calibration rows are held out of the suspect set as well as the poison pool, so clean_fpr is not measured on the rows the cutoff was fitted on."
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref24_madry_adv_training_iclr2018",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": null,
+  "n_datasets": 2,
+  "n_seeds": null,
+  "n_eval_types": 1,
+  "n_baselines": 2,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We trained MNIST and CIFAR10 networks of varying capacity on: (a) natural examples, (b) with FGSM-made, (c) with PGD-made adversarial examples",
+    "Table 1: MNIST: Performance of the adversarially trained network against different adversaries for eps = 0.3",
+    "Table 2: CIFAR10: Performance of the adversarially trained network against different adversaries for eps = 8",
+    "we found the following phenomena ... we verified this concentration based on 10^5 restarts"
+  ],
+  "unresolved": [
+    "n_models left null: capacity study doubles filter counts repeatedly with no fixed count of architectures stated; headline tables report one MNIST CNN plus a simple and wide CIFAR10 ResNet, but this is not an exhaustive model count",
+    "n_seeds left null: no stated repetition/seed count for training runs; the 10^5 figure is PGD random restarts for loss-landscape exploration, not independent training repetitions",
+    "n_eval_types set to 1 (accuracy) since accuracy is the only metric reported, evaluated across many attack conditions (PGD, FGSM, CW, CW+, black-box, l2-bounded, DBA) rather than multiple distinct metric types",
+    "n_baselines set to 2 (natural training, FGSM adversarial training) as the training-regime comparisons in the capacity experiments (Figure 4); prior defenses named in Related Work (defensive distillation, feature squeezing) are not experimentally compared"
+  ]
+}

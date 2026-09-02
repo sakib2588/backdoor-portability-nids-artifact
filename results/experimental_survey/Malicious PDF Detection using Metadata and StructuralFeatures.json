@@ -1,0 +1,27 @@
+{
+  "paper_id": "Malicious PDF Detection using Metadata and StructuralFeatures",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 2,
+  "n_seeds": 5,
+  "n_eval_types": 5,
+  "n_baselines": 3,
+  "reports_variability": "figure",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "Table 2 compares Random Forest classification performance to that of Support Vector Machine and Naive Bayes",
+    "The average and 95% confidence interval of the classification error of multiple randomly selected subsets of features",
+    "The average of the results of 5 independent trials using 10-fold cross validation is presented",
+    "the results of using PJScan are presented ... we only used ben/mal classification to separate malicious from benign"
+  ],
+  "unresolved": [
+    "n_models=3 counts Naive Bayes, Random Forest, and SVM as classifiers this paper itself trains/evaluates (Table 2); Random Forest is the headline model used throughout the rest of the paper.",
+    "n_baselines=3 counts Naive Bayes, SVM, and PJScan as comparison points against the Random Forest result; there is overlap with n_models since NB/SVM are both internally-evaluated alternatives and comparison baselines -- the paper does not clearly separate these roles.",
+    "n_seeds=5 ('5 independent trials using 10-fold cross validation') is stated only for the mimicry-effectiveness (Table 10) and perturbation (Table 12) adversarial-analysis experiments; the primary ben/mal and opp/tar classification results (Tables 3-6, Figures 3-6) use 10-fold cross-validation but do not state a repeated-trial count.",
+    "control_arm='clean' is a best-fit mapping: this is a malware-classification paper (benign vs malicious PDFs), not a backdoor-attack-on-ML-models paper, so the benign document set serves as the natural clean reference class rather than a clean-vs-poisoned-model control.",
+    "reports_variability='figure' reflects the explicit 95% CI in Figure 2; Tables 2, 10, and 12 report only averages across repeated runs/trials without an explicit spread statistic.",
+    "n_eval_types=5 approximates distinct evaluation angles (ROC/TP-FP classification performance, new-variant/generalization detection, computational complexity/runtime, adversarial mimicry-and-perturbation robustness, comparison to the PJScan baseline); boundaries between these categories are not sharply drawn by the paper itself."
+  ]
+}

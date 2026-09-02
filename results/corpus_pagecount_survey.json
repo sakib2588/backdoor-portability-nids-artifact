@@ -1,0 +1,669 @@
+{
+ "_schema": "corpus_pagecount_survey",
+ "_generated_by": "scripts/31_corpus_pagecount_survey.py",
+ "_governance_caveat": "ICCIT's 6pp cap governs TOTAL pages, references included, no appendix carve-out. Most corpus/survey members are written for longer-format venues (NDSS/S&P/journals typically 10-20+pp with cap excluding back matter). This comparison is context, not a target.",
+ "_external_source_caveat": "Both populations read PDFs from two OTHER course projects' reference libraries on this machine (absolute paths, not vendored into this repo). Reproducible on this machine only.",
+ "ours": {
+  "path": "paper/main.pdf",
+  "pages": 6
+ },
+ "population_a_text_corpus_subset": {
+  "n_pdfs_found": 50,
+  "n_pdfs_read": 50,
+  "n_unread": 0,
+  "missing_original_pdf": [],
+  "summary": {
+   "n": 50,
+   "min": 6,
+   "median": 15.5,
+   "mean": 16.76,
+   "max": 40
+  },
+  "pages": [
+   18,
+   15,
+   15,
+   12,
+   10,
+   16,
+   19,
+   16,
+   18,
+   7,
+   19,
+   18,
+   9,
+   10,
+   17,
+   10,
+   11,
+   37,
+   17,
+   15,
+   12,
+   21,
+   18,
+   15,
+   28,
+   19,
+   15,
+   16,
+   13,
+   9,
+   40,
+   9,
+   30,
+   9,
+   9,
+   9,
+   18,
+   13,
+   21,
+   17,
+   6,
+   6,
+   37,
+   10,
+   9,
+   13,
+   35,
+   28,
+   21,
+   23
+  ],
+  "records": [
+   {
+    "paper_id": "Adversarial Examples for Malware Detection",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 18
+   },
+   {
+    "paper_id": "Automatically Evading Classifiers - A Case Study on PDF Malware Classifiers",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 15
+   },
+   {
+    "paper_id": "BadNets_Evaluating_Backdooring_Attacks_on_Deep_Neural_Networks",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 15
+   },
+   {
+    "paper_id": "DREBIN - Effective and Explainable Detection of Android Malware in Your Pocket",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 12
+   },
+   {
+    "paper_id": "Detecting Backdoor Attacks on Deep Neural Networks by",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 10
+   },
+   {
+    "paper_id": "Detection of Malicious PDF Files Based on Hierarchical Document Structure",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 16
+   },
+   {
+    "paper_id": "Dos and Don\u2019ts of Machine Learning",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 19
+   },
+   {
+    "paper_id": "Evasion Attacks against Machine Learning at Test Time",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 16
+   },
+   {
+    "paper_id": "Explanation-Guided Backdoor Poisoning Attacks Against Malware Classifiers",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 18
+   },
+   {
+    "paper_id": "Exploring_Adversarial_Examples_in_Malware_Detection",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 7
+   },
+   {
+    "paper_id": "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 19
+   },
+   {
+    "paper_id": "Intriguing_Properties_of_Adversarial_ML_Attacks_in_the_Problem_Space",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 18
+   },
+   {
+    "paper_id": "Learning to Evade Static PE Machine Learning Malware Models",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 9
+   },
+   {
+    "paper_id": "Malicious PDF Detection using Metadata and StructuralFeatures",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 10
+   },
+   {
+    "paper_id": "Manipulating_Machine_Learning_Poisoning_Attacks_and_Countermeasures_for_Regression_Learning",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 17
+   },
+   {
+    "paper_id": "NIPS-2017-a-unified-approach-to-interpreting-model-predictions-Paper",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 10
+   },
+   {
+    "paper_id": "NeurIPS-2018-spectral-signatures-in-backdoor-attacks-Paper",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 11
+   },
+   {
+    "paper_id": "NeurIPS-2024-tabularbench-benchmarking-adversarial-robustness-for-tabular-deep-learning-in-real-world-use-cases-Paper-Datasets_and_Benchmarks_Track",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 37
+   },
+   {
+    "paper_id": "Neural_Cleanse_Identifying_and_Mitigating_Backdoor_Attacks_in_Neural_Networks",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 17
+   },
+   {
+    "paper_id": "Practical_Evasion_of_a_Learning-Based_Classifier_A_Case_Study",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 15
+   },
+   {
+    "paper_id": "Rethinking Backdoor Detection Evaluation for Language Models",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 12
+   },
+   {
+    "paper_id": "Robustness, Cost, and Attack-Surface",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 21
+   },
+   {
+    "paper_id": "Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 18
+   },
+   {
+    "paper_id": "TextBugger - Generating Adversarial Text Against Real-world Applications",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 15
+   },
+   {
+    "paper_id": "Towards Deep Learning Models Resistant to Adversarial Attacks",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 28
+   },
+   {
+    "paper_id": "Towards_Evaluating_the_Robustness_of_Neural_Networks",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 19
+   },
+   {
+    "paper_id": "Trojaning Attack on Neural Networks",
+    "subcorpus": "backdoor_ml_corpus",
+    "pages": 15
+   },
+   {
+    "paper_id": "ref01_sarhan_netflow_datasets_bdta2020",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 16
+   },
+   {
+    "paper_id": "ref02_sarhan_standard_feature_set_mona2022",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 13
+   },
+   {
+    "paper_id": "ref03_li_iterative_msqrt_cvpr2018",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 9
+   },
+   {
+    "paper_id": "ref05_koroniotis_botiot_fgcs2019",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 40
+   },
+   {
+    "paper_id": "ref06_sharafaldin_cicids2017_icissp2018",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 9
+   },
+   {
+    "paper_id": "ref08_demsar_statistical_comparisons_jmlr2006",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 30
+   },
+   {
+    "paper_id": "ref09_lin_bilinear_cnn_iccv2015",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 9
+   },
+   {
+    "paper_id": "ref10_li_second_order_iccv2017",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 9
+   },
+   {
+    "paper_id": "ref11_gao_gsop_cvpr2019",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 9
+   },
+   {
+    "paper_id": "ref12_wang_gcp_tpami2021",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 18
+   },
+   {
+    "paper_id": "ref14_pontes_inverse_potts_tnsm2021",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 13
+   },
+   {
+    "paper_id": "ref15_xin_transformer_ids_jcs2025",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 21
+   },
+   {
+    "paper_id": "ref16_onuorah_ids_ieeeaccess2026",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 17
+   },
+   {
+    "paper_id": "ref17_gueriani_resnet_bigru_arxiv2026",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 6
+   },
+   {
+    "paper_id": "ref18_gueriani_vit_bilstm_arxiv2026",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 6
+   },
+   {
+    "paper_id": "ref19_chawla_smote_jair2002",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 37
+   },
+   {
+    "paper_id": "ref20_lundberg_shap_neurips2017",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 10
+   },
+   {
+    "paper_id": "ref21_selvaraju_gradcam_iccv2017",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 9
+   },
+   {
+    "paper_id": "ref22_li_adv_examples_survey_arxiv2024",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 13
+   },
+   {
+    "paper_id": "ref23_ennaji_adv_challenges_ieeeaccess2025",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 35
+   },
+   {
+    "paper_id": "ref24_madry_adv_training_iclr2018",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 28
+   },
+   {
+    "paper_id": "ref25_elshehaby_pscore_jisa2026",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 21
+   },
+   {
+    "paper_id": "ref26_awad_ensemble_defense_scirep2025",
+    "subcorpus": "nids_ml_corpus",
+    "pages": 23
+   }
+  ]
+ },
+ "population_b_broader_survey": {
+  "n_pdfs_found": 76,
+  "n_pdfs_read": 76,
+  "n_unread": 0,
+  "summary": {
+   "n": 76,
+   "min": 5,
+   "median": 18.0,
+   "mean": 17.16,
+   "max": 40
+  },
+  "distribution": {
+   "5": 2,
+   "6": 3,
+   "7": 1,
+   "9": 7,
+   "10": 4,
+   "11": 1,
+   "12": 4,
+   "13": 3,
+   "15": 6,
+   "16": 3,
+   "17": 3,
+   "18": 10,
+   "19": 4,
+   "20": 3,
+   "21": 12,
+   "23": 1,
+   "25": 1,
+   "28": 3,
+   "30": 1,
+   "35": 1,
+   "37": 2,
+   "40": 1
+  },
+  "records": [
+   {
+    "name": "Abad2025 - SoK The Last Line of Defense - On Backdoor Defense Evaluation",
+    "pages": 25
+   },
+   {
+    "name": "Adversarial Examples for Malware Detection",
+    "pages": 18
+   },
+   {
+    "name": "BadNets_Evaluating_Backdooring_Attacks_on_Deep_Neural_Networks",
+    "pages": 15
+   },
+   {
+    "name": "Detecting Backdoor Attacks on Deep Neural Networks by",
+    "pages": 10
+   },
+   {
+    "name": "Dos and Don\u2019ts of Machine Learning",
+    "pages": 19
+   },
+   {
+    "name": "Evasion Attacks against Machine Learning at Test Time",
+    "pages": 16
+   },
+   {
+    "name": "Explanation-Guided Backdoor Poisoning Attacks Against Malware Classifiers",
+    "pages": 18
+   },
+   {
+    "name": "Exploring_Adversarial_Examples_in_Malware_Detection",
+    "pages": 7
+   },
+   {
+    "name": "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using",
+    "pages": 19
+   },
+   {
+    "name": "Intriguing_Properties_of_Adversarial_ML_Attacks_in_the_Problem_Space",
+    "pages": 18
+   },
+   {
+    "name": "Jigsaw Puzzle - Selective Backdoor Attack to Subvert Malware Classifiers",
+    "pages": 18
+   },
+   {
+    "name": "Learning to Evade Static PE Machine Learning Malware Models",
+    "pages": 9
+   },
+   {
+    "name": "Malicious PDF Detection using Metadata and StructuralFeatures",
+    "pages": 10
+   },
+   {
+    "name": "Manipulating_Machine_Learning_Poisoning_Attacks_and_Countermeasures_for_Regression_Learning",
+    "pages": 17
+   },
+   {
+    "name": "NIPS-2017-a-unified-approach-to-interpreting-model-predictions-Paper",
+    "pages": 10
+   },
+   {
+    "name": "NeurIPS-2018-spectral-signatures-in-backdoor-attacks-Paper",
+    "pages": 11
+   },
+   {
+    "name": "NeurIPS-2024-tabularbench-benchmarking-adversarial-robustness-for-tabular-deep-learning-in-real-world-use-cases-Paper-Datasets_and_Benchmarks_Track",
+    "pages": 37
+   },
+   {
+    "name": "Neural_Cleanse_Identifying_and_Mitigating_Backdoor_Attacks_in_Neural_Networks",
+    "pages": 17
+   },
+   {
+    "name": "Practical_Evasion_of_a_Learning-Based_Classifier_A_Case_Study",
+    "pages": 15
+   },
+   {
+    "name": "Rethinking Backdoor Detection Evaluation for Language Models",
+    "pages": 12
+   },
+   {
+    "name": "Robustness, Cost, and Attack-Surface",
+    "pages": 21
+   },
+   {
+    "name": "Shen2022ASRD - Rethink the Evaluation for Attack Strength of Backdoor Attacks in NLP",
+    "pages": 12
+   },
+   {
+    "name": "Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning",
+    "pages": 18
+   },
+   {
+    "name": "Towards Deep Learning Models Resistant to Adversarial Attacks",
+    "pages": 28
+   },
+   {
+    "name": "Towards_Evaluating_the_Robustness_of_Neural_Networks",
+    "pages": 19
+   },
+   {
+    "name": "usenixsecurity25-liu-side",
+    "pages": 21
+   },
+   {
+    "name": "A Hard-Label Black-Box Evasion Attack against ML-based Malicious Traffic Detection Systems",
+    "pages": 18
+   },
+   {
+    "name": "Automatically Evading Classifiers - A Case Study on PDF Malware Classifiers",
+    "pages": 15
+   },
+   {
+    "name": "CatBack - Universal Backdoor Attacks on Tabular Data via Categorical Encoding",
+    "pages": 19
+   },
+   {
+    "name": "DREBIN - Effective and Explainable Detection of Android Malware in Your Pocket",
+    "pages": 12
+   },
+   {
+    "name": "Density Boosts Everything - A One-stop Strategy for Malware Detectors",
+    "pages": 18
+   },
+   {
+    "name": "Detection of Malicious PDF Files Based on Hierarchical Document Structure",
+    "pages": 16
+   },
+   {
+    "name": "PBP - Post-training Backdoor Purification for Malware Classifiers",
+    "pages": 18
+   },
+   {
+    "name": "TextBugger - Generating Adversarial Text Against Real-world Applications",
+    "pages": 15
+   },
+   {
+    "name": "Trojaning Attack on Neural Networks",
+    "pages": 15
+   },
+   {
+    "name": "usenixsecurity26-chang-ian",
+    "pages": 21
+   },
+   {
+    "name": "usenixsecurity26-crump",
+    "pages": 21
+   },
+   {
+    "name": "usenixsecurity26-duebler",
+    "pages": 21
+   },
+   {
+    "name": "usenixsecurity26-gajland",
+    "pages": 20
+   },
+   {
+    "name": "usenixsecurity26-kim-jaehong",
+    "pages": 21
+   },
+   {
+    "name": "usenixsecurity26-klix",
+    "pages": 18
+   },
+   {
+    "name": "usenixsecurity26-knabenhans",
+    "pages": 21
+   },
+   {
+    "name": "usenixsecurity26-lv",
+    "pages": 21
+   },
+   {
+    "name": "usenixsecurity26-truong",
+    "pages": 21
+   },
+   {
+    "name": "usenixsecurity26-zhou",
+    "pages": 21
+   },
+   {
+    "name": "ref01_sarhan_netflow_datasets_bdta2020",
+    "pages": 16
+   },
+   {
+    "name": "ref02_sarhan_standard_feature_set_mona2022",
+    "pages": 13
+   },
+   {
+    "name": "ref03_li_iterative_msqrt_cvpr2018",
+    "pages": 9
+   },
+   {
+    "name": "ref05_koroniotis_botiot_fgcs2019",
+    "pages": 40
+   },
+   {
+    "name": "ref06_sharafaldin_cicids2017_icissp2018",
+    "pages": 9
+   },
+   {
+    "name": "ref08_demsar_statistical_comparisons_jmlr2006",
+    "pages": 30
+   },
+   {
+    "name": "ref09_lin_bilinear_cnn_iccv2015",
+    "pages": 9
+   },
+   {
+    "name": "ref10_li_second_order_iccv2017",
+    "pages": 9
+   },
+   {
+    "name": "ref11_gao_gsop_cvpr2019",
+    "pages": 9
+   },
+   {
+    "name": "ref12_wang_gcp_tpami2021",
+    "pages": 18
+   },
+   {
+    "name": "ref14_pontes_inverse_potts_tnsm2021",
+    "pages": 13
+   },
+   {
+    "name": "ref15_xin_transformer_ids_jcs2025",
+    "pages": 21
+   },
+   {
+    "name": "ref16_onuorah_ids_ieeeaccess2026",
+    "pages": 17
+   },
+   {
+    "name": "ref17_gueriani_resnet_bigru_arxiv2026",
+    "pages": 6
+   },
+   {
+    "name": "ref18_gueriani_vit_bilstm_arxiv2026",
+    "pages": 6
+   },
+   {
+    "name": "ref19_chawla_smote_jair2002",
+    "pages": 37
+   },
+   {
+    "name": "ref20_lundberg_shap_neurips2017",
+    "pages": 10
+   },
+   {
+    "name": "ref21_selvaraju_gradcam_iccv2017",
+    "pages": 9
+   },
+   {
+    "name": "ref22_li_adv_examples_survey_arxiv2024",
+    "pages": 13
+   },
+   {
+    "name": "ref23_ennaji_adv_challenges_ieeeaccess2025",
+    "pages": 35
+   },
+   {
+    "name": "ref24_madry_adv_training_iclr2018",
+    "pages": 28
+   },
+   {
+    "name": "ref25_elshehaby_pscore_jisa2026",
+    "pages": 21
+   },
+   {
+    "name": "ref26_awad_ensemble_defense_scirep2025",
+    "pages": 23
+   },
+   {
+    "name": "ref27_he_covpool_tgrs2018",
+    "pages": 12
+   },
+   {
+    "name": "ref28_okabe_attentivestats_interspeech2018",
+    "pages": 5
+   },
+   {
+    "name": "ref29_song_fastsqrt_tpami2023",
+    "pages": 20
+   },
+   {
+    "name": "ref30_manocchio_flowtransformer_eswa2024",
+    "pages": 15
+   },
+   {
+    "name": "ref31_hindy_taxonomy_ieeeaccess2020",
+    "pages": 28
+   },
+   {
+    "name": "ref32_yang_lnetskd_arxiv2023",
+    "pages": 6
+   },
+   {
+    "name": "ref33_apruzzese_realistic_dtrap2022",
+    "pages": 20
+   },
+   {
+    "name": "ref34_debicha_advtrain_arxiv2021",
+    "pages": 5
+   }
+  ]
+ }
+}

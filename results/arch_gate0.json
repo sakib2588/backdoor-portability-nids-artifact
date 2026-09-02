@@ -1,0 +1,48 @@
+{
+  "preregistration": "notes/20260902-decision-architecture-generality-preregistration.md",
+  "arch": "ft_transformer",
+  "d_token": 32,
+  "n_layers": 3,
+  "n_heads": 8,
+  "cell": [
+    0.005,
+    16
+  ],
+  "seeds": [
+    42
+  ],
+  "clean_acc_bar": 0.99,
+  "asr_bar": 0.95,
+  "rows": [
+    {
+      "seed": 42,
+      "clean_model_acc": 0.9981119058857703,
+      "victim_clean_acc": 0.9991648814494754,
+      "asr": 0.04668304668304668,
+      "passes_clean_acc": true,
+      "passes_asr": false,
+      "trigger_indices": [
+        726,
+        724,
+        748,
+        722,
+        727,
+        438,
+        356,
+        595,
+        733,
+        608,
+        728,
+        361,
+        428,
+        749,
+        734,
+        600
+      ],
+      "seconds": 2369.7811748981476
+    }
+  ],
+  "verdict": "victim_control_failed",
+  "checkpoint": "arch_gate0.checkpoint.json",
+  "elapsed_seconds": 2390.2501997947693
+}

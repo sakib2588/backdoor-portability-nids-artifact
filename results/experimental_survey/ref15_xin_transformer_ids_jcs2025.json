@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref15_xin_transformer_ids_jcs2025",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 3,
+  "n_seeds": 3,
+  "n_eval_types": 8,
+  "n_baselines": 3,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "We repeated each experiment 3 times with different random seeds and found very small variance in results",
+    "Each setting is repeated with seeds {13, 37, 97}; we report mean ± std.",
+    "We report the following metrics: Accuracy, Precision, Recall, F1-score, and ROC AUC.",
+    "Table 6: Ablation on NSL to UNSW, UNSW to CIC, and NSL to NSL (mean ± std over 3 runs)"
+  ],
+  "unresolved": [
+    "n_seeds=3 is consistent across two separate statements (baseline comparison: 'repeated 3 times'; ablation section 3.5: seeds {13,37,97}), but the paper never confirms these are the same 3-seed protocol used for all reported tables (e.g. Tables 1-4 within/cross-dataset results do not state seed count directly).",
+    "n_eval_types=8 counts distinct named metrics (Accuracy, Precision, Recall, F1, AUC/AUROC, AUPRC, ECE, Brier score); F1@0.5 and F1@Youden are threshold variants of F1 and were not counted separately.",
+    "n_models=4 counts the proposed Transformer-IDS plus its 3 baselines (CNN-LSTM, RF-LSTM, TL-BiLSTM); no ablation on different architectures beyond these.",
+    "control_arm set to 'none' because this is a cross-dataset generalization paper, not a backdoor/poisoning study -- the clean/poisoned control-arm concept from the schema does not apply here."
+  ]
+}

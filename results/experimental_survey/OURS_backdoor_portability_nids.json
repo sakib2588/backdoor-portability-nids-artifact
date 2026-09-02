@@ -1,0 +1,25 @@
+{
+  "paper_id": "OURS_backdoor_portability_nids",
+  "subcorpus": "ours",
+  "n_models": 3,
+  "n_datasets": 3,
+  "n_seeds": 5,
+  "n_eval_types": 8,
+  "n_baselines": 2,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": true,
+  "control_arm": "randomised-matched",
+  "evidence": [
+    "n_models=3: MLP victim, LightGBM victim (tabular), CNN vision-control victim.",
+    "n_datasets=3: CTU-13 Neris (primary), UNSW-NB15 (secondary/generalisation), MNIST (vision control).",
+    "5 seeds {42,123,456,789,1337}, bootstrap 95% CI (10,000 resamples), per project statistics protocol.",
+    "n_eval_types=8: ASR, detector poison-recall, ranking AUC, clean accuracy/botnet recall, false-positive rate, precision, Neural-Cleanse binary detection rate, reverse-engineered-mask localisation ratio.",
+    "n_baselines=2: Tran et al.'s fixed 1.5x removal-budget rule; an always-benign classifier baseline for clean-recall context.",
+    "control_arm=randomised-matched: H3 confound test down-samples benign to ~50/50 parity (matched-size control); a tabular positive control (loud, constraint-violating trigger) and the MNIST vision control also serve as reference arms."
+  ],
+  "unresolved": [
+    "n_models could alternatively be read as the 3 detectors under test (Spectral Signatures, Activation Clustering, Neural Cleanse) rather than the 3 victim architectures -- this record counts victims, matching the reference NDSS-corpus instrument's own convention of counting evaluated architectures, not defense methods.",
+    "no named parametric significance test by explicit project protocol (bans t-test/ANOVA/Wilcoxon at n<=30); bootstrap CIs and Cohen's d_z reported instead, which the schema's significance_test field does not capture -- see reports_variability=table and the paper's stats protocol instead."
+  ]
+}

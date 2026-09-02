@@ -1,0 +1,375 @@
+{
+  "config": {
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "anchor_cost": 16,
+    "rate_cap": 0.05,
+    "matched_rate": 0.1,
+    "anchor_cells": [
+      {
+        "seed": 42,
+        "rate": 0.005,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9913981368515365
+      },
+      {
+        "seed": 123,
+        "rate": 0.005,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9883736081370518
+      },
+      {
+        "seed": 456,
+        "rate": 0.005,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9911978402715975
+      },
+      {
+        "seed": 789,
+        "rate": 0.005,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9910954101616964
+      },
+      {
+        "seed": 1337,
+        "rate": 0.005,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9919390068588045
+      }
+    ],
+    "matched_rate_cells": [
+      {
+        "seed": 42,
+        "rate": 0.1,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.984969141836127
+      },
+      {
+        "seed": 123,
+        "rate": 0.1,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9847111502642393
+      },
+      {
+        "seed": 456,
+        "rate": 0.1,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9887090269876999
+      },
+      {
+        "seed": 789,
+        "rate": 0.1,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9899941999435842
+      },
+      {
+        "seed": 1337,
+        "rate": 0.1,
+        "cost": 16,
+        "asr": 1.0,
+        "spectral_auc": 0.9830902990607269
+      }
+    ],
+    "bootstrap_resamples": 10000,
+    "bootstrap_ci": 0.95,
+    "df": 4,
+    "no_parametric_tests_note": "project protocol: n<=30, effect sizes + bootstrap CIs only, no t/Wilcoxon/ANOVA"
+  },
+  "portability": {
+    "spectral": {
+      "detector": "spectral",
+      "vision_recall_mean": 0.9828402366863905,
+      "vision_recall_ci": [
+        0.9793639053254438,
+        0.98698224852071
+      ],
+      "nids_recall_mean": 0.06293706293706294,
+      "nids_recall_ci": [
+        0.048951048951048945,
+        0.07797202797202799
+      ],
+      "mean_recall_drop": 0.9199031737493275,
+      "recall_drop_ci": [
+        0.9021651425497581,
+        0.9351062399139323
+      ],
+      "cohens_dz": 43.51837790376467,
+      "cohens_dz_note": null
+    },
+    "ac": {
+      "detector": "ac",
+      "vision_recall_mean": 0.9922337278106509,
+      "vision_recall_ci": [
+        0.9831360946745562,
+        0.9993343195266272
+      ],
+      "nids_recall_mean": 0.0,
+      "nids_recall_ci": [
+        0.0,
+        0.0
+      ],
+      "mean_recall_drop": 0.9922337278106509,
+      "recall_drop_ci": [
+        0.9831360946745562,
+        0.9993343195266272
+      ],
+      "cohens_dz": 95.79088787628736,
+      "cohens_dz_note": null
+    }
+  },
+  "portability_at_matched_rate": {
+    "spectral": {
+      "detector": "spectral",
+      "vision_recall_mean": 0.9828402366863905,
+      "vision_recall_ci": [
+        0.9793639053254438,
+        0.98698224852071
+      ],
+      "nids_recall_mean": 1.0,
+      "nids_recall_ci": [
+        1.0,
+        1.0
+      ],
+      "mean_recall_drop": -0.017159763313609445,
+      "recall_drop_ci": [
+        -0.020636094674556203,
+        -0.013017751479289918
+      ],
+      "cohens_dz": -3.5608127604134316,
+      "cohens_dz_note": null
+    },
+    "ac": {
+      "detector": "ac",
+      "vision_recall_mean": 0.9922337278106509,
+      "vision_recall_ci": [
+        0.9831360946745562,
+        0.9993343195266272
+      ],
+      "nids_recall_mean": 1.0,
+      "nids_recall_ci": [
+        1.0,
+        1.0
+      ],
+      "mean_recall_drop": -0.0077662721893491105,
+      "recall_drop_ci": [
+        -0.016863905325443795,
+        -0.0006656804733727872
+      ],
+      "cohens_dz": -0.7497609561692263,
+      "cohens_dz_note": null
+    },
+    "note": "same paired comparison as portability, but the NIDS arm is the FIXED rate=0.1 (highest tested), cost=16 cell instead of the argmax-ASR cell within rate<=rate_cap. Contrasts against the D3 anchor to show whether the 'portability failure' at the low-rate anchor is rate-driven, not a hard modality wall"
+  },
+  "anchor_spectral_auc": {
+    "mean": 0.9908008004561374,
+    "ci": [
+      0.9895433603068579,
+      0.9916220542019415
+    ],
+    "note": "Spectral AUC at the D3 anchor cell (rate<=rate_cap, argmax-ASR, cost=anchor_cost). AUC measures ranking quality independent of the recall metric's fixed removal budget -- high AUC alongside low recall means the signal is present but the budget misses it"
+  },
+  "evasion_window": {
+    "asr_min": 0.8,
+    "recall_max": 0.5,
+    "cells": [
+      {
+        "rate": 0.005,
+        "cost": 8,
+        "mean_asr": 0.8923832923832924,
+        "mean_spectral_recall": 0.020279720279720283,
+        "mean_spectral_auc": 0.9756696370401882
+      },
+      {
+        "rate": 0.005,
+        "cost": 16,
+        "mean_asr": 1.0,
+        "mean_spectral_recall": 0.06293706293706294,
+        "mean_spectral_auc": 0.9908008004561374
+      },
+      {
+        "rate": 0.01,
+        "cost": 8,
+        "mean_asr": 0.8697788697788698,
+        "mean_spectral_recall": 0.037587412587412584,
+        "mean_spectral_auc": 0.9742747607254222
+      },
+      {
+        "rate": 0.01,
+        "cost": 16,
+        "mean_asr": 1.0,
+        "mean_spectral_recall": 0.44930069930069927,
+        "mean_spectral_auc": 0.9893579647402415
+      }
+    ],
+    "note": "cells where the clean-label trigger succeeds (ASR>=asr_min) but Spectral's fixed-budget removal rule (top 1.5x*expected_frac(n), src/detectors/spectral.py:40) recovers less than recall_max of the poison -- while AUC stays high, showing the ranking signal is present and the miss is a removal-budget artefact at low poison rate, not an absent signal"
+  },
+  "adaptive_threshold": {
+    "z_thresholds_tested": [
+      2.0,
+      2.5,
+      3.0
+    ],
+    "z_primary": 3.0,
+    "evasion_window_recall_mean": 1.0,
+    "evasion_window_recall_ci": [
+      1.0,
+      1.0
+    ],
+    "evasion_window_fpr_mean": 0.06584626608636418,
+    "evasion_window_fpr_ci": [
+      0.06392304774938325,
+      0.06743271659699315
+    ],
+    "control_cell_recall_mean": 1.0,
+    "control_cell_fpr_mean": 0.034389654965975534,
+    "n_seeds": 5,
+    "n_evasion_cells": 4,
+    "per_cell": [
+      {
+        "rate": 0.005,
+        "cost": 8,
+        "fixed_recall_mean": 0.020279720279720283,
+        "adaptive_recall_mean": 1.0,
+        "adaptive_fpr_mean": 0.06752119826453275
+      },
+      {
+        "rate": 0.005,
+        "cost": 16,
+        "fixed_recall_mean": 0.06293706293706294,
+        "adaptive_recall_mean": 1.0,
+        "adaptive_fpr_mean": 0.06701712063657803
+      },
+      {
+        "rate": 0.01,
+        "cost": 8,
+        "fixed_recall_mean": 0.037587412587412584,
+        "adaptive_recall_mean": 1.0,
+        "adaptive_fpr_mean": 0.06664193554224498
+      },
+      {
+        "rate": 0.01,
+        "cost": 16,
+        "fixed_recall_mean": 0.44930069930069927,
+        "adaptive_recall_mean": 1.0,
+        "adaptive_fpr_mean": 0.06220480990210094
+      },
+      {
+        "rate": 0.1,
+        "cost": 16,
+        "fixed_recall_mean": 1.0,
+        "adaptive_recall_mean": 1.0,
+        "adaptive_fpr_mean": 0.034389654965975534
+      }
+    ],
+    "note": "flag_by_mad_threshold (budget-free), NOT part of Tran et al. 2018's original algorithm -- tests whether a statistically-motivated threshold recovers recall where the fixed removal budget (flag_by_scores) misses it. Reported at z=3.0 (the strictest of 3 pre-registered thresholds -- all three achieved the same recall, so this is the least-false-positive choice, not cherry-picking). fpr = false positives / clean population size, using the exact n_false_positive count from evasion_ablation.json (not reconstructed from recall). per_cell is the mean-over-seeds breakdown fig5_adaptive_threshold plots directly."
+  },
+  "neural_cleanse": {
+    "nids_detection_rate": 0.36666666666666664,
+    "nids_detection_ci": [
+      0.2,
+      0.5333333333333333
+    ],
+    "vision_detection_rate": 1.0,
+    "vision_detection_ci": [
+      1.0,
+      1.0
+    ],
+    "note": "NC arms use different decision rules (MAD anomaly index at 10 vision classes vs binary mask-ratio at 2 NIDS classes) -- reported as two rates, NOT a paired d_z"
+  },
+  "h3": {
+    "spectral_imbalanced": [
+      0.8828731212862635,
+      [
+        0.8276826284515904,
+        0.9503320517301642
+      ]
+    ],
+    "spectral_balanced": [
+      0.25126353790613715,
+      [
+        0.1768953068592058,
+        0.36534296028880864
+      ]
+    ],
+    "ac_imbalanced": [
+      0.0006291506466270535,
+      [
+        0.0005592450192240476,
+        0.0006990562740300594
+      ]
+    ],
+    "ac_balanced": [
+      0.04909747292418772,
+      [
+        0.03971119133574007,
+        0.05703971119133574
+      ]
+    ],
+    "note": "does rebalancing training data rescue detector recall? if not, modality not imbalance drives the miss"
+  },
+  "h4": {
+    "lightgbm_no_activations": true,
+    "note": "LightGBM has no penultimate-feature representation and no gradient path -- Spectral/AC/NC cannot run on it. No row is reported for lgb; this is the H4 finding itself, not missing data."
+  },
+  "determinism": {
+    "n_determinism_checked": 125,
+    "n_determinism_failed": 0,
+    "determinism_all_ok": true
+  },
+  "rule_runtime_speedup_mean": 3.199536086234511,
+  "lgb_diagnostic": {
+    "n_target_predicted": 19,
+    "n_botnet_test": 407,
+    "fnr_floor_rate": 0.04668304668304668,
+    "target_predicted_set_identical": true,
+    "trigger_gain_share_mean": 0.09879574325684344,
+    "leaf_overlap_min": 0.05528255528255528,
+    "leaf_overlap_max": 0.4683783783783783,
+    "stamp_changed_predictions_mean": 6.4,
+    "mlp_contrast_stamp_changed": 386,
+    "mlp_contrast_asr": 1.0,
+    "mlp_contrast_n_botnet_test": 407,
+    "note": "The lgb 'ASR' of 0.0467 is n_target_predicted/n_botnet_test for a row set that is IDENTICAL across every configuration (target_predicted_set_identical) -- the victim's false-negative floor, not attack success. stamp_changed_predictions is the trigger's raw effect size: near-zero on lgb, near-total on the MLP (mlp_contrast). trigger_gain_share shows the trees DO split heavily on the trigger features, so this is not an ignored-feature story; leaf_overlap shows poisoned train rows and triggered test rows rarely share a leaf, which is the only channel a tree backdoor can travel."
+  },
+  "ac_mechanism": {
+    "n_evasion_cells": 20,
+    "n_zero_purity_cells": 12,
+    "n_near_zero_purity_cells": 6,
+    "n_full_recovery_cells": 2,
+    "evasion_minority_purity_mean": 0.04113932784737572,
+    "evasion_recall_mean": 0.1004807692307692,
+    "evasion_silhouette_mean": 0.9808945490124629,
+    "control_minority_purity_mean": 0.8148676680649072,
+    "control_recall_mean": 1.0,
+    "silhouette_recall_spearman": -0.5548923568337422,
+    "silhouette_recall_spearman_pvalue": 0.003989895723397704,
+    "note": "Measures Activation Clustering's 2-means split itself, NOT a ranked detector: AC has no score and no removal budget (it flags the smaller cluster), so there is no AUC and no threshold here. minority_size is |smaller cluster|, minority_purity is the share of that cluster which is truly poison, ac_recall is Chen et al.'s unchanged rule (the same quantity results/detectors.json reports), silhouette is AC's own split-confidence diagnostic (a seeded subsample estimate at ac_silhouette_sample points; the clustering and the mask are always on the full set). The reviewer-suggested MAD-threshold substitution was NOT run on AC: it was tested on a cluster-distance proxy that turned out to correlate with Spectral's own score at Spearman rho=0.9967, and both proxy and arm were removed -- see notes/20260716-decision-ac-proxy-not-independent.md. Recipe (n_components, silhouette_sample) matches scripts/05_run_detectors.py exactly."
+  },
+  "nc_mask_diagnostic": {
+    "vision_flagged_concentration_mean": 0.11639092612642443,
+    "tabular_flagged_concentration_mean": 0.09519140163826313,
+    "tabular_trigger_feature_mask_share_mean": 0.031895144959578015,
+    "trigger_feature_share_chance_level": 0.021136063408190225,
+    "vision_flags_backdoor_target_all_seeds": true,
+    "vision_flagged_mask_std_mean": 0.1716865262861213,
+    "tabular_flagged_mask_std_mean": 0.0030452942046005583,
+    "tabular_flagged_mask_std_max": 0.006892663933878761,
+    "tabular_flagged_mask_constant_all_seeds": false,
+    "mask_constant_atol": 1e-09,
+    "note": "QUALITATIVE diagnostic for Neural Cleanse's vision-to-tabular detection drop (1.0 on the MNIST control in results/vision_control.json, against the tabular NIDS rate in results/detectors.json), which the manuscript otherwise leaves unmechanised. It inspects the reverse-engineered masks themselves, kept via the `return_masks` flag on src/detectors/neural_cleanse.py. `concentration` is the share of a mask's total L1 held by its top-16 entries, 16 being the width of both the vision control's 4x4 corner patch and the anchor cell's 16-feature SHAP trigger: a compact vision patch concentrates, a smeared tabular reconstruction does not. `trigger_feature_mask_share` is the share of the flagged tabular mask's L1 landing on the features the attacker actually perturbed, and asks whether the inversion recovers the ACTUAL trigger against a chance level of 16/757 = 0.021. READ THOSE TWO TOGETHER WITH `flagged_mask_std`: when the flagged mask is CONSTANT (std == 0), both quantities equal the chance level k/D identically, by construction and not as a measurement that happens to coincide with chance. A constant mask means the inversion resolved no structure whatsoever, which is a stronger statement than a mask that smears -- the per-class `concentration` list shows whether the non-flagged class's mask did acquire structure, i.e. whether the inversion machinery itself works. Neural Cleanse REMAINS a hard-flag detector: no ranked score, threshold, or AUC is derived from these masks, and `mask_ratio` is recorded only because the inversion computes it -- no flag is re-decided here (tau is passed as inf). The vision arm rebuilds scripts/01_vision_control.py's victim at its exact config, and `vision_flags_backdoor_target_all_seeds` cross-checks it against that file's committed result; the tabular arm runs scripts/05_run_detectors.py's NC recipe, including its target-class-conditioned inversion sample. Non-finite ratios are stored as None, never Infinity, so this artefact stays strict RFC-8259 JSON for the macros SSOT. figures/fig6_nc_masks.pdf plots seed index 0 as an illustration; the 5-seed evidence is the summary block."
+  }
+}

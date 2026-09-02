@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref09_lin_bilinear_cnn_iccv2015",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 8,
+  "n_datasets": 3,
+  "n_seeds": null,
+  "n_eval_types": 3,
+  "n_baselines": 3,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": null,
+  "evidence": [
+    "Performance is measured as the fraction of correct image predictions for all datasets.",
+    "We report results on three fine-grained recognition datasets - birds, aircrafts, and cars",
+    "per-image accuracies for various methods are shown in Tab. 1",
+    "Fig. 5 shows the average precision-recall curves across the 200 classes for various models."
+  ],
+  "unresolved": [
+    "No seed count or repetition/trial count stated anywhere in the methodology; single reported accuracy per model/dataset cell with no error bars or std dev, so n_seeds left null rather than assumed 1.",
+    "n_models counted as the 8 method rows in Table 1 (FV-SIFT, FC-CNN[M], FC-CNN[D], FV-CNN[M], FV-CNN[D], B-CNN[M,M], B-CNN[D,M], B-CNN[D,D]); 'birds' vs 'birds+box' treated as an evaluation protocol on the same CUB-200-2011 dataset, not a fourth dataset.",
+    "n_baselines counted as the paper's own baseline methods (FV-SIFT, FC-CNN, FV-CNN) that it runs itself under identical settings, distinct from the many externally-cited 'previous work' numbers reproduced from other papers' tables.",
+    "n_eval_types counted as per-image classification accuracy, feature-extraction speed (FPS), and mean average precision/precision-recall curves (Sect 3.3); the qualitative 'common mistakes' confusion-pair analysis was not counted as a distinct quantitative eval type."
+  ]
+}

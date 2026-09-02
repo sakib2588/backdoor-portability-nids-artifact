@@ -1,0 +1,24 @@
+{
+  "paper_id": "ref14_pontes_inverse_potts_tnsm2021",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 8,
+  "n_datasets": 3,
+  "n_seeds": 10,
+  "n_eval_types": 2,
+  "n_baselines": 7,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "We compared EFC to five different ML classifiers: K-Nearest Neighbors (KNN)... Naive Bayes (NB), and Support Vector Machine (SVM)",
+    "we assessed the average performance of the classifiers over ten different test sets",
+    "average performance and standard error (95% confidence interval) of each classifier",
+    "The metrics used to compare the results were the F1 score and the area under the ROC curve (AUC)"
+  ],
+  "unresolved": [
+    "The paper reports averaging over 'ten different test sets' (random resampling of train/test splits), not explicit random seeds -- treated as n_seeds=10 (repetition/trial count) per schema instructions, but this is resampling of data splits rather than a stated RNG seed list.",
+    "No formal significance test (e.g. t-test) is reported; only mean +/- standard error (95% CI) per classifier per metric, so significance_test is null.",
+    "n_eval_types counted as 2 (F1 score, AUC); qualitative analyses (energy histograms, feature-pair heatmap breakdown) are descriptive/interpretability results, not distinct quantitative evaluation metrics, so not counted separately."
+  ]
+}

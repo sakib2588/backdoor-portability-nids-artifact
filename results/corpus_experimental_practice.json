@@ -1,0 +1,1423 @@
+{
+ "_schema": "corpus_experimental_practice",
+ "_generated_by": "scripts/32_experimental_practice_bands.py",
+ "_corpus_caveat": "50 papers, topic-matched, not venue-matched. Read as \"how this literature experiments\", never as \"the ICCIT norm\".",
+ "_n_records": 51,
+ "_n_reference": 50,
+ "_silent_on_seeds": [
+  "Adversarial Examples for Malware Detection",
+  "Automatically Evading Classifiers - A Case Study on PDF Malware Classifiers",
+  "BadNets_Evaluating_Backdooring_Attacks_on_Deep_Neural_Networks",
+  "Detecting Backdoor Attacks on Deep Neural Networks by",
+  "Detection of Malicious PDF Files Based on Hierarchical Document Structure",
+  "Dos and Don\u2019ts of Machine Learning",
+  "Exploring_Adversarial_Examples_in_Malware_Detection",
+  "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using",
+  "Learning to Evade Static PE Machine Learning Malware Models",
+  "NIPS-2017-a-unified-approach-to-interpreting-model-predictions-Paper",
+  "NeurIPS-2018-spectral-signatures-in-backdoor-attacks-Paper",
+  "Neural_Cleanse_Identifying_and_Mitigating_Backdoor_Attacks_in_Neural_Networks",
+  "Practical_Evasion_of_a_Learning-Based_Classifier_A_Case_Study",
+  "Rethinking Backdoor Detection Evaluation for Language Models",
+  "Robustness, Cost, and Attack-Surface",
+  "Towards Deep Learning Models Resistant to Adversarial Attacks",
+  "Towards_Evaluating_the_Robustness_of_Neural_Networks",
+  "Trojaning Attack on Neural Networks",
+  "ref03_li_iterative_msqrt_cvpr2018",
+  "ref05_koroniotis_botiot_fgcs2019",
+  "ref06_sharafaldin_cicids2017_icissp2018",
+  "ref09_lin_bilinear_cnn_iccv2015",
+  "ref10_li_second_order_iccv2017",
+  "ref11_gao_gsop_cvpr2019",
+  "ref12_wang_gcp_tpami2021",
+  "ref16_onuorah_ids_ieeeaccess2026",
+  "ref17_gueriani_resnet_bigru_arxiv2026",
+  "ref18_gueriani_vit_bilstm_arxiv2026",
+  "ref20_lundberg_shap_neurips2017",
+  "ref21_selvaraju_gradcam_iccv2017",
+  "ref22_li_adv_examples_survey_arxiv2024",
+  "ref23_ennaji_adv_challenges_ieeeaccess2025",
+  "ref24_madry_adv_training_iclr2018",
+  "ref25_elshehaby_pscore_jisa2026",
+  "ref26_awad_ensemble_defense_scirep2025"
+ ],
+ "_pure_survey_papers": [
+  "ref22_li_adv_examples_survey_arxiv2024",
+  "ref23_ennaji_adv_challenges_ieeeaccess2025"
+ ],
+ "ours": {
+  "paper_id": "OURS_backdoor_portability_nids",
+  "subcorpus": "ours",
+  "n_models": 3,
+  "n_datasets": 3,
+  "n_seeds": 5,
+  "n_eval_types": 8,
+  "n_baselines": 2,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": true,
+  "control_arm": "randomised-matched",
+  "evidence": [
+   "n_models=3: MLP victim, LightGBM victim (tabular), CNN vision-control victim.",
+   "n_datasets=3: CTU-13 Neris (primary), UNSW-NB15 (secondary/generalisation), MNIST (vision control).",
+   "5 seeds {42,123,456,789,1337}, bootstrap 95% CI (10,000 resamples), per project statistics protocol.",
+   "n_eval_types=8: ASR, detector poison-recall, ranking AUC, clean accuracy/botnet recall, false-positive rate, precision, Neural-Cleanse binary detection rate, reverse-engineered-mask localisation ratio.",
+   "n_baselines=2: Tran et al.'s fixed 1.5x removal-budget rule; an always-benign classifier baseline for clean-recall context.",
+   "control_arm=randomised-matched: H3 confound test down-samples benign to ~50/50 parity (matched-size control); a tabular positive control (loud, constraint-violating trigger) and the MNIST vision control also serve as reference arms."
+  ],
+  "unresolved": [
+   "n_models could alternatively be read as the 3 detectors under test (Spectral Signatures, Activation Clustering, Neural Cleanse) rather than the 3 victim architectures -- this record counts victims, matching the reference NDSS-corpus instrument's own convention of counting evaluated architectures, not defense methods.",
+   "no named parametric significance test by explicit project protocol (bans t-test/ANOVA/Wilcoxon at n<=30); bootstrap CIs and Cohen's d_z reported instead, which the schema's significance_test field does not capture -- see reports_variability=table and the paper's stats protocol instead."
+  ]
+ },
+ "records": {
+  "Adversarial Examples for Malware Detection": {
+   "paper_id": "Adversarial Examples for Malware Detection",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 4,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "we manage to mislead this classifier for 63% of all malware samples",
+    "We further bound the number of features to k = 20",
+    "original networks are the baseline",
+    "Regular network's performance is given as baseline, indicated by horizontal lines"
+   ],
+   "unresolved": [
+    "n_models=1: one fixed architecture (2 hidden layers, 200 neurons) trained under 3 malware-ratio configurations (0.3/0.4/0.5); unclear if these ratio variants should count as separate models -- treated as 1 architecture, 3 training configs, not 3 models",
+    "No seed, trial, or repetition count is stated anywhere in the paper -- results in Table 1 and Figs 2-3 appear to be single runs per configuration",
+    "n_baselines=4 counts literature-reported comparison numbers (Sayfullina et al., Arp et al., Zhu et al., Saxe and Berlin) used for accuracy/FNR/FPR context in Table 1 and Section 4.1 -- these are not re-run by the authors, only cited figures from prior work",
+    "n_eval_types=5 counts Accuracy, FNR, FPR, misclassification rate (MR), and average distortion (Dist.) as reported in Table 1"
+   ]
+  },
+  "Automatically Evading Classifiers - A Case Study on PDF Malware Classifiers": {
+   "paper_id": "Automatically Evading Classifiers - A Case Study on PDF Malware Classifiers",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 2,
+   "n_datasets": 2,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 0,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "Our method is able to automatically find evasive variants for both classifiers for all of the 500 malicious seeds",
+    "The population size is 48 and the maximum generation is 20. The mutation rate is 0.1.",
+    "We tested the 500 malware seeds in Cuckoo virtual machines, running each seed ten times.",
+    "For 388 of the malware seeds, the evasive variants found by evading Hidost are also effective in evading PDFrate."
+   ],
+   "unresolved": [
+    "No statistical random-seed/repetition count is stated for the main GP evasion algorithm itself -- 'seed' in this paper means a malware sample, not a stochastic run seed, so n_seeds is left null rather than defaulted to 1.",
+    "The only repeated-trial variability reported (Table II: average/minimum signature consistency over 10 Cuckoo executions) concerns oracle signature selection, not the main evasion-rate results, which are reported as single point values (e.g. 100% evasion rate) with no error bars or CI.",
+    "n_datasets counted as 2 (Contagio malware archive; 179 Google-collected benign PDFs used as external-object source) -- these are not independent benchmark datasets in the usual ML sense but the two sample pools the experiment draws from.",
+    "n_eval_types (5: evasion rate, mutation-trace length/efficacy analysis, feature-impact analysis, cross-evasion transferability, execution-time/cost) is a judgment call over distinct analyses reported in Results, not an explicitly enumerated list by the authors."
+   ]
+  },
+  "BadNets_Evaluating_Backdooring_Attacks_on_Deep_Neural_Networks": {
+   "paper_id": "BadNets_Evaluating_Backdooring_Attacks_on_Deep_Neural_Networks",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 2,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 4,
+   "n_baselines": 0,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "The baseline CNN achieves an accuracy of 99.5% for MNIST digit recognition.",
+    "We tried all 90 instances of this attack, for every combination of i, j in [0, 9] where i is not j.",
+    "The baseline F-RCNN network is trained on the U.S. traffic signs dataset containing 8612 images",
+    "We implement our attack by poisoning the training dataset"
+   ],
+   "unresolved": [
+    "No seed/repetition count is stated anywhere; attacks appear run once per configuration (per digit pair, per trigger, per k value), so n_seeds is null rather than 1.",
+    "n_models=2 counts distinct architectures (baseline MNIST CNN; Faster-RCNN for traffic signs). The Swedish BadNet reuses the F-RCNN convolutional backbone with retrained FC layers via transfer learning, so it was not counted as a third distinct architecture -- could reasonably be argued as 3 if transfer-learned variants count separately.",
+    "n_eval_types=4 (clean-set accuracy/error, backdoor-set accuracy/attack success rate, convolutional-filter/activation visualization analysis, online-repository security audit); the real-world physical Post-it demonstration was treated as an instance of the backdoor-accuracy evaluation rather than a separate eval type.",
+    "n_baselines=0: the paper only compares BadNets against an honestly-trained (clean) reference network of identical architecture, not against any competing prior attack method."
+   ]
+  },
+  "DREBIN - Effective and Explainable Detection of Android Malware in Your Pocket": {
+   "paper_id": "DREBIN - Effective and Explainable Detection of Android Malware in Your Pocket",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 1,
+   "n_seeds": 10,
+   "n_eval_types": 3,
+   "n_baselines": 13,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "We repeat this procedure 10 times and average results.",
+    "randomly split the dataset into a known partition (66%) and an unknown partition (33%)",
+    "we conduct the following three experiments: 1) Detection performance... 2) Explainability... 3) Run-time performance",
+    "we also compare it against the ten selected anti-virus scanners on our dataset"
+   ],
+   "unresolved": [
+    "n_models=1 counts DREBIN's own linear-SVM detector; the paper is not a multi-model benchmark of its own architectures.",
+    "n_datasets=1: the 'Malgenome' row in Table II is a labelled subset of the same 123,453+5,560 collection, not an independently sourced dataset, so it was not counted separately.",
+    "n_seeds=10 reflects the 10 random known/unknown partition repeats used for the main detection-performance experiment (Section III-B); this is a repetition count, not a random-seed list, and it is unclear whether the same 10x repetition was used for the explainability and run-time experiments.",
+    "n_baselines=13 = 3 static-analysis related approaches (Kirin, RCP/Sarma et al., Peng et al.) + 10 commercial anti-virus scanners; not all are run under identical protocols (AV detection results were pulled from VirusTotal, not re-implemented).",
+    "reports_variability='none': the paper states results are averaged over 10 repeats but never reports a spread (std/CI/range) around that average.",
+    "control_arm treated as 'none' because this is a malware-detection paper, not a poisoning/backdoor study; the clean/poisoned control-arm concept does not apply to its methodology."
+   ]
+  },
+  "Detecting Backdoor Attacks on Deep Neural Networks by": {
+   "paper_id": "Detecting Backdoor Attacks on Deep Neural Networks by",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 6,
+   "n_baselines": 1,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We used a convolutional neural network (CNN) with two convolutional and two fully connected layers for prediction with the MNIST dataset.",
+    "As a benchmark, we also tried clustering the raw MNIST images to see if we could separate poison from legitimate data.",
+    "Both accuracy and F1 score are nearly 100% for every class.",
+    "we applied each method to activation clusters obtained from both poisoned and clean versions of MNIST, LISA, and Rotten Tomatoes models"
+   ],
+   "unresolved": [
+    "No seed count or repetition count for training runs is ever stated; each experiment (MNIST, LISA, Rotten Tomatoes) appears to be a single run, so n_seeds is left null rather than assumed to be 1.",
+    "n_models counted as 3 (MNIST CNN with 2 conv + 2 FC layers, LISA variant of Simonyan and Zisserman's Architecture A, Rotten Tomatoes text CNN from Britz/Kim) -- these are the classifiers the AC detection method is applied to, not competing detection methods.",
+    "n_eval_types counted as 6 (detection Accuracy, detection F1 score, ExRe score, relative cluster-size comparison, silhouette score, backdoor-repair test error before/after retraining). The gap statistic is mentioned as attempted for cluster-count comparison but reported as 'largely unsuccessful' and not tabulated, so it was not counted as a reported eval type.",
+    "n_baselines = 1: raw-pixel 2-means clustering (no activation extraction) on MNIST only, used as a benchmark against AC; no experimental comparison to other published backdoor-detection methods (e.g. Liu et al. fine-pruning) is run in this paper, only discussed in related work.",
+    "No confidence intervals, standard deviations, or significance tests appear anywhere in the results; all reported numbers (Tables 1-4) are single point-estimate percentages."
+   ]
+  },
+  "Detection of Malicious PDF Files Based on Hierarchical Document Structure": {
+   "paper_id": "Detection of Malicious PDF Files Based on Hierarchical Document Structure",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 2,
+   "n_datasets": 6,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 5,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "training and classification data are intermixed using 5-fold cross-validation",
+    "we selected the radial basis function (RBF) kernel with gamma = 0.0025 and a cost parameter C = 12",
+    "a total of 658,763 benign and malicious PDF files (around 595 GB)",
+    "We have chosen a modern decision tree inference implementation C5.0"
+   ],
+   "unresolved": [
+    "n_models counted as 2 (decision tree, SVM); the paper also separately analyses a linear-kernel SVM vs RBF-kernel SVM in the evasion section (Section 6), which could be read as a third variant rather than a hyperparameter choice of the same SVM model.",
+    "n_datasets counted as 6 (D1-D6, the named VirusTotal/Google sub-collections the paper itself enumerates in Section 5.1); the paper also frames all of them as one combined ~660,000-file corpus, so 1 is a defensible alternative reading.",
+    "n_seeds is null: the paper uses 5-fold cross-validation (not seeded repetitions/trials) and states no random-seed or repeat-run count.",
+    "n_baselines counted as 5 (PJScan, MDScan, ShellOS, MalwareSlayer, commercial antivirus engines as a group); of these only PJScan and the VirusTotal antivirus engines are directly run/compared by the authors -- MDScan, ShellOS and MalwareSlayer are compared only via cited literature numbers in Table 4, not re-run. The 43 individual antivirus engines (Figure 5) could alternatively be counted as separate baselines rather than one group.",
+    "control_arm set to 'none': this is a malware-detection paper, not a backdoor/poisoning paper, so the clean-vs-poisoned control-arm concept does not map cleanly; there is no unpoisoned reference arm of the type the schema targets."
+   ]
+  },
+  "Dos and Don\u2019ts of Machine Learning": {
+   "paper_id": "Dos and Don\u2019ts of Machine Learning",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 9,
+   "n_datasets": 5,
+   "n_seeds": null,
+   "n_eval_types": 7,
+   "n_baselines": 3,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We conduct a study of 30 papers from top-tier security conferences within the past 10 years",
+    "The standard deviation of the results ranges between 0\u20133 %.",
+    "an SVM with 3-grams yields the best performance with an 18\u00d7 smaller model",
+    "the simple boxplot method outperforms the autoencoder ensemble at low false-positive rates (FPR)"
+   ],
+   "unresolved": [
+    "This is a methodology/critique paper, not a single-benchmark evaluation: n_models=9 and n_datasets=5 are sums across four unrelated case studies (4.1 mobile malware/AndroZoo+DREBIN with 2 SVM variants; 4.2 vulnerability discovery/Li et al. dataset with VulDeePecker+SVM+AutoSklearn; 4.3 authorship attribution/GCJ2017 with Abuhamad et al. and Caliskan et al. methods; 4.4 intrusion detection/Mirai dataset with KITSUNE+boxplot), so the counts do not represent one coherent evaluation grid.",
+    "No repetition/seed count is stated for any of the four case-study experiments; Table 1's caption reports 'standard deviation of the results ranges between 0-3%' without specifying how many runs/seeds produced that spread, so n_seeds is left null rather than assumed.",
+    "control_arm='clean' is an approximate mapping: this paper has no poisoning/backdoor setting. The closest analog is the 'correctly-labelled dataset' used as the clean reference point in Appendix A's label-noise cleansing experiment (Table 6, compared against a noisy and a cleansed variant).",
+    "n_baselines=3 counts only explicit baseline-vs-proposed-method comparisons introduced by the authors (SVM n-gram and AutoSklearn vs VulDeePecker in Section 4.2; boxplot method vs KITSUNE in Section 4.4). The Section 4.1 DREBIN/OPSEQS SVMs and Section 4.3 attribution methods are the primary objects of study rather than baselines, so they are excluded from this count.",
+    "The prevalence analysis (Section 3, 30 papers reviewed with inter-rater alpha=0.832) and the 49-author survey are the paper's other major empirical components but are not model/dataset evaluations, so they are not reflected in n_models/n_datasets."
+   ]
+  },
+  "Evasion Attacks against Machine Learning at Test Time": {
+   "paper_id": "Evasion Attacks against Machine Learning at Test Time",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 2,
+   "n_seeds": 5,
+   "n_eval_types": 1,
+   "n_baselines": 0,
+   "reports_variability": "figure",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We randomly split the data into five pairs of training and testing sets with 500 samples each to average the final results.",
+    "we report the average FN value \u00b1 half standard deviation (shown with error bars)",
+    "For dmax = 0, the FN rate corresponds to a standard performance evaluation using unmodified PDFs.",
+    "we used a PDF corpus with 500 malicious samples from the Contagio dataset and 500 benign samples collected from the web"
+   ],
+   "unresolved": [
+    "n_seeds=5 is inferred from 'five pairs of training and testing sets' (PDF experiment) and 'five surrogate classifiers' per split, not from an explicit seed list like {42,123,...}; paper never uses the word 'seed'.",
+    "n_models=3 counts linear SVM, RBF-kernel SVM, and single-hidden-layer neural network (all evaluated on PDF task); the MNIST toy example uses only a linear SVM and is illustrative, not a quantitative benchmark run.",
+    "n_eval_types=1: only FN rate at fixed FP=0.5% vs. d_max is reported as a quantitative metric; the MNIST digit visualization (Fig. 3) is qualitative/illustrative, not counted as a separate eval type.",
+    "n_baselines=0: the paper compares its own attack across classifiers/parameter settings and PK vs LK knowledge levels, but does not compare against a prior evasion-attack baseline method."
+   ]
+  },
+  "Explanation-Guided Backdoor Poisoning Attacks Against Malware Classifiers": {
+   "paper_id": "Explanation-Guided Backdoor Poisoning Attacks Against Malware Classifiers",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 3,
+   "n_seeds": 5,
+   "n_eval_types": 5,
+   "n_baselines": 0,
+   "reports_variability": "prose",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "All the attacks were repeated for 5 times and the tables report average results.",
+    "Performance metrics for both clean models (before the attacks are performed) on the EMBER test set (Table 2)",
+    "there appears to be a large amount of variance in the attack effectiveness at lower poison percentages",
+    "We evaluate three mitigation strategies over a reduced feature space obtained by selecting a fixed number (32) of the most important features."
+   ],
+   "unresolved": [
+    "n_models=4 counts LightGBM, EmberNN, Random Forest (Contagio), Linear SVM (Drebin); surrogate models used in transfer attacks are the same architectures, not additional distinct models.",
+    "n_baselines=0: the paper compares its own attack-strategy variants (Independent x{MinPopulation,CountAbsSHAP}, Combined) against each other, not against prior published attack baselines (states theirs is the first model-agnostic backdoor method for feature-based classifiers); the 3 mitigation methods (Spectral Signatures, HDBSCAN, Isolation Forest) are defenses evaluated against the attack, not attack baselines, so were not counted here.",
+    "n_eval_types=5 is a judgment call: Acc(Fb,Xb), Acc(Fb,X), FPb, dynamic-analysis behavior/label-preservation testing, and mitigation/defense detection efficacy (Poisons Removed / Goodware Removed) were counted as distinct evaluation types; clean-model baseline metrics (F1, FP rate, FN rate in Table 2) were treated as part of the clean control arm rather than a separate eval type.",
+    "'5 times' repetition (Appendix A.1, Tables 6-8) is explicitly stated only for the EMBER/LightGBM/EmberNN trigger-size x poison-rate sweep; no repetition count is stated for the Contagio/Drebin (Figure 5) or mitigation (Table 3) experiments, so n_seeds=5 may not apply uniformly across all reported results."
+   ]
+  },
+  "Exploring_Adversarial_Examples_in_Malware_Detection": {
+   "paper_id": "Exploring_Adversarial_Examples_in_Malware_Detection",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 3,
+   "n_baselines": 2,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "To evaluate the success of evasion attacks against the Mal-Conv architecture we utilize three datasets.",
+    "We randomly pick 400 candidates and measure the effectiveness of the attacks using the Success Rate (SR)",
+    "achieves an accuracy of 0.89 and an AUC of 0.97",
+    "At most 2/400 samples evade the target model for each set of experiments"
+   ],
+   "unresolved": [
+    "Single architecture (MalConv) is trained/evaluated on three datasets (Mini, EMBER, Full); n_models=1 counts the architecture, not the three per-dataset trained instances -- could arguably be read as 3.",
+    "No random-seed or repetition count is stated anywhere for training or the 400-sample attack evaluation; n_seeds left null per rule.",
+    "n_baselines=2 counts Random Append and Gradient Append (both from Kolosnjaji et al., reproduced as prior-work attacks); Benign Append, FGM Append, and Slack FGM are this paper's own novel attacks, not baselines.",
+    "control_arm='clean' reflects the Section III baseline (unattacked) accuracy/AUC reported before attacks are applied; this is a test-time evasion paper, not a backdoor/poisoning paper, so no poisoned-vs-clean arm exists in the backdoor sense.",
+    "No variability measures (std dev, CI, error bars) or significance tests appear anywhere in the paper; all results are single point estimates (percentages, accuracy, AUC)."
+   ]
+  },
+  "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using": {
+   "paper_id": "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 2,
+   "n_baselines": 3,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "we selected SL2013 [36], Hidost [38] and two variants of PDFRate [35] (termed PDFRate-R and PDFRate-B respectively)",
+    "The dataset we use is from the Contagio Archive... We use 5,586 malicious and 4,476 benign PDF files for training",
+    "We evaluate performance in two ways: 1) evaluation of evasion robustness... and 2) traditional evaluation",
+    "we compute the proportion of 100 malicious test seed PDFs for which EvadeML successfully evades the classifier"
+   ],
+   "unresolved": [
+    "n_seeds left null: the paper's '40/100 seeds' refers to malicious PDF seed files used to generate evasion instances, not repetition/random seeds for statistical variance; no repeated-trial or random-seed count is stated for the ML training itself.",
+    "n_baselines set to 3 (original undefended classifier, RAR, FSR) as the core comparison arms against the proposed CFR method; the paper also reports several ablation/ancillary classifiers (CF-only, l1-regularized Linear, single-feature JS, and the CFR-JS expert-feature variant) that could arguably also count as baselines/comparison points depending on definition.",
+    "n_eval_types set to 2 per the paper's own explicit framing ('We evaluate performance in two ways'), though within 'traditional evaluation' it separately reports ROC/AUC and also TPR/FPR/FNR at fixed thresholds.",
+    "No confidence intervals, standard deviations, or multi-run statistics are reported anywhere; all robustness/AUC figures appear to be single-run point estimates presented as bar/ROC figures.",
+    "'control_arm' coded as 'clean' because the paper's 'non-adversarial test data' ROC/AUC evaluation serves as the clean-performance reference arm alongside the adversarial evasion-robustness evaluation; this is not a poisoning-defense clean/backdoor control in the strict sense, since this paper is about test-time evasion, not training-time backdoors."
+   ]
+  },
+  "Intriguing_Properties_of_Adversarial_ML_Attacks_in_the_Problem_Space": {
+   "paper_id": "Intriguing_Properties_of_Adversarial_ML_Attacks_in_the_Problem_Space",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 2,
+   "n_datasets": 1,
+   "n_seeds": 1,
+   "n_eval_types": 5,
+   "n_baselines": 0,
+   "reports_variability": "figure",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "We consider only one split due to the overall time required to run the experiments.",
+    "we achieve a misclassification rate of 100.0% on the successfully generated apps",
+    "The final dataset contains ~170K recent Android applications... 152,632 goodware and 17,625 malware.",
+    "Fig. 5. Violin plots of injection times per adversarial app."
+   ],
+   "unresolved": [
+    "n_seeds=1 reflects the paper's explicit statement of using a single random train/test split (not a model-training seed count); no repeated-trial or multi-seed protocol is used anywhere in the experiments.",
+    "n_models=2 counts the two target classifiers evaluated (DREBIN linear SVM, Sec-SVM hardened variant); Table I's cross-domain comparison of prior attacks (images, audio, text, PDF, Windows, etc.) is related-work description via the paper's formalization, not this paper's own experiments, so those rows were excluded.",
+    "n_baselines=0 because no other attack method is empirically run for comparison in the experiments section; Rosenberg et al. and Yang et al. are discussed only qualitatively (Table I formalization and Related Work prose), not re-implemented or benchmarked on the same dataset.",
+    "reports_variability='figure' reflects population-level distributions across test malware (Fig. 3 feature-count CDF, Fig. 4 app-statistics CDF, Fig. 5 violin plot of injection times), not run-to-run/seed variability, since only one split was used."
+   ]
+  },
+  "Learning to Evade Static PE Machine Learning Malware Models": {
+   "paper_id": "Learning to Evade Static PE Machine Learning Malware Models",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 4,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 1,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "we attack a gradient boosted decision tree model trained on 100,000 malicious and benign samples",
+    "50K randomly selected malware samples from Virus Share, 2.6K ransomware samples downloaded from VirusTotal",
+    "For comparison, we use an attack in the same environment using randomized action with no RL agent",
+    "showing the median number of VirusTotal detections before and after mutation using agent mutations and random mutations"
+   ],
+   "unresolved": [
+    "No stated seed count or repeat-trial count for training the four ACER agents; n_seeds left null rather than assumed 1.",
+    "reports_variability set to 'none': paper reports medians (mutation counts, VirusTotal detection ratios) and percentages but no std/CI/error bars anywhere.",
+    "n_eval_types=5 counted as: (1) training-time evasion rate/budget (Table 1), (2) holdout generalization evasion rate vs random (Table 2), (3) dominant-mutation analysis (Table 3), (4) VirusTotal cross-evasion (Table 4), (5) adversarial-training model-hardening test; could be argued as fewer if training-budget count is not treated as a separate eval type."
+   ]
+  },
+  "Malicious PDF Detection using Metadata and StructuralFeatures": {
+   "paper_id": "Malicious PDF Detection using Metadata and StructuralFeatures",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 2,
+   "n_seeds": 5,
+   "n_eval_types": 5,
+   "n_baselines": 3,
+   "reports_variability": "figure",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "Table 2 compares Random Forest classification performance to that of Support Vector Machine and Naive Bayes",
+    "The average and 95% confidence interval of the classification error of multiple randomly selected subsets of features",
+    "The average of the results of 5 independent trials using 10-fold cross validation is presented",
+    "the results of using PJScan are presented ... we only used ben/mal classification to separate malicious from benign"
+   ],
+   "unresolved": [
+    "n_models=3 counts Naive Bayes, Random Forest, and SVM as classifiers this paper itself trains/evaluates (Table 2); Random Forest is the headline model used throughout the rest of the paper.",
+    "n_baselines=3 counts Naive Bayes, SVM, and PJScan as comparison points against the Random Forest result; there is overlap with n_models since NB/SVM are both internally-evaluated alternatives and comparison baselines -- the paper does not clearly separate these roles.",
+    "n_seeds=5 ('5 independent trials using 10-fold cross validation') is stated only for the mimicry-effectiveness (Table 10) and perturbation (Table 12) adversarial-analysis experiments; the primary ben/mal and opp/tar classification results (Tables 3-6, Figures 3-6) use 10-fold cross-validation but do not state a repeated-trial count.",
+    "control_arm='clean' is a best-fit mapping: this is a malware-classification paper (benign vs malicious PDFs), not a backdoor-attack-on-ML-models paper, so the benign document set serves as the natural clean reference class rather than a clean-vs-poisoned-model control.",
+    "reports_variability='figure' reflects the explicit 95% CI in Figure 2; Tables 2, 10, and 12 report only averages across repeated runs/trials without an explicit spread statistic.",
+    "n_eval_types=5 approximates distinct evaluation angles (ROC/TP-FP classification performance, new-variant/generalization detection, computational complexity/runtime, adversarial mimicry-and-perturbation robustness, comparison to the PJScan baseline); boundaries between these categories are not sharply drawn by the paper itself."
+   ]
+  },
+  "Manipulating_Machine_Learning_Poisoning_Attacks_and_Countermeasures_for_Regression_Learning": {
+   "paper_id": "Manipulating_Machine_Learning_Poisoning_Attacks_and_Countermeasures_for_Regression_Learning",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 3,
+   "n_seeds": 5,
+   "n_eval_types": 2,
+   "n_baselines": 5,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We use the standard cross-validation method to split the datasets into 1/3 for training, 1/3 for testing, and 1/3 for validation, and report results as averages over 5 runs.",
+    "we evaluate our attacks and defenses extensively on four regression models (OLS, LASSO, ridge, and elastic net)",
+    "We use two main metrics for evaluating our algorithms: MSE for the effectiveness of the attacks and defenses, and running time for their cost.",
+    "We find that Chen has highly variable performance, having MSE increases of up to a factor of 63,087 over the no defense models"
+   ],
+   "unresolved": [
+    "n_baselines is compound: 1 baseline attack (BGD, adapted from Xiao et al.) for the attack evaluation, plus 4 baseline defenses (Huber, RANSAC, Chen, RONI) for the defense evaluation; reported as 5 total distinct comparison methods across both axes.",
+    "n_datasets counts only the three regression datasets used in the main evaluation (health care, loan, house pricing); the Contagio PDF classification dataset appears only in Appendix C as a reproduction of the Xiao et al. baseline attack in a classification setting, not part of the paper's own regression attack/defense evaluation.",
+    "n_eval_types set to 2 (MSE, running time) as the paper explicitly states these as 'two main metrics'; additional reported analyses (transferability ratio, dosage-change quantiles in the health case study) are derivatives of MSE rather than distinct metrics, so they were not counted separately.",
+    "reports_variability set to 'none' because MSE/running-time results in tables and figures appear to be single averaged values over the 5 runs with no std dev, CI, or error bars shown; variability is only discussed qualitatively in prose for the Chen defense's instability, not for the paper's own attack/defense results.",
+    "n_models could arguably be read as 5 if the classification models implicit in the Appendix C PDF baseline reproduction are counted, but that appendix reuses the classification setting only to validate BGD against Xiao et al., not as a distinct model evaluated across the main study."
+   ]
+  },
+  "NIPS-2017-a-unified-approach-to-interpreting-model-predictions-Paper": {
+   "paper_id": "NIPS-2017-a-unified-approach-to-interpreting-model-predictions-Paper",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 3,
+   "n_baselines": 3,
+   "reports_variability": "figure",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "The 10th and 90th percentiles are shown for 200 replicate estimates at each sample size.",
+    "we compared explanations from LIME, DeepLIFT, and SHAP with user explanations of simple models (using Amazon Mechanical Turk)",
+    "Human feature impact estimates are shown as the most common explanation given among 30 (A) and 52 (B) random individuals",
+    "SHAP and LIME were both run with 50k samples ... LIME was modified to use single pixel segmentation over the digit pixels"
+   ],
+   "unresolved": [
+    "n_models=4 counts distinct method families experimentally benchmarked in Section 5 (LIME, DeepLIFT, Shapley sampling values, SHAP/Kernel SHAP); Deep SHAP and Max SHAP are proposed but not separately benchmarked with results, and Section 5.3 distinguishes 'Orig. DeepLIFT' vs 'New DeepLIFT' as two variants -- paper never states a single explicit model count.",
+    "n_datasets=1 counts only the named MNIST digit dataset (Section 5.3); Sections 5.1-5.2 use synthetic/simulated decision-tree models and toy scenarios (sickness score, max-allocation game) with no named dataset, so the true count of 'datasets' depends on whether synthetic simulated settings are counted.",
+    "No seed or repetition count is stated anywhere; Figure 3 reports '200 replicate estimates' (a sampling-estimate count, not a random-seed count), so n_seeds is left null rather than imputed.",
+    "No formal significance test (p-value, CI test) is reported anywhere in the paper; agreement with human explanations is assessed only via majority/most-common response tallies (Figure 4), not a stated statistical test."
+   ]
+  },
+  "NeurIPS-2018-spectral-signatures-in-backdoor-attacks-Paper": {
+   "paper_id": "NeurIPS-2018-spectral-signatures-in-backdoor-attacks-Paper",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 2,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 4,
+   "n_baselines": 0,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": true,
+   "control_arm": "clean",
+   "evidence": [
+    "We also reran the experiments multiple times with different random choices for the attacks.",
+    "we choose 4 pairs of labels by hand... and 4 pairs randomly",
+    "a standard trained network on a clean training set classifies a clean test set with accuracy 92.67%",
+    "The results for VGG are provided in Table 5 of the supplementary materials."
+   ],
+   "unresolved": [
+    "No explicit numeric seed/trial count given for the reruns ('reran the experiments multiple times with different random choices'); could not confidently set n_seeds.",
+    "VGG results are described only qualitatively in the main text ('qualitatively similar') with numeric values deferred to a supplementary Table 5 not present in this markdown extraction, so full per-model comparability is unresolved.",
+    "No formal std-dev/CI/error-bar reporting found; Table 1 and Table 2 give point statistics per attack configuration, not variability measures across repeated trials."
+   ]
+  },
+  "NeurIPS-2024-tabularbench-benchmarking-adversarial-robustness-for-tabular-deep-learning-in-real-world-use-cases-Paper-Datasets_and_Benchmarks_Track": {
+   "paper_id": "NeurIPS-2024-tabularbench-benchmarking-adversarial-robustness-for-tabular-deep-learning-in-real-world-use-cases-Paper-Datasets_and_Benchmarks_Track",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 5,
+   "n_datasets": 5,
+   "n_seeds": 5,
+   "n_eval_types": 7,
+   "n_baselines": 1,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "Our study covers five real-world use cases, five architectures, and six data augmentation mechanisms totaling more than 200 models.",
+    "Table 10: Detailed results of adversarial robustness with constrained (CTR) and unconstrained attacks (ADV) across our 5 seeds.",
+    "Table 7: Execution time of CAA in seconds, averaged over 5 seeds with 95 confidence interval.",
+    "We report the mean, standard deviation, and the 95% confidence intervals in the appendix B."
+   ],
+   "unresolved": [
+    "n_eval_types counted as AUC, Accuracy, Precision, Recall, MCC, Robust/attacked Accuracy, and Execution time; the paper does not enumerate 'evaluation types' as a fixed list so this is an interpretive count.",
+    "n_baselines set to 1 (XGBoost, used only as an ID-performance shallow-model comparison in Table 6); the paper is primarily an architecture x defense benchmark rather than a baseline-vs-proposed-method comparison, so this framing may not map cleanly.",
+    "per_seed_values_given is false because Tables 7 and 10 report mean/std/95% CI aggregated over the 5 seeds; no table listing each individual seed's raw value was found.",
+    "No explicit significance test (e.g., t-test) was found; only Pearson correlation coefficients (not a significance test) are reported for ID-vs-robust performance relationships."
+   ]
+  },
+  "Neural_Cleanse_Identifying_and_Mitigating_Backdoor_Attacks_in_Neural_Networks": {
+   "paper_id": "Neural_Cleanse_Identifying_and_Mitigating_Backdoor_Attacks_in_Neural_Networks",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 6,
+   "n_datasets": 5,
+   "n_seeds": null,
+   "n_eval_types": 7,
+   "n_baselines": 1,
+   "reports_variability": "figure",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "Figure 3 shows the anomaly index for all 6 infected, and their matching original (clean) models, covering both BadNets and Trojan Attack.",
+    "Fine-Pruning [15] removes backdoors... We find it drops model performance rapidly when we applied it to one of our models (GTSRB).",
+    "Fig. 4. L1 norm of triggers for infected and uninfected labels in backdoored models. Box plot shows min/max and quartiles.",
+    "Fig. 13. Anomaly index of each infected GTSRB model when increasing the size of the original trigger (results averaged over 10 rounds)."
+   ],
+   "unresolved": [
+    "No global seed/trial count is stated for the paper's core results (Table II, Figure 3, Table III/IV are each single runs); only specific robustness sub-experiments in Section VII (Figures 13 and 15) state 'results averaged over 10 rounds', so n_seeds is left null rather than imputed.",
+    "n_models=6 counts distinct infected models evaluated (MNIST, GTSRB, YouTube Face, PubFig, Trojan Square, Trojan Watermark); Trojan Square and Trojan Watermark share the same VGG-Face architecture/dataset but are distinct infected model instances from prior work.",
+    "n_eval_types=7 approximates distinct metrics/analyses used across the paper (attack success rate, classification accuracy, anomaly index/outlier detection, trigger L1-norm/visual similarity, filter FPR/FNR, neuron-activation similarity incl. IoU, computation cost/time) -- boundaries between 'metric' and 'analysis' are somewhat judgment calls.",
+    "n_baselines=1 counts only Fine-Pruning as an externally sourced comparison method empirically tested by the authors; the 'unlearning with original trigger' and 'unlearning with clean images only' conditions in Table IV are ablations of the authors' own method rather than external baselines, so they were not counted.",
+    "The MAD-based anomaly index (with a normal-distribution constant estimator, threshold=2, '>95% probability of being an outlier') functions as an outlier-detection decision rule, not a formal significance test between experimental conditions, so significance_test is left null."
+   ]
+  },
+  "OURS_backdoor_portability_nids": {
+   "paper_id": "OURS_backdoor_portability_nids",
+   "subcorpus": "ours",
+   "n_models": 3,
+   "n_datasets": 3,
+   "n_seeds": 5,
+   "n_eval_types": 8,
+   "n_baselines": 2,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": true,
+   "control_arm": "randomised-matched",
+   "evidence": [
+    "n_models=3: MLP victim, LightGBM victim (tabular), CNN vision-control victim.",
+    "n_datasets=3: CTU-13 Neris (primary), UNSW-NB15 (secondary/generalisation), MNIST (vision control).",
+    "5 seeds {42,123,456,789,1337}, bootstrap 95% CI (10,000 resamples), per project statistics protocol.",
+    "n_eval_types=8: ASR, detector poison-recall, ranking AUC, clean accuracy/botnet recall, false-positive rate, precision, Neural-Cleanse binary detection rate, reverse-engineered-mask localisation ratio.",
+    "n_baselines=2: Tran et al.'s fixed 1.5x removal-budget rule; an always-benign classifier baseline for clean-recall context.",
+    "control_arm=randomised-matched: H3 confound test down-samples benign to ~50/50 parity (matched-size control); a tabular positive control (loud, constraint-violating trigger) and the MNIST vision control also serve as reference arms."
+   ],
+   "unresolved": [
+    "n_models could alternatively be read as the 3 detectors under test (Spectral Signatures, Activation Clustering, Neural Cleanse) rather than the 3 victim architectures -- this record counts victims, matching the reference NDSS-corpus instrument's own convention of counting evaluated architectures, not defense methods.",
+    "no named parametric significance test by explicit project protocol (bans t-test/ANOVA/Wilcoxon at n<=30); bootstrap CIs and Cohen's d_z reported instead, which the schema's significance_test field does not capture -- see reports_variability=table and the paper's stats protocol instead."
+   ]
+  },
+  "Practical_Evasion_of_a_Learning-Based_Classifier_A_Case_Study": {
+   "paper_id": "Practical_Evasion_of_a_Learning-Based_Classifier_A_Case_Study",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 2,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 4,
+   "n_baselines": 1,
+   "reports_variability": "figure",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "MIMICUS models these two cases by deploying the Random Forest classifier in scenarios FC and FTC... and a Support Vector Machine (SVM) classifier",
+    "Three datasets were used in our experiments: two datasets, Contagio and Surrogate... while the Attack dataset consisted of malicious files",
+    "Fig. 10. Performance of the defensive measure proposed in [23]. Averaged results of 5 independent trials, using 10-fold cross-validation.",
+    "Before the attack experiments were run, all 100 files in the Attack dataset were evaluated by PDFRATE... provide a baseline"
+   ],
+   "unresolved": [
+    "No explicit seed count stated for the main attack experiments (mimicry, GD-KDE across 4 scenarios); the only stated repetition count is '5 independent trials' for the defensive-measure (vaccination/BRN) evaluation in Figs. 10-11, which is not the same as a seed for the headline attack results, so n_seeds is left null rather than set to 5.",
+    "n_baselines set to 1 for the reproduced original BRN attack of Smutz and Stavrou used as a defense-evaluation comparison; the paper's own mimicry and GD-KDE attacks are compared to each other but are both contributions of this paper, not baselines from prior work.",
+    "n_eval_types counted as: classification score distributions (box plots), ROC/detection-accuracy curves, SVM decision-function-value distributions, and feature-change/support histograms; boundary between 'metric' and 'analysis type' is judgment-based."
+   ]
+  },
+  "Rethinking Backdoor Detection Evaluation for Language Models": {
+   "paper_id": "Rethinking Backdoor Detection Evaluation for Language Models",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 2,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 0,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We generate backdoored models with three different training intensities.",
+    "covering 18 individual comparisons of the three training intensities (2 datasets \u00d7 3 triggers \u00d7 3 detectors)",
+    "We conduct poisoning-based backdoor attacks on two binary classification datasets: SST-2",
+    "We calculate the Detection Accuracy (%) on backdoored models as the evaluation metric."
+   ],
+   "unresolved": [
+    "n_seeds left null: paper says results are 'averaged attack success rate and clean accuracy' (Tables 1-2) but never states how many runs/seeds/trials were averaged, so no repetition count could be confirmed.",
+    "n_models counted as the 4 distinct victim architectures (RoBERTa-Base, RoBERTa-Large, Electra-Base, Llama 3.2 1B); the 3 detectors (PICCOLO, DBS, Meta Classifier) are the objects under evaluation, not additional 'models', and are reflected in n_eval_types/n_baselines instead.",
+    "n_baselines set to 0: this is an evaluation/audit paper testing 3 existing detectors rather than proposing a new method compared against baselines, so no comparison method fits the 'baseline' role; the 3 detectors are the evaluated subjects, counted implicitly via the evidence quotes rather than as a baseline count.",
+    "n_eval_types = 5 combines the 3 quantitative metrics (Detection Accuracy, Attack Success Rate, Clean Accuracy) with 2 qualitative analysis types (loss-contour visualization, t-SNE feature visualization) used in the case study; if only quantitative metrics count, the true figure is 3.",
+    "reports_variability = 'none': no error bars, standard deviations, or confidence intervals appear anywhere in the main text, tables, or appendix tables (1-7)."
+   ]
+  },
+  "Robustness, Cost, and Attack-Surface": {
+   "paper_id": "Robustness, Cost, and Attack-Surface",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 8,
+   "n_baselines": 0,
+   "reports_variability": "table",
+   "significance_test": "bootstrap confidence intervals (200 resamples)",
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "the median MEC equals 2 with full features, and over 80% of successful minimal-cost evasions concentrate on three low-cost surface features",
+    "A stratified 75/25 train\u2013test split (seed 1337) yields 2764 test instances including 1225 phishing samples",
+    "Table 2 reports mean and standard deviation of median MEC and RCI3 across 10 independent random draws of 300 instances",
+    "The 95% bootstrap confidence intervals (200 resamples) confirm that these patterns are statistically stable"
+   ],
+   "unresolved": [
+    "Only one dataset split seed (1337) is stated; no multi-seed model-training repetition count is reported, so n_seeds is left null rather than assumed 1.",
+    "No external baseline detector from prior work is compared; the paper only cross-compares its own 4 evaluated classifier families (LR, RF, GBDT, XGBoost), so n_baselines is set to 0.",
+    "n_eval_types (8) counts Accuracy, AUC, Phishing TPR, median MEC/quartiles, FRI, RCI_k, FirstTop1, and evasion survival rate S(B)/NoEvasion mass as distinct metrics; boundary is judgment-based since some are related diagnostics from the same framework.",
+    "control_arm is set to 'none' because this is an evasion-cost study, not a poisoning/backdoor study; no clean-vs-poisoned control arm concept applies."
+   ]
+  },
+  "Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning": {
+   "paper_id": "Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 2,
+   "n_datasets": 1,
+   "n_seeds": 10,
+   "n_eval_types": 3,
+   "n_baselines": 0,
+   "reports_variability": "prose",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We repeat the above experiment 10 times, and we observe that in all these 10 experiments, the attack success rate is 100%.",
+    "we perform the backdoor attacks against two state-of-theart face recognition models, which are DeepID [62] and VGG-Face [55] respectively.",
+    "We use the YouTube Aligned Face dataset for evaluation, which is a pre-processed dataset of images taken from the YouTube Faces dataset",
+    "Attack success rate is the percentage of backdoor instances classified as the target label."
+   ],
+   "unresolved": [
+    "n_seeds=10 is the stated repetition count only for the input-instance-key repeat-trial experiment in Section V-A ('We repeat the above experiment 10 times'); the paper does not state a uniform repeat/seed protocol applied across all reported results (Blended Injection, Accessory Injection, Blended Accessory Injection results appear to be single runs per configuration).",
+    "n_baselines=0: this is a first-of-its-kind attack paper with no prior poisoning method re-implemented and compared numerically against the four proposed strategies (input-instance-key, Blended Injection, Accessory Injection, Blended Accessory Injection). Section VII separately evaluates three candidate DEFENSE strategies (label-distribution check, L2-distance outlier detector, auxiliary-pristine-data/VGG-Face) against the attacks -- these are defenses being stress-tested, not comparison baselines for the attack method, so they are not counted in n_baselines.",
+    "n_datasets=1: only the YouTube Aligned Face dataset is used; the 50 physically-photographed images in Section VI are additional test-time captures layered on top of the same dataset/labels, not a second dataset.",
+    "reports_variability='prose': variability is reported as narrative ranges (e.g., standard test accuracy 'vary from 97.50% to 97.85%' across the 10 repeated trials) rather than as an explicit table/figure of per-trial values, std, or CIs."
+   ]
+  },
+  "TextBugger - Generating Adversarial Text Against Real-world Applications": {
+   "paper_id": "TextBugger - Generating Adversarial Text Against Real-world Applications",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 18,
+   "n_datasets": 3,
+   "n_seeds": 5,
+   "n_eval_types": 11,
+   "n_baselines": 4,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We repeated each experiment 5 times and report the mean value.",
+    "we evaluate the generated adversarial examples on 15 popular real-world online DLTU systems",
+    "We use four metrics, i.e., edit distance, Jaccard similarity coefficient, Euclidean distance and semantic similarity",
+    "Finally, 3,177 valid annotations from 297 AMT workers were obtained in total."
+   ],
+   "unresolved": [
+    "n_models=18 combines 3 self-trained white-box models (LR, CNN, LSTM) with 15 black-box online platforms/APIs (10 sentiment + 5 toxic-content) that the paper explicitly counts; some black-box platforms (fastText, ParallelDots, Aylien) recur across the sentiment and toxic-content tasks as distinct deployed classifiers, so the true count of distinct architectures is smaller than 18 if counted by underlying model family instead of by deployed endpoint.",
+    "n_eval_types=11 is an aggregate across effectiveness/efficiency metrics (success rate, perturbed-word %, time), the four explicitly named utility metrics (edit distance, Jaccard, Euclidean distance, semantic similarity), transferability rate, human-study accuracy, and the two defense-evaluation success rates (spelling check, adversarial training); paper does not itself state a single total count of evaluation types.",
+    "reports_variability set to 'none' because the paper states only that it reports the mean over 5 repeats, with no std/CI/error bars given anywhere for the repeated-experiment variance."
+   ]
+  },
+  "Towards Deep Learning Models Resistant to Adversarial Attacks": {
+   "paper_id": "Towards Deep Learning Models Resistant to Adversarial Attacks",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 2,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 2,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We run 40 iterations of projected gradient descent as our adversary, with a step size of 0.01",
+    "when trained with natural examples, this network reaches 99.2% accuracy on the evaluation set",
+    "we use 100 steps and set the step size to be 2.5 . e/100 to ensure that we can reach the boundary",
+    "We trained MNIST and CIFAR10 networks of varying capacity on: (a) natural, (b) FGSM, (c) PGD examples"
+   ],
+   "unresolved": [
+    "No seed/repetition count is stated anywhere for the final trained MNIST/CIFAR10 models -- each headline result (Tables 1-2) appears to come from a single trained network per architecture, not repeated runs, so n_seeds is left null rather than assumed 1.",
+    "n_models (3) is an approximation: 1 final MNIST CNN (32/64 conv filters + 1024 FC) and 2 CIFAR10 ResNet variants (base and 10x-wider); the capacity-sweep experiments (Figure 4) additionally train many more architectures at doubling filter counts, which are not counted here as they are an ablation, not final reported models.",
+    "n_eval_types (5) is an approximation covering: white-box attack accuracy (PGD/FGSM/CW/CW+), black-box transfer accuracy (from A', A_nat, architecture B), accuracy vs epsilon sweep (Figure 6), l2-bounded vs l_inf-bounded attack accuracy, and network-capacity-vs-robustness analysis (Figure 4) -- the paper does not itself enumerate 'evaluation types' as a fixed list.",
+    "n_baselines (2) counts natural (no adversarial) training and FGSM adversarial training as the comparison training regimes against the paper's own PGD adversarial training; it does not count the various attack source models (A, A', A_nat, B) as baselines since those are attackers, not competing defense methods.",
+    "No formal statistical test or confidence interval is reported anywhere in the main text or appendix; all reported numbers are point accuracies from single evaluation runs."
+   ]
+  },
+  "Towards_Evaluating_the_Robustness_of_Neural_Networks": {
+   "paper_id": "Towards_Evaluating_the_Robustness_of_Neural_Networks",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 5,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We evaluate our attacks on three standard datasets: MNIST [28]... CIFAR-10 [24]... and ImageNet [9]",
+    "Evaluated on 1000 random instances.",
+    "We evaluate on the first 1,000 images in the test set on CIFAR and MNSIT.",
+    "the mean value of the L1 norm of Z(\u00b7)... on the undistilled network is 5.8... on the distilled network... the mean is 482"
+   ],
+   "unresolved": [
+    "n_seeds: no random-seed/repeat-trial count for model training is stated anywhere; the paper reports evaluation over 1,000 test instances, not multiple training seeds, so left null rather than defaulted to 1.",
+    "n_eval_types=5 is a judgment call (Lp-distortion/success-rate attack evaluation, defensive-distillation-break test, transferability test, temperature-sensitivity analysis, runtime analysis) since the paper does not itself enumerate 'evaluation types'.",
+    "n_baselines=5 counts only attacks with direct numeric comparison in Tables IV/V (JSMA-Z, JSMA-F, Deepfool, Fast Gradient Sign, Iterative Gradient Sign); L-BFGS is discussed as a prior attack (Section III-A) but never given a numeric row in the comparison tables, so it was excluded.",
+    "reports_variability='table': Table III's caption states it shows 'the average L2 distortion, the standard deviation, and the success probability', but the standard-deviation column is not visible in this marker-converted markdown extraction of the table (only mean and prob columns render) -- classification relies on the caption's stated intent."
+   ]
+  },
+  "Trojaning Attack on Neural Networks": {
+   "paper_id": "Trojaning Attack on Neural Networks",
+   "subcorpus": "backdoor_ml_corpus",
+   "n_models": 5,
+   "n_datasets": null,
+   "n_seeds": null,
+   "n_eval_types": 6,
+   "n_baselines": 5,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We apply the attack to 5 different neural network applications",
+    "Column 5 gives the test accuracy of the benign model on the original datasets.",
+    "we compare the neurons selected by our algorithm with the ones that are randomly selected",
+    "we conducted a few comparisons between choosing inner neurons (selected by our neuron selection algorithm) with using output neurons."
+   ],
+   "unresolved": [
+    "n_datasets not stated as a single number: each of the 5 applications uses its own original+external dataset pair drawn from multiple named sources (VGG-Face/LFW, speech corpus/Librispeech, Adience/LFW, movie review/question-classification, Udacity simulator, plus ILSVR2012 for a side experiment), so an exact distinct-dataset count could not be confidently derived.",
+    "n_seeds: paper never mentions repeated runs, trials, or random seeds for its reported accuracy/attack-success numbers; left null rather than assumed 1.",
+    "n_baselines: counted the internal neuron-selection algorithm (Table V), inner-vs-output-neuron design (Table VI), and the three failed alternative attack designs in Section V (incremental learning, model-parameter regression, arbitrary-trigger neuron finding) as comparison baselines; the paper does not label them uniformly as 'baselines' so this count is an interpretation.",
+    "n_eval_types: counted clean test accuracy, accuracy decrease/increase vs benign, attack success on original-domain stamped data, attack success on external stamped data, and attack-time/efficiency measurements as distinct evaluation types; case-specific metrics (one-off age accuracy, sum-of-squared-error for autonomous driving) were folded in rather than counted separately."
+   ]
+  },
+  "ref01_sarhan_netflow_datasets_bdta2020": {
+   "paper_id": "ref01_sarhan_netflow_datasets_bdta2020",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 9,
+   "n_seeds": 5,
+   "n_eval_types": 6,
+   "n_baselines": 0,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "we apply an Extra Trees ensemble classifier, made up of 50 randomised decision trees estimators",
+    "we conduct five cross-validation splits and collect the average metrics such as accuracy, AUC, F1 Score, DR, FAR",
+    "Table 8 lists the accuracy, AUC, F1 score, DR, FAR and prediction time results",
+    "This paper presents NetFlow features from four benchmark NIDS datasets... UNSW-NB15, BoT-IoT, ToN-IoT, and CSE-CIC-IDS2018"
+   ],
+   "unresolved": [
+    "n_seeds=5 reflects the stated 'five cross-validation splits', not random seeds/trials in the usual sense -- paper never mentions a seed count.",
+    "n_datasets=9 counts every distinct dataset variant evaluated in Table 8 (4 original-feature datasets + 4 NetFlow-converted datasets + 1 merged NF-UQ-NIDS); if only the newly created NetFlow datasets are wanted the count is 5 (or 4 excluding the merged NF-UQ-NIDS).",
+    "n_baselines=0 because the comparison is NetFlow-features vs original-features using the SAME single classifier, not a comparison against alternative baseline methods.",
+    "control_arm set to 'none' since this is a dataset-construction/evaluation paper with no poisoned/clean or randomised-matched control concept."
+   ]
+  },
+  "ref02_sarhan_standard_feature_set_mona2022": {
+   "paper_id": "ref02_sarhan_standard_feature_set_mona2022",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 4,
+   "n_seeds": 5,
+   "n_eval_types": 6,
+   "n_baselines": 2,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "For a fair evaluation, five cross-validation splits are conducted and the mean is measured.",
+    "An ensemble ML classifier, known as Extra Trees, that belongs to the trees family has been utilised for this purpose.",
+    "Various classification metrics are collected such as accuracy, Area Under the Curve (AUC), F1 Score, Detection Rate (DR), False Alarm Rate (FAR) and time required to predict a single test sample",
+    "The datasets have been split into 70%-30% for training and testing purposes."
+   ],
+   "unresolved": [
+    "n_datasets=4 counts the distinct source NIDS datasets (UNSW-NB15, BoT-IoT, ToN-IoT, CSE-CIC-IDS2018); the paper also derives a 5th merged dataset (NF-UQ-NIDS) and evaluates 3 feature-set variants (original, basic NetFlow-v1, proposed NetFlow-v2) per source, yielding up to 14 dataset-variant rows in Table 8 -- not counted separately here since they are feature-set variants, not independent corpora.",
+    "n_seeds=5 is inferred from 'five cross-validation splits ... the mean is measured' -- this is 5-fold CV repetition, not independently seeded reruns in the random-seed sense; only the mean is reported, no per-fold values or std/CI.",
+    "n_baselines=2 counts the original proprietary feature set and the basic 12-feature NetFlow (v1) set as comparison baselines against the proposed 43-feature NetFlow-v2 set.",
+    "control_arm is not applicable to this paper (no backdoor/poisoning context); set to 'none' as the closest schema fit."
+   ]
+  },
+  "ref03_li_iterative_msqrt_cvpr2018": {
+   "paper_id": "ref03_li_iterative_msqrt_cvpr2018",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 5,
+   "n_datasets": 4,
+   "n_seeds": null,
+   "n_eval_types": 4,
+   "n_baselines": 14,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "For large-scale image classification, we adopt ImageNet LSVRC2012 dataset [5] with 1,000 object categories.",
+    "we use three popular fine-grained benchmarks, i.e., CUB-200-2011(Birds) [31], FGVC-aircraft (Aircrafts) [27] and Stanford cars (Cars) [17]",
+    "We determine the number of iterations N by cross-validation.",
+    "We train iSQRT-COV networks from scratch in 60 epochs, initializing the learning rate to 10-1.1"
+   ],
+   "unresolved": [
+    "n_seeds not stated anywhere; no repetition/trial/seed language found, so left null rather than defaulted to 1.",
+    "n_models counted as the 5 backbone architectures evaluated (AlexNet, ResNet-50, ResNet-101, ResNet-152, VGG-D); paper could alternatively be read as evaluating only its own iSQRT-COV method with two pre-normalization variants (trace vs Frobenius) plus a compact-dimension variant.",
+    "n_baselines is an approximate count (~14: MPN-COV, B-CNN, DeepO2P, Improved B-CNN, G2DeNet, original AlexNet/ResNet, FBN, SORT, KP, CBP, NetVLAD, LRBP, HIHCA) since different comparison sets appear on the ImageNet table vs the FGVC table and some (e.g. IR_CNN in Table 2a) appear to be alternate implementations of Improved B-CNN rather than fully distinct methods.",
+    "control_arm is not a meaningful concept for this vision-architecture paper (no poisoning/attack framing); set to 'none' per the schema's guidance for this paper type.",
+    "n_eval_types counted as: (1) top-1/top-5 classification error rate, (2) forward+backward computation time, (3) meta-layer memory usage, (4) fine-grained-benchmark classification accuracy; these could be split more finely."
+   ]
+  },
+  "ref05_koroniotis_botiot_fgcs2019": {
+   "paper_id": "ref05_koroniotis_botiot_fgcs2019",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 4,
+   "n_baselines": 0,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "The models that were trained were: Support Vector Machine (SVM), Recurrent Neural Network (RNN) and Long-Short Term Memory Recurrent Neural Network (LSTM-RNN)",
+    "four metrics were used in order to compare the validity of the dataset, specifically Accuracy, Precision, Recall, Fall-out",
+    "The parameters of this classifier were penalty parameter (C=1), 4-fold crossvalidation and a number of max iterations equal to 100000",
+    "we extracted 5% of the original dataset via the use of select MySQL queries"
+   ],
+   "unresolved": [
+    "No seed/trial count stated anywhere; SVM uses 4-fold cross-validation but RNN/LSTM training procedure gives no repetition or CV count, so n_seeds left null rather than imputed",
+    "No train/test split percentages given for RNN/LSTM (only 4-fold CV mentioned for SVM); exact evaluation protocol for the two NN models is not explicit",
+    "n_eval_types set to 4 per the paper's own explicit statement (Accuracy, Precision, Recall, Fall-out); ROC curves and training time are also reported but not named as 'metrics' by the authors, so were not added to the count",
+    "Table 1 compares Bot-IoT against nine other public datasets, but this is a qualitative literature comparison, not an experimental evaluation run by this paper, so n_datasets is kept at 1 (Bot-IoT only)"
+   ]
+  },
+  "ref06_sharafaldin_cicids2017_icissp2018": {
+   "paper_id": "ref06_sharafaldin_cicids2017_icissp2018",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 7,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 4,
+   "n_baselines": 0,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "we examine the performance and accuracy of the selected features with seven common machine learning algorithms",
+    "K-Nearest Neighbors (KNN), Random Forest (RF), ID3, Adaboost, Multilayer perceptron (MLP), Naive-Bayes (NB), Quadratic Discriminant Analysis (QDA)",
+    "we have use three following common information retrieval evaluation metrics: Precision, Recall, F-Measure",
+    "the execution time for training and testing process have been calculated and shown in this table"
+   ],
+   "unresolved": [
+    "No train/test split ratio, cross-validation scheme, or number of repetitions stated for Table 4 results -- single-run numbers appear to be reported with no seed/trial count given",
+    "No baseline detector or prior method is compared against on the same dataset; Table 5 is a qualitative dataset-property comparison, not a model-performance baseline"
+   ]
+  },
+  "ref08_demsar_statistical_comparisons_jmlr2006": {
+   "paper_id": "ref08_demsar_statistical_comparisons_jmlr2006",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 7,
+   "n_datasets": 40,
+   "n_seeds": 1000,
+   "n_eval_types": 4,
+   "n_baselines": null,
+   "reports_variability": "figure",
+   "significance_test": "Wilcoxon signed-ranks test and sign test (two classifiers, vs. paired t-test baseline); Friedman test vs. ANOVA with Nemenyi/Bonferroni-Dunn/Holm/Hochberg/Hommel post-hoc tests (multiple classifiers)",
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "we recommend a set of simple, yet safe and robust non-parametric tests: the Wilcoxon signed ranks test... and the Friedman test",
+    "We have compiled a sample of forty real-world data sets... from the UCI machine learning repository",
+    "The experiments were run on 1000 random selections of ten data sets, as described above",
+    "we set the significance level at 5% and observe in how many experiments out of one thousand does a particular test reject the null-hypothesis"
+   ],
+   "unresolved": [
+    "n_baselines left null: this is a statistics-methodology paper, not an attack/defense paper, so 'baseline' is ambiguous -- candidates include the paired t-test, ANOVA, sign test, and Tukey test, which the paper's own Section 4 experiments pit against its recommended Wilcoxon/Friedman/Nemenyi/Bonferroni-Dunn/Holm/Hochberg/Hommel tests (roughly 12 distinct tests total across two- and multi-classifier settings)",
+    "n_models=7 and n_datasets=40 describe the large empirical study in Section 4 (Table 7, Figures 3-7); the two smaller worked examples earlier in the paper (Table 2, Table 6) use only 2 and 4 classifiers over a 14-dataset UCI subset",
+    "n_seeds=1000 refers to the number of repeated random 10-dataset selections per experimental condition (Section 4.1), not a conventional model-training random seed",
+    "reports_variability set to 'figure' since Figures 3-7 are the primary vehicle for the p-value/replicability results, though Table 7 also reports the same quantities numerically for one setting (k=15)"
+   ]
+  },
+  "ref09_lin_bilinear_cnn_iccv2015": {
+   "paper_id": "ref09_lin_bilinear_cnn_iccv2015",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 8,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 3,
+   "n_baselines": 3,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": null,
+   "evidence": [
+    "Performance is measured as the fraction of correct image predictions for all datasets.",
+    "We report results on three fine-grained recognition datasets - birds, aircrafts, and cars",
+    "per-image accuracies for various methods are shown in Tab. 1",
+    "Fig. 5 shows the average precision-recall curves across the 200 classes for various models."
+   ],
+   "unresolved": [
+    "No seed count or repetition/trial count stated anywhere in the methodology; single reported accuracy per model/dataset cell with no error bars or std dev, so n_seeds left null rather than assumed 1.",
+    "n_models counted as the 8 method rows in Table 1 (FV-SIFT, FC-CNN[M], FC-CNN[D], FV-CNN[M], FV-CNN[D], B-CNN[M,M], B-CNN[D,M], B-CNN[D,D]); 'birds' vs 'birds+box' treated as an evaluation protocol on the same CUB-200-2011 dataset, not a fourth dataset.",
+    "n_baselines counted as the paper's own baseline methods (FV-SIFT, FC-CNN, FV-CNN) that it runs itself under identical settings, distinct from the many externally-cited 'previous work' numbers reproduced from other papers' tables.",
+    "n_eval_types counted as per-image classification accuracy, feature-extraction speed (FPS), and mean average precision/precision-recall curves (Sect 3.3); the qualitative 'common mistakes' confusion-pair analysis was not counted as a distinct quantitative eval type."
+   ]
+  },
+  "ref10_li_second_order_iccv2017": {
+   "paper_id": "ref10_li_second_order_iccv2017",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 1,
+   "n_seeds": null,
+   "n_eval_types": 2,
+   "n_baselines": 3,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": null,
+   "evidence": [
+    "We make experiments on ImageNet 2012 classification dataset, which consists of 1,000 classes",
+    "we report top-1 and top-5 error rates on the validation set as measures of recognition performance",
+    "we compare with two existing end-to-end, second-order pooling methods, i.e., DeepO2P and B-CNN",
+    "we integrate MPN-COV into ResNet-50 (baseline)"
+   ],
+   "unresolved": [
+    "No seed/repetition count stated anywhere; each reported error rate appears to be from a single training run, so n_seeds is null rather than assumed 1.",
+    "n_models counted as the 4 backbone architectures MPN-COV is combined with (AlexNet, VGG-M, VGG-16, ResNet-50); DeepO2P and B-CNN are treated as baselines, not additional models under test.",
+    "n_baselines counted as the 3 directly re-implemented/compared pooling baselines (first-order pooling, DeepO2P, B-CNN) evaluated under matched conditions; the paper also cites many externally-reported network numbers (VGG-F, Krizhevsky et al., Zeiler&Fergus, OverFeat, GoogleNet, PReLU-net, original VGG-M/VGG-16/ResNet-101/152) for context tables, but these are not re-run baselines under the same protocol.",
+    "n_eval_types counted as top-1 and top-5 error rate; the paper also reports per-image training/inference time (ms) and convergence curves for the ResNet experiment, which could arguably count as additional analysis types but are secondary/illustrative rather than core evaluation metrics.",
+    "control_arm left null: this is a CNN pooling-method paper with no attack/defense or intervention framing, so the schema's control_arm concept does not map cleanly onto its design."
+   ]
+  },
+  "ref11_gao_gsop_cvpr2019": {
+   "paper_id": "ref11_gao_gsop_cvpr2019",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 12,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": null,
+   "evidence": [
+    "Our experiments are mainly conducted on ImageNet-1K [4] benchmark.",
+    "The networks are optimized using stochastic gradient descent (SGD) with a momentum of 0.9 and a mini-batch of 160.",
+    "we also make experiments on CIFAR-100 benchmark [18], which contains 60K color images of 32x32 pixels",
+    "the inference time (ms) per image are 2.52 vs 2.68/2.84 (vanilla ResNet-50 vs GSoP-Net1/GSoP-Net2)"
+   ],
+   "unresolved": [
+    "No seed count, repetition count, or run-to-run variability is stated anywhere; all reported top-1/top-5 error, params, GFLOPs, and inference-time figures appear to be single-run point estimates (standard for CVPR 2019 ImageNet-scale training papers), so n_seeds and reports_variability='none' are inferred from absence, not an explicit statement.",
+    "n_models=3 counts the paper's own architecture variants (GSoP-Net1, GSoP-Net2, vanilla/baseline ResNet backbone); ablation configurations (covariance size, fusion scheme, per-stage block placement) are treated as sub-experiments on these architectures, not separate models -- a different counting convention could yield a higher number.",
+    "n_baselines=12 merges the competing methods listed across Table 5 (ImageNet-1K: He et al./ResNet, FBN, SORT, MPN-COV, iSQRT-COV, SE-Net, GENet, CBAM, ResNeXt, DropBlock, DRN-A-50) and Table 6 (CIFAR-100: adds CMPE, reuses He et al., SE-Net, MPN-COV) into one distinct-method count; exact de-duplication across the two tables involved judgment.",
+    "control_arm is not applicable in the backdoor/attack sense this schema is designed for -- this is a vision architecture paper with no attack/poisoning control arm, so left null rather than guessing a mapping onto 'vanilla network' baseline."
+   ]
+  },
+  "ref12_wang_gcp_tpami2021": {
+   "paper_id": "ref12_wang_gcp_tpami2021",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 7,
+   "n_datasets": 8,
+   "n_seeds": null,
+   "n_eval_types": 4,
+   "n_baselines": null,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": null,
+   "evidence": [
+    "Extensive evaluations are conducted on various visual recognition tasks, including large-scale object classification on ImageNet",
+    "$62.9 \\pm 0.8$",
+    "We compare different variants of MPN-COV with existing deep global GCP methods using AlexNet architecture",
+    "we report the results on the validation set"
+   ],
+   "unresolved": [
+    "n_models set to 7 counting distinct backbone CNN architectures used (AlexNet, VGG-M, VGG-VD16, ResNet-50, ResNet-101, ResNet-152, DenseNet-201); the paper also proposes 3 pooling-method variants (MPN-COV-Net, G2DeNet, iSQRT-COV-Net) applied atop these backbones, so a single 'model count' is ambiguous depending on whether backbone x method combinations are counted separately.",
+    "n_baselines left null: the paper compares against a large, experiment-specific set of prior methods (B-CNN, DeepO2P, improved B-CNN, FBN, SORT, SE-Net, CBAM, NetVLAD, NetFV, CBP, LRBP, KP, HIHCA, SMSO, Deep-TEN, MFAFV-Net, FASON, plus original GAP-based backbones) but never states a single total baseline count, and which baselines apply varies by table/dataset.",
+    "n_seeds is null: no seed, trial-count, or repeated-run language found anywhere in the methodology or experiments sections; DTD/Indoor67 mean+-std values (e.g. Table 9/10) come from the dataset's pre-defined multiple splits, not from repeated seeded runs.",
+    "n_eval_types set to 4 (top-1/top-5/top-3 classification error, FP+BP timing in ms, training throughput in images/sec, and extra parameter count) as a reasonable grouping; exact boundary between 'error rate' sub-metrics (top-1 vs top-5 vs top-3) as one or multiple eval types is a judgment call.",
+    "No significance testing (e.g. t-test, CI) is reported anywhere in the paper; comparisons are made via raw error-rate differences only."
+   ]
+  },
+  "ref14_pontes_inverse_potts_tnsm2021": {
+   "paper_id": "ref14_pontes_inverse_potts_tnsm2021",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 8,
+   "n_datasets": 3,
+   "n_seeds": 10,
+   "n_eval_types": 2,
+   "n_baselines": 7,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "We compared EFC to five different ML classifiers: K-Nearest Neighbors (KNN)... Naive Bayes (NB), and Support Vector Machine (SVM)",
+    "we assessed the average performance of the classifiers over ten different test sets",
+    "average performance and standard error (95% confidence interval) of each classifier",
+    "The metrics used to compare the results were the F1 score and the area under the ROC curve (AUC)"
+   ],
+   "unresolved": [
+    "The paper reports averaging over 'ten different test sets' (random resampling of train/test splits), not explicit random seeds -- treated as n_seeds=10 (repetition/trial count) per schema instructions, but this is resampling of data splits rather than a stated RNG seed list.",
+    "No formal significance test (e.g. t-test) is reported; only mean +/- standard error (95% CI) per classifier per metric, so significance_test is null.",
+    "n_eval_types counted as 2 (F1 score, AUC); qualitative analyses (energy histograms, feature-pair heatmap breakdown) are descriptive/interpretability results, not distinct quantitative evaluation metrics, so not counted separately."
+   ]
+  },
+  "ref15_xin_transformer_ids_jcs2025": {
+   "paper_id": "ref15_xin_transformer_ids_jcs2025",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 3,
+   "n_seeds": 3,
+   "n_eval_types": 8,
+   "n_baselines": 3,
+   "reports_variability": "table",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "We repeated each experiment 3 times with different random seeds and found very small variance in results",
+    "Each setting is repeated with seeds {13, 37, 97}; we report mean \u00b1 std.",
+    "We report the following metrics: Accuracy, Precision, Recall, F1-score, and ROC AUC.",
+    "Table 6: Ablation on NSL to UNSW, UNSW to CIC, and NSL to NSL (mean \u00b1 std over 3 runs)"
+   ],
+   "unresolved": [
+    "n_seeds=3 is consistent across two separate statements (baseline comparison: 'repeated 3 times'; ablation section 3.5: seeds {13,37,97}), but the paper never confirms these are the same 3-seed protocol used for all reported tables (e.g. Tables 1-4 within/cross-dataset results do not state seed count directly).",
+    "n_eval_types=8 counts distinct named metrics (Accuracy, Precision, Recall, F1, AUC/AUROC, AUPRC, ECE, Brier score); F1@0.5 and F1@Youden are threshold variants of F1 and were not counted separately.",
+    "n_models=4 counts the proposed Transformer-IDS plus its 3 baselines (CNN-LSTM, RF-LSTM, TL-BiLSTM); no ablation on different architectures beyond these.",
+    "control_arm set to 'none' because this is a cross-dataset generalization paper, not a backdoor/poisoning study -- the clean/poisoned control-arm concept from the schema does not apply here."
+   ]
+  },
+  "ref16_onuorah_ids_ieeeaccess2026": {
+   "paper_id": "ref16_onuorah_ids_ieeeaccess2026",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 11,
+   "n_baselines": 8,
+   "reports_variability": "table",
+   "significance_test": "chi-square test on confusion matrices; permutation tests (10,000 label permutations); Cohen's kappa and MCC as agreement metrics",
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "we adopted a stratified train-validation-test split, which preserves class distribution while keeping computation feasible",
+    "95% Bootstrap Confidence Intervals - Constructed over 1,000 resamples of test predictions",
+    "Permutation Tests - Conducted with 10,000 label permutations to test the null hypothesis",
+    "five widely used machine learning algorithms are incorporated as benchmark models"
+   ],
+   "unresolved": [
+    "No seed count or repeated-run count is stated anywhere; the paper explicitly says k-fold cross-validation was skipped in favour of a single stratified train/validation/test split, so n_seeds is left null rather than defaulted to 1.",
+    "n_eval_types (11) is an approximate count spanning both classification metrics (precision, recall, F1, accuracy, balanced accuracy, macro F1, ROC-AUC, confusion matrix) and statistical-validation analyses (bootstrap CI, chi-square test, Cohen's kappa, MCC, permutation test) since the paper does not itself enumerate a fixed list of 'evaluation types'.",
+    "Table 10 permutation-test section says 'None of the 2,000 permutations' in prose but the methods section states 10,000 permutations; this discrepancy in the source text was not resolved, evidence quote uses the methods-section figure (10,000)."
+   ]
+  },
+  "ref17_gueriani_resnet_bigru_arxiv2026": {
+   "paper_id": "ref17_gueriani_resnet_bigru_arxiv2026",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 10,
+   "n_datasets": 2,
+   "n_seeds": null,
+   "n_eval_types": 10,
+   "n_baselines": 4,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "The training was conducted in the Kaggle environment utilizing a dual GPU T4 setup with 15 GiB of memory, using the Adam optimizer for fifteen epochs.",
+    "Each dataset was subsequently partitioned into training and testing subsets using an 80/20 split, respectively.",
+    "The analyzed configurations include: ResNet-1D, BiGRU-MHA, ResNet-1D-BiGRU, and ResNet-1D-BiGRU-MHA, with varying numbers of attention heads, dropout rates, and dense layers.",
+    "SMOTE was applied during training on the Edge-IIoTset dataset."
+   ],
+   "unresolved": [
+    "n_models=10 counts the distinct architectural variants in the Table III ablation study (case #1-#10); the paper frames these as ablation configurations of one proposed model rather than separate baseline architectures, so a stricter reading could give n_models=1.",
+    "No random seed, repetition count, or run-to-run variability (std/CI) is reported anywhere; all metrics appear to be single-run point estimates.",
+    "n_eval_types=10 counts Accuracy, Loss, Precision, Recall, F1, FPR, inference time, training time/epoch, ROC/AUC, and confusion matrix; some of these (e.g. confusion matrix) are diagnostic displays rather than summary metrics, so a narrower count is defensible.",
+    "control_arm/significance_test fields are not really applicable since this is a plain multiclass-classification NIDS paper, not a backdoor/poisoning study; marked null/none accordingly."
+   ]
+  },
+  "ref18_gueriani_vit_bilstm_arxiv2026": {
+   "paper_id": "ref18_gueriani_vit_bilstm_arxiv2026",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 2,
+   "n_seeds": null,
+   "n_eval_types": 9,
+   "n_baselines": 4,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "trained on Google Colab with a T4 GPU and 12 GB RAM over 50 epochs using the Adam optimizer",
+    "80% of the preprocessed data was allocated to training our proposed model and 20%... reserved to validate",
+    "An ablation study (Table III) was conducted using four model variants",
+    "Table IV compares the proposed ViT-BiLSTM model with state-of-the-art approaches"
+   ],
+   "unresolved": [
+    "No seed or repetition count stated anywhere; results appear to be single-run point estimates (n_seeds left null, not defaulted to 1).",
+    "Split is described only as 80% train / 20% validate; unclear whether this validation set doubles as the test set or a separate held-out test split exists.",
+    "n_models counted as the 4 architectural variants in the ablation study (Table III: sequential ViT->BiLSTM, sequential BiLSTM->ViT, parallel BiLSTM32, parallel BiLSTM64); the paper frames only one as 'the proposed model' (variant #3).",
+    "n_baselines counted as 4 distinct prior works in Table IV ([24],[25],[26],[23]); table has a stray '[20]' row under the CICIoMT line for the [23] CNN baseline that looks like a citation-numbering artefact rather than a fifth distinct baseline."
+   ]
+  },
+  "ref19_chawla_smote_jair2002": {
+   "paper_id": "ref19_chawla_smote_jair2002",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 3,
+   "n_datasets": 9,
+   "n_seeds": 10,
+   "n_eval_types": 3,
+   "n_baselines": 7,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "Experiments are performed using C4.5, Ripper and a Naive Bayes classifier.",
+    "We experimented on nine different datasets.",
+    "%FP and %TP were averaged over 10-fold cross-validation runs for each of the data combinations.",
+    "Out of a total of 48 experiments performed, SMOTE-classifier does not perform the best only for 4 experiments."
+   ],
+   "unresolved": [
+    "n_seeds is inferred from '10-fold cross-validation' repetition, not a stated seed/trial count; paper never uses the word 'seed'.",
+    "n_eval_types (3) groups AUC, ROC-curve/ROC-convex-hull, and Acc+/Acc- as the distinct evaluation metrics reported for SMOTE's own results; precision/recall are discussed only in the related-work IR section, not used to evaluate SMOTE itself, so excluded.",
+    "n_baselines (7) counts plain majority under-sampling, Ripper loss-ratio variation, Naive Bayes prior variation, minority over-sampling by replication, C4.5 decision-threshold tuning, one-sided selection, and the SHRINK system; boundary is fuzzy since some (e.g. threshold tuning) are variants of the same base classifier rather than distinct external methods.",
+    "control_arm is a poor fit for this paper's design (it is a class-imbalance/resampling paper, not an adversarial/backdoor paper with a clean-vs-poisoned split), so set to 'none' rather than forcing 'clean'."
+   ]
+  },
+  "ref20_lundberg_shap_neurips2017": {
+   "paper_id": "ref20_lundberg_shap_neurips2017",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": null,
+   "n_datasets": null,
+   "n_seeds": null,
+   "n_eval_types": 3,
+   "n_baselines": 3,
+   "reports_variability": "figure",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": null,
+   "evidence": [
+    "The 10th and 90th percentiles are shown for 200 replicate estimates at each sample size.",
+    "SHAP and LIME were both run with 50k samples",
+    "Human feature impact estimates are shown as the most common explanation given among 30 (A) and 52 (B) random individuals",
+    "we masked 20% of the pixels chosen to switch the predicted class from 8 to 3"
+   ],
+   "unresolved": [
+    "This is a methods/theory paper (not a NIDS or classic supervised-learning paper): its 'experiments' are a decision-tree sample-efficiency test, a Mechanical Turk human-agreement study, and an MNIST masking demo. n_models/n_datasets could not be confidently mapped onto the schema's usual meaning; left null rather than guessed.",
+    "n_baselines=3 counts distinct baseline explanation methods empirically compared against SHAP across Section 5 (LIME, classic Shapley sampling values, DeepLIFT); layer-wise relevance propagation and Shapley regression values are discussed theoretically in Section 2 but not run in the Section 5 experiments.",
+    "n_eval_types=3 counts: (1) estimation accuracy/sample-efficiency vs. number of model evaluations (Fig.3), (2) agreement with human explanations from Mechanical Turk user studies (Section 5.2), (3) change in log-odds under pixel masking (Section 5.3, Fig.5B). No numeric MTurk agreement rate or log-odds value is stated as text, only shown in figures.",
+    "No explicit random-seed count is stated anywhere; the '200 replicate estimates' (Fig.3) and '30'/'52' human participants (Fig.4) are sampling/participant counts, not seeds, so n_seeds is left null per instructions."
+   ]
+  },
+  "ref21_selvaraju_gradcam_iccv2017": {
+   "paper_id": "ref21_selvaraju_gradcam_iccv2017",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 6,
+   "n_datasets": 4,
+   "n_seeds": null,
+   "n_eval_types": 7,
+   "n_baselines": 5,
+   "reports_variability": "prose",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "none",
+   "evidence": [
+    "We show visualizations to 43 workers on Amazon Mechanical Turk (AMT)",
+    "54 AMT workers were instructed to rate the reliability of the models relative to each other",
+    "Grad-CAM achieves 3.27 \u00b1 0.18. Adding high-resolution detail gives an improved baseline of 2.32 \u00b1 0.08",
+    "averaged over 2510 images in PASCAL 2007 val set"
+   ],
+   "unresolved": [
+    "n_models (6) is a count of distinct named architectures/systems the paper applies its method to (VGG-16, AlexNet, ResNet, neuraltalk2 VGG-16+LSTM captioning model, VQA LSTM+CNN model from [28], ResNet-based hierarchical co-attention VQA model from [29]) -- the paper never states this as a single summary number, so treat as an approximate count.",
+    "n_datasets (4: ImageNet/ILSVRC-15, PASCAL VOC 2007, the VQA dataset from Antol et al., and the self-built doctor-vs-nurse image-search dataset) is likewise a count, not a stated figure.",
+    "n_eval_types (7) aggregates top-1/top-5 localization error, top-1/top-5 classification error, AMT class-discrimination accuracy, AMT pairwise trust/reliability score, rank correlation with occlusion maps, rank correlation with human attention maps, and inside/outside-box activation ratio; boundaries between 'distinct' metrics are a judgment call.",
+    "n_baselines (5: Backprop/Simonyan et al., Guided Backpropagation, Deconvolution, CAM, c-MWP) excludes occlusion sensitivity, which is used as a faithfulness reference rather than a compared method -- could arguably be counted as a 6th baseline.",
+    "No seed count, repetition count, or trial count is stated anywhere for any experiment (human studies report worker counts and item counts, not repeated-trial seeds), so n_seeds is null by the no-default rule.",
+    "significance_test is null: the paper only asserts the 0.136 human-attention correlation is 'statistically higher than chance' without naming a specific test or reporting a p-value."
+   ]
+  },
+  "ref22_li_adv_examples_survey_arxiv2024": {
+   "paper_id": "ref22_li_adv_examples_survey_arxiv2024",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": null,
+   "n_datasets": null,
+   "n_seeds": null,
+   "n_eval_types": null,
+   "n_baselines": null,
+   "reports_variability": null,
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": null,
+   "evidence": [
+    "This paper provides a comprehensive review of the impact of AE attacks on key cybersecurity applications",
+    "In [41], the authors design a methodological framework focused on evaluating the vulnerability of neural networks",
+    "A literature review underscores the effectiveness of attacks utilizing adversarial examples against ML/DL-based security systems",
+    "we scrutinize adversarial attack types, methods for generating adversarial examples, and corresponding defense strategies, summarizing the latest research"
+   ],
+   "unresolved": [
+    "This is a pure literature survey (arXiv preprint) with no original experiments, models, datasets, seeds, or evaluation metrics of its own -- every quantitative result in the text (e.g. 85% misclassification, 98.86% Gen-AAL success rate) belongs to the third-party papers it summarizes ('In [X], the authors designed...'), not to this paper's own methodology.",
+    "All numeric/model/dataset fields set to null per instructions since this paper reports no original experimental work; reports_variability, significance_test, and control_arm also null as no original results exist to characterize."
+   ]
+  },
+  "ref23_ennaji_adv_challenges_ieeeaccess2025": {
+   "paper_id": "ref23_ennaji_adv_challenges_ieeeaccess2025",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": null,
+   "n_datasets": null,
+   "n_seeds": null,
+   "n_eval_types": null,
+   "n_baselines": null,
+   "reports_variability": null,
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": null,
+   "evidence": [
+    "This survey aims to address this gap by providing a comprehensive review of machine learning-based Network Intrusion Detection Systems",
+    "This section presents a detailed review of both traditional and DL-NIDS, categorized by learning approach",
+    "This section presents an analytical study of existing research on methods for generating adversarial examples that evade ML-NIDS",
+    "This survey provides a comprehensive and current analysis of adversarial attacks... with a specific focus on network intrusion detection systems"
+   ],
+   "unresolved": [
+    "Paper is a pure survey/position paper with no original experiments, models, datasets, seeds, or evaluation metrics of its own -- all numeric/methodological content (Tables 1-4) summarizes properties of OTHER papers it reviews, not results the authors themselves produced. All numeric fields set to null per instructions.",
+    "reports_variability and control_arm left null rather than 'none' because the paper does not report any experimental results at all, so the concept does not apply (not merely absent from an experiment)."
+   ]
+  },
+  "ref24_madry_adv_training_iclr2018": {
+   "paper_id": "ref24_madry_adv_training_iclr2018",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": null,
+   "n_datasets": 2,
+   "n_seeds": null,
+   "n_eval_types": 1,
+   "n_baselines": 2,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "We trained MNIST and CIFAR10 networks of varying capacity on: (a) natural examples, (b) with FGSM-made, (c) with PGD-made adversarial examples",
+    "Table 1: MNIST: Performance of the adversarially trained network against different adversaries for eps = 0.3",
+    "Table 2: CIFAR10: Performance of the adversarially trained network against different adversaries for eps = 8",
+    "we found the following phenomena ... we verified this concentration based on 10^5 restarts"
+   ],
+   "unresolved": [
+    "n_models left null: capacity study doubles filter counts repeatedly with no fixed count of architectures stated; headline tables report one MNIST CNN plus a simple and wide CIFAR10 ResNet, but this is not an exhaustive model count",
+    "n_seeds left null: no stated repetition/seed count for training runs; the 10^5 figure is PGD random restarts for loss-landscape exploration, not independent training repetitions",
+    "n_eval_types set to 1 (accuracy) since accuracy is the only metric reported, evaluated across many attack conditions (PGD, FGSM, CW, CW+, black-box, l2-bounded, DBA) rather than multiple distinct metric types",
+    "n_baselines set to 2 (natural training, FGSM adversarial training) as the training-regime comparisons in the capacity experiments (Figure 4); prior defenses named in Related Work (defensive distillation, feature squeezing) are not experimentally compared"
+   ]
+  },
+  "ref25_elshehaby_pscore_jisa2026": {
+   "paper_id": "ref25_elshehaby_pscore_jisa2026",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 4,
+   "n_datasets": 3,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 1,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "we used 3 public NIDS datasets; (1) UNSW-NB15 ... (2) CSE-CIC-IDS2018 (Improved) ... (3) MCFP",
+    "The models include a Vanilla Neural Network, a Support Vector Machine (SVM), an ensemble model (Random Forest), and a Deep Learning (DL) model (CNN)",
+    "Table IV shows the baseline performance of the ML-NIDS models using all features",
+    "we performed adversarial training experiments... After adversarial training, the Attack Success Rate (ASR) significantly decreased"
+   ],
+   "unresolved": [
+    "No stated seed/repetition count for training runs or attack trials; single point-value tables throughout, so n_seeds left null rather than assumed 1.",
+    "n_baselines counts adversarial training as the one explicit empirical comparison method against PS-enabled defenses; the paper also reuses Alhussien et al.'s Gradient Boosting and 3-layer NN models (with their published hyperparameters) solely to reproduce constrained ZOO/C&W attacks in Appendix B -- these are not counted as additional 'models this paper evaluates' since they are borrowed configurations for a reproduction check, not new architectures introduced to the main 4-model x 3-dataset evaluation grid.",
+    "n_eval_types = 5 counts Accuracy, Precision, Recall, F1, and ASR; no std/CI/error bars accompany any of these.",
+    "control_arm classified as 'clean' based on the repeated pre-PS/pre-attack baseline (unmasked, unattacked model performance) used as the reference point in Tables IV, IX, X, XII; no randomised size-matched control construction is used anywhere in the paper."
+   ]
+  },
+  "ref26_awad_ensemble_defense_scirep2025": {
+   "paper_id": "ref26_awad_ensemble_defense_scirep2025",
+   "subcorpus": "nids_ml_corpus",
+   "n_models": 1,
+   "n_datasets": 2,
+   "n_seeds": null,
+   "n_eval_types": 5,
+   "n_baselines": 3,
+   "reports_variability": "none",
+   "significance_test": null,
+   "per_seed_values_given": false,
+   "control_arm": "clean",
+   "evidence": [
+    "carried out on two recent public network traffic datasets, CIC-IDS2017 [36] and CIC-IDS 2018",
+    "Table 10, which provides a comparative analysis against state-of-the-art models on the CIC-IDS2017 dataset",
+    "Label Smoothing Defense has the highest MCC (0.698), indicating the best adversarial robustness among the evaluated methods",
+    "We begin by evaluating the DNN-based IDS detector performance on clean data samples before attacking"
+   ],
+   "unresolved": [
+    "n_models set to 1: the paper uses a single DNN-based IDS architecture (58-512-256-15, Table 3) trained under different defense regimes (label smoothing, Gaussian augmentation, adversarial training, denoising autoencoder) plus a separate substitute model used only to craft adversarial examples; these are defense variants/ensemble members of one architecture, not distinct model architectures compared head-to-head.",
+    "No seed count, random-seed statement, or repeated-trial language found anywhere in the text; all reported metrics (Tables 4-9) appear to be single-run point estimates with no std/CI, so n_seeds is left null rather than assumed as 1.",
+    "n_baselines=3 counts the external prior-work comparators in Table 10 (TAD/Debicha 2023, DNN/Roshan 2023, RAIDS/Sarikaya 2023); the paper's own no-defense baseline classifier is treated as the control_arm/attack-condition reference rather than a 'baseline' comparator.",
+    "The full CIC-IDS2018 results are stated to be in a supplementary file not included in this markdown conversion, so any dataset-2-specific methodology details beyond what is stated in the main text could not be verified."
+   ]
+  }
+ },
+ "bands": {
+  "n_models": {
+   "n": 46,
+   "min": 1,
+   "median": 3.5,
+   "max": 18,
+   "ours": 3,
+   "percentile": 50,
+   "n_stated": 46
+  },
+  "n_datasets": {
+   "n": 46,
+   "min": 1,
+   "median": 3.0,
+   "max": 40,
+   "ours": 3,
+   "percentile": 74,
+   "n_stated": 46
+  },
+  "n_seeds": {
+   "n": 15,
+   "min": 1,
+   "median": 5,
+   "max": 1000,
+   "ours": 5,
+   "percentile": 67,
+   "n_stated": 15
+  },
+  "n_eval_types": {
+   "n": 48,
+   "min": 1,
+   "median": 5.0,
+   "max": 11,
+   "ours": 8,
+   "percentile": 92,
+   "n_stated": 48
+  },
+  "n_baselines": {
+   "n": 46,
+   "min": 0,
+   "median": 3.0,
+   "max": 14,
+   "ours": 2,
+   "percentile": 48,
+   "n_stated": 46
+  },
+  "reports_variability": {
+   "ours": true,
+   "n_corpus": 20,
+   "of": 50
+  },
+  "significance_test": {
+   "ours": false,
+   "n_corpus": 3,
+   "of": 50
+  },
+  "per_seed_values_given": {
+   "ours": true,
+   "n_corpus": 1,
+   "of": 50
+  },
+  "control_arm": {
+   "ours": true,
+   "n_corpus": 24,
+   "of": 50
+  }
+ }
+}

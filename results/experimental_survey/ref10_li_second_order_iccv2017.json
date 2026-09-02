@@ -1,0 +1,26 @@
+{
+  "paper_id": "ref10_li_second_order_iccv2017",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 1,
+  "n_seeds": null,
+  "n_eval_types": 2,
+  "n_baselines": 3,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": null,
+  "evidence": [
+    "We make experiments on ImageNet 2012 classification dataset, which consists of 1,000 classes",
+    "we report top-1 and top-5 error rates on the validation set as measures of recognition performance",
+    "we compare with two existing end-to-end, second-order pooling methods, i.e., DeepO2P and B-CNN",
+    "we integrate MPN-COV into ResNet-50 (baseline)"
+  ],
+  "unresolved": [
+    "No seed/repetition count stated anywhere; each reported error rate appears to be from a single training run, so n_seeds is null rather than assumed 1.",
+    "n_models counted as the 4 backbone architectures MPN-COV is combined with (AlexNet, VGG-M, VGG-16, ResNet-50); DeepO2P and B-CNN are treated as baselines, not additional models under test.",
+    "n_baselines counted as the 3 directly re-implemented/compared pooling baselines (first-order pooling, DeepO2P, B-CNN) evaluated under matched conditions; the paper also cites many externally-reported network numbers (VGG-F, Krizhevsky et al., Zeiler&Fergus, OverFeat, GoogleNet, PReLU-net, original VGG-M/VGG-16/ResNet-101/152) for context tables, but these are not re-run baselines under the same protocol.",
+    "n_eval_types counted as top-1 and top-5 error rate; the paper also reports per-image training/inference time (ms) and convergence curves for the ResNet experiment, which could arguably count as additional analysis types but are secondary/illustrative rather than core evaluation metrics.",
+    "control_arm left null: this is a CNN pooling-method paper with no attack/defense or intervention framing, so the schema's control_arm concept does not map cleanly onto its design."
+  ]
+}

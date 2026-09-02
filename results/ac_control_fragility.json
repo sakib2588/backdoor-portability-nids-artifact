@@ -1,0 +1,100 @@
+{
+  "source": {
+    "mechanism": "ac_mechanism.json",
+    "grid": "ac_repair_grid.json"
+  },
+  "regimes": {
+    "evasion": {
+      "description": "realizable trigger, rate 0.005-0.01, the attacker-realistic operating point where AC fails",
+      "n_rows": 20,
+      "silhouette_vs_recall": {
+        "rho": -0.10893952376715199,
+        "ci_low": -0.6600004581376532,
+        "ci_high": 0.6299993847665262,
+        "n_rows": 20,
+        "n_seed_groups": 5,
+        "n_valid_draws": 9994,
+        "n_resamples_requested": 10000,
+        "ci_level": 0.95,
+        "method": "block bootstrap over seeds"
+      },
+      "silhouette_vs_purity": {
+        "rho": -0.09759369710740715,
+        "ci_low": -0.6535634561767886,
+        "ci_high": 0.6684096864386273,
+        "n_rows": 20,
+        "n_seed_groups": 5,
+        "n_valid_draws": 9994,
+        "n_resamples_requested": 10000,
+        "ci_level": 0.95,
+        "method": "block bootstrap over seeds"
+      }
+    },
+    "control": {
+      "description": "loud trigger at rate 0.1 where AC works (recall 1.0, purity ~0.81). A DIFFERENT regime -- never pooled with evasion into one CI.",
+      "n_rows": 5,
+      "silhouette_vs_recall": {
+        "rho": null,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": 5,
+        "n_seed_groups": 5,
+        "n_valid_draws": 0,
+        "reason": "too few valid bootstrap draws for a percentile CI"
+      },
+      "silhouette_vs_purity": {
+        "rho": 0.49999999999999994,
+        "ci_low": -1.0,
+        "ci_high": 1.0,
+        "n_rows": 5,
+        "n_seed_groups": 5,
+        "n_valid_draws": 9980,
+        "n_resamples_requested": 10000,
+        "ci_level": 0.95,
+        "method": "block bootstrap over seeds"
+      }
+    }
+  },
+  "descriptive_contrast": [
+    {
+      "regime": "evasion",
+      "n": 20,
+      "silhouette_min": 0.9249724072648623,
+      "silhouette_max": 0.9922967289848944,
+      "silhouette_mean": 0.9808945490124629,
+      "recall_mean": 0.1004807692307692
+    },
+    {
+      "regime": "control",
+      "n": 5,
+      "silhouette_min": 0.9017125447806981,
+      "silhouette_max": 0.9105049278324872,
+      "silhouette_mean": 0.9067378759734657,
+      "recall_mean": 1.0
+    }
+  ],
+  "ac6_reproduction": {
+    "note": "NOT an independent replication -- verified as a bit-identical REPRODUCTION. AC-6's k=2 kmeans path runs the same detector, seeds, cells and silhouette sample as ac_mechanism.json, and its recall matches on 25/25 shared cells exactly. That is strong evidence the AC-2 refactor moved no committed number, and it is worth having for that reason -- but it supplies NO additional statistical evidence about the correlation, and must not be presented as a second data point.",
+    "recall_identical_on_shared_cells": true,
+    "evasion": {
+      "rho": -0.10893952376715199,
+      "ci_low": -0.6600004581376532,
+      "ci_high": 0.6299993847665262,
+      "n_rows": 20,
+      "n_seed_groups": 5,
+      "n_valid_draws": 9994,
+      "n_resamples_requested": 10000,
+      "ci_level": 0.95,
+      "method": "block bootstrap over seeds"
+    },
+    "control_descriptive": {
+      "regime": "control (AC-6)",
+      "n": 5,
+      "silhouette_min": 0.9017125447806981,
+      "silhouette_max": 0.9105049278324872,
+      "silhouette_mean": 0.9067378759734657,
+      "recall_mean": 1.0
+    }
+  },
+  "note": "AC-7 diagnostic. Selects nothing and repairs nothing. Corrects the bare AcSilhouetteRecallSpearman = -0.5549 point estimate in two ways: the CI comes from a block bootstrap over SEED GROUPS (the 25 rows are 5 seeds x 5 cells, not 25 independent draws), and the evasion and control regimes get SEPARATE CIs because they are not exchangeable -- a realizable trigger at rate 0.005-0.01 versus a loud trigger at rate 0.1. Agreement in sign between the two regimes is the qualitative cross-check; a single pooled CI would describe a population that does not exist."
+}

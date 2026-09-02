@@ -1,0 +1,25 @@
+{
+  "paper_id": "BadNets_Evaluating_Backdooring_Attacks_on_Deep_Neural_Networks",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 2,
+  "n_datasets": 3,
+  "n_seeds": null,
+  "n_eval_types": 4,
+  "n_baselines": 0,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "The baseline CNN achieves an accuracy of 99.5% for MNIST digit recognition.",
+    "We tried all 90 instances of this attack, for every combination of i, j in [0, 9] where i is not j.",
+    "The baseline F-RCNN network is trained on the U.S. traffic signs dataset containing 8612 images",
+    "We implement our attack by poisoning the training dataset"
+  ],
+  "unresolved": [
+    "No seed/repetition count is stated anywhere; attacks appear run once per configuration (per digit pair, per trigger, per k value), so n_seeds is null rather than 1.",
+    "n_models=2 counts distinct architectures (baseline MNIST CNN; Faster-RCNN for traffic signs). The Swedish BadNet reuses the F-RCNN convolutional backbone with retrained FC layers via transfer learning, so it was not counted as a third distinct architecture -- could reasonably be argued as 3 if transfer-learned variants count separately.",
+    "n_eval_types=4 (clean-set accuracy/error, backdoor-set accuracy/attack success rate, convolutional-filter/activation visualization analysis, online-repository security audit); the real-world physical Post-it demonstration was treated as an instance of the backdoor-accuracy evaluation rather than a separate eval type.",
+    "n_baselines=0: the paper only compares BadNets against an honestly-trained (clean) reference network of identical architecture, not against any competing prior attack method."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "config": {
+    "target": 0,
+    "poison_frac": 0.05,
+    "feat_dim": 512,
+    "n_trials": 64,
+    "alpha": 0.5,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "z_thresholds": [
+      2.0,
+      2.5,
+      3.0
+    ]
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "target_poison_frac": 0.31343456589776286,
+      "strip_recall": 0.9996301775147929,
+      "strip_auc": 0.9984424123390214,
+      "strip_mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      }
+    },
+    {
+      "seed": 123,
+      "target_poison_frac": 0.31343456589776286,
+      "strip_recall": 1.0,
+      "strip_auc": 0.9994113934546602,
+      "strip_mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      }
+    },
+    {
+      "seed": 456,
+      "target_poison_frac": 0.31343456589776286,
+      "strip_recall": 0.996301775147929,
+      "strip_auc": 0.9939884334162181,
+      "strip_mad_recall": {
+        "2.0": 0.18528106508875739,
+        "2.5": 0.0,
+        "3.0": 0.0
+      }
+    },
+    {
+      "seed": 789,
+      "target_poison_frac": 0.31343456589776286,
+      "strip_recall": 1.0,
+      "strip_auc": 0.9987896945714579,
+      "strip_mad_recall": {
+        "2.0": 0.45968934911242604,
+        "2.5": 0.0,
+        "3.0": 0.0
+      }
+    },
+    {
+      "seed": 1337,
+      "target_poison_frac": 0.31343456589776286,
+      "strip_recall": 0.9767011834319527,
+      "strip_auc": 0.9639466471592538,
+      "strip_mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      }
+    }
+  ],
+  "summary": {
+    "strip_recall_mean": 0.9945266272189348,
+    "strip_recall_min": 0.9767011834319527,
+    "strip_auc_mean": 0.9909157161881224,
+    "strip_recall_all_seeds": true,
+    "gate_recall": 0.9
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 2,
+  "n_datasets": 1,
+  "n_seeds": 10,
+  "n_eval_types": 3,
+  "n_baselines": 0,
+  "reports_variability": "prose",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We repeat the above experiment 10 times, and we observe that in all these 10 experiments, the attack success rate is 100%.",
+    "we perform the backdoor attacks against two state-of-theart face recognition models, which are DeepID [62] and VGG-Face [55] respectively.",
+    "We use the YouTube Aligned Face dataset for evaluation, which is a pre-processed dataset of images taken from the YouTube Faces dataset",
+    "Attack success rate is the percentage of backdoor instances classified as the target label."
+  ],
+  "unresolved": [
+    "n_seeds=10 is the stated repetition count only for the input-instance-key repeat-trial experiment in Section V-A ('We repeat the above experiment 10 times'); the paper does not state a uniform repeat/seed protocol applied across all reported results (Blended Injection, Accessory Injection, Blended Accessory Injection results appear to be single runs per configuration).",
+    "n_baselines=0: this is a first-of-its-kind attack paper with no prior poisoning method re-implemented and compared numerically against the four proposed strategies (input-instance-key, Blended Injection, Accessory Injection, Blended Accessory Injection). Section VII separately evaluates three candidate DEFENSE strategies (label-distribution check, L2-distance outlier detector, auxiliary-pristine-data/VGG-Face) against the attacks -- these are defenses being stress-tested, not comparison baselines for the attack method, so they are not counted in n_baselines.",
+    "n_datasets=1: only the YouTube Aligned Face dataset is used; the 50 physically-photographed images in Section VI are additional test-time captures layered on top of the same dataset/labels, not a second dataset.",
+    "reports_variability='prose': variability is reported as narrative ranges (e.g., standard test accuracy 'vary from 97.50% to 97.85%' across the 10 repeated trials) rather than as an explicit table/figure of per-trial values, std, or CIs."
+  ]
+}

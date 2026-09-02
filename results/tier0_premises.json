@@ -1,0 +1,434 @@
+{
+  "build_freshness": {
+    "check": "T0-a build freshness",
+    "recorded_inputs_total": 110,
+    "project_inputs_checked": 14,
+    "missing_inputs": [],
+    "stale_inputs": [],
+    "stale_source_inputs": [],
+    "pdf_mtime": 1788251941.1884935,
+    "pass": true,
+    "note": "Generated files (.aux/.bbl/.out) are excluded from the pass criterion; they are rewritten by the run that produced the PDF."
+  },
+  "page_ledger": {
+    "check": "T0-b page ledger",
+    "pages": 6,
+    "page_size_bp": [
+      595.276,
+      841.89
+    ],
+    "is_a4": true,
+    "text_block_width_pt": 516.004,
+    "body_baseline_pt": 12.0,
+    "column_width_pt": 252.002,
+    "last_baseline_per_page": [
+      745.292,
+      745.292,
+      745.292,
+      745.292,
+      745.292,
+      745.291
+    ],
+    "deepest_baseline_pt": 745.292,
+    "last_page_baseline_pt": 745.291,
+    "available_points": 0.001,
+    "pass": true,
+    "note": "available_points is the vertical room left on the final page only. Zero means the last page is as full as the fullest page; any addition spills to a new page."
+  },
+  "codepoints": {
+    "check": "T0-c codepoint audit",
+    "distinct_non_ascii": 18,
+    "codepoints": {
+      "U+00B1": {
+        "char": "±",
+        "unicode_name": "PLUS-MINUS SIGN",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "plus-minus (mean +/- sd notation)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+00B7": {
+        "char": "·",
+        "unicode_name": "MIDDLE DOT",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "middle dot (multiplication in maths)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+00D7": {
+        "char": "×",
+        "unicode_name": "MULTIPLICATION SIGN",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "multiplication sign (grid notation)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+0131": {
+        "char": "ı",
+        "unicode_name": "LATIN SMALL LETTER DOTLESS I",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "dotless i -- half of a decomposed accent; check the name copy-pastes",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+0301": {
+        "char": "́",
+        "unicode_name": "COMBINING ACUTE ACCENT",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "combining acute -- decomposed accent, see U+0131",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+0302": {
+        "char": "̂",
+        "unicode_name": "COMBINING CIRCUMFLEX ACCENT",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "combining circumflex -- decomposed accent",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2013": {
+        "char": "–",
+        "unicode_name": "EN DASH",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "en dash (numeric ranges)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2014": {
+        "char": "—",
+        "unicode_name": "EM DASH",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "em dash",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2019": {
+        "char": "’",
+        "unicode_name": "RIGHT SINGLE QUOTATION MARK",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "right single quote / apostrophe (TeX ligature)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+201C": {
+        "char": "“",
+        "unicode_name": "LEFT DOUBLE QUOTATION MARK",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "left double quote (TeX ligature)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+201D": {
+        "char": "”",
+        "unicode_name": "RIGHT DOUBLE QUOTATION MARK",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "right double quote (TeX ligature)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2022": {
+        "char": "•",
+        "unicode_name": "BULLET",
+        "whitelisted": false,
+        "advisory": false,
+        "reason": null,
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2208": {
+        "char": "∈",
+        "unicode_name": "ELEMENT OF",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "element-of (set membership in maths)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2212": {
+        "char": "−",
+        "unicode_name": "MINUS SIGN",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "minus sign (math)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2264": {
+        "char": "≤",
+        "unicode_name": "LESS-THAN OR EQUAL TO",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "less-than-or-equal (math)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2265": {
+        "char": "≥",
+        "unicode_name": "GREATER-THAN OR EQUAL TO",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "greater-than-or-equal (math)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2308": {
+        "char": "⌈",
+        "unicode_name": "LEFT CEILING",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "left ceiling (removal-budget formula)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2309": {
+        "char": "⌉",
+        "unicode_name": "RIGHT CEILING",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "right ceiling (removal-budget formula)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      }
+    },
+    "not_whitelisted": {
+      "U+2022": {
+        "char": "•",
+        "unicode_name": "BULLET",
+        "whitelisted": false,
+        "advisory": false,
+        "reason": null,
+        "sources": [
+          "pdf_text_layer"
+        ]
+      }
+    },
+    "advisory": {
+      "U+0131": {
+        "char": "ı",
+        "unicode_name": "LATIN SMALL LETTER DOTLESS I",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "dotless i -- half of a decomposed accent; check the name copy-pastes",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+0301": {
+        "char": "́",
+        "unicode_name": "COMBINING ACUTE ACCENT",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "combining acute -- decomposed accent, see U+0131",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+0302": {
+        "char": "̂",
+        "unicode_name": "COMBINING CIRCUMFLEX ACCENT",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "combining circumflex -- decomposed accent",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      }
+    },
+    "banned_glyph_hits": [],
+    "pass": false
+  },
+  "venue": {
+    "check": "T0-e venue compliance (source side)",
+    "documentclass_options": "conference,a4paper",
+    "documentclass": "IEEEtran",
+    "a4paper_set": true,
+    "conference_mode": true,
+    "override_lockouts": true,
+    "blind_toggle_default": true,
+    "undefined_references": 0,
+    "overfull_boxes": 1,
+    "bib_entries": 24,
+    "pass": false,
+    "note": "Live-CFP cross-check (page limit, anonymity wording) is a separate manual step."
+  },
+  "fonts": {
+    "check": "T0-f font submittability",
+    "criterion": "no Type 3 fonts, every font embedded",
+    "fonts": [
+      {
+        "name": "ZKHYBF+NimbusRomNo9L-Regu",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "LREKMX+NimbusRomNo9L-MediItal",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "RUJIYX+NimbusRomNo9L-Medi",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "AGBJKW+CMSY7",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "RMUSMN+NimbusRomNo9L-ReguItal",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "STIQAA+CMSY10",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "CWEMTI+CMR10",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "YUEKKH+CMMI10",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BYQNWU+CMR7",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "CUZRGV+CMMI7",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "ECACOO+DejaVuSerif-Bold",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BMQQDV+DejaVuSans",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "TBAONS+CMMI8",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "PQWGDT+CMR8",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "FFHPFP+CMSY8",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      }
+    ],
+    "type3": [],
+    "not_embedded": [],
+    "pass": true,
+    "note": "Type 3 usually arrives from matplotlib. Fix at the source with matplotlib.rcParams['pdf.fonttype'] = 42 and regenerate the figures; editing the .tex will not remove it."
+  },
+  "render": {
+    "check": "T0-d render audit",
+    "criterion": "column_fraction >= 0.90 and effective_min_text_pt >= 6.0",
+    "figures": [
+      {
+        "tex": "paper/sections/02_methods.tex",
+        "line": 17,
+        "graphic": "figures/fig_pipeline.pdf",
+        "width_fraction": null,
+        "width_unit": null,
+        "native_width_pt": 583.2,
+        "native_height_pt": 208.008,
+        "rendered_width_pt": 252.002,
+        "rendered_width_in": 3.5,
+        "rendered_height_pt": 89.881,
+        "scale": 0.4321,
+        "column_fraction": 1.0,
+        "native_min_text_pt": 8.155,
+        "effective_min_text_pt": 3.524,
+        "pass": false
+      },
+      {
+        "tex": "paper/sections/03_results.tex",
+        "line": 8,
+        "graphic": "figures/fig_decomposition.pdf",
+        "width_fraction": null,
+        "width_unit": null,
+        "native_width_pt": 238.448,
+        "native_height_pt": 136.532,
+        "rendered_width_pt": 252.002,
+        "rendered_width_in": 3.5,
+        "rendered_height_pt": 144.293,
+        "scale": 1.0568,
+        "column_fraction": 1.0,
+        "native_min_text_pt": 8.155,
+        "effective_min_text_pt": 8.619,
+        "pass": true
+      }
+    ],
+    "failing": [
+      "figures/fig_pipeline.pdf"
+    ],
+    "pass": false
+  }
+}

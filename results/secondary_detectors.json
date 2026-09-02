@@ -1,0 +1,1313 @@
+{
+  "dataset": "unsw_nb15",
+  "config": {
+    "smoke": false,
+    "replication": false,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "rates": [
+      0.005,
+      0.01,
+      0.05,
+      0.1
+    ],
+    "costs": [
+      8,
+      16
+    ],
+    "cells_to_run": null,
+    "nc_boundary_rates": [
+      0.005,
+      0.01
+    ],
+    "nc_boundary_costs": [
+      8,
+      16
+    ],
+    "nc_coverage_note": "Neural Cleanse ran on an explicit, predeclared boundary subset -- the two lowest secondary poison rates x both secondary trigger costs, the grid corner nearest CTU-13's own evasion window -- NOT the full grid. Chosen before this run, not after seeing results. Not run at all in replication mode (out of scope for the Spectral/MAD headline narrative that mode targets).",
+    "mlp_epochs": 20,
+    "n_sigma": 6.0,
+    "nc_sample": 400,
+    "nc_steps": 300
+  },
+  "positive_control_ref": {
+    "source": "secondary_poison_sweep.json",
+    "all_positive_controls_passed": true,
+    "n_positive_controls": 5,
+    "failed_control_seeds": []
+  },
+  "main_grid": [
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.7865550714667889,
+      "clean_acc": 0.9758530796712661,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0014202303929304087,
+        "auc": 0.8947316002206316,
+        "mad_recall": 0.47561937825469464,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.023986113302824682,
+        "minority_cluster_size": 57421,
+        "purity": 0.0026471151669249927,
+        "silhouette": 0.6850681457075363
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 0.9897194832989376,
+      "clean_acc": 0.9764211682425864,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0009468202619536059,
+        "auc": 0.983976472070734,
+        "mad_recall": 0.9968439324601547,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.00015780337699226762,
+        "minority_cluster_size": 367876,
+        "purity": 2.718307255705727e-06,
+        "silhouette": 0.40197546082133095
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.8185049300619124,
+      "clean_acc": 0.9762475856235718,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.003866182736310557,
+        "auc": 0.9470182166000621,
+        "mad_recall": 0.9990531797380464,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.18983746252169797,
+        "minority_cluster_size": 168641,
+        "purity": 0.014266993198569743,
+        "silhouette": 0.47817116844315105
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 0.9957578537032791,
+      "clean_acc": 0.9763864517187836,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.04102887801798959,
+        "auc": 0.9756712084924306,
+        "mad_recall": 0.9984219662300773,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 358338,
+        "purity": 0.0,
+        "silhouette": 0.3287621588628472
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.9571199266223344,
+      "clean_acc": 0.9758972643379243,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.2581821050970491,
+        "auc": 0.8462103153889085,
+        "mad_recall": 0.17121666403661037,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 3,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 0.9972101200030574,
+      "clean_acc": 0.9762538977188088,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.7344958182105097,
+        "auc": 0.9613370056709343,
+        "mad_recall": 0.9981537004891905,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9904213350165694,
+        "minority_cluster_size": 185366,
+        "purity": 0.3385896011134728,
+        "silhouette": 0.48150713925545524
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.962508598945196,
+      "clean_acc": 0.9762602098140457,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.8458115369138637,
+        "auc": 0.9358103136179325,
+        "mad_recall": 0.4130944209056264,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9872022471023584,
+        "minority_cluster_size": 578979,
+        "purity": 0.21610282929087238,
+        "silhouette": 0.29107990366183994
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 0.997630512879309,
+      "clean_acc": 0.9760960953378864,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9937983762160627,
+        "auc": 0.9624323961303517,
+        "mad_recall": 0.9509550974033659,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9961969686210461,
+        "minority_cluster_size": 205164,
+        "purity": 0.6154052367861809,
+        "silhouette": 0.50503873306357
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.7841091492776886,
+      "clean_acc": 0.976298082385467,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.010888433012466467,
+        "auc": 0.9628985347015946,
+        "mad_recall": 0.9974751459681237,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 3,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 0.9678208361996484,
+      "clean_acc": 0.9762602098140457,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.00015780337699226762,
+        "auc": 0.9651277936971775,
+        "mad_recall": 1.0,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.964652043553732,
+        "minority_cluster_size": 89548,
+        "purity": 0.06826506454638853,
+        "silhouette": 0.5266557906181691
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.9048383398303141,
+      "clean_acc": 0.9761813086235845,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.07669244121824208,
+        "auc": 0.9670618135530346,
+        "mad_recall": 0.9992109831150386,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.985876597759192,
+        "minority_cluster_size": 86375,
+        "purity": 0.14465991316931984,
+        "silhouette": 0.6628487156071399
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 0.9885347397385921,
+      "clean_acc": 0.9763422670521252,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.00031560675398453525,
+        "auc": 0.9327042701275452,
+        "mad_recall": 0.9803534795644627,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.002603755720372416,
+        "minority_cluster_size": 56161,
+        "purity": 0.0005875963747084276,
+        "silhouette": 0.7033538438952772
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.831002063746847,
+      "clean_acc": 0.9763201747187962,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9322392299195202,
+        "auc": 0.9808626033646193,
+        "mad_recall": 0.995613066119615,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9892535900268266,
+        "minority_cluster_size": 117502,
+        "purity": 0.5335143231604569,
+        "silhouette": 0.6563222851100281
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 0.996636856989987,
+      "clean_acc": 0.9761465920997816,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.8083162379674925,
+        "auc": 0.9664480502053077,
+        "mad_recall": 0.9989900583872495,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9894587344169166,
+        "minority_cluster_size": 127350,
+        "purity": 0.4923596387907342,
+        "silhouette": 0.655609780490307
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.9903309638462127,
+      "clean_acc": 0.9762917702902302,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9993293409393961,
+        "auc": 0.9796994287171478,
+        "mad_recall": 0.9954631887076795,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9894272571622442,
+        "minority_cluster_size": 159757,
+        "purity": 0.7849483903678712,
+        "silhouette": 0.6312490088039736
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 0.9970190323320339,
+      "clean_acc": 0.9761718404807291,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9844722702203706,
+        "auc": 0.9557047679164989,
+        "mad_recall": 0.9841408857433664,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9926858711861197,
+        "minority_cluster_size": 228802,
+        "purity": 0.549881556979397,
+        "silhouette": 0.5816633462713575
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.7873194221508828,
+      "clean_acc": 0.9756605607665408,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0011046236389458735,
+        "auc": 0.963938489594921,
+        "mad_recall": 0.9973173425911315,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.00015780337699226762,
+        "minority_cluster_size": 363026,
+        "purity": 2.7546236357726445e-06,
+        "silhouette": 0.40591831569437153
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 0.9847129863181228,
+      "clean_acc": 0.9759887897188593,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.00031560675398453525,
+        "auc": 0.9132083838197218,
+        "mad_recall": 0.2550102572195045,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.012939876913365947,
+        "minority_cluster_size": 534556,
+        "purity": 0.00015339833431857468,
+        "silhouette": 0.3104894861367407
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.8359321256592525,
+      "clean_acc": 0.9757363059093835,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.03889853242859397,
+        "auc": 0.9753055275737137,
+        "mad_recall": 0.9991320814265425,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 358296,
+        "purity": 0.0,
+        "silhouette": 0.3692213185180816
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 0.9827256745394787,
+      "clean_acc": 0.9756100640046457,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0015780337699226763,
+        "auc": 0.944178613326014,
+        "mad_recall": 0.44248066908631845,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 363475,
+        "purity": 0.0,
+        "silhouette": 0.3927383138709626
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.882060689444317,
+      "clean_acc": 0.976092939290268,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.5323339119457157,
+        "auc": 0.9463342730030495,
+        "mad_recall": 0.7820893167113776,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9860659618115828,
+        "minority_cluster_size": 389647,
+        "purity": 0.1603682307319189,
+        "silhouette": 0.41802132706311124
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 0.994267369869296,
+      "clean_acc": 0.9759004203855428,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9131608016411551,
+        "auc": 0.9705227154551643,
+        "mad_recall": 0.9767713429067382,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 391323,
+        "purity": 0.0,
+        "silhouette": 0.35380962260311144
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.85056944125965,
+      "clean_acc": 0.9751682173380632,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9994161321119448,
+        "auc": 0.98219946557186,
+        "mad_recall": 0.9979643524984022,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9961890785144507,
+        "minority_cluster_size": 153841,
+        "purity": 0.8207044936005357,
+        "silhouette": 0.5752914759156588
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 0.9978216005503325,
+      "clean_acc": 0.9759761655283855,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9824524029319636,
+        "auc": 0.9517137630947334,
+        "mad_recall": 0.904348237744692,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9965362432046457,
+        "minority_cluster_size": 248517,
+        "purity": 0.5082227775162262,
+        "silhouette": 0.5114756143469891
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.8366964763433463,
+      "clean_acc": 0.9763454230997437,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0007890168849613382,
+        "auc": 0.9200477257794198,
+        "mad_recall": 0.33375414233864603,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.06422597443585293,
+        "minority_cluster_size": 54987,
+        "purity": 0.007401749504428319,
+        "silhouette": 0.6517037673160326
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 0.9933501490483834,
+      "clean_acc": 0.9764495726711525,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0,
+        "auc": 0.9617046235028384,
+        "mad_recall": 1.0,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0006312135079690705,
+        "minority_cluster_size": 397775,
+        "purity": 1.0055936144805481e-05,
+        "silhouette": 0.37615735999709277
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.8990292746312007,
+      "clean_acc": 0.9763927638140204,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.1572510651727947,
+        "auc": 0.9826933363315437,
+        "mad_recall": 0.9918731260848982,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 2,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 0.9969043797294198,
+      "clean_acc": 0.9764022319568758,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0003945084424806691,
+        "auc": 0.9511606759377452,
+        "mad_recall": 0.9905317973804639,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.008442480669086318,
+        "minority_cluster_size": 477324,
+        "purity": 0.00022416639431497264,
+        "silhouette": 0.3205034486348149
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.8390659634640373,
+      "clean_acc": 0.9763580472902175,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.584203881963074,
+        "auc": 0.9522863793560097,
+        "mad_recall": 0.9037715007101152,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9844879280416601,
+        "minority_cluster_size": 347091,
+        "purity": 0.17974248828117123,
+        "silhouette": 0.34539422464390107
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 0.9974776427424903,
+      "clean_acc": 0.9763706714806913,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.8293514281205617,
+        "auc": 0.9664068811041442,
+        "mad_recall": 0.9976487296828153,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0006469938456682973,
+        "minority_cluster_size": 588084,
+        "purity": 6.971793145196945e-05,
+        "silhouette": 0.3220943578553306
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.9077810899640755,
+      "clean_acc": 0.9763896077664019,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.992251915323376,
+        "auc": 0.960902795765457,
+        "mad_recall": 0.9251544488366038,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9865394781483497,
+        "minority_cluster_size": 168179,
+        "purity": 0.7434638093935628,
+        "silhouette": 0.5191074754055087
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 0.9970572498662387,
+      "clean_acc": 0.9762002449092952,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9502528779163807,
+        "auc": 0.9466863583650272,
+        "mad_recall": 0.33827254006201624,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9884962245839941,
+        "minority_cluster_size": 284600,
+        "purity": 0.4402073085031623,
+        "silhouette": 0.4199841217681947
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "asr": 0.699992356493159,
+      "clean_acc": 0.9762191811950058,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0,
+        "auc": 0.9399094953996148,
+        "mad_recall": 0.49834306454158117,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 3,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "asr": 0.877589237942368,
+      "clean_acc": 0.9762949263378485,
+      "determinism_ok": true,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0,
+        "auc": 0.9564290542663704,
+        "mad_recall": 0.9954237020672242,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 389729,
+        "purity": 0.0,
+        "silhouette": 0.39659110260527874
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "asr": 0.766376213406711,
+      "clean_acc": 0.976326486814033,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.0004734101309768029,
+        "auc": 0.9526892468231241,
+        "mad_recall": 0.643837778128452,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 354002,
+        "purity": 0.0,
+        "silhouette": 0.49323363470098075
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "asr": 0.9953374608270275,
+      "clean_acc": 0.9759382929569641,
+      "determinism_ok": true,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.00165693545841881,
+        "auc": 0.9628242732538451,
+        "mad_recall": 1.0,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 3,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "asr": 0.9007872812046167,
+      "clean_acc": 0.9763422670521252,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.6704907685024459,
+        "auc": 0.9589443852407351,
+        "mad_recall": 0.6837462521697965,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 3,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 16,
+      "asr": 0.9969808147978293,
+      "clean_acc": 0.9763580472902175,
+      "determinism_ok": true,
+      "n_poison": 63370,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.8532112987217927,
+        "auc": 0.9680774506303781,
+        "mad_recall": 0.9977907527221083,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 3,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 8,
+      "asr": 0.8578307727585416,
+      "clean_acc": 0.975209245957103,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9655202341783637,
+        "auc": 0.95237196531129,
+        "mad_recall": 0.7657269549711616,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.0,
+        "minority_cluster_size": 3,
+        "purity": 0.0,
+        "silhouette": null
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "asr": 0.9965604219215776,
+      "clean_acc": 0.9763675154330729,
+      "determinism_ok": true,
+      "n_poison": 126741,
+      "n_benign": 1233218,
+      "spectral": {
+        "recall": 0.9990452971019639,
+        "auc": 0.9765455461662708,
+        "mad_recall": 0.9779550421726197,
+        "mad_z": 3.0
+      },
+      "ac": {
+        "recall": 0.9918810803133951,
+        "minority_cluster_size": 146744,
+        "purity": 0.8566755710625307,
+        "silhouette": 0.4899874348401928
+      }
+    }
+  ],
+  "nc_boundary": [
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 181.89799378084976,
+      "nc_clean_ratio": 28.543588181241923,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 134.5494122952899,
+      "nc_clean_ratio": 28.543588181241923,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 6.4430433796785085,
+      "nc_clean_ratio": 28.543588181241923,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "nc_flagged_target": true,
+      "nc_ratio": 91.99101122224654,
+      "nc_clean_ratio": 28.543588181241923,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 2.900611971930187,
+      "nc_clean_ratio": 46.64924722906509,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 139.90880278946932,
+      "nc_clean_ratio": 46.64924722906509,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 46.431100492506935,
+      "nc_clean_ratio": 46.64924722906509,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 100.65588172332797,
+      "nc_clean_ratio": 46.64924722906509,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 119.1171657755196,
+      "nc_clean_ratio": 80.49045180623936,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "nc_flagged_target": false,
+      "nc_ratio": 51.06208459774498,
+      "nc_clean_ratio": 80.49045180623936,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 121.67293848360042,
+      "nc_clean_ratio": 80.49045180623936,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "nc_flagged_target": true,
+      "nc_ratio": 131.83294958203226,
+      "nc_clean_ratio": 80.49045180623936,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 130.61221486568328,
+      "nc_clean_ratio": 105.2765673470229,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 167.7807778787921,
+      "nc_clean_ratio": 105.2765673470229,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 95.14188950096974,
+      "nc_clean_ratio": 105.2765673470229,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 59.731552144559394,
+      "nc_clean_ratio": 105.2765673470229,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 127.08417480641224,
+      "nc_clean_ratio": 50.92562008465064,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "nc_flagged_target": true,
+      "nc_ratio": 95.00428058943902,
+      "nc_clean_ratio": 50.92562008465064,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 5.763826259112505,
+      "nc_clean_ratio": 50.92562008465064,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "nc_flagged_target": false,
+      "nc_ratio": 4.182090220370994,
+      "nc_clean_ratio": 50.92562008465064,
+      "nc_ratio_saturated": false,
+      "nc_clean_ratio_saturated": false,
+      "inversion_recipe": {
+        "nc_sample": 400,
+        "nc_steps": 300,
+        "class_balanced": true,
+        "tau": 2.0
+      }
+    }
+  ],
+  "summary": {
+    "n_determinism_checked": 40,
+    "n_determinism_failed": 0,
+    "determinism_all_ok": true
+  }
+}

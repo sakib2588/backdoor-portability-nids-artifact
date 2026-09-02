@@ -1,0 +1,45 @@
+{
+  "task": "f10_adaptive_attacker_clean_control",
+  "winner_candidate_id": "cost016_rate0.0050_sigma6.00_dirp1",
+  "winner_trigger_hash": "51ae2b2d8f7edebb9574dcbcbe7c0b4a8f687eb78079ec5a0162def677ea8648",
+  "eval_seeds": [
+    789,
+    1337
+  ],
+  "fingerprint": "e1903d8443de19b8",
+  "per_seed": [
+    {
+      "seed": 789,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.04914004914004914,
+      "a_clean_stamped": 1.0,
+      "constraint_valid_frac": 1.0
+    },
+    {
+      "seed": 1337,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.0343980343980344,
+      "a_clean_stamped": 1.0,
+      "constraint_valid_frac": 1.0
+    }
+  ],
+  "summary": {
+    "a_clean_plain_mean": 0.04176904176904177,
+    "a_clean_stamped_mean": 1.0,
+    "a_poisoned_stamped_mean": 1.0,
+    "evasion_component_E": 0.9582309582309583,
+    "backdoor_component_B": 0.0,
+    "per_seed_plain": [
+      0.04914004914004914,
+      0.0343980343980344
+    ],
+    "per_seed_stamped": [
+      1.0,
+      1.0
+    ],
+    "per_seed_poisoned": [
+      1.0,
+      1.0
+    ]
+  }
+}

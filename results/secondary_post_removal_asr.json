@@ -1,0 +1,1528 @@
+{
+  "dataset": "unsw_nb15",
+  "z": 3.0,
+  "z_source": "config.MAD_Z_PRIMARY (locked on CTU-13, not re-searched)",
+  "question": "Does dropping the MAD-flagged rows and retraining remove the backdoor?",
+  "config": {
+    "smoke": false,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "target_cells": [
+      [
+        0.005,
+        16
+      ],
+      [
+        0.01,
+        8
+      ],
+      [
+        0.01,
+        16
+      ]
+    ],
+    "mlp_epochs": 20,
+    "n_sigma": 6.0,
+    "spectral_components": 5,
+    "device": "cuda",
+    "target_cell_derivation": "cells with is_evasion_window in results/secondary_adaptive_threshold.json, cross-checked against window_and_recovery_replicated in results/extension_analysis.json",
+    "removal_rule": "drop every target-class row with MAD z > 3.0 on the top-5 Spectral-Signatures score",
+    "trigger_source": "cached, results/secondary_poison_sweep.json -> per_cell[].trigger (feature_names + requested_values, per (seed, cost)); re-projected at stamp time with src.constraints_secondary.project_secondary_to_feasible. shap is NOT invoked -- the committed SHAP ranking is reused via its trigger.",
+    "determinism_reference": "results/secondary_adaptive_threshold.json",
+    "environment": {
+      "torch": "2.4.1+cu121",
+      "numpy": "1.26.4",
+      "python": "3.12.3"
+    }
+  },
+  "rows": [
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9897194832989376,
+      "post_removal_asr": 0.8272567453947871,
+      "asr_drop": 0.16246273790415044,
+      "pre_removal_clean_acc": 0.9764211682425864,
+      "post_removal_clean_acc": 0.9704278338151566,
+      "clean_acc_drop": 0.005993334427429775,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "n_clean": 1226881,
+      "n_removed": 90497,
+      "n_poison_removed": 6317,
+      "n_clean_removed": 84180,
+      "n_poison_surviving": 20,
+      "frac_benign_removed": 0.07338280823017504,
+      "frac_train_removed": 0.07140326666966491,
+      "mad_recall": 0.9968439324601547,
+      "mad_fpr": 0.06861301136785067,
+      "fixed_budget_recall": 0.0009468202619536059,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=42,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "Djit",
+        "dur",
+        "Sjit",
+        "dttl",
+        "dwin",
+        "ct_state_ttl",
+        "dtcpb",
+        "ct_dst_ltm",
+        "smeansz",
+        "ct_srv_dst",
+        "stcpb",
+        "sttl",
+        "ct_src_ltm",
+        "Dintpkt",
+        "ct_srv_src"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "z": 3.0,
+      "pre_removal_asr": 0.8185049300619124,
+      "post_removal_asr": 0.0012611786287548728,
+      "asr_drop": 0.8172437514331575,
+      "pre_removal_clean_acc": 0.9762475856235718,
+      "post_removal_clean_acc": 0.9612658275788065,
+      "clean_acc_drop": 0.014981758044765314,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 123501,
+      "n_poison_removed": 12662,
+      "n_clean_removed": 110839,
+      "n_poison_surviving": 12,
+      "frac_benign_removed": 0.10014531088582879,
+      "frac_train_removed": 0.09744383611578601,
+      "mad_recall": 0.9990531797380464,
+      "mad_fpr": 0.0908111465051649,
+      "fixed_budget_recall": 0.003866182736310557,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=42,cost=8].trigger",
+      "trigger_features": [
+        "swin",
+        "Djit",
+        "dur",
+        "Sjit",
+        "dttl",
+        "dwin",
+        "ct_state_ttl",
+        "dtcpb"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9957578537032791,
+      "post_removal_asr": 0.8968508751815333,
+      "asr_drop": 0.09890697852174579,
+      "pre_removal_clean_acc": 0.9763864517187836,
+      "post_removal_clean_acc": 0.9606851148170124,
+      "clean_acc_drop": 0.015701336901771223,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 79777,
+      "n_poison_removed": 12654,
+      "n_clean_removed": 67123,
+      "n_poison_surviving": 20,
+      "frac_benign_removed": 0.0646901034529175,
+      "frac_train_removed": 0.06294505237859661,
+      "mad_recall": 0.9984219662300773,
+      "mad_fpr": 0.05499433039693776,
+      "fixed_budget_recall": 0.04102887801798959,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=42,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "Djit",
+        "dur",
+        "Sjit",
+        "dttl",
+        "dwin",
+        "ct_state_ttl",
+        "dtcpb",
+        "ct_dst_ltm",
+        "smeansz",
+        "ct_srv_dst",
+        "stcpb",
+        "sttl",
+        "ct_src_ltm",
+        "Dintpkt",
+        "ct_srv_src"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9678208361996484,
+      "post_removal_asr": 0.0,
+      "asr_drop": 0.9678208361996484,
+      "pre_removal_clean_acc": 0.9762602098140457,
+      "post_removal_clean_acc": 0.9582423339603348,
+      "clean_acc_drop": 0.018017875853710952,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "n_clean": 1226881,
+      "n_removed": 100341,
+      "n_poison_removed": 6337,
+      "n_clean_removed": 94004,
+      "n_poison_surviving": 0,
+      "frac_benign_removed": 0.08136517631108206,
+      "frac_train_removed": 0.07917030598694816,
+      "mad_recall": 1.0,
+      "mad_fpr": 0.07662030791902393,
+      "fixed_budget_recall": 0.00015780337699226762,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=123,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "Djit",
+        "dwin",
+        "Sjit",
+        "dur",
+        "dttl",
+        "dtcpb",
+        "ct_dst_ltm",
+        "ct_state_ttl",
+        "smeansz",
+        "ct_src_ltm",
+        "Spkts",
+        "ct_srv_dst",
+        "sttl",
+        "Dintpkt",
+        "dmeansz"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "z": 3.0,
+      "pre_removal_asr": 0.9048383398303141,
+      "post_removal_asr": 0.1714056409080486,
+      "asr_drop": 0.7334326989222655,
+      "pre_removal_clean_acc": 0.9761813086235845,
+      "post_removal_clean_acc": 0.9595331574362794,
+      "clean_acc_drop": 0.016648151187305116,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 121576,
+      "n_poison_removed": 12664,
+      "n_clean_removed": 108912,
+      "n_poison_surviving": 10,
+      "frac_benign_removed": 0.09858435410446491,
+      "frac_train_removed": 0.09592498700101862,
+      "mad_recall": 0.9992109831150386,
+      "mad_fpr": 0.08923234229982696,
+      "fixed_budget_recall": 0.07669244121824208,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=123,cost=8].trigger",
+      "trigger_features": [
+        "swin",
+        "Djit",
+        "dwin",
+        "Sjit",
+        "dur",
+        "dttl",
+        "dtcpb",
+        "ct_dst_ltm"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9885347397385921,
+      "post_removal_asr": 0.45356569594129786,
+      "asr_drop": 0.5349690437972943,
+      "pre_removal_clean_acc": 0.9763422670521252,
+      "post_removal_clean_acc": 0.9596657114362541,
+      "clean_acc_drop": 0.016676555615871114,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 107580,
+      "n_poison_removed": 12425,
+      "n_clean_removed": 95155,
+      "n_poison_surviving": 249,
+      "frac_benign_removed": 0.08723518469564992,
+      "frac_train_removed": 0.08488196767100072,
+      "mad_recall": 0.9803534795644627,
+      "mad_fpr": 0.07796113863981963,
+      "fixed_budget_recall": 0.00031560675398453525,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=123,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "Djit",
+        "dwin",
+        "Sjit",
+        "dur",
+        "dttl",
+        "dtcpb",
+        "ct_dst_ltm",
+        "ct_state_ttl",
+        "smeansz",
+        "ct_src_ltm",
+        "Spkts",
+        "ct_srv_dst",
+        "sttl",
+        "Dintpkt",
+        "dmeansz"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9847129863181228,
+      "post_removal_asr": 0.8033707865168539,
+      "asr_drop": 0.18134219980126887,
+      "pre_removal_clean_acc": 0.9759887897188593,
+      "post_removal_clean_acc": 0.96457020943532,
+      "clean_acc_drop": 0.01141858028353926,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "n_clean": 1226881,
+      "n_removed": 85116,
+      "n_poison_removed": 1616,
+      "n_clean_removed": 83500,
+      "n_poison_surviving": 4721,
+      "frac_benign_removed": 0.0690194272221132,
+      "frac_train_removed": 0.06715759026106058,
+      "mad_recall": 0.2550102572195045,
+      "mad_fpr": 0.06805876038507402,
+      "fixed_budget_recall": 0.00031560675398453525,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=456,cost=16].trigger",
+      "trigger_features": [
+        "Djit",
+        "swin",
+        "dwin",
+        "dttl",
+        "ct_srv_src",
+        "ct_dst_ltm",
+        "ct_state_ttl",
+        "stcpb",
+        "sttl",
+        "Dintpkt",
+        "dtcpb",
+        "ct_srv_dst",
+        "dmeansz",
+        "dur",
+        "Sjit",
+        "ct_src_ltm"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "z": 3.0,
+      "pre_removal_asr": 0.8359321256592525,
+      "post_removal_asr": 0.0009172208209126347,
+      "asr_drop": 0.8350149048383398,
+      "pre_removal_clean_acc": 0.9757363059093835,
+      "post_removal_clean_acc": 0.9697271912438615,
+      "clean_acc_drop": 0.0060091146655220085,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 73278,
+      "n_poison_removed": 12663,
+      "n_clean_removed": 60615,
+      "n_poison_surviving": 11,
+      "frac_benign_removed": 0.0594201511817051,
+      "frac_train_removed": 0.05781725996463646,
+      "mad_recall": 0.9991320814265425,
+      "mad_fpr": 0.04966228173666824,
+      "fixed_budget_recall": 0.03889853242859397,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=456,cost=8].trigger",
+      "trigger_features": [
+        "Djit",
+        "swin",
+        "dwin",
+        "dttl",
+        "ct_srv_src",
+        "ct_dst_ltm",
+        "ct_state_ttl",
+        "stcpb"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9827256745394787,
+      "post_removal_asr": 0.9066345639379347,
+      "asr_drop": 0.07609111060154394,
+      "pre_removal_clean_acc": 0.9756100640046457,
+      "post_removal_clean_acc": 0.9601548988171134,
+      "clean_acc_drop": 0.015455165187532316,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 70707,
+      "n_poison_removed": 5608,
+      "n_clean_removed": 65099,
+      "n_poison_surviving": 7066,
+      "frac_benign_removed": 0.0573353616311147,
+      "frac_train_removed": 0.05578870875732894,
+      "mad_recall": 0.44248066908631845,
+      "mad_fpr": 0.05333605343191233,
+      "fixed_budget_recall": 0.0015780337699226763,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=456,cost=16].trigger",
+      "trigger_features": [
+        "Djit",
+        "swin",
+        "dwin",
+        "dttl",
+        "ct_srv_src",
+        "ct_dst_ltm",
+        "ct_state_ttl",
+        "stcpb",
+        "sttl",
+        "Dintpkt",
+        "dtcpb",
+        "ct_srv_dst",
+        "dmeansz",
+        "dur",
+        "Sjit",
+        "ct_src_ltm"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9933501490483834,
+      "post_removal_asr": 0.0,
+      "asr_drop": 0.9933501490483834,
+      "pre_removal_clean_acc": 0.9764495726711525,
+      "post_removal_clean_acc": 0.9670887354348402,
+      "clean_acc_drop": 0.009360837236312314,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "n_clean": 1226881,
+      "n_removed": 85726,
+      "n_poison_removed": 6337,
+      "n_clean_removed": 79389,
+      "n_poison_surviving": 0,
+      "frac_benign_removed": 0.06951406807231163,
+      "frac_train_removed": 0.06763888790262323,
+      "mad_recall": 1.0,
+      "mad_fpr": 0.0647079871641993,
+      "fixed_budget_recall": 0.0,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=789,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "dur",
+        "Sjit",
+        "dttl",
+        "Djit",
+        "dwin",
+        "ct_state_ttl",
+        "ct_src_ltm",
+        "dtcpb",
+        "sttl",
+        "Dintpkt",
+        "ct_srv_dst",
+        "ct_dst_ltm",
+        "ct_srv_src",
+        "smeansz",
+        "stcpb"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "z": 3.0,
+      "pre_removal_asr": 0.8990292746312007,
+      "post_removal_asr": 0.03103263777421081,
+      "asr_drop": 0.8679966368569899,
+      "pre_removal_clean_acc": 0.9763927638140204,
+      "post_removal_clean_acc": 0.9694147425296353,
+      "clean_acc_drop": 0.006978021284385072,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 58117,
+      "n_poison_removed": 12571,
+      "n_clean_removed": 45546,
+      "n_poison_surviving": 103,
+      "frac_benign_removed": 0.04712629883767509,
+      "frac_train_removed": 0.0458550410404866,
+      "mad_recall": 0.9918731260848982,
+      "mad_fpr": 0.03731614755387762,
+      "fixed_budget_recall": 0.1572510651727947,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=789,cost=8].trigger",
+      "trigger_features": [
+        "swin",
+        "dur",
+        "Sjit",
+        "dttl",
+        "Djit",
+        "dwin",
+        "ct_state_ttl",
+        "ct_src_ltm"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9969043797294198,
+      "post_removal_asr": 0.8201100664985095,
+      "asr_drop": 0.17679431323091033,
+      "pre_removal_clean_acc": 0.9764022319568758,
+      "post_removal_clean_acc": 0.9552882733894689,
+      "clean_acc_drop": 0.021113958567406943,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 93508,
+      "n_poison_removed": 12554,
+      "n_clean_removed": 80954,
+      "n_poison_surviving": 120,
+      "frac_benign_removed": 0.07582438790222004,
+      "frac_train_removed": 0.07377898338891926,
+      "mad_recall": 0.9905317973804639,
+      "mad_fpr": 0.06632616276021185,
+      "fixed_budget_recall": 0.0003945084424806691,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=789,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "dur",
+        "Sjit",
+        "dttl",
+        "Djit",
+        "dwin",
+        "ct_state_ttl",
+        "ct_src_ltm",
+        "dtcpb",
+        "sttl",
+        "Dintpkt",
+        "ct_srv_dst",
+        "ct_dst_ltm",
+        "ct_srv_src",
+        "smeansz",
+        "stcpb"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.877589237942368,
+      "post_removal_asr": 0.5241534816173661,
+      "asr_drop": 0.3534357563250019,
+      "pre_removal_clean_acc": 0.9762949263378485,
+      "post_removal_clean_acc": 0.9605714971027483,
+      "clean_acc_drop": 0.015723429235100284,
+      "n_poison": 6337,
+      "n_benign": 1233218,
+      "n_clean": 1226881,
+      "n_removed": 79403,
+      "n_poison_removed": 6308,
+      "n_clean_removed": 73095,
+      "n_poison_surviving": 29,
+      "frac_benign_removed": 0.06438683184968108,
+      "frac_train_removed": 0.06264996169344181,
+      "mad_recall": 0.9954237020672242,
+      "mad_fpr": 0.059577905273616595,
+      "fixed_budget_recall": 0.0,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=1337,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "Sjit",
+        "Djit",
+        "dur",
+        "dttl",
+        "dtcpb",
+        "dwin",
+        "ct_state_ttl",
+        "smeansz",
+        "Dintpkt",
+        "sttl",
+        "ct_dst_ltm",
+        "ct_srv_dst",
+        "stcpb",
+        "ct_srv_src",
+        "ct_src_ltm"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "z": 3.0,
+      "pre_removal_asr": 0.766376213406711,
+      "post_removal_asr": 0.06837116869219598,
+      "asr_drop": 0.6980050447145151,
+      "pre_removal_clean_acc": 0.976326486814033,
+      "post_removal_clean_acc": 0.9690928256725537,
+      "clean_acc_drop": 0.007233661141479275,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 64330,
+      "n_poison_removed": 8160,
+      "n_clean_removed": 56170,
+      "n_poison_surviving": 4514,
+      "frac_benign_removed": 0.05216433752994199,
+      "frac_train_removed": 0.05075717587168131,
+      "mad_recall": 0.643837778128452,
+      "mad_fpr": 0.04602046300665932,
+      "fixed_budget_recall": 0.0004734101309768029,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=1337,cost=8].trigger",
+      "trigger_features": [
+        "swin",
+        "Sjit",
+        "Djit",
+        "dur",
+        "dttl",
+        "dtcpb",
+        "dwin",
+        "ct_state_ttl"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    },
+    {
+      "dataset": "unsw_nb15",
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "z": 3.0,
+      "pre_removal_asr": 0.9953374608270275,
+      "post_removal_asr": 0.0,
+      "asr_drop": 0.9953374608270275,
+      "pre_removal_clean_acc": 0.9759382929569641,
+      "post_removal_clean_acc": 0.9593501066744095,
+      "clean_acc_drop": 0.01658818628255465,
+      "n_poison": 12674,
+      "n_benign": 1233218,
+      "n_clean": 1220544,
+      "n_removed": 88227,
+      "n_poison_removed": 12674,
+      "n_clean_removed": 75553,
+      "n_poison_surviving": 0,
+      "frac_benign_removed": 0.07154209555812517,
+      "frac_train_removed": 0.06961220823303012,
+      "mad_recall": 1.0,
+      "mad_fpr": 0.061901086728540715,
+      "fixed_budget_recall": 0.00165693545841881,
+      "trigger_source": "results/secondary_poison_sweep.json#per_cell[seed=1337,cost=16].trigger",
+      "trigger_features": [
+        "swin",
+        "Sjit",
+        "Djit",
+        "dur",
+        "dttl",
+        "dtcpb",
+        "dwin",
+        "ct_state_ttl",
+        "smeansz",
+        "Dintpkt",
+        "sttl",
+        "ct_dst_ltm",
+        "ct_srv_dst",
+        "stcpb",
+        "ct_srv_src",
+        "ct_src_ltm"
+      ],
+      "determinism_deltas": {
+        "pre_removal_asr": 0.0,
+        "pre_removal_clean_acc": 0.0,
+        "fixed_budget_recall": 0.0,
+        "mad_recall": 0.0,
+        "mad_fpr": 0.0,
+        "mad_n_flagged": 0,
+        "n_poison": 0,
+        "n_benign": 0
+      },
+      "determinism_ok": true
+    }
+  ],
+  "per_cell": [
+    {
+      "rate": 0.005,
+      "cost": 16,
+      "n_seeds": 5,
+      "pre_removal_asr": {
+        "n": 5,
+        "mean": 0.9626385385614921,
+        "ci": [
+          0.918787739815027,
+          0.9901704502025529
+        ],
+        "per_seed": [
+          0.9897194832989376,
+          0.9678208361996484,
+          0.9847129863181228,
+          0.9933501490483834,
+          0.877589237942368
+        ]
+      },
+      "post_removal_asr": {
+        "n": 5,
+        "mean": 0.4309562027058014,
+        "ci": [
+          0.10483069632347322,
+          0.7570817090881297
+        ],
+        "per_seed": [
+          0.8272567453947871,
+          0.0,
+          0.8033707865168539,
+          0.0,
+          0.5241534816173661
+        ]
+      },
+      "asr_drop": {
+        "n": 5,
+        "mean": 0.5316823358556906,
+        "ci": [
+          0.2082091263471681,
+          0.855155545364213
+        ],
+        "per_seed": [
+          0.16246273790415044,
+          0.9678208361996484,
+          0.18134219980126887,
+          0.9933501490483834,
+          0.3534357563250019
+        ]
+      },
+      "pre_removal_clean_acc": {
+        "n": 5,
+        "mean": 0.9762829333568985,
+        "ci": [
+          0.9761352303283551,
+          0.9764072816330653
+        ],
+        "per_seed": [
+          0.9764211682425864,
+          0.9762602098140457,
+          0.9759887897188593,
+          0.9764495726711525,
+          0.9762949263378485
+        ]
+      },
+      "post_removal_clean_acc": {
+        "n": 5,
+        "mean": 0.9641801219496801,
+        "ci": [
+          0.9604395743122973,
+          0.9679206695870628
+        ],
+        "per_seed": [
+          0.9704278338151566,
+          0.9582423339603348,
+          0.96457020943532,
+          0.9670887354348402,
+          0.9605714971027483
+        ]
+      },
+      "clean_acc_drop": {
+        "n": 5,
+        "mean": 0.012102811407218517,
+        "ci": [
+          0.008425384722204688,
+          0.015780238092232345
+        ],
+        "per_seed": [
+          0.005993334427429775,
+          0.018017875853710952,
+          0.01141858028353926,
+          0.009360837236312314,
+          0.015723429235100284
+        ]
+      },
+      "mad_recall": {
+        "n": 5,
+        "mean": 0.8494555783493766,
+        "ci": [
+          0.5520908947451475,
+          0.9993687864920309
+        ],
+        "per_seed": [
+          0.9968439324601547,
+          1.0,
+          0.2550102572195045,
+          1.0,
+          0.9954237020672242
+        ]
+      },
+      "mad_fpr": {
+        "n": 5,
+        "mean": 0.0675155944219529,
+        "ci": [
+          0.06297024731819956,
+          0.07263638445782435
+        ],
+        "per_seed": [
+          0.06861301136785067,
+          0.07662030791902393,
+          0.06805876038507402,
+          0.0647079871641993,
+          0.059577905273616595
+        ]
+      },
+      "fixed_budget_recall": {
+        "n": 5,
+        "mean": 0.0002840460785860818,
+        "ci": [
+          3.1560675398453523e-05,
+          0.0006312135079690705
+        ],
+        "per_seed": [
+          0.0009468202619536059,
+          0.00015780337699226762,
+          0.00031560675398453525,
+          0.0,
+          0.0
+        ]
+      },
+      "n_removed": {
+        "n": 5,
+        "mean": 88216.6,
+        "ci": [
+          82830.8,
+          95327.2
+        ],
+        "per_seed": [
+          90497.0,
+          100341.0,
+          85116.0,
+          85726.0,
+          79403.0
+        ]
+      },
+      "n_poison_removed": {
+        "n": 5,
+        "mean": 5383.0,
+        "ci": [
+          3498.6,
+          6333.0
+        ],
+        "per_seed": [
+          6317.0,
+          6337.0,
+          1616.0,
+          6337.0,
+          6308.0
+        ]
+      },
+      "n_clean_removed": {
+        "n": 5,
+        "mean": 82833.6,
+        "ci": [
+          77257.0,
+          89116.2
+        ],
+        "per_seed": [
+          84180.0,
+          94004.0,
+          83500.0,
+          79389.0,
+          73095.0
+        ]
+      },
+      "n_poison_surviving": {
+        "n": 5,
+        "mean": 954.0,
+        "ci": [
+          4.0,
+          2838.4
+        ],
+        "per_seed": [
+          20.0,
+          0.0,
+          4721.0,
+          0.0,
+          29.0
+        ]
+      },
+      "frac_benign_removed": {
+        "n": 5,
+        "mean": 0.0715336623370726,
+        "ci": [
+          0.06716638907314035,
+          0.07729955287710688
+        ],
+        "per_seed": [
+          0.07338280823017504,
+          0.08136517631108206,
+          0.0690194272221132,
+          0.06951406807231163,
+          0.06438683184968108
+        ]
+      },
+      "frac_train_removed": {
+        "n": 5,
+        "mean": 0.06960400250274774,
+        "ci": [
+          0.06535453883401307,
+          0.075214354978314
+        ],
+        "per_seed": [
+          0.07140326666966491,
+          0.07917030598694816,
+          0.06715759026106058,
+          0.06763888790262323,
+          0.06264996169344181
+        ]
+      }
+    },
+    {
+      "rate": 0.01,
+      "cost": 8,
+      "n_seeds": 5,
+      "pre_removal_asr": {
+        "n": 5,
+        "mean": 0.8449361767178782,
+        "ci": [
+          0.8011388825192999,
+          0.8887334709164565
+        ],
+        "per_seed": [
+          0.8185049300619124,
+          0.9048383398303141,
+          0.8359321256592525,
+          0.8990292746312007,
+          0.766376213406711
+        ]
+      },
+      "post_removal_asr": {
+        "n": 5,
+        "mean": 0.054597569364824586,
+        "ci": [
+          0.0070778873347091655,
+          0.11670106244745086
+        ],
+        "per_seed": [
+          0.0012611786287548728,
+          0.1714056409080486,
+          0.0009172208209126347,
+          0.03103263777421081,
+          0.06837116869219598
+        ]
+      },
+      "asr_drop": {
+        "n": 5,
+        "mean": 0.7903386073530536,
+        "ci": [
+          0.73249254758083,
+          0.8446533669647633
+        ],
+        "per_seed": [
+          0.8172437514331575,
+          0.7334326989222655,
+          0.8350149048383398,
+          0.8679966368569899,
+          0.6980050447145151
+        ]
+      },
+      "pre_removal_clean_acc": {
+        "n": 5,
+        "mean": 0.9761768901569188,
+        "ci": [
+          0.975956598033151,
+          0.9763372173759357
+        ],
+        "per_seed": [
+          0.9762475856235718,
+          0.9761813086235845,
+          0.9757363059093835,
+          0.9763927638140204,
+          0.976326486814033
+        ]
+      },
+      "post_removal_clean_acc": {
+        "n": 5,
+        "mean": 0.9658067488922274,
+        "ci": [
+          0.9618560084834561,
+          0.9694753386439094
+        ],
+        "per_seed": [
+          0.9612658275788065,
+          0.9595331574362794,
+          0.9697271912438615,
+          0.9694147425296353,
+          0.9690928256725537
+        ]
+      },
+      "clean_acc_drop": {
+        "n": 5,
+        "mean": 0.010370141264691357,
+        "ci": [
+          0.006641586608258687,
+          0.014380846578213147
+        ],
+        "per_seed": [
+          0.014981758044765314,
+          0.016648151187305116,
+          0.0060091146655220085,
+          0.006978021284385072,
+          0.007233661141479275
+        ]
+      },
+      "mad_recall": {
+        "n": 5,
+        "mean": 0.9266214296985955,
+        "ci": [
+          0.7845194887170586,
+          0.9991478617642418
+        ],
+        "per_seed": [
+          0.9990531797380464,
+          0.9992109831150386,
+          0.9991320814265425,
+          0.9918731260848982,
+          0.643837778128452
+        ]
+      },
+      "mad_fpr": {
+        "n": 5,
+        "mean": 0.06260847622043941,
+        "ci": [
+          0.04326710057154843,
+          0.0819498518693304
+        ],
+        "per_seed": [
+          0.0908111465051649,
+          0.08923234229982696,
+          0.04966228173666824,
+          0.03731614755387762,
+          0.04602046300665932
+        ]
+      },
+      "fixed_budget_recall": {
+        "n": 5,
+        "mean": 0.05543632633738362,
+        "ci": [
+          0.00951554363263374,
+          0.10978380937352059
+        ],
+        "per_seed": [
+          0.003866182736310557,
+          0.07669244121824208,
+          0.03889853242859397,
+          0.1572510651727947,
+          0.0004734101309768029
+        ]
+      },
+      "n_removed": {
+        "n": 5,
+        "mean": 88160.4,
+        "ci": [
+          63634.4,
+          112686.4
+        ],
+        "per_seed": [
+          123501.0,
+          121576.0,
+          73278.0,
+          58117.0,
+          64330.0
+        ]
+      },
+      "n_poison_removed": {
+        "n": 5,
+        "mean": 11744.0,
+        "ci": [
+          9943.0,
+          12663.2
+        ],
+        "per_seed": [
+          12662.0,
+          12664.0,
+          12663.0,
+          12571.0,
+          8160.0
+        ]
+      },
+      "n_clean_removed": {
+        "n": 5,
+        "mean": 76416.4,
+        "ci": [
+          52809.4,
+          100023.4
+        ],
+        "per_seed": [
+          110839.0,
+          108912.0,
+          60615.0,
+          45546.0,
+          56170.0
+        ]
+      },
+      "n_poison_surviving": {
+        "n": 5,
+        "mean": 930.0,
+        "ci": [
+          10.8,
+          2731.0
+        ],
+        "per_seed": [
+          12.0,
+          10.0,
+          11.0,
+          103.0,
+          4514.0
+        ]
+      },
+      "frac_benign_removed": {
+        "n": 5,
+        "mean": 0.07148809050792318,
+        "ci": [
+          0.05160028478338785,
+          0.0913758962324585
+        ],
+        "per_seed": [
+          0.10014531088582879,
+          0.09858435410446491,
+          0.0594201511817051,
+          0.04712629883767509,
+          0.05216433752994199
+        ]
+      },
+      "frac_train_removed": {
+        "n": 5,
+        "mean": 0.0695596599987218,
+        "ci": [
+          0.05020833875779446,
+          0.08891098123964913
+        ],
+        "per_seed": [
+          0.09744383611578601,
+          0.09592498700101862,
+          0.05781725996463646,
+          0.0458550410404866,
+          0.05075717587168131
+        ]
+      }
+    },
+    {
+      "rate": 0.01,
+      "cost": 16,
+      "n_seeds": 5,
+      "pre_removal_asr": {
+        "n": 5,
+        "mean": 0.9918520217075594,
+        "ci": [
+          0.9867232286172897,
+          0.9961323855384852
+        ],
+        "per_seed": [
+          0.9957578537032791,
+          0.9885347397385921,
+          0.9827256745394787,
+          0.9969043797294198,
+          0.9953374608270275
+        ]
+      },
+      "post_removal_asr": {
+        "n": 5,
+        "mean": 0.6154322403118551,
+        "ci": [
+          0.2720400519758465,
+          0.8854161889474892
+        ],
+        "per_seed": [
+          0.8968508751815333,
+          0.45356569594129786,
+          0.9066345639379347,
+          0.8201100664985095,
+          0.0
+        ]
+      },
+      "asr_drop": {
+        "n": 5,
+        "mean": 0.3764197813957043,
+        "ci": [
+          0.10535809829549796,
+          0.7194145073759841
+        ],
+        "per_seed": [
+          0.09890697852174579,
+          0.5349690437972943,
+          0.07609111060154394,
+          0.17679431323091033,
+          0.9953374608270275
+        ]
+      },
+      "pre_removal_clean_acc": {
+        "n": 5,
+        "mean": 0.9761358615378789,
+        "ci": [
+          0.9758341433855554,
+          0.9763839268806889
+        ],
+        "per_seed": [
+          0.9763864517187836,
+          0.9763422670521252,
+          0.9756100640046457,
+          0.9764022319568758,
+          0.9759382929569641
+        ]
+      },
+      "post_removal_clean_acc": {
+        "n": 5,
+        "mean": 0.9590288210268516,
+        "ci": [
+          0.9571370860843548,
+          0.9602773534647092
+        ],
+        "per_seed": [
+          0.9606851148170124,
+          0.9596657114362541,
+          0.9601548988171134,
+          0.9552882733894689,
+          0.9593501066744095
+        ]
+      },
+      "clean_acc_drop": {
+        "n": 5,
+        "mean": 0.01710704051102725,
+        "ci": [
+          0.015748677616047858,
+          0.01912627977730934
+        ],
+        "per_seed": [
+          0.015701336901771223,
+          0.016676555615871114,
+          0.015455165187532316,
+          0.021113958567406943,
+          0.01658818628255465
+        ]
+      },
+      "mad_recall": {
+        "n": 5,
+        "mean": 0.8823575824522646,
+        "ci": [
+          0.6615590973646837,
+          0.9974751459681237
+        ],
+        "per_seed": [
+          0.9984219662300773,
+          0.9803534795644627,
+          0.44248066908631845,
+          0.9905317973804639,
+          1.0
+        ]
+      },
+      "mad_fpr": {
+        "n": 5,
+        "mean": 0.06290375439148446,
+        "ci": [
+          0.055712370877248174,
+          0.07098015311205497
+        ],
+        "per_seed": [
+          0.05499433039693776,
+          0.07796113863981963,
+          0.05333605343191233,
+          0.06632616276021185,
+          0.061901086728540715
+        ]
+      },
+      "fixed_budget_recall": {
+        "n": 5,
+        "mean": 0.008994792488559255,
+        "ci": [
+          0.000599652832570617,
+          0.02502761559097365
+        ],
+        "per_seed": [
+          0.04102887801798959,
+          0.00031560675398453525,
+          0.0015780337699226763,
+          0.0003945084424806691,
+          0.00165693545841881
+        ]
+      },
+      "n_removed": {
+        "n": 5,
+        "mean": 87959.8,
+        "ci": [
+          77715.0,
+          99136.8
+        ],
+        "per_seed": [
+          79777.0,
+          107580.0,
+          70707.0,
+          93508.0,
+          88227.0
+        ]
+      },
+      "n_poison_removed": {
+        "n": 5,
+        "mean": 11183.0,
+        "ci": [
+          8384.6,
+          12642.0
+        ],
+        "per_seed": [
+          12654.0,
+          12425.0,
+          5608.0,
+          12554.0,
+          12674.0
+        ]
+      },
+      "n_clean_removed": {
+        "n": 5,
+        "mean": 76776.8,
+        "ci": [
+          67999.4,
+          86634.4
+        ],
+        "per_seed": [
+          67123.0,
+          95155.0,
+          65099.0,
+          80954.0,
+          75553.0
+        ]
+      },
+      "n_poison_surviving": {
+        "n": 5,
+        "mean": 1491.0,
+        "ci": [
+          32.0,
+          4289.4
+        ],
+        "per_seed": [
+          20.0,
+          249.0,
+          7066.0,
+          120.0,
+          0.0
+        ]
+      },
+      "frac_benign_removed": {
+        "n": 5,
+        "mean": 0.07132542664800548,
+        "ci": [
+          0.06301805520191889,
+          0.08038870661959199
+        ],
+        "per_seed": [
+          0.0646901034529175,
+          0.08723518469564992,
+          0.0573353616311147,
+          0.07582438790222004,
+          0.07154209555812517
+        ]
+      },
+      "frac_train_removed": {
+        "n": 5,
+        "mean": 0.06940138408577513,
+        "ci": [
+          0.061318108547609405,
+          0.07822017710175184
+        ],
+        "per_seed": [
+          0.06294505237859661,
+          0.08488196767100072,
+          0.05578870875732894,
+          0.07377898338891926,
+          0.06961220823303012
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "n_rows": 15,
+    "n_determinism_checked": 15,
+    "n_determinism_failed": 0,
+    "determinism_all_ok": true
+  }
+}

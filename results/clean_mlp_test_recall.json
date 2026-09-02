@@ -1,0 +1,38 @@
+{
+  "n_test": 55082,
+  "n_botnet": 407,
+  "always_benign_accuracy": 0.9926110163029664,
+  "per_seed": [
+    {
+      "seed": 42,
+      "botnet_recall": 0.9459459459459459,
+      "n_botnet": 407,
+      "n_missed": 22
+    },
+    {
+      "seed": 123,
+      "botnet_recall": 0.9582309582309583,
+      "n_botnet": 407,
+      "n_missed": 17
+    },
+    {
+      "seed": 456,
+      "botnet_recall": 0.9606879606879607,
+      "n_botnet": 407,
+      "n_missed": 16
+    },
+    {
+      "seed": 789,
+      "botnet_recall": 0.9606879606879607,
+      "n_botnet": 407,
+      "n_missed": 16
+    },
+    {
+      "seed": 1337,
+      "botnet_recall": 0.9631449631449631,
+      "n_botnet": 407,
+      "n_missed": 15
+    }
+  ],
+  "mean_recall": 0.9577395577395578
+}

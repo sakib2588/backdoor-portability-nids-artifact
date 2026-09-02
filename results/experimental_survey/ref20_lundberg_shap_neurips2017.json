@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref20_lundberg_shap_neurips2017",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": null,
+  "n_datasets": null,
+  "n_seeds": null,
+  "n_eval_types": 3,
+  "n_baselines": 3,
+  "reports_variability": "figure",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": null,
+  "evidence": [
+    "The 10th and 90th percentiles are shown for 200 replicate estimates at each sample size.",
+    "SHAP and LIME were both run with 50k samples",
+    "Human feature impact estimates are shown as the most common explanation given among 30 (A) and 52 (B) random individuals",
+    "we masked 20% of the pixels chosen to switch the predicted class from 8 to 3"
+  ],
+  "unresolved": [
+    "This is a methods/theory paper (not a NIDS or classic supervised-learning paper): its 'experiments' are a decision-tree sample-efficiency test, a Mechanical Turk human-agreement study, and an MNIST masking demo. n_models/n_datasets could not be confidently mapped onto the schema's usual meaning; left null rather than guessed.",
+    "n_baselines=3 counts distinct baseline explanation methods empirically compared against SHAP across Section 5 (LIME, classic Shapley sampling values, DeepLIFT); layer-wise relevance propagation and Shapley regression values are discussed theoretically in Section 2 but not run in the Section 5 experiments.",
+    "n_eval_types=3 counts: (1) estimation accuracy/sample-efficiency vs. number of model evaluations (Fig.3), (2) agreement with human explanations from Mechanical Turk user studies (Section 5.2), (3) change in log-odds under pixel masking (Section 5.3, Fig.5B). No numeric MTurk agreement rate or log-odds value is stated as text, only shown in figures.",
+    "No explicit random-seed count is stated anywhere; the '200 replicate estimates' (Fig.3) and '30'/'52' human participants (Fig.4) are sampling/participant counts, not seeds, so n_seeds is left null per instructions."
+  ]
+}

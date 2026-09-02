@@ -1,0 +1,27 @@
+{
+  "paper_id": "ref21_selvaraju_gradcam_iccv2017",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 6,
+  "n_datasets": 4,
+  "n_seeds": null,
+  "n_eval_types": 7,
+  "n_baselines": 5,
+  "reports_variability": "prose",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "We show visualizations to 43 workers on Amazon Mechanical Turk (AMT)",
+    "54 AMT workers were instructed to rate the reliability of the models relative to each other",
+    "Grad-CAM achieves 3.27 ± 0.18. Adding high-resolution detail gives an improved baseline of 2.32 ± 0.08",
+    "averaged over 2510 images in PASCAL 2007 val set"
+  ],
+  "unresolved": [
+    "n_models (6) is a count of distinct named architectures/systems the paper applies its method to (VGG-16, AlexNet, ResNet, neuraltalk2 VGG-16+LSTM captioning model, VQA LSTM+CNN model from [28], ResNet-based hierarchical co-attention VQA model from [29]) -- the paper never states this as a single summary number, so treat as an approximate count.",
+    "n_datasets (4: ImageNet/ILSVRC-15, PASCAL VOC 2007, the VQA dataset from Antol et al., and the self-built doctor-vs-nurse image-search dataset) is likewise a count, not a stated figure.",
+    "n_eval_types (7) aggregates top-1/top-5 localization error, top-1/top-5 classification error, AMT class-discrimination accuracy, AMT pairwise trust/reliability score, rank correlation with occlusion maps, rank correlation with human attention maps, and inside/outside-box activation ratio; boundaries between 'distinct' metrics are a judgment call.",
+    "n_baselines (5: Backprop/Simonyan et al., Guided Backpropagation, Deconvolution, CAM, c-MWP) excludes occlusion sensitivity, which is used as a faithfulness reference rather than a compared method -- could arguably be counted as a 6th baseline.",
+    "No seed count, repetition count, or trial count is stated anywhere for any experiment (human studies report worker counts and item counts, not repeated-trial seeds), so n_seeds is null by the no-default rule.",
+    "significance_test is null: the paper only asserts the 0.136 human-attention correlation is 'statistically higher than chance' without naming a specific test or reporting a p-value."
+  ]
+}

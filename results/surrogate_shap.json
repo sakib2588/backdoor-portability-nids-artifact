@@ -1,0 +1,797 @@
+{
+  "costs": [
+    8,
+    16
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "device": "cuda",
+  "surrogate_seed_offset": 90000,
+  "preregistration": "notes/20260826-decision-surrogate-shap-preregistration.md",
+  "per_seed": [
+    {
+      "seed": 42,
+      "white_box": {
+        "a_clean_plain": 0.05405405405405406,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9459459459459459,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              370,
+              349,
+              747,
+              350,
+              739,
+              591
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9459459459459459,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              370,
+              349,
+              747,
+              350,
+              739,
+              591,
+              348,
+              600,
+              361,
+              369,
+              371,
+              427,
+              726,
+              426
+            ]
+          }
+        }
+      },
+      "surrogate_seed": {
+        "a_clean_plain": 0.05405405405405406,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.9926289926289926,
+            "evasion_component": 0.9385749385749386,
+            "a_clean_stamped_conditioned": 0.9922077922077922,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              349,
+              370,
+              749,
+              747,
+              350,
+              591,
+              739
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9459459459459459,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              349,
+              370,
+              749,
+              747,
+              350,
+              591,
+              739,
+              600,
+              348,
+              361,
+              369,
+              371,
+              726,
+              427,
+              593
+            ]
+          }
+        }
+      },
+      "surrogate_lgb": {
+        "a_clean_plain": 0.05405405405405406,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.056511056511056514,
+            "evasion_component": 0.0024570024570024565,
+            "a_clean_stamped_conditioned": 0.005194805194805195,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              420,
+              726,
+              270,
+              348,
+              340,
+              730,
+              345
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9459459459459459,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              420,
+              726,
+              270,
+              348,
+              340,
+              730,
+              345,
+              261,
+              349,
+              429,
+              606,
+              366,
+              728,
+              723,
+              342
+            ]
+          }
+        }
+      },
+      "overlap": {
+        "surrogate_seed": {
+          "8": 1.0,
+          "16": 0.9375
+        },
+        "surrogate_lgb": {
+          "8": 0.0,
+          "16": 0.1875
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "white_box": {
+        "a_clean_plain": 0.04176904176904177,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.9901719901719902,
+            "evasion_component": 0.9484029484029485,
+            "a_clean_stamped_conditioned": 0.9897435897435898,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              350,
+              747,
+              591,
+              739
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9582309582309583,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              350,
+              747,
+              591,
+              739,
+              600,
+              348,
+              361,
+              726,
+              371,
+              593,
+              427,
+              421
+            ]
+          }
+        }
+      },
+      "surrogate_seed": {
+        "a_clean_plain": 0.04176904176904177,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9582309582309583,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              349,
+              370,
+              747,
+              739,
+              350,
+              591
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9582309582309583,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              349,
+              370,
+              747,
+              739,
+              350,
+              591,
+              348,
+              600,
+              371,
+              361,
+              369,
+              622,
+              593,
+              421
+            ]
+          }
+        }
+      },
+      "surrogate_lgb": {
+        "a_clean_plain": 0.04176904176904177,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.03931203931203931,
+            "evasion_component": -0.0024570024570024565,
+            "a_clean_stamped_conditioned": 0.002564102564102564,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              270,
+              730,
+              348,
+              340,
+              345
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 0.5651105651105651,
+            "evasion_component": 0.5233415233415234,
+            "a_clean_stamped_conditioned": 0.5461538461538461,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              270,
+              730,
+              348,
+              340,
+              345,
+              429,
+              261,
+              349,
+              732,
+              371,
+              606,
+              723,
+              728
+            ]
+          }
+        }
+      },
+      "overlap": {
+        "surrogate_seed": {
+          "8": 1.0,
+          "16": 0.875
+        },
+        "surrogate_lgb": {
+          "8": 0.0,
+          "16": 0.25
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "white_box": {
+        "a_clean_plain": 0.03931203931203931,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9606879606879607,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              350,
+              747,
+              600,
+              591
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9606879606879607,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              350,
+              747,
+              600,
+              591,
+              348,
+              739,
+              361,
+              726,
+              371,
+              369,
+              427,
+              421
+            ]
+          }
+        }
+      },
+      "surrogate_seed": {
+        "a_clean_plain": 0.03931203931203931,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9606879606879607,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              350,
+              747,
+              600,
+              348
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9606879606879607,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              350,
+              747,
+              600,
+              348,
+              591,
+              361,
+              739,
+              371,
+              369,
+              421,
+              420,
+              426
+            ]
+          }
+        }
+      },
+      "surrogate_lgb": {
+        "a_clean_plain": 0.03931203931203931,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.05405405405405406,
+            "evasion_component": 0.014742014742014746,
+            "a_clean_stamped_conditioned": 0.015345268542199489,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              270,
+              730,
+              429,
+              348,
+              340
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 0.07862407862407862,
+            "evasion_component": 0.03931203931203931,
+            "a_clean_stamped_conditioned": 0.04092071611253197,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              270,
+              730,
+              429,
+              348,
+              340,
+              261,
+              349,
+              345,
+              371,
+              606,
+              732,
+              366,
+              728
+            ]
+          }
+        }
+      },
+      "overlap": {
+        "surrogate_seed": {
+          "8": 0.875,
+          "16": 0.875
+        },
+        "surrogate_lgb": {
+          "8": 0.0,
+          "16": 0.25
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "white_box": {
+        "a_clean_plain": 0.03931203931203931,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.11302211302211303,
+            "evasion_component": 0.07371007371007371,
+            "a_clean_stamped_conditioned": 0.07672634271099744,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              370,
+              349,
+              350,
+              739,
+              747,
+              591
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9606879606879607,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              370,
+              349,
+              350,
+              739,
+              747,
+              591,
+              600,
+              348,
+              361,
+              427,
+              421,
+              426,
+              420,
+              371
+            ]
+          }
+        }
+      },
+      "surrogate_seed": {
+        "a_clean_plain": 0.03931203931203931,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.914004914004914,
+            "evasion_component": 0.8746928746928747,
+            "a_clean_stamped_conditioned": 0.9104859335038363,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              747,
+              350,
+              739,
+              348
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9606879606879607,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              370,
+              349,
+              749,
+              747,
+              350,
+              739,
+              348,
+              591,
+              361,
+              600,
+              726,
+              427,
+              421,
+              371,
+              369
+            ]
+          }
+        }
+      },
+      "surrogate_lgb": {
+        "a_clean_plain": 0.03931203931203931,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.009828009828009828,
+            "evasion_component": -0.029484029484029485,
+            "a_clean_stamped_conditioned": 0.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              270,
+              730,
+              429,
+              348,
+              261
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 0.06388206388206388,
+            "evasion_component": 0.024570024570024572,
+            "a_clean_stamped_conditioned": 0.02557544757033248,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              270,
+              730,
+              429,
+              348,
+              261,
+              345,
+              340,
+              728,
+              366,
+              349,
+              342,
+              732,
+              723
+            ]
+          }
+        }
+      },
+      "overlap": {
+        "surrogate_seed": {
+          "8": 0.875,
+          "16": 0.875
+        },
+        "surrogate_lgb": {
+          "8": 0.0,
+          "16": 0.1875
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "white_box": {
+        "a_clean_plain": 0.036855036855036855,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.9508599508599509,
+            "evasion_component": 0.914004914004914,
+            "a_clean_stamped_conditioned": 0.9489795918367347,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              370,
+              349,
+              747,
+              350,
+              739,
+              600
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9631449631449631,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              370,
+              349,
+              747,
+              350,
+              739,
+              600,
+              591,
+              348,
+              361,
+              726,
+              369,
+              421,
+              427,
+              426
+            ]
+          }
+        }
+      },
+      "surrogate_seed": {
+        "a_clean_plain": 0.036855036855036855,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.9508599508599509,
+            "evasion_component": 0.914004914004914,
+            "a_clean_stamped_conditioned": 0.9489795918367347,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              349,
+              370,
+              350,
+              747,
+              739,
+              591
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 1.0,
+            "evasion_component": 0.9631449631449631,
+            "a_clean_stamped_conditioned": 1.0,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              748,
+              749,
+              349,
+              370,
+              350,
+              747,
+              739,
+              591,
+              600,
+              348,
+              361,
+              371,
+              369,
+              593,
+              421,
+              726
+            ]
+          }
+        }
+      },
+      "surrogate_lgb": {
+        "a_clean_plain": 0.036855036855036855,
+        "costs": {
+          "8": {
+            "a_clean_stamped": 0.009828009828009828,
+            "evasion_component": -0.02702702702702703,
+            "a_clean_stamped_conditioned": 0.002551020408163265,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              340,
+              730,
+              348,
+              345,
+              261
+            ]
+          },
+          "16": {
+            "a_clean_stamped": 0.09336609336609336,
+            "evasion_component": 0.05651105651105651,
+            "a_clean_stamped_conditioned": 0.058673469387755105,
+            "constraint_valid_frac": 1.0,
+            "trigger_indices": [
+              756,
+              726,
+              420,
+              340,
+              730,
+              348,
+              345,
+              261,
+              270,
+              429,
+              349,
+              732,
+              606,
+              723,
+              366,
+              728
+            ]
+          }
+        }
+      },
+      "overlap": {
+        "surrogate_seed": {
+          "8": 0.875,
+          "16": 0.875
+        },
+        "surrogate_lgb": {
+          "8": 0.0,
+          "16": 0.1875
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n_seeds": 5,
+    "white_box": {
+      "evasion_cost8": 0.7685503685503686,
+      "evasion_cost16": 0.9577395577395578,
+      "a_clean_stamped_cost8": 0.8108108108108109,
+      "a_clean_stamped_cost16": 1.0,
+      "conditioned_cost8": 0.8030899048582644,
+      "conditioned_cost16": 1.0
+    },
+    "surrogate_seed": {
+      "evasion_cost8": 0.9292383292383292,
+      "evasion_cost16": 0.9577395577395578,
+      "a_clean_stamped_cost8": 0.9714987714987716,
+      "a_clean_stamped_cost16": 1.0,
+      "conditioned_cost8": 0.9703346635096727,
+      "conditioned_cost16": 1.0
+    },
+    "surrogate_lgb": {
+      "evasion_cost8": -0.008353808353808353,
+      "evasion_cost16": 0.317936117936118,
+      "a_clean_stamped_cost8": 0.03390663390663391,
+      "a_clean_stamped_cost16": 0.3601965601965602,
+      "conditioned_cost8": 0.005131039341854103,
+      "conditioned_cost16": 0.3342646958448931
+    },
+    "a_clean_plain": 0.04226044226044226,
+    "overlap_mean": {
+      "surrogate_seed": {
+        "8": 0.925,
+        "16": 0.8875
+      },
+      "surrogate_lgb": {
+        "8": 0.0,
+        "16": 0.2125
+      }
+    }
+  },
+  "verdict": "3_partial"
+}

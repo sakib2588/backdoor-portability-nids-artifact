@@ -1,0 +1,20 @@
+{
+  "CtuReplicationCellCount": 25,
+  "CtuAttackNotEffectiveCellCount": 17,
+  "CtuNoFixedBudgetWindowCellCount": 4,
+  "CtuMadNotRecoveredCellCount": 0,
+  "CtuWindowAndRecoveryReplicatedCellCount": 4,
+  "SecondaryReplicationCellCount": 8,
+  "SecondaryAttackNotEffectiveCellCount": 1,
+  "SecondaryNoFixedBudgetWindowCellCount": 4,
+  "SecondaryMadNotRecoveredCellCount": 0,
+  "SecondaryWindowAndRecoveryReplicatedCellCount": 3,
+  "AdaptiveAttackerVerdict": "adaptive_candidate_failed_held_out_evaluation",
+  "AdaptiveAttackerSelectionVerdict": "selected",
+  "AdaptiveAttackerHeldOutEvasionSuccess": false,
+  "AdaptiveAttackerMadEvadedEveryHeldOutSeed": false,
+  "AdaptiveAttackerUtilityIntactEveryHeldOutSeed": true,
+  "AdaptiveAttackerHeldOutMeanAsr": 1.0,
+  "AdaptiveAttackerHeldOutMeanMadRecall": 1.0,
+  "AdaptiveAttackerHeldOutMeanCleanAccuracyDrop": 0.0
+}

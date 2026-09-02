@@ -1,0 +1,25 @@
+{
+  "paper_id": "Evasion Attacks against Machine Learning at Test Time",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 2,
+  "n_seeds": 5,
+  "n_eval_types": 1,
+  "n_baselines": 0,
+  "reports_variability": "figure",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We randomly split the data into five pairs of training and testing sets with 500 samples each to average the final results.",
+    "we report the average FN value ± half standard deviation (shown with error bars)",
+    "For dmax = 0, the FN rate corresponds to a standard performance evaluation using unmodified PDFs.",
+    "we used a PDF corpus with 500 malicious samples from the Contagio dataset and 500 benign samples collected from the web"
+  ],
+  "unresolved": [
+    "n_seeds=5 is inferred from 'five pairs of training and testing sets' (PDF experiment) and 'five surrogate classifiers' per split, not from an explicit seed list like {42,123,...}; paper never uses the word 'seed'.",
+    "n_models=3 counts linear SVM, RBF-kernel SVM, and single-hidden-layer neural network (all evaluated on PDF task); the MNIST toy example uses only a linear SVM and is illustrative, not a quantitative benchmark run.",
+    "n_eval_types=1: only FN rate at fixed FP=0.5% vs. d_max is reported as a quantitative metric; the MNIST digit visualization (Fig. 3) is qualitative/illustrative, not counted as a separate eval type.",
+    "n_baselines=0: the paper compares its own attack across classifiers/parameter settings and PK vs LK knowledge levels, but does not compare against a prior evasion-attack baseline method."
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "dataset": "unsw_nb15",
+  "cost": 16,
+  "n_draws_per_seed": 5,
+  "n_sigma": 6.0,
+  "shap_trigger_clean_asr_mean_this_run": 5.3504547886570356e-05,
+  "shap_trigger_clean_asr_committed": 5.3504547886570356e-05,
+  "random_trigger_clean_asr_mean": 0.001765650080256822,
+  "random_trigger_clean_asr_sd": 0.006026913626088703,
+  "interpretation": "hard to move at all (random also near zero)",
+  "per_seed": [
+    {
+      "seed": 42,
+      "shap_trigger_clean_asr": 0.0,
+      "random_draws": [
+        {
+          "draw": 0,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        },
+        {
+          "draw": 1,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 5
+        },
+        {
+          "draw": 2,
+          "asr": 0.0004203928762516242,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        },
+        {
+          "draw": 3,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 7
+        },
+        {
+          "draw": 4,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 7
+        }
+      ]
+    },
+    {
+      "seed": 123,
+      "shap_trigger_clean_asr": 0.00026752273943285177,
+      "random_draws": [
+        {
+          "draw": 0,
+          "asr": 0.002140181915462814,
+          "constraint_valid": true,
+          "overlap_with_shap": 8
+        },
+        {
+          "draw": 1,
+          "asr": 7.643506840938622e-05,
+          "constraint_valid": true,
+          "overlap_with_shap": 4
+        },
+        {
+          "draw": 2,
+          "asr": 0.030153634487502867,
+          "constraint_valid": true,
+          "overlap_with_shap": 7
+        },
+        {
+          "draw": 3,
+          "asr": 0.00015287013681877245,
+          "constraint_valid": true,
+          "overlap_with_shap": 9
+        },
+        {
+          "draw": 4,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 10
+        }
+      ]
+    },
+    {
+      "seed": 456,
+      "shap_trigger_clean_asr": 0.0,
+      "random_draws": [
+        {
+          "draw": 0,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 5
+        },
+        {
+          "draw": 1,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 5
+        },
+        {
+          "draw": 2,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        },
+        {
+          "draw": 3,
+          "asr": 0.00022930520522815867,
+          "constraint_valid": true,
+          "overlap_with_shap": 8
+        },
+        {
+          "draw": 4,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 8
+        }
+      ]
+    },
+    {
+      "seed": 789,
+      "shap_trigger_clean_asr": 0.0,
+      "random_draws": [
+        {
+          "draw": 0,
+          "asr": 0.0011083084919361003,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        },
+        {
+          "draw": 1,
+          "asr": 0.008254987388213713,
+          "constraint_valid": true,
+          "overlap_with_shap": 5
+        },
+        {
+          "draw": 2,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        },
+        {
+          "draw": 3,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        },
+        {
+          "draw": 4,
+          "asr": 0.0016051364365971107,
+          "constraint_valid": true,
+          "overlap_with_shap": 7
+        }
+      ]
+    },
+    {
+      "seed": 1337,
+      "shap_trigger_clean_asr": 0.0,
+      "random_draws": [
+        {
+          "draw": 0,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 7
+        },
+        {
+          "draw": 1,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 7
+        },
+        {
+          "draw": 2,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        },
+        {
+          "draw": 3,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 9
+        },
+        {
+          "draw": 4,
+          "asr": 0.0,
+          "constraint_valid": true,
+          "overlap_with_shap": 6
+        }
+      ]
+    }
+  ]
+}

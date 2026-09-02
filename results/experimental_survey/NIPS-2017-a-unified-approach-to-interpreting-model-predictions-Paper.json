@@ -1,0 +1,25 @@
+{
+  "paper_id": "NIPS-2017-a-unified-approach-to-interpreting-model-predictions-Paper",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 1,
+  "n_seeds": null,
+  "n_eval_types": 3,
+  "n_baselines": 3,
+  "reports_variability": "figure",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "The 10th and 90th percentiles are shown for 200 replicate estimates at each sample size.",
+    "we compared explanations from LIME, DeepLIFT, and SHAP with user explanations of simple models (using Amazon Mechanical Turk)",
+    "Human feature impact estimates are shown as the most common explanation given among 30 (A) and 52 (B) random individuals",
+    "SHAP and LIME were both run with 50k samples ... LIME was modified to use single pixel segmentation over the digit pixels"
+  ],
+  "unresolved": [
+    "n_models=4 counts distinct method families experimentally benchmarked in Section 5 (LIME, DeepLIFT, Shapley sampling values, SHAP/Kernel SHAP); Deep SHAP and Max SHAP are proposed but not separately benchmarked with results, and Section 5.3 distinguishes 'Orig. DeepLIFT' vs 'New DeepLIFT' as two variants -- paper never states a single explicit model count.",
+    "n_datasets=1 counts only the named MNIST digit dataset (Section 5.3); Sections 5.1-5.2 use synthetic/simulated decision-tree models and toy scenarios (sickness score, max-allocation game) with no named dataset, so the true count of 'datasets' depends on whether synthetic simulated settings are counted.",
+    "No seed or repetition count is stated anywhere; Figure 3 reports '200 replicate estimates' (a sampling-estimate count, not a random-seed count), so n_seeds is left null rather than imputed.",
+    "No formal significance test (p-value, CI test) is reported anywhere in the paper; agreement with human explanations is assessed only via majority/most-common response tallies (Figure 4), not a stated statistical test."
+  ]
+}

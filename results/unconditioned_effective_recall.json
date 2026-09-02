@@ -1,0 +1,264 @@
+{
+  "criterion": {
+    "asr_min": 0.8,
+    "recall_max": 0.5
+  },
+  "source": "results/detectors.json:main_grid (raw per-seed rows)",
+  "n_attack_effective_cells": 8,
+  "n_evasion_window_cells": 4,
+  "unconditioned_mean_recall": 0.549206349908222,
+  "conditioned_mean_recall": 0.1425262237762238,
+  "conditioned_mean_auc": 0.9825257907404974,
+  "per_cell": [
+    {
+      "rate": 0.005,
+      "cost": 1,
+      "n_seeds": 5,
+      "mean_asr": 0.040294840294840296,
+      "mean_spectral_recall": 0.008741258741258742,
+      "mean_spectral_auc": 0.4966841757266983,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.005,
+      "cost": 2,
+      "n_seeds": 5,
+      "mean_asr": 0.04226044226044226,
+      "mean_spectral_recall": 0.008391608391608392,
+      "mean_spectral_auc": 0.4969539372000351,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.005,
+      "cost": 4,
+      "n_seeds": 5,
+      "mean_asr": 0.04226044226044226,
+      "mean_spectral_recall": 0.00909090909090909,
+      "mean_spectral_auc": 0.496780460659473,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.005,
+      "cost": 8,
+      "n_seeds": 5,
+      "mean_asr": 0.8923832923832924,
+      "mean_spectral_recall": 0.02027972027972028,
+      "mean_spectral_auc": 0.9756696370401882,
+      "attack_effective": true,
+      "in_evasion_window": true
+    },
+    {
+      "rate": 0.005,
+      "cost": 16,
+      "n_seeds": 5,
+      "mean_asr": 1.0,
+      "mean_spectral_recall": 0.06293706293706294,
+      "mean_spectral_auc": 0.9908008004561374,
+      "attack_effective": true,
+      "in_evasion_window": true
+    },
+    {
+      "rate": 0.01,
+      "cost": 1,
+      "n_seeds": 5,
+      "mean_asr": 0.04226044226044226,
+      "mean_spectral_recall": 0.01888111888111888,
+      "mean_spectral_auc": 0.5013327006818121,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.01,
+      "cost": 2,
+      "n_seeds": 5,
+      "mean_asr": 0.04520884520884521,
+      "mean_spectral_recall": 0.020104895104895104,
+      "mean_spectral_auc": 0.5016947571935493,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.01,
+      "cost": 4,
+      "n_seeds": 5,
+      "mean_asr": 0.041277641277641275,
+      "mean_spectral_recall": 0.02097902097902098,
+      "mean_spectral_auc": 0.5029118589559045,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.01,
+      "cost": 8,
+      "n_seeds": 5,
+      "mean_asr": 0.8697788697788698,
+      "mean_spectral_recall": 0.03758741258741259,
+      "mean_spectral_auc": 0.9742747607254222,
+      "attack_effective": true,
+      "in_evasion_window": true
+    },
+    {
+      "rate": 0.01,
+      "cost": 16,
+      "n_seeds": 5,
+      "mean_asr": 1.0,
+      "mean_spectral_recall": 0.4493006993006993,
+      "mean_spectral_auc": 0.9893579647402416,
+      "attack_effective": true,
+      "in_evasion_window": true
+    },
+    {
+      "rate": 0.02,
+      "cost": 1,
+      "n_seeds": 5,
+      "mean_asr": 0.040294840294840296,
+      "mean_spectral_recall": 0.03337702053298383,
+      "mean_spectral_auc": 0.5043295549819027,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.02,
+      "cost": 2,
+      "n_seeds": 5,
+      "mean_asr": 0.04324324324324324,
+      "mean_spectral_recall": 0.03477501092179991,
+      "mean_spectral_auc": 0.5063584429025212,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.02,
+      "cost": 4,
+      "n_seeds": 5,
+      "mean_asr": 0.039803439803439804,
+      "mean_spectral_recall": 0.036784622105723024,
+      "mean_spectral_auc": 0.5062143243120946,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.02,
+      "cost": 8,
+      "n_seeds": 5,
+      "mean_asr": 0.6319410319410319,
+      "mean_spectral_recall": 0.24491044124071648,
+      "mean_spectral_auc": 0.9718733559059918,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.02,
+      "cost": 16,
+      "n_seeds": 5,
+      "mean_asr": 1.0,
+      "mean_spectral_recall": 0.9406727828746178,
+      "mean_spectral_auc": 0.9898412763917337,
+      "attack_effective": true,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.05,
+      "cost": 1,
+      "n_seeds": 5,
+      "mean_asr": 0.039803439803439804,
+      "mean_spectral_recall": 0.07888850052429221,
+      "mean_spectral_auc": 0.5027062598053227,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.05,
+      "cost": 2,
+      "n_seeds": 5,
+      "mean_asr": 0.041277641277641275,
+      "mean_spectral_recall": 0.08046137714085984,
+      "mean_spectral_auc": 0.5034581664400043,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.05,
+      "cost": 4,
+      "n_seeds": 5,
+      "mean_asr": 0.04226044226044226,
+      "mean_spectral_recall": 0.08430618664802517,
+      "mean_spectral_auc": 0.504231695393843,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.05,
+      "cost": 8,
+      "n_seeds": 5,
+      "mean_asr": 0.9351351351351351,
+      "mean_spectral_recall": 0.8828731212862635,
+      "mean_spectral_auc": 0.9700450863055784,
+      "attack_effective": true,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.05,
+      "cost": 16,
+      "n_seeds": 5,
+      "mean_asr": 1.0,
+      "mean_spectral_recall": 1.0,
+      "mean_spectral_auc": 0.9881664303707249,
+      "attack_effective": true,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.1,
+      "cost": 1,
+      "n_seeds": 5,
+      "mean_asr": 0.040294840294840296,
+      "mean_spectral_recall": 0.15415938483047884,
+      "mean_spectral_auc": 0.502808997946265,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.1,
+      "cost": 2,
+      "n_seeds": 5,
+      "mean_asr": 0.04176904176904177,
+      "mean_spectral_recall": 0.15559245019224047,
+      "mean_spectral_auc": 0.5036882337394137,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.1,
+      "cost": 4,
+      "n_seeds": 5,
+      "mean_asr": 0.044226044226044224,
+      "mean_spectral_recall": 0.1593673540720028,
+      "mean_spectral_auc": 0.5041397976778166,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.1,
+      "cost": 8,
+      "n_seeds": 5,
+      "mean_asr": 0.6368550368550369,
+      "mean_spectral_recall": 0.9995980426424327,
+      "mean_spectral_auc": 0.9682810333726029,
+      "attack_effective": false,
+      "in_evasion_window": false
+    },
+    {
+      "rate": 0.1,
+      "cost": 16,
+      "n_seeds": 5,
+      "mean_asr": 1.0,
+      "mean_spectral_recall": 1.0,
+      "mean_spectral_auc": 0.9862947636184755,
+      "attack_effective": true,
+      "in_evasion_window": false
+    }
+  ]
+}

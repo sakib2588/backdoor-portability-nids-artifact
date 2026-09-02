@@ -1,0 +1,33 @@
+# Pinned stack for the backdoor-detector-portability-NIDS pipeline.
+# Python 3.12 (via `uv venv --python 3.12`). Do NOT use system Python 3.14 --
+# the ML wheels have no 3.14 build.
+#
+# TabularBench itself is NOT installed: its PyPI/Git package hard-pins
+# torch==1.12.1 (wheels only up to cp310). We instead vendor just the CTU-13
+# dataset (from HuggingFace) and its constraint module, and run a modern stack.
+# See docs/superpowers/specs/2026-07-13-implementation-methodology-design.md.
+
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.2
+scipy==1.14.1
+lightgbm==4.5.0
+shap==0.46.0
+torch==2.4.1
+matplotlib==3.9.2
+huggingface-hub==0.25.2
+torchvision==0.19.1
+pytest==8.3.3
+
+# Added 2026-07-31 (plan Task 2): the secondary-dataset (UNSW-NB15) HuggingFace mirror ships
+# parquet shards; pandas.read_parquet has no engine without this. Not needed by the primary
+# CTU-13 pipeline (its two files are plain CSV).
+pyarrow==25.0.0
+
+# Added 2026-08-16: corpus-comparison instrument (scripts/30-32, src/passive_voice.py) --
+# real dependency-parse passive-voice detection, replacing an earlier regex proxy. NOT part
+# of the ML pipeline above.
+spacy==3.8.15
+# en_core_web_sm is not a normal PyPI package; after installing spacy, fetch it separately:
+#   python -m spacy download en_core_web_sm
+# (this pins en_core_web_sm==3.8.0, installed from a GitHub release wheel, not PyPI).

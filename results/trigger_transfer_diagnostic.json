@@ -1,0 +1,217 @@
+{
+  "question": "is the transformer's low ASR a property of the architecture or of its SHAP-chosen trigger",
+  "cell": [
+    0.005,
+    16
+  ],
+  "seeds": [
+    42
+  ],
+  "arch_kwargs": {
+    "d_token": 16,
+    "n_layers": 2,
+    "n_heads": 4
+  },
+  "asr_grid": {
+    "ft_victim_ft_trigger": 0.0687960687960688,
+    "ft_victim_mlp_trigger": 1.0,
+    "mlp_victim_mlp_trigger": 1.0,
+    "mlp_victim_ft_trigger": 1.0
+  },
+  "trigger_jaccard_mlp_vs_ft": 0.28,
+  "triggers": {
+    "42|mlp": {
+      "source_arch": "mlp",
+      "seed": 42,
+      "clean_acc": 0.9992919647071639,
+      "indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        348,
+        600,
+        361,
+        369,
+        371,
+        427,
+        726,
+        426,
+        421
+      ],
+      "shap_top16": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        591,
+        348,
+        600,
+        361,
+        369,
+        371,
+        427,
+        726,
+        426
+      ],
+      "seconds": 55.48024249076843
+    },
+    "42|ft_transformer": {
+      "source_arch": "ft_transformer",
+      "seed": 42,
+      "clean_acc": 0.9994553574670492,
+      "indices": [
+        356,
+        727,
+        724,
+        748,
+        728,
+        726,
+        733,
+        718,
+        421,
+        608,
+        428,
+        749,
+        361,
+        600,
+        348,
+        734
+      ],
+      "shap_top16": [
+        356,
+        727,
+        724,
+        748,
+        728,
+        726,
+        733,
+        718,
+        421,
+        608,
+        591,
+        428,
+        749,
+        361,
+        600,
+        348
+      ],
+      "seconds": 550.4251306056976
+    }
+  },
+  "rows": [
+    {
+      "seed": 42,
+      "victim_arch": "mlp",
+      "trigger_source": "mlp",
+      "asr": 1.0,
+      "victim_clean_acc": 0.9992919647071639,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        348,
+        600,
+        361,
+        369,
+        371,
+        427,
+        726,
+        426,
+        421
+      ],
+      "seconds": 1.7650446891784668
+    },
+    {
+      "seed": 42,
+      "victim_arch": "mlp",
+      "trigger_source": "ft_transformer",
+      "asr": 1.0,
+      "victim_clean_acc": 0.9992919647071639,
+      "trigger_indices": [
+        356,
+        727,
+        724,
+        748,
+        728,
+        726,
+        733,
+        718,
+        421,
+        608,
+        428,
+        749,
+        361,
+        600,
+        348,
+        734
+      ],
+      "seconds": 1.7699394226074219
+    },
+    {
+      "seed": 42,
+      "victim_arch": "ft_transformer",
+      "trigger_source": "mlp",
+      "asr": 1.0,
+      "victim_clean_acc": 0.9994916669692459,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        348,
+        600,
+        361,
+        369,
+        371,
+        427,
+        726,
+        426,
+        421
+      ],
+      "seconds": 338.0639326572418
+    },
+    {
+      "seed": 42,
+      "victim_arch": "ft_transformer",
+      "trigger_source": "ft_transformer",
+      "asr": 0.0687960687960688,
+      "victim_clean_acc": 0.9994735122181475,
+      "trigger_indices": [
+        356,
+        727,
+        724,
+        748,
+        728,
+        726,
+        733,
+        718,
+        421,
+        608,
+        428,
+        749,
+        361,
+        600,
+        348,
+        734
+      ],
+      "seconds": 338.1248815059662
+    }
+  ],
+  "checkpoint": "trigger_transfer_diagnostic.checkpoint.json",
+  "elapsed_seconds": 1312.79141831398,
+  "verdict": "artefact_of_trigger_selection"
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref17_gueriani_resnet_bigru_arxiv2026",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 10,
+  "n_datasets": 2,
+  "n_seeds": null,
+  "n_eval_types": 10,
+  "n_baselines": 4,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "The training was conducted in the Kaggle environment utilizing a dual GPU T4 setup with 15 GiB of memory, using the Adam optimizer for fifteen epochs.",
+    "Each dataset was subsequently partitioned into training and testing subsets using an 80/20 split, respectively.",
+    "The analyzed configurations include: ResNet-1D, BiGRU-MHA, ResNet-1D-BiGRU, and ResNet-1D-BiGRU-MHA, with varying numbers of attention heads, dropout rates, and dense layers.",
+    "SMOTE was applied during training on the Edge-IIoTset dataset."
+  ],
+  "unresolved": [
+    "n_models=10 counts the distinct architectural variants in the Table III ablation study (case #1-#10); the paper frames these as ablation configurations of one proposed model rather than separate baseline architectures, so a stricter reading could give n_models=1.",
+    "No random seed, repetition count, or run-to-run variability (std/CI) is reported anywhere; all metrics appear to be single-run point estimates.",
+    "n_eval_types=10 counts Accuracy, Loss, Precision, Recall, F1, FPR, inference time, training time/epoch, ROC/AUC, and confusion matrix; some of these (e.g. confusion matrix) are diagnostic displays rather than summary metrics, so a narrower count is defensible.",
+    "control_arm/significance_test fields are not really applicable since this is a plain multiclass-classification NIDS paper, not a backdoor/poisoning study; marked null/none accordingly."
+  ]
+}

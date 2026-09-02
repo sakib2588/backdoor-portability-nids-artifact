@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref02_sarhan_standard_feature_set_mona2022",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 1,
+  "n_datasets": 4,
+  "n_seeds": 5,
+  "n_eval_types": 6,
+  "n_baselines": 2,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "For a fair evaluation, five cross-validation splits are conducted and the mean is measured.",
+    "An ensemble ML classifier, known as Extra Trees, that belongs to the trees family has been utilised for this purpose.",
+    "Various classification metrics are collected such as accuracy, Area Under the Curve (AUC), F1 Score, Detection Rate (DR), False Alarm Rate (FAR) and time required to predict a single test sample",
+    "The datasets have been split into 70%-30% for training and testing purposes."
+  ],
+  "unresolved": [
+    "n_datasets=4 counts the distinct source NIDS datasets (UNSW-NB15, BoT-IoT, ToN-IoT, CSE-CIC-IDS2018); the paper also derives a 5th merged dataset (NF-UQ-NIDS) and evaluates 3 feature-set variants (original, basic NetFlow-v1, proposed NetFlow-v2) per source, yielding up to 14 dataset-variant rows in Table 8 -- not counted separately here since they are feature-set variants, not independent corpora.",
+    "n_seeds=5 is inferred from 'five cross-validation splits ... the mean is measured' -- this is 5-fold CV repetition, not independently seeded reruns in the random-seed sense; only the mean is reported, no per-fold values or std/CI.",
+    "n_baselines=2 counts the original proprietary feature set and the basic 12-feature NetFlow (v1) set as comparison baselines against the proposed 43-feature NetFlow-v2 set.",
+    "control_arm is not applicable to this paper (no backdoor/poisoning context); set to 'none' as the closest schema fit."
+  ]
+}

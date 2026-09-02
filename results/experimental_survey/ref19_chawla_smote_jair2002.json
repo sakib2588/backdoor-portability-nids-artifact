@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref19_chawla_smote_jair2002",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 3,
+  "n_datasets": 9,
+  "n_seeds": 10,
+  "n_eval_types": 3,
+  "n_baselines": 7,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "Experiments are performed using C4.5, Ripper and a Naive Bayes classifier.",
+    "We experimented on nine different datasets.",
+    "%FP and %TP were averaged over 10-fold cross-validation runs for each of the data combinations.",
+    "Out of a total of 48 experiments performed, SMOTE-classifier does not perform the best only for 4 experiments."
+  ],
+  "unresolved": [
+    "n_seeds is inferred from '10-fold cross-validation' repetition, not a stated seed/trial count; paper never uses the word 'seed'.",
+    "n_eval_types (3) groups AUC, ROC-curve/ROC-convex-hull, and Acc+/Acc- as the distinct evaluation metrics reported for SMOTE's own results; precision/recall are discussed only in the related-work IR section, not used to evaluate SMOTE itself, so excluded.",
+    "n_baselines (7) counts plain majority under-sampling, Ripper loss-ratio variation, Naive Bayes prior variation, minority over-sampling by replication, C4.5 decision-threshold tuning, one-sided selection, and the SHRINK system; boundary is fuzzy since some (e.g. threshold tuning) are variants of the same base classifier rather than distinct external methods.",
+    "control_arm is a poor fit for this paper's design (it is a class-imbalance/resampling paper, not an adversarial/backdoor paper with a clean-vs-poisoned split), so set to 'none' rather than forcing 'clean'."
+  ]
+}

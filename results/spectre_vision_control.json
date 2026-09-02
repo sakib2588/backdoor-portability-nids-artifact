@@ -1,0 +1,95 @@
+{
+  "config": {
+    "target": 0,
+    "poison_frac": 0.05,
+    "feat_dim": 512,
+    "spectral_k": 5,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "z_thresholds": [
+      2.0,
+      2.5,
+      3.0
+    ]
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "target_poison_frac": 0.31343456589776286,
+      "spectral_recall": 0.9689349112426036,
+      "spectre_recall": 1.0,
+      "spectral_auc": 0.9742312462599413,
+      "spectre_auc": 1.0,
+      "spectre_mad_recall": {
+        "2.0": 1.0,
+        "2.5": 1.0,
+        "3.0": 1.0
+      }
+    },
+    {
+      "seed": 123,
+      "target_poison_frac": 0.31343456589776286,
+      "spectral_recall": 0.9840976331360947,
+      "spectre_recall": 1.0,
+      "spectral_auc": 0.9834721255121196,
+      "spectre_auc": 1.0,
+      "spectre_mad_recall": {
+        "2.0": 1.0,
+        "2.5": 1.0,
+        "3.0": 1.0
+      }
+    },
+    {
+      "seed": 456,
+      "target_poison_frac": 0.31343456589776286,
+      "spectral_recall": 0.9885355029585798,
+      "spectre_recall": 1.0,
+      "spectral_auc": 0.984861254441866,
+      "spectre_auc": 1.0,
+      "spectre_mad_recall": {
+        "2.0": 1.0,
+        "2.5": 1.0,
+        "3.0": 1.0
+      }
+    },
+    {
+      "seed": 789,
+      "target_poison_frac": 0.31343456589776286,
+      "spectral_recall": 0.9874260355029586,
+      "spectre_recall": 1.0,
+      "spectral_auc": 0.9841217967865715,
+      "spectre_auc": 1.0,
+      "spectre_mad_recall": {
+        "2.0": 1.0,
+        "2.5": 1.0,
+        "3.0": 1.0
+      }
+    },
+    {
+      "seed": 1337,
+      "target_poison_frac": 0.31343456589776286,
+      "spectral_recall": 0.977810650887574,
+      "spectre_recall": 1.0,
+      "spectral_auc": 0.9806314917176747,
+      "spectre_auc": 1.0,
+      "spectre_mad_recall": {
+        "2.0": 1.0,
+        "2.5": 1.0,
+        "3.0": 1.0
+      }
+    }
+  ],
+  "summary": {
+    "spectre_recall_mean": 1.0,
+    "spectre_recall_min": 1.0,
+    "spectral_recall_mean": 0.9813609467455622,
+    "spectre_auc_mean": 1.0,
+    "spectre_recall_all_seeds": true,
+    "gate_recall": 0.9
+  }
+}

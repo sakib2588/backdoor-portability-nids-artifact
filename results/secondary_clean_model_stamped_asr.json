@@ -1,0 +1,260 @@
+{
+  "dataset": "unsw_nb15",
+  "criterion": {
+    "replicates_min": 0.5,
+    "not_replicates_max": 0.15,
+    "b_max": 0.2,
+    "verdict_cost": 16,
+    "reference_rate": 0.005
+  },
+  "fingerprint": "f373e183f81cd5e6",
+  "verdict": "DOES-NOT-REPLICATE",
+  "summary": {
+    "8": {
+      "a_clean_plain_mean": 0.0004509669036153787,
+      "a_clean_stamped_mean": 0.0003057402736375449,
+      "a_poisoned_stamped_mean": 0.7789344951463731,
+      "evasion_component_E": -0.00014522662997783382,
+      "backdoor_component_B": 0.7786287548727356,
+      "per_seed_stamped": [
+        0.00022930520522815867,
+        0.0010318734235267141,
+        0.0,
+        0.00026752273943285177,
+        0.0
+      ]
+    },
+    "16": {
+      "a_clean_plain_mean": 0.0004509669036153787,
+      "a_clean_stamped_mean": 5.3504547886570356e-05,
+      "a_poisoned_stamped_mean": 0.9626385385614921,
+      "evasion_component_E": -0.00039746235572880835,
+      "backdoor_component_B": 0.9625850340136055,
+      "per_seed_stamped": [
+        0.0,
+        0.00026752273943285177,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "n_attack_test": 26166,
+      "a_clean_plain": 0.00038217534204693115,
+      "costs": {
+        "8": {
+          "a_clean_stamped": 0.00022930520522815867,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            20,
+            0,
+            19,
+            4,
+            12,
+            27,
+            14
+          ]
+        },
+        "16": {
+          "a_clean_stamped": 0.0,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            20,
+            0,
+            19,
+            4,
+            12,
+            27,
+            14,
+            33,
+            15,
+            32,
+            13,
+            3,
+            34,
+            22,
+            31
+          ]
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "n_attack_test": 26166,
+      "a_clean_plain": 0.0011847435603454864,
+      "costs": {
+        "8": {
+          "a_clean_stamped": 0.0010318734235267141,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            20,
+            12,
+            19,
+            0,
+            4,
+            14,
+            33
+          ]
+        },
+        "16": {
+          "a_clean_stamped": 0.00026752273943285177,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            20,
+            12,
+            19,
+            0,
+            4,
+            14,
+            33,
+            27,
+            15,
+            34,
+            9,
+            32,
+            3,
+            22,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "n_attack_test": 26166,
+      "a_clean_plain": 0.00026752273943285177,
+      "costs": {
+        "8": {
+          "a_clean_stamped": 0.0,
+          "constraint_valid": true,
+          "trigger_indices": [
+            20,
+            11,
+            12,
+            4,
+            31,
+            33,
+            27,
+            13
+          ]
+        },
+        "16": {
+          "a_clean_stamped": 0.0,
+          "constraint_valid": true,
+          "trigger_indices": [
+            20,
+            11,
+            12,
+            4,
+            31,
+            33,
+            27,
+            13,
+            3,
+            22,
+            14,
+            32,
+            16,
+            0,
+            19,
+            34
+          ]
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "n_attack_test": 26166,
+      "a_clean_plain": 0.00022930520522815867,
+      "costs": {
+        "8": {
+          "a_clean_stamped": 0.00026752273943285177,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            0,
+            19,
+            4,
+            20,
+            12,
+            27,
+            34
+          ]
+        },
+        "16": {
+          "a_clean_stamped": 0.0,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            0,
+            19,
+            4,
+            20,
+            12,
+            27,
+            34,
+            14,
+            3,
+            22,
+            32,
+            33,
+            31,
+            15,
+            13
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "n_attack_test": 26166,
+      "a_clean_plain": 0.00019108767102346557,
+      "costs": {
+        "8": {
+          "a_clean_stamped": 0.0,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            19,
+            20,
+            0,
+            4,
+            14,
+            12,
+            27
+          ]
+        },
+        "16": {
+          "a_clean_stamped": 0.0,
+          "constraint_valid": true,
+          "trigger_indices": [
+            11,
+            19,
+            20,
+            0,
+            4,
+            14,
+            12,
+            27,
+            15,
+            22,
+            3,
+            33,
+            32,
+            13,
+            31,
+            34
+          ]
+        }
+      }
+    }
+  ],
+  "ceiling_caveat": "B is bounded by construction wherever A_clean_stamped saturates; it evidences absence of a backdoor only where evasion leaves headroom."
+}

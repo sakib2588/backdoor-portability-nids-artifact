@@ -1,0 +1,26 @@
+{
+  "paper_id": "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 1,
+  "n_seeds": null,
+  "n_eval_types": 2,
+  "n_baselines": 3,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "we selected SL2013 [36], Hidost [38] and two variants of PDFRate [35] (termed PDFRate-R and PDFRate-B respectively)",
+    "The dataset we use is from the Contagio Archive... We use 5,586 malicious and 4,476 benign PDF files for training",
+    "We evaluate performance in two ways: 1) evaluation of evasion robustness... and 2) traditional evaluation",
+    "we compute the proportion of 100 malicious test seed PDFs for which EvadeML successfully evades the classifier"
+  ],
+  "unresolved": [
+    "n_seeds left null: the paper's '40/100 seeds' refers to malicious PDF seed files used to generate evasion instances, not repetition/random seeds for statistical variance; no repeated-trial or random-seed count is stated for the ML training itself.",
+    "n_baselines set to 3 (original undefended classifier, RAR, FSR) as the core comparison arms against the proposed CFR method; the paper also reports several ablation/ancillary classifiers (CF-only, l1-regularized Linear, single-feature JS, and the CFR-JS expert-feature variant) that could arguably also count as baselines/comparison points depending on definition.",
+    "n_eval_types set to 2 per the paper's own explicit framing ('We evaluate performance in two ways'), though within 'traditional evaluation' it separately reports ROC/AUC and also TPR/FPR/FNR at fixed thresholds.",
+    "No confidence intervals, standard deviations, or multi-run statistics are reported anywhere; all robustness/AUC figures appear to be single-run point estimates presented as bar/ROC figures.",
+    "'control_arm' coded as 'clean' because the paper's 'non-adversarial test data' ROC/AUC evaluation serves as the clean-performance reference arm alongside the adversarial evasion-robustness evaluation; this is not a poisoning-defense clean/backdoor control in the strict sense, since this paper is about test-time evasion, not training-time backdoors."
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "cost": 16,
+  "criterion": {
+    "orthogonal_max": 0.05,
+    "margin_max": 0.45
+  },
+  "verdict": "ORTHOGONAL",
+  "ctu_mean_delta_p": 0.957864873856306,
+  "unsw_mean_delta_p": -0.005891714258177671,
+  "ctu_mean_attribution_share": 0.5656813835883341,
+  "unsw_mean_attribution_share": 0.8715664715121358,
+  "note": "attribution share is descriptive only; with two datasets it cannot be established as a cause, and its raw value is not comparable across dimensionalities without its uniform baseline.",
+  "per_seed": {
+    "ctu_13": [
+      {
+        "seed": 42,
+        "attribution_share": 0.588646883408542,
+        "n_features": 757,
+        "uniform_baseline": 0.021136063408190225,
+        "p_target_plain": 0.05350334942340851,
+        "p_target_stamped": 1.0,
+        "delta_p": 0.9464966505765915
+      },
+      {
+        "seed": 123,
+        "attribution_share": 0.5455768147706432,
+        "n_features": 757,
+        "uniform_baseline": 0.021136063408190225,
+        "p_target_plain": 0.042601969093084335,
+        "p_target_stamped": 1.0,
+        "delta_p": 0.9573980309069157
+      },
+      {
+        "seed": 456,
+        "attribution_share": 0.5611761664119729,
+        "n_features": 757,
+        "uniform_baseline": 0.021136063408190225,
+        "p_target_plain": 0.040040623396635056,
+        "p_target_stamped": 1.0,
+        "delta_p": 0.9599593766033649
+      },
+      {
+        "seed": 789,
+        "attribution_share": 0.5491026014347128,
+        "n_features": 757,
+        "uniform_baseline": 0.021136063408190225,
+        "p_target_plain": 0.03876328840851784,
+        "p_target_stamped": 1.0,
+        "delta_p": 0.9612367115914822
+      },
+      {
+        "seed": 1337,
+        "attribution_share": 0.5839044519158001,
+        "n_features": 757,
+        "uniform_baseline": 0.021136063408190225,
+        "p_target_plain": 0.03576640039682388,
+        "p_target_stamped": 1.0,
+        "delta_p": 0.9642335996031761
+      }
+    ],
+    "unsw_nb15": [
+      {
+        "seed": 42,
+        "attribution_share": 0.8502523626399903,
+        "n_features": 38,
+        "uniform_baseline": 0.42105263157894735,
+        "p_target_plain": 0.007911882363259792,
+        "p_target_stamped": 0.00025420833844691515,
+        "delta_p": -0.007657674024812877
+      },
+      {
+        "seed": 123,
+        "attribution_share": 0.8623584508424551,
+        "n_features": 38,
+        "uniform_baseline": 0.42105263157894735,
+        "p_target_plain": 0.010253934189677238,
+        "p_target_stamped": 0.0003665058175101876,
+        "delta_p": -0.00988742837216705
+      },
+      {
+        "seed": 456,
+        "attribution_share": 0.8860353435068733,
+        "n_features": 38,
+        "uniform_baseline": 0.42105263157894735,
+        "p_target_plain": 0.0075830318965017796,
+        "p_target_stamped": 5.7834367908071727e-05,
+        "delta_p": -0.007525197528593708
+      },
+      {
+        "seed": 789,
+        "attribution_share": 0.8774787738969202,
+        "n_features": 38,
+        "uniform_baseline": 0.42105263157894735,
+        "p_target_plain": 0.005464872810989618,
+        "p_target_stamped": 0.0048572588711977005,
+        "delta_p": -0.0006076139397919178
+      },
+      {
+        "seed": 1337,
+        "attribution_share": 0.8817074266744398,
+        "n_features": 38,
+        "uniform_baseline": 0.42105263157894735,
+        "p_target_plain": 0.006072924472391605,
+        "p_target_stamped": 0.002292267046868801,
+        "delta_p": -0.0037806574255228043
+      }
+    ]
+  }
+}

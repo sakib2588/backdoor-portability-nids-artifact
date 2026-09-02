@@ -1,0 +1,25 @@
+{
+  "paper_id": "Trojaning Attack on Neural Networks",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 5,
+  "n_datasets": null,
+  "n_seeds": null,
+  "n_eval_types": 6,
+  "n_baselines": 5,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "We apply the attack to 5 different neural network applications",
+    "Column 5 gives the test accuracy of the benign model on the original datasets.",
+    "we compare the neurons selected by our algorithm with the ones that are randomly selected",
+    "we conducted a few comparisons between choosing inner neurons (selected by our neuron selection algorithm) with using output neurons."
+  ],
+  "unresolved": [
+    "n_datasets not stated as a single number: each of the 5 applications uses its own original+external dataset pair drawn from multiple named sources (VGG-Face/LFW, speech corpus/Librispeech, Adience/LFW, movie review/question-classification, Udacity simulator, plus ILSVR2012 for a side experiment), so an exact distinct-dataset count could not be confidently derived.",
+    "n_seeds: paper never mentions repeated runs, trials, or random seeds for its reported accuracy/attack-success numbers; left null rather than assumed 1.",
+    "n_baselines: counted the internal neuron-selection algorithm (Table V), inner-vs-output-neuron design (Table VI), and the three failed alternative attack designs in Section V (incremental learning, model-parameter regression, arbitrary-trigger neuron finding) as comparison baselines; the paper does not label them uniformly as 'baselines' so this count is an interpretation.",
+    "n_eval_types: counted clean test accuracy, accuracy decrease/increase vs benign, attack success on original-domain stamped data, attack success on external stamped data, and attack-time/efficiency measurements as distinct evaluation types; case-specific metrics (one-off age accuracy, sum-of-squared-error for autonomous driving) were folded in rather than counted separately."
+  ]
+}

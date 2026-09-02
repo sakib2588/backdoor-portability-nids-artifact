@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref01_sarhan_netflow_datasets_bdta2020",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 1,
+  "n_datasets": 9,
+  "n_seeds": 5,
+  "n_eval_types": 6,
+  "n_baselines": 0,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "we apply an Extra Trees ensemble classifier, made up of 50 randomised decision trees estimators",
+    "we conduct five cross-validation splits and collect the average metrics such as accuracy, AUC, F1 Score, DR, FAR",
+    "Table 8 lists the accuracy, AUC, F1 score, DR, FAR and prediction time results",
+    "This paper presents NetFlow features from four benchmark NIDS datasets... UNSW-NB15, BoT-IoT, ToN-IoT, and CSE-CIC-IDS2018"
+  ],
+  "unresolved": [
+    "n_seeds=5 reflects the stated 'five cross-validation splits', not random seeds/trials in the usual sense -- paper never mentions a seed count.",
+    "n_datasets=9 counts every distinct dataset variant evaluated in Table 8 (4 original-feature datasets + 4 NetFlow-converted datasets + 1 merged NF-UQ-NIDS); if only the newly created NetFlow datasets are wanted the count is 5 (or 4 excluding the merged NF-UQ-NIDS).",
+    "n_baselines=0 because the comparison is NetFlow-features vs original-features using the SAME single classifier, not a comparison against alternative baseline methods.",
+    "control_arm set to 'none' since this is a dataset-construction/evaluation paper with no poisoned/clean or randomised-matched control concept."
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "rows": [
+    {
+      "k": 2,
+      "algorithm": "kmeans",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 0.1004807692307692,
+      "mean_fpr": 0.0024314316281799737,
+      "mean_spearman_vs_spectral": 0.06374637014809284,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 2,
+      "algorithm": "kmeans",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 0.1004807692307692,
+      "mean_fpr": 0.0024314316281799737,
+      "mean_spearman_vs_spectral": 0.06374637014809284,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 2,
+      "algorithm": "gmm",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 1.0,
+      "mean_fpr": 0.2026358514867177,
+      "mean_spearman_vs_spectral": 0.07133461634536445,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 2,
+      "algorithm": "gmm",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 1.0,
+      "mean_fpr": 0.2026358514867177,
+      "mean_spearman_vs_spectral": 0.07133461634536445,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 3,
+      "algorithm": "kmeans",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 0.00026223776223776224,
+      "mean_fpr": 0.0003105095292581176,
+      "mean_spearman_vs_spectral": 0.03035741810288991,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 3,
+      "algorithm": "kmeans",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 0.00026223776223776224,
+      "mean_fpr": 0.0003105095292581176,
+      "mean_spearman_vs_spectral": 0.03035741810288991,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 3,
+      "algorithm": "gmm",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 0.397770979020979,
+      "mean_fpr": 0.044842844198506024,
+      "mean_spearman_vs_spectral": 0.32730129692700555,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 3,
+      "algorithm": "gmm",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 0.397770979020979,
+      "mean_fpr": 0.044842844198506024,
+      "mean_spearman_vs_spectral": 0.32730129692700555,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 5,
+      "algorithm": "kmeans",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 8.741258741258741e-05,
+      "mean_fpr": 0.00010513867828213541,
+      "mean_spearman_vs_spectral": 0.01769247946271229,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 5,
+      "algorithm": "kmeans",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 8.741258741258741e-05,
+      "mean_fpr": 0.00010513867828213541,
+      "mean_spearman_vs_spectral": 0.01769247946271229,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 5,
+      "algorithm": "gmm",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 0.026704545454545453,
+      "mean_fpr": 0.0063010919539085355,
+      "mean_spearman_vs_spectral": 0.09798314318323945,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 5,
+      "algorithm": "gmm",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 0.0026223776223776225,
+      "mean_fpr": 0.000455966561660072,
+      "mean_spearman_vs_spectral": 0.04296233904254233,
+      "n_redundant": 0,
+      "n_undetermined": 15,
+      "n_independent": 5
+    },
+    {
+      "k": 10,
+      "algorithm": "kmeans",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 8.741258741258741e-05,
+      "mean_fpr": 1.7139902714341764e-05,
+      "mean_spearman_vs_spectral": 0.0069362539113877,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 10,
+      "algorithm": "kmeans",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 8.741258741258741e-05,
+      "mean_fpr": 1.7139902714341764e-05,
+      "mean_spearman_vs_spectral": 0.0069362539113877,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 10,
+      "algorithm": "gmm",
+      "decision_rule": "relative_size",
+      "n_cells": 20,
+      "mean_recall": 4.3706293706293706e-05,
+      "mean_fpr": 2.4380609900654947e-05,
+      "mean_spearman_vs_spectral": 0.007892816400987986,
+      "n_redundant": 0,
+      "n_undetermined": 0,
+      "n_independent": 20
+    },
+    {
+      "k": 10,
+      "algorithm": "gmm",
+      "decision_rule": "silhouette_gate",
+      "n_cells": 20,
+      "mean_recall": 0.0,
+      "mean_fpr": 0.0,
+      "mean_spearman_vs_spectral": null,
+      "n_redundant": 0,
+      "n_undetermined": 20,
+      "n_independent": 0
+    },
+    {
+      "k": 2,
+      "algorithm": "kmeans",
+      "decision_rule": "exclusionary_reclassification",
+      "n_cells": 20,
+      "mean_exre_ratio": 49.79559523809524,
+      "n_flagged_poison_at_default_T": 0
+    },
+    {
+      "k": 2,
+      "algorithm": "gmm",
+      "decision_rule": "exclusionary_reclassification",
+      "n_cells": 20,
+      "mean_exre_ratio": 0.4000934985557877,
+      "n_flagged_poison_at_default_T": 20
+    }
+  ],
+  "note": "One row per (k, algorithm, decision_rule) pooled over the 20 evasion cells. Independence counts are SCREENING labels: the 0.90 threshold was calibrated for Task 7B's centroid construction and has not been re-derived for these, so mean_spearman_vs_spectral is reported beside every verdict. 'undetermined' means the flag vector was constant (the norm here, not an edge case) and counts as gate-not-passed, never as independence demonstrated."
+}

@@ -1,0 +1,356 @@
+{
+  "target_cells": [
+    [
+      0.005,
+      8
+    ],
+    [
+      0.005,
+      16
+    ],
+    [
+      0.01,
+      8
+    ],
+    [
+      0.01,
+      16
+    ],
+    [
+      0.1,
+      16
+    ]
+  ],
+  "control_cell": [
+    0.1,
+    16
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "ac_pca_components": 10,
+  "ac_silhouette_sample": 10000,
+  "rows": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 41,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.985411390788049,
+      "is_control_cell": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 37,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9858442378197646,
+      "is_control_cell": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 72,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9801012201074818,
+      "is_control_cell": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 39,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9853314308555877,
+      "is_control_cell": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "minority_size": 14089,
+      "minority_purity": 0.8122648875008872,
+      "ac_recall": 1.0,
+      "silhouette": 0.9105049278324872,
+      "is_control_cell": true
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 59,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9900040225124583,
+      "is_control_cell": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 63,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9893772340652164,
+      "is_control_cell": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 68,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9892266685100858,
+      "is_control_cell": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 75,
+      "minority_purity": 0.013333333333333334,
+      "ac_recall": 0.0008741258741258741,
+      "silhouette": 0.9874149849645695,
+      "is_control_cell": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "minority_size": 14253,
+      "minority_purity": 0.8029186837858696,
+      "ac_recall": 1.0,
+      "silhouette": 0.9017125447806981,
+      "is_control_cell": true
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 43,
+      "minority_purity": 0.023255813953488372,
+      "ac_recall": 0.0017482517482517483,
+      "silhouette": 0.9892307499711145,
+      "is_control_cell": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 60,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.984424888295422,
+      "is_control_cell": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 104,
+      "minority_purity": 0.038461538461538464,
+      "ac_recall": 0.0034965034965034965,
+      "silhouette": 0.978110063723338,
+      "is_control_cell": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 3421,
+      "minority_purity": 0.33440514469453375,
+      "ac_recall": 1.0,
+      "silhouette": 0.9249724072648623,
+      "is_control_cell": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "minority_size": 13849,
+      "minority_purity": 0.8263412520759622,
+      "ac_recall": 1.0,
+      "silhouette": 0.9098134304223419,
+      "is_control_cell": true
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 35,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9859939967902194,
+      "is_control_cell": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 35,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9845560993317627,
+      "is_control_cell": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 57,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9816424821558805,
+      "is_control_cell": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 3261,
+      "minority_purity": 0.3508126341613002,
+      "ac_recall": 1.0,
+      "silhouette": 0.9299140742088357,
+      "is_control_cell": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "minority_size": 13691,
+      "minority_purity": 0.8358775838141845,
+      "ac_recall": 1.0,
+      "silhouette": 0.9087312192798986,
+      "is_control_cell": true
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 48,
+      "minority_purity": 0.020833333333333332,
+      "ac_recall": 0.0017482517482517483,
+      "silhouette": 0.9921450187392958,
+      "is_control_cell": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "minority_size": 60,
+      "minority_purity": 0.0,
+      "ac_recall": 0.0,
+      "silhouette": 0.9896427278488272,
+      "is_control_cell": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 49,
+      "minority_purity": 0.02040816326530612,
+      "ac_recall": 0.0008741258741258741,
+      "silhouette": 0.9922967289848944,
+      "is_control_cell": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "minority_size": 47,
+      "minority_purity": 0.02127659574468085,
+      "ac_recall": 0.0008741258741258741,
+      "silhouette": 0.992250553311588,
+      "is_control_cell": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "minority_size": 14360,
+      "minority_purity": 0.7969359331476323,
+      "ac_recall": 1.0,
+      "silhouette": 0.9029272575519027,
+      "is_control_cell": true
+    }
+  ],
+  "summary": {
+    "evasion_cells": {
+      "n_rows": 20,
+      "mean_minority_size": 383.7,
+      "mean_minority_purity": 0.04113932784737572,
+      "mean_ac_recall": 0.1004807692307692,
+      "mean_silhouette": 0.9808945490124629
+    },
+    "control_cell": {
+      "n_rows": 5,
+      "mean_minority_size": 14048.4,
+      "mean_minority_purity": 0.8148676680649072,
+      "mean_ac_recall": 1.0,
+      "mean_silhouette": 0.9067378759734657
+    }
+  },
+  "note": "Measures Activation Clustering's 2-means split itself, NOT a ranked detector: AC has no score and no removal budget (it flags the smaller cluster), so there is no AUC and no threshold here. minority_size is |smaller cluster|, minority_purity is the share of that cluster which is truly poison, ac_recall is Chen et al.'s unchanged rule (the same quantity results/detectors.json reports), silhouette is AC's own split-confidence diagnostic (a seeded subsample estimate at ac_silhouette_sample points; the clustering and the mask are always on the full set). The reviewer-suggested MAD-threshold substitution was NOT run on AC: it was tested on a cluster-distance proxy that turned out to correlate with Spectral's own score at Spearman rho=0.9967, and both proxy and arm were removed -- see notes/20260716-decision-ac-proxy-not-independent.md. Recipe (n_components, silhouette_sample) matches scripts/05_run_detectors.py exactly."
+}

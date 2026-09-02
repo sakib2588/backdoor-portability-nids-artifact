@@ -1,0 +1,26 @@
+{
+  "paper_id": "Neural_Cleanse_Identifying_and_Mitigating_Backdoor_Attacks_in_Neural_Networks",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 6,
+  "n_datasets": 5,
+  "n_seeds": null,
+  "n_eval_types": 7,
+  "n_baselines": 1,
+  "reports_variability": "figure",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "Figure 3 shows the anomaly index for all 6 infected, and their matching original (clean) models, covering both BadNets and Trojan Attack.",
+    "Fine-Pruning [15] removes backdoors... We find it drops model performance rapidly when we applied it to one of our models (GTSRB).",
+    "Fig. 4. L1 norm of triggers for infected and uninfected labels in backdoored models. Box plot shows min/max and quartiles.",
+    "Fig. 13. Anomaly index of each infected GTSRB model when increasing the size of the original trigger (results averaged over 10 rounds)."
+  ],
+  "unresolved": [
+    "No global seed/trial count is stated for the paper's core results (Table II, Figure 3, Table III/IV are each single runs); only specific robustness sub-experiments in Section VII (Figures 13 and 15) state 'results averaged over 10 rounds', so n_seeds is left null rather than imputed.",
+    "n_models=6 counts distinct infected models evaluated (MNIST, GTSRB, YouTube Face, PubFig, Trojan Square, Trojan Watermark); Trojan Square and Trojan Watermark share the same VGG-Face architecture/dataset but are distinct infected model instances from prior work.",
+    "n_eval_types=7 approximates distinct metrics/analyses used across the paper (attack success rate, classification accuracy, anomaly index/outlier detection, trigger L1-norm/visual similarity, filter FPR/FNR, neuron-activation similarity incl. IoU, computation cost/time) -- boundaries between 'metric' and 'analysis' are somewhat judgment calls.",
+    "n_baselines=1 counts only Fine-Pruning as an externally sourced comparison method empirically tested by the authors; the 'unlearning with original trigger' and 'unlearning with clean images only' conditions in Table IV are ablations of the authors' own method rather than external baselines, so they were not counted.",
+    "The MAD-based anomaly index (with a normal-distribution constant estimator, threshold=2, '>95% probability of being an outlier') functions as an outlier-detection decision rule, not a formal significance test between experimental conditions, so significance_test is left null."
+  ]
+}

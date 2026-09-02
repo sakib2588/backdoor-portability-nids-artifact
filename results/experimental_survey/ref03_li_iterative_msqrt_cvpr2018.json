@@ -1,0 +1,26 @@
+{
+  "paper_id": "ref03_li_iterative_msqrt_cvpr2018",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 5,
+  "n_datasets": 4,
+  "n_seeds": null,
+  "n_eval_types": 4,
+  "n_baselines": 14,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "For large-scale image classification, we adopt ImageNet LSVRC2012 dataset [5] with 1,000 object categories.",
+    "we use three popular fine-grained benchmarks, i.e., CUB-200-2011(Birds) [31], FGVC-aircraft (Aircrafts) [27] and Stanford cars (Cars) [17]",
+    "We determine the number of iterations N by cross-validation.",
+    "We train iSQRT-COV networks from scratch in 60 epochs, initializing the learning rate to 10-1.1"
+  ],
+  "unresolved": [
+    "n_seeds not stated anywhere; no repetition/trial/seed language found, so left null rather than defaulted to 1.",
+    "n_models counted as the 5 backbone architectures evaluated (AlexNet, ResNet-50, ResNet-101, ResNet-152, VGG-D); paper could alternatively be read as evaluating only its own iSQRT-COV method with two pre-normalization variants (trace vs Frobenius) plus a compact-dimension variant.",
+    "n_baselines is an approximate count (~14: MPN-COV, B-CNN, DeepO2P, Improved B-CNN, G2DeNet, original AlexNet/ResNet, FBN, SORT, KP, CBP, NetVLAD, LRBP, HIHCA) since different comparison sets appear on the ImageNet table vs the FGVC table and some (e.g. IR_CNN in Table 2a) appear to be alternate implementations of Improved B-CNN rather than fully distinct methods.",
+    "control_arm is not a meaningful concept for this vision-architecture paper (no poisoning/attack framing); set to 'none' per the schema's guidance for this paper type.",
+    "n_eval_types counted as: (1) top-1/top-5 classification error rate, (2) forward+backward computation time, (3) meta-layer memory usage, (4) fine-grained-benchmark classification accuracy; these could be split more finely."
+  ]
+}

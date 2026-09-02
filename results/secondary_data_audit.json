@@ -1,0 +1,235 @@
+{
+  "dataset": "UNSW-NB15 (raw NUSW-NB15 49-feature superset, deduplicated, temporal split)",
+  "source": {
+    "url": "https://huggingface.co/datasets/Mouwiya/UNSW-NB15",
+    "official_reference_url": "https://research.unsw.edu.au/projects/unsw-nb15-dataset",
+    "sha256": "2aada2a26d061111f4e8fb84e716f5f11264fee71abe04697d42cb89e488d047",
+    "shard_sha256": {
+      "train-00000-of-00002.parquet": "2aada2a26d061111f4e8fb84e716f5f11264fee71abe04697d42cb89e488d047",
+      "train-00001-of-00002.parquet": "7c6699ae967567977dee9e9193543b515255f4e1671ca79bf9ae65e7866ffef1"
+    },
+    "license": "Free use for academic research purposes granted in perpetuity by the original authors (Moustafa & Slay); commercial use requires the authors' agreement. The HuggingFace mirror re-hosts the same academic-licensed data and grants no separate rights."
+  },
+  "schema": {
+    "n_rows": 1584259,
+    "n_features": 38,
+    "features": [
+      "dur",
+      "sbytes",
+      "dbytes",
+      "sttl",
+      "dttl",
+      "sloss",
+      "dloss",
+      "Sload",
+      "Dload",
+      "Spkts",
+      "Dpkts",
+      "swin",
+      "dwin",
+      "stcpb",
+      "dtcpb",
+      "smeansz",
+      "dmeansz",
+      "trans_depth",
+      "res_bdy_len",
+      "Sjit",
+      "Djit",
+      "Sintpkt",
+      "Dintpkt",
+      "tcprtt",
+      "synack",
+      "ackdat",
+      "is_sm_ips_ports",
+      "ct_state_ttl",
+      "ct_flw_http_mthd",
+      "is_ftp_login",
+      "ct_ftp_cmd",
+      "ct_srv_src",
+      "ct_srv_dst",
+      "ct_dst_ltm",
+      "ct_src_ltm",
+      "ct_src_dport_ltm",
+      "ct_dst_sport_ltm",
+      "ct_dst_src_ltm"
+    ],
+    "excluded_columns": {
+      "identifiers": [
+        "srcip",
+        "sport",
+        "dstip",
+        "dsport"
+      ],
+      "timestamps_used_only_for_split": [
+        "Stime",
+        "Ltime"
+      ],
+      "categorical_no_numeric_unit": [
+        "proto",
+        "service",
+        "state"
+      ],
+      "label_columns": [
+        "attack_cat",
+        "label"
+      ]
+    },
+    "n_exact_duplicate_rows_dropped": 695831
+  },
+  "labels": {
+    "original_counts": {
+      "Normal": 1523904,
+      "Exploits": 16949,
+      "Generic": 14529,
+      "Fuzzers": 13302,
+      "Reconnaissance": 8177,
+      "DoS": 3628,
+      "Analysis": 1480,
+      "Backdoors": 1266,
+      "Shellcode": 918,
+      "Worms": 106
+    },
+    "binary_mapping": {
+      "Normal": 0,
+      "Exploits": 1,
+      "Generic": 1,
+      "Fuzzers": 1,
+      "Reconnaissance": 1,
+      "DoS": 1,
+      "Analysis": 1,
+      "Backdoors": 1,
+      "Shellcode": 1,
+      "Worms": 1
+    },
+    "binary_counts": {
+      "0": 1523904,
+      "1": 60355
+    }
+  },
+  "split": {
+    "method": "temporal_80_20_on_deduplicated_stime_sorted_superset",
+    "n_train": 1267407,
+    "n_test": 316852,
+    "leakage_checks": {
+      "n_exact_duplicate_rows_dropped_before_split": 695831,
+      "train_test_row_overlap": "none_detected"
+    }
+  },
+  "bounds_fit_partition": "train_only",
+  "constraint_manifest": {
+    "n_constraints": 8,
+    "relations": [
+      {
+        "name": "ltime_after_stime",
+        "kind": "relation",
+        "source": "documented",
+        "description": "Flow end time is not before flow start time.",
+        "features": [
+          "Stime",
+          "Ltime"
+        ],
+        "tolerance": 0.0,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      },
+      {
+        "name": "tcprtt_equals_synack_plus_ackdat",
+        "kind": "relation",
+        "source": "documented",
+        "description": "TCP round-trip time decomposes into the SYN-ACK and ACK-data legs (only meaningful where tcprtt > 0, i.e. a handshake was captured).",
+        "features": [
+          "tcprtt",
+          "synack",
+          "ackdat"
+        ],
+        "tolerance": 0.001,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      },
+      {
+        "name": "sttl_byte_range",
+        "kind": "bound",
+        "source": "documented",
+        "description": "Source TTL is an IP header byte field, so it is bounded in [0, 255]. Single-feature clip, not a cross-feature relation.",
+        "features": [
+          "sttl"
+        ],
+        "tolerance": 1e-06,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      },
+      {
+        "name": "dttl_byte_range",
+        "kind": "bound",
+        "source": "documented",
+        "description": "Destination TTL is an IP header byte field, so it is bounded in [0, 255]. Single-feature clip, not a cross-feature relation.",
+        "features": [
+          "dttl"
+        ],
+        "tolerance": 1e-06,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      },
+      {
+        "name": "smeansz_consistent_with_sbytes",
+        "kind": "relation",
+        "source": "empirical",
+        "description": "Mean source packet size times source packet count reconstructs total source bytes within 5% (smeansz is integer-rounded).",
+        "features": [
+          "smeansz",
+          "Spkts",
+          "sbytes"
+        ],
+        "tolerance": 0.05,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      },
+      {
+        "name": "dmeansz_consistent_with_dbytes",
+        "kind": "relation",
+        "source": "empirical",
+        "description": "Mean destination packet size times destination packet count reconstructs total destination bytes within 5%.",
+        "features": [
+          "dmeansz",
+          "Dpkts",
+          "dbytes"
+        ],
+        "tolerance": 0.05,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      },
+      {
+        "name": "src_mean_packet_size_le_mtu",
+        "kind": "relation",
+        "source": "empirical",
+        "description": "Mean source packet size (sbytes / Spkts) does not exceed the 1500-byte Ethernet MTU (the same relation form as the CTU-13 packet-size constraint).",
+        "features": [
+          "sbytes",
+          "Spkts"
+        ],
+        "tolerance": 1e-06,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      },
+      {
+        "name": "dst_mean_packet_size_le_mtu",
+        "kind": "relation",
+        "source": "empirical",
+        "description": "Mean destination packet size (dbytes / Dpkts) does not exceed the 1500-byte Ethernet MTU.",
+        "features": [
+          "dbytes",
+          "Dpkts"
+        ],
+        "tolerance": 1e-06,
+        "train_benign_valid_rate": 1.0,
+        "test_benign_valid_rate": 1.0
+      }
+    ],
+    "train_valid_rate": 1.0,
+    "test_valid_rate": 1.0,
+    "n_train_benign_rows": 1233218,
+    "n_test_benign_rows": 290686,
+    "predeclared_tolerance": 0.995
+  },
+  "passed": true
+}

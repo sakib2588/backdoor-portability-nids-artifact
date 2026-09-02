@@ -1,0 +1,26 @@
+{
+  "paper_id": "ref12_wang_gcp_tpami2021",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 7,
+  "n_datasets": 8,
+  "n_seeds": null,
+  "n_eval_types": 4,
+  "n_baselines": null,
+  "reports_variability": "table",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": null,
+  "evidence": [
+    "Extensive evaluations are conducted on various visual recognition tasks, including large-scale object classification on ImageNet",
+    "$62.9 \\pm 0.8$",
+    "We compare different variants of MPN-COV with existing deep global GCP methods using AlexNet architecture",
+    "we report the results on the validation set"
+  ],
+  "unresolved": [
+    "n_models set to 7 counting distinct backbone CNN architectures used (AlexNet, VGG-M, VGG-VD16, ResNet-50, ResNet-101, ResNet-152, DenseNet-201); the paper also proposes 3 pooling-method variants (MPN-COV-Net, G2DeNet, iSQRT-COV-Net) applied atop these backbones, so a single 'model count' is ambiguous depending on whether backbone x method combinations are counted separately.",
+    "n_baselines left null: the paper compares against a large, experiment-specific set of prior methods (B-CNN, DeepO2P, improved B-CNN, FBN, SORT, SE-Net, CBAM, NetVLAD, NetFV, CBP, LRBP, KP, HIHCA, SMSO, Deep-TEN, MFAFV-Net, FASON, plus original GAP-based backbones) but never states a single total baseline count, and which baselines apply varies by table/dataset.",
+    "n_seeds is null: no seed, trial-count, or repeated-run language found anywhere in the methodology or experiments sections; DTD/Indoor67 mean+-std values (e.g. Table 9/10) come from the dataset's pre-defined multiple splits, not from repeated seeded runs.",
+    "n_eval_types set to 4 (top-1/top-5/top-3 classification error, FP+BP timing in ms, training throughput in images/sec, and extra parameter count) as a reasonable grouping; exact boundary between 'error rate' sub-metrics (top-1 vs top-5 vs top-3) as one or multiple eval types is a judgment call.",
+    "No significance testing (e.g. t-test, CI) is reported anywhere in the paper; comparisons are made via raw error-rate differences only."
+  ]
+}

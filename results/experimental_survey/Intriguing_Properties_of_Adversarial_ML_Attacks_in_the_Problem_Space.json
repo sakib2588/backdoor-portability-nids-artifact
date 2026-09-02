@@ -1,0 +1,25 @@
+{
+  "paper_id": "Intriguing_Properties_of_Adversarial_ML_Attacks_in_the_Problem_Space",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 2,
+  "n_datasets": 1,
+  "n_seeds": 1,
+  "n_eval_types": 5,
+  "n_baselines": 0,
+  "reports_variability": "figure",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "We consider only one split due to the overall time required to run the experiments.",
+    "we achieve a misclassification rate of 100.0% on the successfully generated apps",
+    "The final dataset contains ~170K recent Android applications... 152,632 goodware and 17,625 malware.",
+    "Fig. 5. Violin plots of injection times per adversarial app."
+  ],
+  "unresolved": [
+    "n_seeds=1 reflects the paper's explicit statement of using a single random train/test split (not a model-training seed count); no repeated-trial or multi-seed protocol is used anywhere in the experiments.",
+    "n_models=2 counts the two target classifiers evaluated (DREBIN linear SVM, Sec-SVM hardened variant); Table I's cross-domain comparison of prior attacks (images, audio, text, PDF, Windows, etc.) is related-work description via the paper's formalization, not this paper's own experiments, so those rows were excluded.",
+    "n_baselines=0 because no other attack method is empirically run for comparison in the experiments section; Rosenberg et al. and Yang et al. are discussed only qualitatively (Table I formalization and Related Work prose), not re-implemented or benchmarked on the same dataset.",
+    "reports_variability='figure' reflects population-level distributions across test malware (Fig. 3 feature-count CDF, Fig. 4 app-statistics CDF, Fig. 5 violin plot of injection times), not run-to-run/seed variability, since only one split was used."
+  ]
+}

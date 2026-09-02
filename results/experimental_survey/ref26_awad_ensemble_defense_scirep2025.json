@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref26_awad_ensemble_defense_scirep2025",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 1,
+  "n_datasets": 2,
+  "n_seeds": null,
+  "n_eval_types": 5,
+  "n_baselines": 3,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "clean",
+  "evidence": [
+    "carried out on two recent public network traffic datasets, CIC-IDS2017 [36] and CIC-IDS 2018",
+    "Table 10, which provides a comparative analysis against state-of-the-art models on the CIC-IDS2017 dataset",
+    "Label Smoothing Defense has the highest MCC (0.698), indicating the best adversarial robustness among the evaluated methods",
+    "We begin by evaluating the DNN-based IDS detector performance on clean data samples before attacking"
+  ],
+  "unresolved": [
+    "n_models set to 1: the paper uses a single DNN-based IDS architecture (58-512-256-15, Table 3) trained under different defense regimes (label smoothing, Gaussian augmentation, adversarial training, denoising autoencoder) plus a separate substitute model used only to craft adversarial examples; these are defense variants/ensemble members of one architecture, not distinct model architectures compared head-to-head.",
+    "No seed count, random-seed statement, or repeated-trial language found anywhere in the text; all reported metrics (Tables 4-9) appear to be single-run point estimates with no std/CI, so n_seeds is left null rather than assumed as 1.",
+    "n_baselines=3 counts the external prior-work comparators in Table 10 (TAD/Debicha 2023, DNN/Roshan 2023, RAIDS/Sarikaya 2023); the paper's own no-defense baseline classifier is treated as the control_arm/attack-condition reference rather than a 'baseline' comparator.",
+    "The full CIC-IDS2018 results are stated to be in a supplementary file not included in this markdown conversion, so any dataset-2-specific methodology details beyond what is stated in the main text could not be verified."
+  ]
+}

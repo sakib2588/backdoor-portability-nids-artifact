@@ -1,0 +1,25 @@
+{
+  "paper_id": "ref18_gueriani_vit_bilstm_arxiv2026",
+  "subcorpus": "nids_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 2,
+  "n_seeds": null,
+  "n_eval_types": 9,
+  "n_baselines": 4,
+  "reports_variability": "none",
+  "significance_test": null,
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "trained on Google Colab with a T4 GPU and 12 GB RAM over 50 epochs using the Adam optimizer",
+    "80% of the preprocessed data was allocated to training our proposed model and 20%... reserved to validate",
+    "An ablation study (Table III) was conducted using four model variants",
+    "Table IV compares the proposed ViT-BiLSTM model with state-of-the-art approaches"
+  ],
+  "unresolved": [
+    "No seed or repetition count stated anywhere; results appear to be single-run point estimates (n_seeds left null, not defaulted to 1).",
+    "Split is described only as 80% train / 20% validate; unclear whether this validation set doubles as the test set or a separate held-out test split exists.",
+    "n_models counted as the 4 architectural variants in the ablation study (Table III: sequential ViT->BiLSTM, sequential BiLSTM->ViT, parallel BiLSTM32, parallel BiLSTM64); the paper frames only one as 'the proposed model' (variant #3).",
+    "n_baselines counted as 4 distinct prior works in Table IV ([24],[25],[26],[23]); table has a stray '[20]' row under the CICIoMT line for the [23] CNN baseline that looks like a citation-numbering artefact rather than a fifth distinct baseline."
+  ]
+}

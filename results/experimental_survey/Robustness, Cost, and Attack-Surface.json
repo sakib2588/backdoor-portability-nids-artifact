@@ -1,0 +1,25 @@
+{
+  "paper_id": "Robustness, Cost, and Attack-Surface",
+  "subcorpus": "backdoor_ml_corpus",
+  "n_models": 4,
+  "n_datasets": 1,
+  "n_seeds": null,
+  "n_eval_types": 8,
+  "n_baselines": 0,
+  "reports_variability": "table",
+  "significance_test": "bootstrap confidence intervals (200 resamples)",
+  "per_seed_values_given": false,
+  "control_arm": "none",
+  "evidence": [
+    "the median MEC equals 2 with full features, and over 80% of successful minimal-cost evasions concentrate on three low-cost surface features",
+    "A stratified 75/25 train–test split (seed 1337) yields 2764 test instances including 1225 phishing samples",
+    "Table 2 reports mean and standard deviation of median MEC and RCI3 across 10 independent random draws of 300 instances",
+    "The 95% bootstrap confidence intervals (200 resamples) confirm that these patterns are statistically stable"
+  ],
+  "unresolved": [
+    "Only one dataset split seed (1337) is stated; no multi-seed model-training repetition count is reported, so n_seeds is left null rather than assumed 1.",
+    "No external baseline detector from prior work is compared; the paper only cross-compares its own 4 evaluated classifier families (LR, RF, GBDT, XGBoost), so n_baselines is set to 0.",
+    "n_eval_types (8) counts Accuracy, AUC, Phishing TPR, median MEC/quartiles, FRI, RCI_k, FirstTop1, and evasion survival rate S(B)/NoEvasion mass as distinct metrics; boundary is judgment-based since some are related diagnostics from the same framework.",
+    "control_arm is set to 'none' because this is an evasion-cost study, not a poisoning/backdoor study; no clean-vs-poisoned control arm concept applies."
+  ]
+}

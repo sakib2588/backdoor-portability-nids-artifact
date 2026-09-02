@@ -1,0 +1,1014 @@
+{
+  "z_thresholds": [
+    2.0,
+    2.5,
+    3.0
+  ],
+  "target_cells": [
+    [
+      0.005,
+      8
+    ],
+    [
+      0.005,
+      16
+    ],
+    [
+      0.01,
+      8
+    ],
+    [
+      0.01,
+      16
+    ],
+    [
+      0.1,
+      16
+    ]
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "rows": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "fixed_budget_recall": 0.022727272727272728,
+      "fixed_budget_recall_ref": 0.022727272727272728,
+      "determinism_ok": true,
+      "spectral_auc": 0.9795254028560958,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8731,
+          "n_true_positive": 572,
+          "n_false_positive": 8159
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8231,
+          "n_true_positive": 572,
+          "n_false_positive": 7659
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 7990,
+          "n_true_positive": 572,
+          "n_false_positive": 7418
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005613166000330239,
+        "adaptive_s": 0.0019863375009663287,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "fixed_budget_recall": 0.06993006993006994,
+      "fixed_budget_recall_ref": 0.06993006993006994,
+      "determinism_ok": true,
+      "spectral_auc": 0.9913981368515365,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8695,
+          "n_true_positive": 572,
+          "n_false_positive": 8123
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8415,
+          "n_true_positive": 572,
+          "n_false_positive": 7843
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8244,
+          "n_true_positive": 572,
+          "n_false_positive": 7672
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005582760999459424,
+        "adaptive_s": 0.0020090714997422765,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "fixed_budget_recall": 0.030594405594405596,
+      "fixed_budget_recall_ref": 0.030594405594405596,
+      "determinism_ok": true,
+      "spectral_auc": 0.9781016923757736,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 9073,
+          "n_true_positive": 1144,
+          "n_false_positive": 7929
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8755,
+          "n_true_positive": 1144,
+          "n_false_positive": 7611
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8528,
+          "n_true_positive": 1144,
+          "n_false_positive": 7384
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005662485000357265,
+        "adaptive_s": 0.0016598920001342776,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "fixed_budget_recall": 0.6145104895104895,
+      "fixed_budget_recall_ref": 0.6145104895104895,
+      "determinism_ok": true,
+      "spectral_auc": 0.9912313363424907,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8432,
+          "n_true_positive": 1144,
+          "n_false_positive": 7288
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8202,
+          "n_true_positive": 1144,
+          "n_false_positive": 7058
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 7888,
+          "n_true_positive": 1144,
+          "n_false_positive": 6744
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005587361499237886,
+        "adaptive_s": 0.0016393619998780196,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.1,
+      "cost": 16,
+      "fixed_budget_recall": 1.0,
+      "fixed_budget_recall_ref": 1.0,
+      "determinism_ok": true,
+      "spectral_auc": 0.984969141836127,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 15005,
+          "n_true_positive": 11444,
+          "n_false_positive": 3561
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 14853,
+          "n_true_positive": 11444,
+          "n_false_positive": 3409
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 14741,
+          "n_true_positive": 11444,
+          "n_false_positive": 3297
+        }
+      },
+      "ac_fixed_recall": 1.0,
+      "ac_fixed_recall_ref": 1.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.00567975000012666,
+        "adaptive_s": 0.0018579139996290905,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "fixed_budget_recall": 0.024475524475524476,
+      "fixed_budget_recall_ref": 0.024475524475524476,
+      "determinism_ok": true,
+      "spectral_auc": 0.9722890279648522,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 9288,
+          "n_true_positive": 572,
+          "n_false_positive": 8716
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8869,
+          "n_true_positive": 572,
+          "n_false_positive": 8297
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8447,
+          "n_true_positive": 572,
+          "n_false_positive": 7875
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005644720501550182,
+        "adaptive_s": 0.0017204904997925041,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "fixed_budget_recall": 0.043706293706293704,
+      "fixed_budget_recall_ref": 0.043706293706293704,
+      "determinism_ok": true,
+      "spectral_auc": 0.9883736081370518,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8885,
+          "n_true_positive": 572,
+          "n_false_positive": 8313
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8463,
+          "n_true_positive": 572,
+          "n_false_positive": 7891
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8224,
+          "n_true_positive": 572,
+          "n_false_positive": 7652
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005573896000896639,
+        "adaptive_s": 0.0018308595008420525,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "fixed_budget_recall": 0.028846153846153848,
+      "fixed_budget_recall_ref": 0.028846153846153848,
+      "determinism_ok": true,
+      "spectral_auc": 0.9702779961031711,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 9944,
+          "n_true_positive": 1144,
+          "n_false_positive": 8800
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 9325,
+          "n_true_positive": 1144,
+          "n_false_positive": 8181
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8957,
+          "n_true_positive": 1144,
+          "n_false_positive": 7813
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005535751999559579,
+        "adaptive_s": 0.001824959000259696,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "fixed_budget_recall": 0.3076923076923077,
+      "fixed_budget_recall_ref": 0.3076923076923077,
+      "determinism_ok": true,
+      "spectral_auc": 0.9875748245167909,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 9360,
+          "n_true_positive": 1144,
+          "n_false_positive": 8216
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8815,
+          "n_true_positive": 1144,
+          "n_false_positive": 7671
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8559,
+          "n_true_positive": 1144,
+          "n_false_positive": 7415
+        }
+      },
+      "ac_fixed_recall": 0.0008741258741258741,
+      "ac_fixed_recall_ref": 0.0008741258741258741,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005913671499911288,
+        "adaptive_s": 0.0019204780001018662,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.1,
+      "cost": 16,
+      "fixed_budget_recall": 1.0,
+      "fixed_budget_recall_ref": 1.0,
+      "determinism_ok": true,
+      "spectral_auc": 0.9847111502642393,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 15008,
+          "n_true_positive": 11444,
+          "n_false_positive": 3564
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 14911,
+          "n_true_positive": 11444,
+          "n_false_positive": 3467
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 14838,
+          "n_true_positive": 11444,
+          "n_false_positive": 3394
+        }
+      },
+      "ac_fixed_recall": 1.0,
+      "ac_fixed_recall_ref": 1.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.007271751999724074,
+        "adaptive_s": 0.0024179560004995437,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "fixed_budget_recall": 0.02972027972027972,
+      "fixed_budget_recall_ref": 0.02972027972027972,
+      "determinism_ok": true,
+      "spectral_auc": 0.9826455476940653,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8649,
+          "n_true_positive": 572,
+          "n_false_positive": 8077
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8358,
+          "n_true_positive": 572,
+          "n_false_positive": 7786
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8137,
+          "n_true_positive": 572,
+          "n_false_positive": 7565
+        }
+      },
+      "ac_fixed_recall": 0.0017482517482517483,
+      "ac_fixed_recall_ref": 0.0017482517482517483,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005683934999979101,
+        "adaptive_s": 0.0018729485000221757,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "fixed_budget_recall": 0.06293706293706294,
+      "fixed_budget_recall_ref": 0.06293706293706294,
+      "determinism_ok": true,
+      "spectral_auc": 0.9911978402715975,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8528,
+          "n_true_positive": 572,
+          "n_false_positive": 7956
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8260,
+          "n_true_positive": 572,
+          "n_false_positive": 7688
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 7980,
+          "n_true_positive": 572,
+          "n_false_positive": 7408
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.007795020000230579,
+        "adaptive_s": 0.002906458999859751,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "fixed_budget_recall": 0.04895104895104895,
+      "fixed_budget_recall_ref": 0.04895104895104895,
+      "determinism_ok": true,
+      "spectral_auc": 0.9798424779650239,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 9115,
+          "n_true_positive": 1144,
+          "n_false_positive": 7971
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8852,
+          "n_true_positive": 1144,
+          "n_false_positive": 7708
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8642,
+          "n_true_positive": 1144,
+          "n_false_positive": 7498
+        }
+      },
+      "ac_fixed_recall": 0.0034965034965034965,
+      "ac_fixed_recall_ref": 0.0034965034965034965,
+      "rule_runtime": {
+        "fixed_budget_s": 0.007163359500736988,
+        "adaptive_s": 0.002377566499490058,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "fixed_budget_recall": 0.31993006993006995,
+      "fixed_budget_recall_ref": 0.31993006993006995,
+      "determinism_ok": true,
+      "spectral_auc": 0.9879208382775545,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8868,
+          "n_true_positive": 1144,
+          "n_false_positive": 7724
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8678,
+          "n_true_positive": 1144,
+          "n_false_positive": 7534
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8520,
+          "n_true_positive": 1144,
+          "n_false_positive": 7376
+        }
+      },
+      "ac_fixed_recall": 1.0,
+      "ac_fixed_recall_ref": 1.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.0072731724994810065,
+        "adaptive_s": 0.0021646999994118232,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.1,
+      "cost": 16,
+      "fixed_budget_recall": 1.0,
+      "fixed_budget_recall_ref": 1.0,
+      "determinism_ok": true,
+      "spectral_auc": 0.9887090269876999,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 14772,
+          "n_true_positive": 11444,
+          "n_false_positive": 3328
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 14707,
+          "n_true_positive": 11444,
+          "n_false_positive": 3263
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 14560,
+          "n_true_positive": 11444,
+          "n_false_positive": 3116
+        }
+      },
+      "ac_fixed_recall": 1.0,
+      "ac_fixed_recall_ref": 1.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005819532999339572,
+        "adaptive_s": 0.0018838329997379333,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "fixed_budget_recall": 0.013986013986013986,
+      "fixed_budget_recall_ref": 0.013986013986013986,
+      "determinism_ok": true,
+      "spectral_auc": 0.9718025439554056,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8580,
+          "n_true_positive": 572,
+          "n_false_positive": 8008
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8106,
+          "n_true_positive": 572,
+          "n_false_positive": 7534
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 7758,
+          "n_true_positive": 572,
+          "n_false_positive": 7186
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.009545820499624824,
+        "adaptive_s": 0.0028691489997072495,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "fixed_budget_recall": 0.0472027972027972,
+      "fixed_budget_recall_ref": 0.0472027972027972,
+      "determinism_ok": true,
+      "spectral_auc": 0.9910954101616964,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8340,
+          "n_true_positive": 572,
+          "n_false_positive": 7768
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 7988,
+          "n_true_positive": 572,
+          "n_false_positive": 7416
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 7761,
+          "n_true_positive": 572,
+          "n_false_positive": 7189
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.00993142999959673,
+        "adaptive_s": 0.0024914549985624035,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "fixed_budget_recall": 0.03583916083916084,
+      "fixed_budget_recall_ref": 0.03583916083916084,
+      "determinism_ok": true,
+      "spectral_auc": 0.9711112400113232,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8623,
+          "n_true_positive": 1144,
+          "n_false_positive": 7479
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8254,
+          "n_true_positive": 1144,
+          "n_false_positive": 7110
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 7733,
+          "n_true_positive": 1144,
+          "n_false_positive": 6589
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.010724144000960223,
+        "adaptive_s": 0.002959557999020035,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "fixed_budget_recall": 0.46678321678321677,
+      "fixed_budget_recall_ref": 0.46678321678321677,
+      "determinism_ok": true,
+      "spectral_auc": 0.9895694278758285,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 7442,
+          "n_true_positive": 1144,
+          "n_false_positive": 6298
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 7194,
+          "n_true_positive": 1144,
+          "n_false_positive": 6050
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 6967,
+          "n_true_positive": 1144,
+          "n_false_positive": 5823
+        }
+      },
+      "ac_fixed_recall": 1.0,
+      "ac_fixed_recall_ref": 1.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.010167151499445026,
+        "adaptive_s": 0.0033462625005995505,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.1,
+      "cost": 16,
+      "fixed_budget_recall": 1.0,
+      "fixed_budget_recall_ref": 1.0,
+      "determinism_ok": true,
+      "spectral_auc": 0.9899941999435842,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 14543,
+          "n_true_positive": 11444,
+          "n_false_positive": 3099
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 14453,
+          "n_true_positive": 11444,
+          "n_false_positive": 3009
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 14372,
+          "n_true_positive": 11444,
+          "n_false_positive": 2928
+        }
+      },
+      "ac_fixed_recall": 1.0,
+      "ac_fixed_recall_ref": 1.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.00994019500012655,
+        "adaptive_s": 0.0026531524999882095,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "fixed_budget_recall": 0.01048951048951049,
+      "fixed_budget_recall_ref": 0.01048951048951049,
+      "determinism_ok": true,
+      "spectral_auc": 0.9720856627305221,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8723,
+          "n_true_positive": 572,
+          "n_false_positive": 8151
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8274,
+          "n_true_positive": 572,
+          "n_false_positive": 7702
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8034,
+          "n_true_positive": 572,
+          "n_false_positive": 7462
+        }
+      },
+      "ac_fixed_recall": 0.0017482517482517483,
+      "ac_fixed_recall_ref": 0.0017482517482517483,
+      "rule_runtime": {
+        "fixed_budget_s": 0.007861999000851938,
+        "adaptive_s": 0.0026743125008579227,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "fixed_budget_recall": 0.09090909090909091,
+      "fixed_budget_recall_ref": 0.09090909090909091,
+      "determinism_ok": true,
+      "spectral_auc": 0.9919390068588045,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8687,
+          "n_true_positive": 572,
+          "n_false_positive": 8115
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8230,
+          "n_true_positive": 572,
+          "n_false_positive": 7658
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 7877,
+          "n_true_positive": 572,
+          "n_false_positive": 7305
+        }
+      },
+      "ac_fixed_recall": 0.0,
+      "ac_fixed_recall_ref": 0.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.007466449500498129,
+        "adaptive_s": 0.0019077030001426465,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "fixed_budget_recall": 0.043706293706293704,
+      "fixed_budget_recall_ref": 0.043706293706293704,
+      "determinism_ok": true,
+      "spectral_auc": 0.972040397171819,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 9383,
+          "n_true_positive": 1144,
+          "n_false_positive": 8239
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8999,
+          "n_true_positive": 1144,
+          "n_false_positive": 7855
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8687,
+          "n_true_positive": 1144,
+          "n_false_positive": 7543
+        }
+      },
+      "ac_fixed_recall": 0.0008741258741258741,
+      "ac_fixed_recall_ref": 0.0008741258741258741,
+      "rule_runtime": {
+        "fixed_budget_s": 0.007212778500615968,
+        "adaptive_s": 0.002235263999864401,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "fixed_budget_recall": 0.5375874125874126,
+      "fixed_budget_recall_ref": 0.5375874125874126,
+      "determinism_ok": true,
+      "spectral_auc": 0.9904933966885434,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 8698,
+          "n_true_positive": 1144,
+          "n_false_positive": 7554
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 8367,
+          "n_true_positive": 1144,
+          "n_false_positive": 7223
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 8161,
+          "n_true_positive": 1144,
+          "n_false_positive": 7017
+        }
+      },
+      "ac_fixed_recall": 0.0008741258741258741,
+      "ac_fixed_recall_ref": 0.0008741258741258741,
+      "rule_runtime": {
+        "fixed_budget_s": 0.005638180999085307,
+        "adaptive_s": 0.0019701370010807295,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.1,
+      "cost": 16,
+      "fixed_budget_recall": 1.0,
+      "fixed_budget_recall_ref": 1.0,
+      "determinism_ok": true,
+      "spectral_auc": 0.9830902990607269,
+      "n_poison": 11444,
+      "n_benign": 111666,
+      "adaptive": {
+        "2.0": {
+          "recall": 1.0,
+          "n_flagged": 16058,
+          "n_true_positive": 11444,
+          "n_false_positive": 4614
+        },
+        "2.5": {
+          "recall": 1.0,
+          "n_flagged": 15994,
+          "n_true_positive": 11444,
+          "n_false_positive": 4550
+        },
+        "3.0": {
+          "recall": 1.0,
+          "n_flagged": 15942,
+          "n_true_positive": 11444,
+          "n_false_positive": 4498
+        }
+      },
+      "ac_fixed_recall": 1.0,
+      "ac_fixed_recall_ref": 1.0,
+      "rule_runtime": {
+        "fixed_budget_s": 0.00566696999976557,
+        "adaptive_s": 0.0017604704999030218,
+        "n_scored": 111666,
+        "repeats": 10
+      }
+    }
+  ],
+  "note": "adaptive = flag_by_mad_threshold (budget-free); fixed_budget = flag_by_scores (Tran et al. 2018's original convention, same as results/detectors.json). fixed_budget_recall_ref/ac_fixed_recall_ref are the values already committed in detectors.json for this exact cell -- determinism_ok checks this rerun reproduces the Spectral one. n_true_positive/n_false_positive are exact counts (flag & is_poison), not reconstructed from recall downstream. ac_fixed_recall is Chen et al.'s hard 2-cluster rule, unchanged and rerun only as a determinism self-check against ac_fixed_recall_ref; there is no AC adaptive arm, because AC has no removal budget for a budget-free rule to replace (see notes/20260716-decision-ac-proxy-not-independent.md, and scripts/11_ac_mechanism.py for AC's actual failure mechanism). rule_runtime prices the adaptive rule against the fixed budget on identical score arrays."
+}
