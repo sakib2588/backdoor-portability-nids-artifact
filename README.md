@@ -1,6 +1,6 @@
 # Backdoor-Detector Portability to Tabular NIDS -- artifact
 
-Code and result files for the manuscript *One Poisoning Recipe, Two Outcomes: Dataset-Dependent
+Code and result files for the manuscript *One Poisoning Recipe, Two Outcomes: Trigger-Dependent
 Backdoor Realization and the Portability of Vision-Built Detectors to Tabular Network Intrusion
 Detection*.
 

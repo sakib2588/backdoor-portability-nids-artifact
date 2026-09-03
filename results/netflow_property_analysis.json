@@ -1,0 +1,354 @@
+{
+  "preregistration": "notes/20260903-decision-netflow-multicorpus-preregistration.md",
+  "source": "netflow_poison_sweep.json",
+  "n_cells": 240,
+  "primary_cost": 16,
+  "primary_corpus": "NF-CSE-CIC-IDS2018-v2",
+  "replication_corpus": "NF-ToN-IoT-v2",
+  "decision_rule": {
+    "confirm_abs_rho": 0.8,
+    "refute_abs_rho": 0.4,
+    "saturation_asr": 0.95,
+    "attack_effective_asr": 0.8
+  },
+  "q1_levels": {
+    "NF-CSE-CIC-IDS2018-v2": {
+      "0.05": {
+        "n_cells": 5,
+        "n_usable": 1,
+        "n_saturated": 4,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": 0.23710087719298245,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.9386114035087718,
+        "mean_poisoned_asr": 0.9955912280701755
+      },
+      "0.2": {
+        "n_cells": 5,
+        "n_usable": 1,
+        "n_saturated": 4,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": 0.992140625,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.7925437499999999,
+        "mean_poisoned_asr": 0.9965916666666667
+      },
+      "0.4": {
+        "n_cells": 5,
+        "n_usable": 3,
+        "n_saturated": 2,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": 0.7355925925925927,
+        "sd": 0.44066596781864625,
+        "ci": [
+          0.22679166666666672,
+          0.9952569444444445
+        ],
+        "mean_clean_stamped_asr": 0.5519305555555555,
+        "mean_poisoned_asr": 0.9942597222222224
+      },
+      "0.6": {
+        "n_cells": 5,
+        "n_usable": 4,
+        "n_saturated": 1,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": 0.7578203125,
+        "sd": 0.4335146321606473,
+        "ci": [
+          0.3252213541666667,
+          0.9844427083333334
+        ],
+        "mean_clean_stamped_asr": 0.3859020833333333,
+        "mean_poisoned_asr": 0.9938750000000001
+      },
+      "0.8": {
+        "n_cells": 5,
+        "n_usable": 2,
+        "n_saturated": 3,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": 0.9781041666666667,
+        "sd": 0.01700002553102663,
+        "ci": [
+          0.9660833333333333,
+          0.990125
+        ],
+        "mean_clean_stamped_asr": 0.6007916666666666,
+        "mean_poisoned_asr": 0.9938041666666667
+      },
+      "0.96": {
+        "n_cells": 5,
+        "n_usable": 1,
+        "n_saturated": 4,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": 0.9888541666666667,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.7935,
+        "mean_poisoned_asr": 0.9914583333333333
+      }
+    },
+    "NF-ToN-IoT-v2": {
+      "0.05": {
+        "n_cells": 5,
+        "n_usable": 0,
+        "n_saturated": 5,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": null,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.997213157894737,
+        "mean_poisoned_asr": 0.9998061403508771
+      },
+      "0.2": {
+        "n_cells": 5,
+        "n_usable": 4,
+        "n_saturated": 1,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": 0.8739348958333333,
+        "sd": 0.16097580329540245,
+        "ci": [
+          0.7425390625,
+          0.9971119791666667
+        ],
+        "mean_clean_stamped_asr": 0.29299270833333335,
+        "mean_poisoned_asr": 0.9990989583333334
+      },
+      "0.4": {
+        "n_cells": 5,
+        "n_usable": 0,
+        "n_saturated": 5,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": null,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.9997375,
+        "mean_poisoned_asr": 0.9998027777777778
+      },
+      "0.6": {
+        "n_cells": 5,
+        "n_usable": 0,
+        "n_saturated": 5,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": null,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.9997229166666667,
+        "mean_poisoned_asr": 0.9998312500000001
+      },
+      "0.8": {
+        "n_cells": 5,
+        "n_usable": 0,
+        "n_saturated": 5,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": null,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.9997333333333334,
+        "mean_poisoned_asr": 0.9999166666666666
+      },
+      "0.96": {
+        "n_cells": 5,
+        "n_usable": 0,
+        "n_saturated": 5,
+        "n_ineffective": 0,
+        "n_infeasible": 0,
+        "mean": null,
+        "sd": null,
+        "ci": null,
+        "mean_clean_stamped_asr": 0.9998958333333332,
+        "mean_poisoned_asr": 0.9999375
+      }
+    }
+  },
+  "q1_rank_test": {
+    "NF-CSE-CIC-IDS2018-v2": {
+      "rho": 0.4285714285714286,
+      "n": 6,
+      "n_permutations": 720,
+      "p_exact_two_sided": 0.41944444444444445,
+      "min_attainable_p": 0.002777777777777778
+    },
+    "NF-ToN-IoT-v2": {
+      "rho": null,
+      "n": 1,
+      "n_permutations": 0,
+      "p_exact_two_sided": null,
+      "min_attainable_p": null,
+      "note": "fewer than three usable levels; no rank test is defined"
+    }
+  },
+  "q1_verdict": "INCONCLUSIVE",
+  "benign_heterogeneity": {
+    "native__NF-ToN-IoT-v2": {
+      "corpus": "NF-ToN-IoT-v2",
+      "benign_share": 0.3600525,
+      "requested_benign_share": null,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 5.656468879327858
+    },
+    "native__NF-CSE-CIC-IDS2018-v2": {
+      "corpus": "NF-CSE-CIC-IDS2018-v2",
+      "benign_share": 0.8804816666666667,
+      "requested_benign_share": null,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 3.014370635667448
+    },
+    "share0.05__NF-CSE-CIC-IDS2018-v2": {
+      "corpus": "NF-CSE-CIC-IDS2018-v2",
+      "benign_share": 0.05,
+      "requested_benign_share": 0.05,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 3.0024688931921033
+    },
+    "share0.20__NF-CSE-CIC-IDS2018-v2": {
+      "corpus": "NF-CSE-CIC-IDS2018-v2",
+      "benign_share": 0.2,
+      "requested_benign_share": 0.2,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 3.01783869438227
+    },
+    "share0.40__NF-CSE-CIC-IDS2018-v2": {
+      "corpus": "NF-CSE-CIC-IDS2018-v2",
+      "benign_share": 0.4,
+      "requested_benign_share": 0.4,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 3.0008891546128957
+    },
+    "share0.60__NF-CSE-CIC-IDS2018-v2": {
+      "corpus": "NF-CSE-CIC-IDS2018-v2",
+      "benign_share": 0.6,
+      "requested_benign_share": 0.6,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 3.0146535447600167
+    },
+    "share0.80__NF-CSE-CIC-IDS2018-v2": {
+      "corpus": "NF-CSE-CIC-IDS2018-v2",
+      "benign_share": 0.8,
+      "requested_benign_share": 0.8,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 3.0125478737069047
+    },
+    "share0.96__NF-CSE-CIC-IDS2018-v2": {
+      "corpus": "NF-CSE-CIC-IDS2018-v2",
+      "benign_share": 0.96,
+      "requested_benign_share": 0.96,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 3.016269760232018
+    },
+    "share0.05__NF-ToN-IoT-v2": {
+      "corpus": "NF-ToN-IoT-v2",
+      "benign_share": 0.05,
+      "requested_benign_share": 0.05,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 5.593867250152215
+    },
+    "share0.20__NF-ToN-IoT-v2": {
+      "corpus": "NF-ToN-IoT-v2",
+      "benign_share": 0.2,
+      "requested_benign_share": 0.2,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 5.561073709968101
+    },
+    "share0.40__NF-ToN-IoT-v2": {
+      "corpus": "NF-ToN-IoT-v2",
+      "benign_share": 0.4,
+      "requested_benign_share": 0.4,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 5.605289378033587
+    },
+    "share0.60__NF-ToN-IoT-v2": {
+      "corpus": "NF-ToN-IoT-v2",
+      "benign_share": 0.6,
+      "requested_benign_share": 0.6,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 5.5970291227931845
+    },
+    "share0.80__NF-ToN-IoT-v2": {
+      "corpus": "NF-ToN-IoT-v2",
+      "benign_share": 0.8,
+      "requested_benign_share": 0.8,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 5.561361004995282
+    },
+    "share0.96__NF-ToN-IoT-v2": {
+      "corpus": "NF-ToN-IoT-v2",
+      "benign_share": 0.96,
+      "requested_benign_share": 0.96,
+      "n_benign_scored": 50000,
+      "effective_dimensionality": 5.61527302136125
+    }
+  },
+  "q2_summary": {
+    "NF-BoT-IoT-v2": {
+      "n_cells": 30,
+      "n_usable": 0,
+      "n_saturated": 0,
+      "n_ineffective": 0,
+      "n_infeasible": 30,
+      "excluded_from_property_analysis": true,
+      "mean_backdoor_fraction": null,
+      "backdoor_fraction_ci": null,
+      "mean_clean_stamped_asr": null,
+      "mean_poisoned_asr": null
+    },
+    "NF-ToN-IoT-v2": {
+      "n_cells": 30,
+      "n_usable": 6,
+      "n_saturated": 24,
+      "n_ineffective": 0,
+      "n_infeasible": 0,
+      "excluded_from_property_analysis": false,
+      "mean_backdoor_fraction": 0.5964133249124818,
+      "backdoor_fraction_ci": [
+        0.4343162724275709,
+        0.7593047154598587
+      ],
+      "mean_clean_stamped_asr": 0.8743096746469431,
+      "mean_poisoned_asr": 0.9991231896796823
+    },
+    "NF-CSE-CIC-IDS2018-v2": {
+      "n_cells": 30,
+      "n_usable": 18,
+      "n_saturated": 12,
+      "n_ineffective": 0,
+      "n_infeasible": 0,
+      "excluded_from_property_analysis": false,
+      "mean_backdoor_fraction": 0.4464935930212739,
+      "backdoor_fraction_ci": [
+        0.2720484416399387,
+        0.6280172163343095
+      ],
+      "mean_clean_stamped_asr": 0.71277715799749,
+      "mean_poisoned_asr": 0.9826732673267328
+    },
+    "NF-UNSW-NB15-v2": {
+      "n_cells": 30,
+      "n_usable": 21,
+      "n_saturated": 9,
+      "n_ineffective": 0,
+      "n_infeasible": 0,
+      "excluded_from_property_analysis": false,
+      "mean_backdoor_fraction": 0.5478236139384505,
+      "backdoor_fraction_ci": [
+        0.3794395880732846,
+        0.7144010946792798
+      ],
+      "mean_clean_stamped_asr": 0.5940486169321041,
+      "mean_poisoned_asr": 0.9774203688181057
+    }
+  },
+  "q2_rank_test": "not computed by design"
+}

@@ -38,7 +38,7 @@ from dataclasses import dataclass
 
 import numpy as np
 from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, FastICA
 from sklearn.metrics import silhouette_score
 from sklearn.mixture import GaussianMixture
 
@@ -50,8 +50,12 @@ def cluster_and_reduce(
     silhouette_sample: int | None = None,
     n_clusters: int = 2, algorithm: str = "kmeans",
     return_estimator: bool = False,
+    reduction: str = "pca",
 ):
     """PCA-reduce then cluster. Returns (labels, reduced, silhouette).
+
+    `reduction="ica"` uses FastICA instead, the original paper's recipe; default `"pca"` leaves
+    every existing caller and every committed number unchanged.
 
     Extracted verbatim from `detect`, which used to own this block inline. The AC repair grid needs
     to reduce+cluster ONCE per (cell, k, algorithm) and then apply several different decision rules
@@ -70,8 +74,17 @@ def cluster_and_reduce(
     if algorithm not in ("kmeans", "gmm"):
         raise ValueError(f"algorithm must be 'kmeans' or 'gmm', got {algorithm!r}")
     feats = np.asarray(feats, dtype=np.float64)
+    if reduction not in ("pca", "ica"):
+        raise ValueError(f"reduction must be 'pca' or 'ica', got {reduction!r}")
     n_components = min(n_components, feats.shape[1])
-    reduced = PCA(n_components=n_components, random_state=seed).fit_transform(feats)
+    if reduction == "pca":
+        reduced = PCA(n_components=n_components, random_state=seed).fit_transform(feats)
+    else:
+        # Chen et al.'s primary recipe. Opt-in only: every committed AC number was produced with
+        # PCA and the default keeps it that way. whiten="unit-variance" is sklearn's current
+        # default spelled out so a future default change cannot move a number silently.
+        reduced = FastICA(n_components=n_components, random_state=seed,
+                          whiten="unit-variance", max_iter=1000, tol=1e-3).fit_transform(feats)
     if algorithm == "kmeans":
         estimator = KMeans(n_clusters=n_clusters, n_init=10, random_state=seed)
         labels = estimator.fit_predict(reduced)
@@ -141,13 +154,15 @@ def detect(
     feats: np.ndarray, n_components: int = 10, seed: int = 0,
     silhouette_sample: int | None = None,
     n_clusters: int = 2, algorithm: str = "kmeans",
+    reduction: str = "pca",
 ) -> tuple[np.ndarray, float]:
     """Canonical AC. Behaviour-preserving refactor over `cluster_and_reduce` +
     `flag_by_relative_size`; the new keyword-defaulted params leave all 16 existing call sites
     untouched and the k=2 kmeans path identical."""
     labels, _, sil = cluster_and_reduce(feats, n_components=n_components, seed=seed,
                                         silhouette_sample=silhouette_sample,
-                                        n_clusters=n_clusters, algorithm=algorithm)
+                                        n_clusters=n_clusters, algorithm=algorithm,
+                                        reduction=reduction)
     return flag_by_relative_size(labels), sil
 
 
