@@ -29,9 +29,14 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SECTIONS = ROOT / "paper" / "sections"
-MAIN = ROOT / "paper" / "main.tex"
 RESULTS = ROOT / "results"
+
+# The target manuscript is selectable. It defaulted to paper/ when this was written for the ICCIT
+# cycle, and stayed there after paper_access/ became the live submission -- which meant the ledger,
+# the one instrument that catches an invented literal, was not running on the manuscript actually
+# being submitted. Kept defaulting to paper/ so existing invocations behave identically; pass
+# --paper paper_access for the IEEE Access manuscript.
+DEFAULT_PAPER = "paper"
 
 # LaTeX we must remove before hunting for numbers, or citation years and float
 # skips masquerade as claims.
@@ -161,15 +166,25 @@ def classify(tok_raw: str, sentence: str, index, cfg) -> tuple[str, list[str]]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--paper", default=DEFAULT_PAPER,
+                    help="manuscript directory to audit, relative to the repo root "
+                         "(paper or paper_access)")
     ap.add_argument("--write-manifest", action="store_true")
     ap.add_argument("--show", default=None, help="print every literal with this class")
     args = ap.parse_args()
+
+    sections = ROOT / args.paper / "sections"
+    main_tex = ROOT / args.paper / "main.tex"
+    if not sections.is_dir():
+        print(f"no such manuscript: {sections}")
+        return 2
+    print(f"auditing {args.paper}/\n")
 
     index = build_value_index()
     cfg = config_constants()
 
     ledger = []
-    tex_files = sorted(SECTIONS.glob("*.tex")) + [MAIN]
+    tex_files = sorted(sections.glob("*.tex")) + [main_tex]
     for tex in tex_files:
         if not tex.exists():
             continue
@@ -224,7 +239,8 @@ def main() -> int:
             print(f"      {e['sentence'][:170]}")
 
     if args.write_manifest:
-        out = RESULTS / "tier1_literal_ledger.json"
+        suffix = "" if args.paper == "paper" else f"_{args.paper}"
+        out = RESULTS / f"tier1_literal_ledger{suffix}.json"
         out.write_text(json.dumps(
             {"counts": dict(counts), "total": len(ledger), "ledger": ledger},
             indent=2, ensure_ascii=False) + "\n")

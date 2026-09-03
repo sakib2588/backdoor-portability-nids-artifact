@@ -1,0 +1,1906 @@
+{
+  "preregistration": "notes/20260903-decision-density-mitigation-preregistration.md",
+  "device": "cuda",
+  "blocked": true,
+  "control_ranking": "mlp",
+  "bypass_stage1": true,
+  "control_bar": 0.9,
+  "controls": [
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        749,
+        370,
+        349
+      ],
+      "trigger_features": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        348
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.04590160839688892,
+      "fixed_flagged_frac": 0.04354951372844017,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.014337763346673714,
+      "delta_flagged_frac": 0.013603066286962907,
+      "auc": 0.6011572151325228,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.13773314203730272,
+        "2.5": 0.09705127237030885,
+        "3.0": 0.04590160839688892
+      },
+      "n_clusters": 39,
+      "n_unabsorbed": 8,
+      "n_iterations": 15,
+      "few_clusters": false,
+      "cluster_composition": {
+        "clusters": [
+          {
+            "label": -1,
+            "size": 20031,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 0,
+            "size": 5722,
+            "n_poison": 5722,
+            "purity": 1.0,
+            "poison_share": 1.0,
+            "absorbed": true
+          },
+          {
+            "label": 1,
+            "size": 421,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 2,
+            "size": 1020,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 3,
+            "size": 713,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 4,
+            "size": 512,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 5,
+            "size": 572,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 6,
+            "size": 283,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 7,
+            "size": 830,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 8,
+            "size": 397,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 9,
+            "size": 436,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 10,
+            "size": 2446,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 11,
+            "size": 1933,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 12,
+            "size": 565,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 13,
+            "size": 832,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 14,
+            "size": 325,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 15,
+            "size": 497,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 16,
+            "size": 430,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 17,
+            "size": 421,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 18,
+            "size": 291,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 19,
+            "size": 930,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 20,
+            "size": 679,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 21,
+            "size": 1376,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 22,
+            "size": 341,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 23,
+            "size": 655,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 24,
+            "size": 812,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 25,
+            "size": 336,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 26,
+            "size": 622,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 27,
+            "size": 606,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 28,
+            "size": 424,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 29,
+            "size": 746,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 30,
+            "size": 1158,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 31,
+            "size": 1930,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 32,
+            "size": 474,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 33,
+            "size": 965,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 34,
+            "size": 58016,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 35,
+            "size": 308,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 36,
+            "size": 1927,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 37,
+            "size": 684,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          }
+        ],
+        "best": {
+          "label": 0,
+          "size": 5722,
+          "n_poison": 5722,
+          "purity": 1.0,
+          "poison_share": 1.0,
+          "absorbed": true
+        },
+        "poison_in_noise": 0,
+        "isolated": true,
+        "thresholds": {
+          "share": 0.9,
+          "purity": 0.5
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        370,
+        349,
+        749
+      ],
+      "trigger_features": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        739,
+        600
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.05263157894736842,
+      "fixed_flagged_frac": 0.049934626475381945,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.017027863777089782,
+      "delta_flagged_frac": 0.016155320330270628,
+      "auc": 0.5959091595559918,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.13887525485161972,
+        "2.5": 0.07879634523899419,
+        "3.0": 0.05263157894736842
+      },
+      "n_clusters": 39,
+      "n_unabsorbed": 8,
+      "n_iterations": 15,
+      "few_clusters": false,
+      "cluster_composition": {
+        "clusters": [
+          {
+            "label": -1,
+            "size": 20321,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 0,
+            "size": 5722,
+            "n_poison": 5722,
+            "purity": 1.0,
+            "poison_share": 1.0,
+            "absorbed": true
+          },
+          {
+            "label": 1,
+            "size": 421,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 2,
+            "size": 1023,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 3,
+            "size": 711,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 4,
+            "size": 519,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 5,
+            "size": 591,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 6,
+            "size": 570,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 7,
+            "size": 826,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 8,
+            "size": 423,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 9,
+            "size": 442,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 10,
+            "size": 2432,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 11,
+            "size": 1956,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 12,
+            "size": 566,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 13,
+            "size": 809,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 14,
+            "size": 335,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 15,
+            "size": 496,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 16,
+            "size": 381,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 17,
+            "size": 418,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 18,
+            "size": 287,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 19,
+            "size": 921,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 20,
+            "size": 554,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 21,
+            "size": 990,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 22,
+            "size": 283,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 23,
+            "size": 341,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 24,
+            "size": 658,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 25,
+            "size": 780,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 26,
+            "size": 640,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 27,
+            "size": 619,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 28,
+            "size": 446,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 29,
+            "size": 785,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 30,
+            "size": 1174,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 31,
+            "size": 1895,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 32,
+            "size": 465,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 33,
+            "size": 965,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 34,
+            "size": 57938,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 35,
+            "size": 304,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 36,
+            "size": 1968,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 37,
+            "size": 691,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          }
+        ],
+        "best": {
+          "label": 0,
+          "size": 5722,
+          "n_poison": 5722,
+          "purity": 1.0,
+          "poison_share": 1.0,
+          "absorbed": true
+        },
+        "poison_in_noise": 0,
+        "isolated": true,
+        "thresholds": {
+          "share": 0.9,
+          "purity": 0.5
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        370,
+        349,
+        749
+      ],
+      "trigger_features": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        600,
+        348
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.040294872762969114,
+      "fixed_flagged_frac": 0.03823007898554618,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.009929774220342823,
+      "delta_flagged_frac": 0.00942095176687622,
+      "auc": 0.6001944423469001,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.1429434418183191,
+        "2.5": 0.1034886355055501,
+        "3.0": 0.05372649701729215
+      },
+      "n_clusters": 40,
+      "n_unabsorbed": 7,
+      "n_iterations": 16,
+      "few_clusters": false,
+      "cluster_composition": {
+        "clusters": [
+          {
+            "label": -1,
+            "size": 19743,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 0,
+            "size": 5722,
+            "n_poison": 5722,
+            "purity": 1.0,
+            "poison_share": 1.0,
+            "absorbed": true
+          },
+          {
+            "label": 1,
+            "size": 416,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 2,
+            "size": 1016,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 3,
+            "size": 709,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 4,
+            "size": 504,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 5,
+            "size": 290,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 6,
+            "size": 294,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 7,
+            "size": 554,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 8,
+            "size": 817,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 9,
+            "size": 418,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 10,
+            "size": 439,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 11,
+            "size": 2444,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 12,
+            "size": 1929,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 13,
+            "size": 599,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 14,
+            "size": 816,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 15,
+            "size": 332,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 16,
+            "size": 511,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 17,
+            "size": 414,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 18,
+            "size": 286,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 19,
+            "size": 418,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 20,
+            "size": 940,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 21,
+            "size": 563,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 22,
+            "size": 1375,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 23,
+            "size": 344,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 24,
+            "size": 652,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 25,
+            "size": 829,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 26,
+            "size": 329,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 27,
+            "size": 607,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 28,
+            "size": 633,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 29,
+            "size": 451,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 30,
+            "size": 790,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 31,
+            "size": 1147,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 32,
+            "size": 1903,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 33,
+            "size": 484,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 34,
+            "size": 977,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 35,
+            "size": 1984,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 36,
+            "size": 725,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 37,
+            "size": 57950,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 38,
+            "size": 312,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          }
+        ],
+        "best": {
+          "label": 0,
+          "size": 5722,
+          "n_poison": 5722,
+          "purity": 1.0,
+          "poison_share": 1.0,
+          "absorbed": true
+        },
+        "poison_in_noise": 0,
+        "isolated": true,
+        "thresholds": {
+          "share": 0.9,
+          "purity": 0.5
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        749,
+        370,
+        349
+      ],
+      "trigger_features": [
+        748,
+        749,
+        370,
+        349,
+        350,
+        739,
+        747,
+        600
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.05366042437514158,
+      "fixed_flagged_frac": 0.050910751705980334,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.020718492788643055,
+      "delta_flagged_frac": 0.019656833772141922,
+      "auc": 0.6016763573208488,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.11878917163784641,
+        "2.5": 0.1005436834554104,
+        "3.0": 0.05366042437514158
+      },
+      "n_clusters": 37,
+      "n_unabsorbed": 8,
+      "n_iterations": 14,
+      "few_clusters": false,
+      "cluster_composition": {
+        "clusters": [
+          {
+            "label": -1,
+            "size": 20519,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 0,
+            "size": 5722,
+            "n_poison": 5722,
+            "purity": 1.0,
+            "poison_share": 1.0,
+            "absorbed": true
+          },
+          {
+            "label": 1,
+            "size": 430,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 2,
+            "size": 1019,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 3,
+            "size": 704,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 4,
+            "size": 506,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 5,
+            "size": 296,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 6,
+            "size": 558,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 7,
+            "size": 803,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 8,
+            "size": 401,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 9,
+            "size": 438,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 10,
+            "size": 2429,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 11,
+            "size": 1938,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 12,
+            "size": 585,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 13,
+            "size": 802,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 14,
+            "size": 328,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 15,
+            "size": 536,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 16,
+            "size": 451,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 17,
+            "size": 422,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 18,
+            "size": 930,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 19,
+            "size": 669,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 20,
+            "size": 1371,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 21,
+            "size": 346,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 22,
+            "size": 666,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 23,
+            "size": 806,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 24,
+            "size": 647,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 25,
+            "size": 621,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 26,
+            "size": 458,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 27,
+            "size": 774,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 28,
+            "size": 1157,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 29,
+            "size": 1913,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 30,
+            "size": 497,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 31,
+            "size": 953,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 32,
+            "size": 57965,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 33,
+            "size": 411,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 34,
+            "size": 1922,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 35,
+            "size": 673,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          }
+        ],
+        "best": {
+          "label": 0,
+          "size": 5722,
+          "n_poison": 5722,
+          "purity": 1.0,
+          "poison_share": 1.0,
+          "absorbed": true
+        },
+        "poison_in_noise": 0,
+        "isolated": true,
+        "thresholds": {
+          "share": 0.9,
+          "purity": 0.5
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        749,
+        370,
+        349
+      ],
+      "trigger_features": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        600
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.046467945329608094,
+      "fixed_flagged_frac": 0.044086830369136534,
+      "delta_recall": 1.0,
+      "delta_fpr": 0.013677036925168013,
+      "delta_flagged_frac": 0.06421829384056024,
+      "auc": 0.601043947745979,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.15603526391301065,
+        "2.5": 0.07870195575020765,
+        "3.0": 0.04914860681114551
+      },
+      "n_clusters": 40,
+      "n_unabsorbed": 7,
+      "n_iterations": 16,
+      "few_clusters": false,
+      "cluster_composition": {
+        "clusters": [
+          {
+            "label": -1,
+            "size": 20224,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 0,
+            "size": 5722,
+            "n_poison": 5722,
+            "purity": 1.0,
+            "poison_share": 1.0,
+            "absorbed": true
+          },
+          {
+            "label": 1,
+            "size": 430,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 2,
+            "size": 1033,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 3,
+            "size": 706,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 4,
+            "size": 525,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 5,
+            "size": 554,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 6,
+            "size": 559,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 7,
+            "size": 811,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 8,
+            "size": 439,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 9,
+            "size": 445,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 10,
+            "size": 2413,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 11,
+            "size": 1921,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 12,
+            "size": 575,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 13,
+            "size": 806,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 14,
+            "size": 325,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 15,
+            "size": 499,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 16,
+            "size": 388,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 17,
+            "size": 284,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 18,
+            "size": 430,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 19,
+            "size": 947,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 20,
+            "size": 553,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 21,
+            "size": 971,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 22,
+            "size": 284,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 23,
+            "size": 336,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 24,
+            "size": 657,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 25,
+            "size": 814,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 26,
+            "size": 298,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 27,
+            "size": 612,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 28,
+            "size": 611,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 29,
+            "size": 448,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 30,
+            "size": 785,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": false
+          },
+          {
+            "label": 31,
+            "size": 1171,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 32,
+            "size": 1904,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 33,
+            "size": 465,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 34,
+            "size": 963,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 35,
+            "size": 57904,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 36,
+            "size": 310,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 37,
+            "size": 1888,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          },
+          {
+            "label": 38,
+            "size": 656,
+            "n_poison": 0,
+            "purity": 0.0,
+            "poison_share": 0.0,
+            "absorbed": true
+          }
+        ],
+        "best": {
+          "label": 0,
+          "size": 5722,
+          "n_poison": 5722,
+          "purity": 1.0,
+          "poison_share": 1.0,
+          "absorbed": true
+        },
+        "poison_in_noise": 0,
+        "isolated": true,
+        "thresholds": {
+          "share": 0.9,
+          "purity": 0.5
+        }
+      }
+    }
+  ],
+  "reason": "the loud control did not reach the pre-registered bar on every seed; the method does not enter the paper and no parameter is tuned to pass"
+}

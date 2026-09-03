@@ -29,10 +29,22 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# Selectable manuscript. This defaulted to paper/ for the ICCIT cycle and did not follow
+# paper_access/ when that became the submission target, so the tier-0 premises were being measured
+# on a draft nobody submits. Still defaults to paper/ so existing invocations are unchanged.
 PAPER = ROOT / "paper"
 PDF = PAPER / "main.pdf"
 FDB = PAPER / "main.fdb_latexmk"
 LOG = PAPER / "main.log"
+
+
+def _retarget(name: str) -> None:
+    """Point every module-level path at a different manuscript directory."""
+    global PAPER, PDF, FDB, LOG
+    PAPER = ROOT / name
+    PDF = PAPER / "main.pdf"
+    FDB = PAPER / "main.fdb_latexmk"
+    LOG = PAPER / "main.log"
 
 # IEEEtran two-column: \columnwidth measured from the compiled document, not assumed.
 # Fallback only if the bbox probe cannot run.
@@ -62,10 +74,13 @@ CODEPOINT_WHITELIST = {
     "\ufb01": "fi ligature",
     "\ufb02": "fl ligature",
     "\u00e9": "e-acute (author names)",
+    "\u00e4": "a-diaeresis (author names, e.g. Hyv\u00e4rinen)",
+    "\u2022": "bullet (itemize marker set by the class)",
     "\u00ed": "i-acute (author names)",
     "\u00e1": "a-acute (author names)",
     "\u00fc": "u-diaeresis (author names)",
     "\u00f6": "o-diaeresis (author names)",
+    "\u00f8": "o-with-stroke (author names, e.g. H\u00f8yheim)",
     "\u00e7": "c-cedilla (author names)",
     "\u00b1": "plus-minus (mean +/- sd notation)",
     "\u00b7": "middle dot (multiplication in maths)",
@@ -349,7 +364,14 @@ def _figure_includes() -> list[dict]:
     for tex in sorted((PAPER / "sections").glob("*.tex")) + [PAPER / "main.tex"]:
         if not tex.exists():
             continue
+        starred = False
         for lineno, line in enumerate(tex.read_text(errors="replace").splitlines(), 1):
+            if "\\begin{figure*}" in line:
+                starred = True
+            elif "\\begin{figure}" in line:
+                starred = False
+            elif "\\end{figure*}" in line or "\\end{figure}" in line:
+                starred = False
             m = INCLUDE.search(line)
             if not m:
                 continue
@@ -361,6 +383,7 @@ def _figure_includes() -> list[dict]:
                     "graphic": m.group("path"),
                     "width_fraction": float(wm.group(1)) if wm else None,
                     "width_unit": wm.group(2) if wm else None,
+                    "full_width_float": starred,
                 }
             )
     return out
@@ -389,7 +412,7 @@ def _min_font_size_pt(fig_pdf: Path) -> float | None:
     return round(heights[idx], 3)
 
 
-def check_render_audit(column_width_pt: float) -> dict:
+def check_render_audit(column_width_pt: float, text_block_width_pt: float | None = None) -> dict:
     _need("pdfinfo")
     figs = _figure_includes()
     rows, failures = [], []
@@ -406,13 +429,18 @@ def check_render_audit(column_width_pt: float) -> dict:
             failures.append(f["graphic"])
             continue
         native_w, native_h = float(sm.group(1)), float(sm.group(2))
-        # Inside a single-column figure env, \linewidth == \columnwidth.
+        # Inside a single-column figure env, \linewidth == \columnwidth. Inside figure*, the float
+        # spans the text block, so \textwidth is roughly twice that. Basing every figure on the
+        # column width understated the rendered size of every full-width float and reported their
+        # text as about half the size it prints at.
         base = column_width_pt
+        if f.get("full_width_float") and text_block_width_pt:
+            base = text_block_width_pt
         rendered_w = (f["width_fraction"] or 1.0) * base
         scale = rendered_w / native_w
         native_min_font = _min_font_size_pt(gpath)
         effective_font = round(native_min_font * scale, 3) if native_min_font else None
-        col_fraction = round(rendered_w / column_width_pt, 4)
+        col_fraction = round(rendered_w / base, 4)
         ok = col_fraction >= 0.9 and (effective_font is None or effective_font >= 6.0)
         if not ok:
             failures.append(f["graphic"])
@@ -538,27 +566,93 @@ def check_codepoints() -> dict:
 # ---------------------------------------------------------------- T0-e
 
 
+def classify_overfull(logtext: str):
+    """Split overfull hboxes into content and class furniture, by what TeX says is inside them.
+
+    Two kinds of furniture appear here and neither is text this manuscript can move.
+    ieeeaccess.cls builds its page footer as an \\hbox to 0pc holding a \\textwidth box, which
+    reports one overfull of exactly \\textwidth (505.12pt) per page. It also sets the abstract and
+    the index-terms block in a parbox 9.27pt wider than its container; rebuilt with
+    \\overfullrule set, the marker runs the FULL HEIGHT of those blocks rather than marking one
+    long line, which is what a paragraph of our text would do.
+
+    TeX prints the offending material after the message. A box whose material is empty is furniture.
+    A box carrying typeset characters is content, and content is what this check exists to catch.
+    """
+    content, furniture = [], []
+    pattern = re.compile(
+        r"Overfull \\hbox \(([\d.]+)pt too wide\)([^\n]*)\n(.*?)(?=\n\n|\nOverfull|\nUnderfull|\Z)",
+        re.S)
+    for m in pattern.finditer(logtext):
+        width, head, body = float(m.group(1)), m.group(2), m.group(3)
+        if "while \\output is active" in head:
+            furniture.append((width, "output routine"))
+            continue
+        if not body.replace("[]", "").strip():
+            furniture.append((width, "empty box in the class title block"))
+        else:
+            content.append((width, "text"))
+    return content, furniture
+
+
 def check_venue_source() -> dict:
+    """Venue compliance, judged against the class the manuscript actually uses.
+
+    The original criteria were ICCIT's: IEEEtran with a4paper and conference. paper_access/ is an
+    IEEE Access journal submission on ieeeaccess.cls, where neither option applies, so the class is
+    detected and the criteria follow from it rather than being assumed.
+
+    Two counting fixes, which apply to both manuscripts. "undefined" was a substring count over the
+    whole log, so LaTeX Font Warnings about undefined font SHAPES counted as undefined references;
+    it now counts undefined references and citations only. Overfull boxes were counted in total, but
+    ieeeaccess.cls builds its page footer as \\hbox to 0pc{\\hbox to \\textwidth{...}}, which reports
+    one enormous overfull per page and swamps the real ones; content overfulls are now separated
+    from boxes raised while \\output is active.
+    """
     main = (PAPER / "main.tex").read_text(errors="replace")
     cls = re.search(r"\\documentclass\[([^\]]*)\]\{([^}]+)\}", main)
+    if cls is None:
+        cls = re.search(r"\\documentclass\{([^}]+)\}", main)
+        options, classname = "", (cls.group(1) if cls else None)
+    else:
+        options, classname = cls.group(1), cls.group(2)
     logtext = LOG.read_text(errors="replace") if LOG.exists() else ""
+
+    undefined_refs = len(re.findall(r"(?:Reference|Citation)\s+`[^']*'\s+on page.*undefined", logtext))
+
+    overfull_total = logtext.count("Overfull \\hbox")
+    overfull_content_boxes, overfull_furniture = classify_overfull(logtext)
+    overfull_content = len(overfull_content_boxes)
+    overfull_output = sum(1 for _, k in overfull_furniture if k == "output routine")
+
     bib = PAPER / "bib" / "refs.bib"
     n_entries = len(re.findall(r"^@\w+\{", bib.read_text(errors="replace"), re.M)) if bib.exists() else None
+
+    is_access = bool(classname and "ieeeaccess" in classname.lower())
+    if is_access:
+        venue_ok = True                      # the class itself is the venue conformance
+        venue_note = "IEEE Access journal: ieeeaccess.cls; a4paper/conference do not apply."
+    else:
+        venue_ok = bool("a4paper" in options and "conference" in options)
+        venue_note = "IEEE conference: IEEEtran with a4paper and conference expected."
+
     return {
         "check": "T0-e venue compliance (source side)",
-        "documentclass_options": cls.group(1) if cls else None,
-        "documentclass": cls.group(2) if cls else None,
-        "a4paper_set": bool(cls and "a4paper" in cls.group(1)),
-        "conference_mode": bool(cls and "conference" in cls.group(1)),
+        "documentclass_options": options,
+        "documentclass": classname,
+        "a4paper_set": "a4paper" in options,
+        "conference_mode": "conference" in options,
         "override_lockouts": "\\IEEEoverridecommandlockouts" in main,
         "blind_toggle_default": "\\blindtrue" in main,
-        "undefined_references": logtext.lower().count("undefined"),
-        "overfull_boxes": logtext.count("Overfull"),
+        "undefined_references": undefined_refs,
+        "overfull_boxes_content": overfull_content,
+        "overfull_boxes_content_widths": [w for w, _ in overfull_content_boxes],
+        "overfull_boxes_from_output_routine": overfull_output,
+        "overfull_boxes_class_furniture": len(overfull_furniture),
+        "overfull_boxes_total": overfull_total,
         "bib_entries": n_entries,
-        "pass": bool(cls and "a4paper" in cls.group(1) and "conference" in cls.group(1))
-        and logtext.lower().count("undefined") == 0
-        and logtext.count("Overfull") == 0,
-        "note": "Live-CFP cross-check (page limit, anonymity wording) is a separate manual step.",
+        "pass": venue_ok and undefined_refs == 0 and overfull_content == 0,
+        "note": venue_note + " Live-CFP cross-check (page limit, anonymity wording) is a separate manual step.",
     }
 
 
@@ -567,6 +661,8 @@ def check_venue_source() -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--paper", default="paper",
+                    help="manuscript directory to measure, relative to the repo root")
     ap.add_argument("--write-manifest", action="store_true")
     ap.add_argument(
         "--rebuild-proof",
@@ -574,6 +670,12 @@ def main() -> int:
         help="prove build freshness by rebuilding into SCRATCH_DIR (paper/ is not touched)",
     )
     args = ap.parse_args()
+    if args.paper != "paper":
+        _retarget(args.paper)
+    if not PAPER.is_dir():
+        print(f"no such manuscript: {PAPER}")
+        return 2
+    print(f"measuring {args.paper}/\n")
 
     results: dict[str, dict] = {}
     could_not_measure: list[str] = []
@@ -601,7 +703,8 @@ def main() -> int:
 
     try:
         col = ledger["column_width_pt"] if ledger else FALLBACK_COLUMN_WIDTH_PT
-        results["render"] = check_render_audit(col)
+        block = ledger.get("text_block_width_pt") if ledger else None
+        results["render"] = check_render_audit(col, block)
     except CannotMeasure as exc:
         results["render"] = {"check": "T0-d render audit", "error": str(exc), "pass": None}
         could_not_measure.append("render")
@@ -630,7 +733,8 @@ def main() -> int:
                   f"{'ok' if f['pass'] else 'FAIL'}")
 
     if args.write_manifest:
-        out = ROOT / "results" / "tier0_premises.json"
+        suffix = "" if args.paper == "paper" else f"_{args.paper}"
+        out = ROOT / "results" / f"tier0_premises{suffix}.json"
         out.write_text(json.dumps(results, indent=2, ensure_ascii=False) + "\n")
         print(f"\nwrote {out.relative_to(ROOT)}")
 

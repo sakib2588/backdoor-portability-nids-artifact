@@ -105,11 +105,17 @@ def temporal_split(
     return x_tr, y_tr, x_val, y_val, test_x, test_y
 
 
-def fit_standardiser(x_tr_raw: pd.DataFrame):
-    """Fit a StandardScaler on the TRAINING rows only (never val/test)."""
+def fit_standardiser(x_tr_raw):
+    """Fit a StandardScaler on the TRAINING rows only (never val/test).
+
+    Accepts a DataFrame or a raw ndarray, the same widening `apply_standardiser` below already has.
+    The NetFlow arm splits to arrays rather than frames, and forcing it through a DataFrame purely to
+    reach this function would copy a 300 MB block for nothing.
+    """
     from sklearn.preprocessing import StandardScaler
 
-    return StandardScaler().fit(x_tr_raw.to_numpy())
+    arr = x_tr_raw.to_numpy() if isinstance(x_tr_raw, (pd.DataFrame, pd.Series)) else np.asarray(x_tr_raw)
+    return StandardScaler().fit(arr)
 
 
 def apply_standardiser(scaler, x_raw) -> np.ndarray:

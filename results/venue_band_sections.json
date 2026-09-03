@@ -1,0 +1,1007 @@
+{
+  "_schema": "venue_band_sections/1",
+  "_instrument": "scripts/89_venue_band_sections.py",
+  "_corpus": {
+    "root": "references/venue_band_md",
+    "n_measured": 18,
+    "n_unmeasurable": 0,
+    "unmeasurable": []
+  },
+  "_caveats": [
+    "role mapping is a keyword rule over heading text; every assignment is listed",
+    "ours merges discussion and conclusion; compared to the corpus tail summed per paper",
+    "ours undercounts lines carrying \\ref/\\label (stripper drops the line tail)"
+  ],
+  "ours": {
+    "introduction": 896,
+    "related_work": 1309,
+    "threat_model": 705,
+    "methods": 3444,
+    "results": 5037,
+    "discussion_conclusion": 1699
+  },
+  "table": [
+    {
+      "role": "introduction",
+      "n": 18,
+      "ours": 896,
+      "band": {
+        "n": 18,
+        "min": 414,
+        "median": 826.5,
+        "max": 1600
+      },
+      "pct": 61,
+      "verdict": "in band"
+    },
+    {
+      "role": "related_work",
+      "n": 16,
+      "ours": 1309,
+      "band": {
+        "n": 16,
+        "min": 549,
+        "median": 1437.5,
+        "max": 3276
+      },
+      "pct": 38,
+      "verdict": "in band"
+    },
+    {
+      "role": "threat_model",
+      "n": 1,
+      "ours": 705,
+      "band": null,
+      "pct": null,
+      "verdict": "band undefined (fewer than 3 corpus papers carry it)"
+    },
+    {
+      "role": "methods",
+      "n": 16,
+      "ours": 3444,
+      "band": {
+        "n": 16,
+        "min": 824,
+        "median": 2524.0,
+        "max": 11591
+      },
+      "pct": 75,
+      "verdict": "in band"
+    },
+    {
+      "role": "results",
+      "n": 14,
+      "ours": 5037,
+      "band": {
+        "n": 14,
+        "min": 1181,
+        "median": 1773.5,
+        "max": 3537
+      },
+      "pct": 100,
+      "verdict": "above ceiling by 1500"
+    },
+    {
+      "role": "discussion",
+      "n": 3,
+      "ours": null,
+      "band": {
+        "n": 3,
+        "min": 786,
+        "median": 974,
+        "max": 1690
+      },
+      "pct": null,
+      "verdict": "ours has no section of this role"
+    },
+    {
+      "role": "conclusion",
+      "n": 18,
+      "ours": null,
+      "band": {
+        "n": 18,
+        "min": 164,
+        "median": 252.0,
+        "max": 410
+      },
+      "pct": null,
+      "verdict": "ours has no section of this role"
+    },
+    {
+      "role": "limitations",
+      "n": 1,
+      "ours": null,
+      "band": null,
+      "pct": null,
+      "verdict": "band undefined (fewer than 3 corpus papers carry it)"
+    },
+    {
+      "role": "discussion_conclusion",
+      "n": 18,
+      "ours": 1699,
+      "band": {
+        "n": 18,
+        "min": 164,
+        "median": 281.0,
+        "max": 1936
+      },
+      "pct": 94,
+      "verdict": "in band"
+    }
+  ],
+  "per_paper": {
+    "2020_a_flexible_sdn_based_architecture_for_identifyin_W3081430061": {
+      "roles": {
+        "introduction": 789,
+        "related_work": 2490,
+        "methods": 1361,
+        "results": 1543,
+        "conclusion": 369,
+        "discussion_conclusion": 369
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 789
+        },
+        {
+          "numeral": 2,
+          "title": "PRELIMINARIES",
+          "role": "related_work",
+          "words": 637
+        },
+        {
+          "numeral": 3,
+          "title": "RELATED WORK",
+          "role": "related_work",
+          "words": 1853
+        },
+        {
+          "numeral": 4,
+          "title": "ARCHITECTURAL DESIGN",
+          "role": "methods",
+          "words": 1361
+        },
+        {
+          "numeral": 5,
+          "title": "EXPERIMENTAL SETUP",
+          "role": "results",
+          "words": 1097
+        },
+        {
+          "numeral": 6,
+          "title": "FINDINGS",
+          "role": "results",
+          "words": 446
+        },
+        {
+          "numeral": 7,
+          "title": "CONCLUSION AND FUTURE WORK",
+          "role": "conclusion",
+          "words": 369
+        }
+      ]
+    },
+    "2020_a_taxonomy_of_network_threats_and_the_effect_of__W3033213260": {
+      "roles": {
+        "introduction": 414,
+        "related_work": 1439,
+        "methods": 1843,
+        "threat_model": 1894,
+        "conclusion": 291,
+        "discussion_conclusion": 291
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 414
+        },
+        {
+          "numeral": 2,
+          "title": "BACKGROUND",
+          "role": "related_work",
+          "words": 1439
+        },
+        {
+          "numeral": 3,
+          "title": "IDS AND DATASETS SURVEY",
+          "role": "methods",
+          "words": 1504
+        },
+        {
+          "numeral": 4,
+          "title": "THREATS TAXONOMY",
+          "role": "threat_model",
+          "words": 1894
+        },
+        {
+          "numeral": 5,
+          "title": "CHALLENGES AND RECOMMENDATIONS",
+          "role": "methods",
+          "words": 339
+        },
+        {
+          "numeral": 6,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 291
+        }
+      ]
+    },
+    "2020_ai_ids_application_of_deep_learning_to_real_time_W3016266335": {
+      "roles": {
+        "introduction": 845,
+        "related_work": 1436,
+        "methods": 2202,
+        "results": 2184,
+        "conclusion": 237,
+        "discussion_conclusion": 237
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 845
+        },
+        {
+          "numeral": 2,
+          "title": "BACKGROUND",
+          "role": "related_work",
+          "words": 1436
+        },
+        {
+          "numeral": 3,
+          "title": "SECURITY OPERATIONS FOR DEEP LEARNING",
+          "role": "methods",
+          "words": 965
+        },
+        {
+          "numeral": 4,
+          "title": "DESIGN AND IMPLEMENTATION",
+          "role": "methods",
+          "words": 1237
+        },
+        {
+          "numeral": 5,
+          "title": "EXPERIMENTS",
+          "role": "results",
+          "words": 1256
+        },
+        {
+          "numeral": 6,
+          "title": "EFFICACY AND APPLICATION",
+          "role": "results",
+          "words": 928
+        },
+        {
+          "numeral": 7,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 237
+        }
+      ]
+    },
+    "2020_an_explainable_machine_learning_framework_for_in_W3017093935": {
+      "roles": {
+        "introduction": 674,
+        "related_work": 1447,
+        "methods": 824,
+        "results": 2701,
+        "conclusion": 410,
+        "discussion_conclusion": 410
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 674
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED WORK",
+          "role": "related_work",
+          "words": 423
+        },
+        {
+          "numeral": 3,
+          "title": "BACKGROUND",
+          "role": "related_work",
+          "words": 1024
+        },
+        {
+          "numeral": 4,
+          "title": "PROPOSED METHOD",
+          "role": "methods",
+          "words": 824
+        },
+        {
+          "numeral": 5,
+          "title": "EXPERIMENTS AND RESULTS",
+          "role": "results",
+          "words": 2701
+        },
+        {
+          "numeral": 6,
+          "title": "CONCLUSION AND FUTURE WORK",
+          "role": "conclusion",
+          "words": 410
+        }
+      ]
+    },
+    "2020_analysis_of_dimensionality_reduction_techniques__W3011249019": {
+      "roles": {
+        "introduction": 721,
+        "related_work": 1580,
+        "results": 1421,
+        "conclusion": 234,
+        "discussion_conclusion": 234
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 721
+        },
+        {
+          "numeral": 2,
+          "title": "LITERATURE REVIEW",
+          "role": "related_work",
+          "words": 1112
+        },
+        {
+          "numeral": 3,
+          "title": "PRELIMINARIES AND METHODOLOGY",
+          "role": "related_work",
+          "words": 468
+        },
+        {
+          "numeral": 4,
+          "title": "RESULTS AND DISCUSSIONS",
+          "role": "results",
+          "words": 1421
+        },
+        {
+          "numeral": 5,
+          "title": "CONCLUSION AND FUTURE WORK",
+          "role": "conclusion",
+          "words": 234
+        }
+      ]
+    },
+    "2020_anomaly_based_intrusion_detection_from_network_f_W3035311645": {
+      "roles": {
+        "introduction": 554,
+        "related_work": 3276,
+        "results": 2367,
+        "conclusion": 164,
+        "discussion_conclusion": 164
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 554
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED STUDIES",
+          "role": "related_work",
+          "words": 1240
+        },
+        {
+          "numeral": 3,
+          "title": "BACKGROUND",
+          "role": "related_work",
+          "words": 2036
+        },
+        {
+          "numeral": 4,
+          "title": "EXPERIMENTAL RESULTS",
+          "role": "results",
+          "words": 2367
+        },
+        {
+          "numeral": 5,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 164
+        }
+      ]
+    },
+    "2020_increasing_the_performance_of_machine_learning_b_W3006165800": {
+      "roles": {
+        "introduction": 747,
+        "related_work": 951,
+        "methods": 2846,
+        "results": 1181,
+        "conclusion": 296,
+        "discussion_conclusion": 296
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 747
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED WORKS",
+          "role": "related_work",
+          "words": 951
+        },
+        {
+          "numeral": 3,
+          "title": "DATASETS",
+          "role": "methods",
+          "words": 819
+        },
+        {
+          "numeral": 4,
+          "title": "PROPOSED SYSTEM",
+          "role": "methods",
+          "words": 2027
+        },
+        {
+          "numeral": 5,
+          "title": "EXPERIMENTAL RESULTS",
+          "role": "results",
+          "words": 1181
+        },
+        {
+          "numeral": 6,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 296
+        }
+      ]
+    },
+    "2020_insdn_a_novel_sdn_intrusion_dataset_W3084346886": {
+      "roles": {
+        "introduction": 529,
+        "related_work": 2289,
+        "methods": 1933,
+        "limitations": 31,
+        "results": 1398,
+        "conclusion": 166,
+        "discussion_conclusion": 197
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 529
+        },
+        {
+          "numeral": 2,
+          "title": "BACKGROUND",
+          "role": "related_work",
+          "words": 2289
+        },
+        {
+          "numeral": 3,
+          "title": "PROPOSED SDN ARCHITECTURE",
+          "role": "methods",
+          "words": 479
+        },
+        {
+          "numeral": 4,
+          "title": "METHODOLOGY FOR DATA GENERATION",
+          "role": "methods",
+          "words": 962
+        },
+        {
+          "numeral": 5,
+          "title": "USAGE AND AVAILABILITY",
+          "role": "methods",
+          "words": 492
+        },
+        {
+          "numeral": 6,
+          "title": "LIMITATIONS",
+          "role": "limitations",
+          "words": 31
+        },
+        {
+          "numeral": 7,
+          "title": "EXPERIMENTAL EVALUATION",
+          "role": "results",
+          "words": 1398
+        },
+        {
+          "numeral": 8,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 166
+        }
+      ]
+    },
+    "2020_intrusion_detection_of_imbalanced_network_traffi_W3116274835": {
+      "roles": {
+        "introduction": 466,
+        "related_work": 907,
+        "methods": 1734,
+        "results": 2054,
+        "conclusion": 258,
+        "discussion_conclusion": 258
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 466
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED WORKS",
+          "role": "related_work",
+          "words": 907
+        },
+        {
+          "numeral": 3,
+          "title": "METHOD",
+          "role": "methods",
+          "words": 1734
+        },
+        {
+          "numeral": 4,
+          "title": "EXPERIMENT",
+          "role": "results",
+          "words": 2054
+        },
+        {
+          "numeral": 5,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 258
+        }
+      ]
+    },
+    "2020_lstm_based_intrusion_detection_system_for_in_veh_W3092232275": {
+      "roles": {
+        "introduction": 1113,
+        "related_work": 549,
+        "methods": 2952,
+        "results": 1517,
+        "discussion": 974,
+        "conclusion": 166,
+        "discussion_conclusion": 1140
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 1113
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED WORKS",
+          "role": "related_work",
+          "words": 549
+        },
+        {
+          "numeral": 3,
+          "title": "ATTACKS USED IN THE MODEL",
+          "role": "methods",
+          "words": 1044
+        },
+        {
+          "numeral": 4,
+          "title": "LSTM-BASED NETWORK INTRUSION DETECTION SYSTEM",
+          "role": "methods",
+          "words": 1908
+        },
+        {
+          "numeral": 5,
+          "title": "EXPERIMENT RESULTS AND PERFORMANCE EVALUATION",
+          "role": "results",
+          "words": 1517
+        },
+        {
+          "numeral": 6,
+          "title": "DISCUSSION",
+          "role": "discussion",
+          "words": 974
+        },
+        {
+          "numeral": 7,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 166
+        }
+      ]
+    },
+    "2020_network_intrusion_detection_combined_hybrid_samp_W3005805195": {
+      "roles": {
+        "introduction": 1215,
+        "methods": 2003,
+        "results": 1574,
+        "conclusion": 183,
+        "discussion_conclusion": 183
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 1215
+        },
+        {
+          "numeral": 2,
+          "title": "THE PROPOSEED INTRUSION DETECTION MODEL",
+          "role": "methods",
+          "words": 2003
+        },
+        {
+          "numeral": 3,
+          "title": "EXPERIMENT RESULTS AND ANALYSIS",
+          "role": "results",
+          "words": 1574
+        },
+        {
+          "numeral": 4,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 183
+        }
+      ]
+    },
+    "2020_privacy_and_security_issues_in_deep_learning_a_s_W3112787034": {
+      "roles": {
+        "introduction": 1600,
+        "related_work": 1321,
+        "methods": 11591,
+        "conclusion": 175,
+        "discussion_conclusion": 175
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 1600
+        },
+        {
+          "numeral": 2,
+          "title": "PRELIMINARIES",
+          "role": "related_work",
+          "words": 1321
+        },
+        {
+          "numeral": 3,
+          "title": "PRIVACY",
+          "role": "methods",
+          "words": 4012
+        },
+        {
+          "numeral": 4,
+          "title": "SECURITY",
+          "role": "methods",
+          "words": 6869
+        },
+        {
+          "numeral": 5,
+          "title": "FUTURE RESEARCH WORK",
+          "role": "methods",
+          "words": 710
+        },
+        {
+          "numeral": 6,
+          "title": "SUMMARY",
+          "role": "conclusion",
+          "words": 175
+        }
+      ]
+    },
+    "2020_ton_iot_telemetry_dataset_a_new_generation_datas_W3085955590": {
+      "roles": {
+        "introduction": 1314,
+        "related_work": 1084,
+        "methods": 2924,
+        "results": 3537,
+        "conclusion": 304,
+        "discussion_conclusion": 304
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 1314
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED WORK",
+          "role": "related_work",
+          "words": 1084
+        },
+        {
+          "numeral": 3,
+          "title": "DETAILS OF THE TESTBED",
+          "role": "methods",
+          "words": 1639
+        },
+        {
+          "numeral": 4,
+          "title": "IIoT DATASETS AND EXPERIMENTAL SETUP",
+          "role": "results",
+          "words": 1262
+        },
+        {
+          "numeral": 5,
+          "title": "CANDIDATE SUPERVISED ML METHODS",
+          "role": "methods",
+          "words": 1285
+        },
+        {
+          "numeral": 6,
+          "title": "EXPERIMENTAL RESULTS",
+          "role": "results",
+          "words": 2275
+        },
+        {
+          "numeral": 7,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 304
+        }
+      ]
+    },
+    "2021_benchmarking_of_machine_learning_for_anomaly_bas_W3126814579": {
+      "roles": {
+        "introduction": 808,
+        "related_work": 1212,
+        "methods": 1857,
+        "results": 3043,
+        "conclusion": 271,
+        "discussion_conclusion": 271
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 808
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED WORK",
+          "role": "related_work",
+          "words": 1212
+        },
+        {
+          "numeral": 3,
+          "title": "METHODS AND MATERIALS",
+          "role": "methods",
+          "words": 1857
+        },
+        {
+          "numeral": 4,
+          "title": "BENCHMARKING OF ML-AIDS IN CICIDS2017",
+          "role": "results",
+          "words": 807
+        },
+        {
+          "numeral": 5,
+          "title": "RESULTS AND DISCUSSION",
+          "role": "results",
+          "words": 2236
+        },
+        {
+          "numeral": 6,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 271
+        }
+      ]
+    },
+    "2021_deep_learning_based_intrusion_detection_systems__W3185244527": {
+      "roles": {
+        "introduction": 970,
+        "methods": 6772,
+        "discussion": 1690,
+        "conclusion": 246,
+        "discussion_conclusion": 1936
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 970
+        },
+        {
+          "numeral": 2,
+          "title": "RESEARCH METHODOLOGY",
+          "role": "methods",
+          "words": 299
+        },
+        {
+          "numeral": 3,
+          "title": "PROPOSED DEEP LEARNING-BASED IDS SCHEMES",
+          "role": "methods",
+          "words": 6473
+        },
+        {
+          "numeral": 4,
+          "title": "DISCUSSION",
+          "role": "discussion",
+          "words": 1690
+        },
+        {
+          "numeral": 5,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 246
+        }
+      ]
+    },
+    "2021_design_and_development_of_a_deep_learning_based__W3179240416": {
+      "roles": {
+        "introduction": 921,
+        "related_work": 1186,
+        "methods": 3979,
+        "results": 1671,
+        "discussion": 786,
+        "conclusion": 301,
+        "discussion_conclusion": 1087
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 921
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED WORK",
+          "role": "related_work",
+          "words": 1186
+        },
+        {
+          "numeral": 3,
+          "title": "PROPOSED MODEL",
+          "role": "methods",
+          "words": 2347
+        },
+        {
+          "numeral": 4,
+          "title": "DATA COLLECTION",
+          "role": "methods",
+          "words": 1632
+        },
+        {
+          "numeral": 5,
+          "title": "EVALUATION RESULTS",
+          "role": "results",
+          "words": 1671
+        },
+        {
+          "numeral": 6,
+          "title": "DISCUSSION AND COMPARISON RESULTS",
+          "role": "discussion",
+          "words": 786
+        },
+        {
+          "numeral": 7,
+          "title": "CONCLUSION AND FUTURE WORK",
+          "role": "conclusion",
+          "words": 301
+        }
+      ]
+    },
+    "2021_internet_of_things_applications_security_challen_W3154485088": {
+      "roles": {
+        "introduction": 1246,
+        "methods": 3219,
+        "related_work": 2202,
+        "conclusion": 384,
+        "discussion_conclusion": 384
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 1246
+        },
+        {
+          "numeral": 2,
+          "title": "SECURITY ISSUES IN IoT DOMAIN",
+          "role": "methods",
+          "words": 1381
+        },
+        {
+          "numeral": 3,
+          "title": "INTRUSION DETECTION SYSTEM",
+          "role": "methods",
+          "words": 1122
+        },
+        {
+          "numeral": 4,
+          "title": "REVIEW OF STEPS INVOLVED IN IDS",
+          "role": "related_work",
+          "words": 2202
+        },
+        {
+          "numeral": 5,
+          "title": "SECURITY-BASED CHALLENGES AND PROPOSED SOLUTIONS",
+          "role": "methods",
+          "words": 716
+        },
+        {
+          "numeral": 6,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 384
+        }
+      ]
+    },
+    "2022_edge_iiotset_a_new_comprehensive_realistic_cyber_W4226319939": {
+      "roles": {
+        "introduction": 868,
+        "related_work": 1455,
+        "methods": 3902,
+        "results": 1876,
+        "conclusion": 164,
+        "discussion_conclusion": 164
+      },
+      "assignments": [
+        {
+          "numeral": 1,
+          "title": "INTRODUCTION",
+          "role": "introduction",
+          "words": 868
+        },
+        {
+          "numeral": 2,
+          "title": "RELATED AVAILABLE IoT AND IIoT DATASETS FOR CYBER SECURITY",
+          "role": "related_work",
+          "words": 1455
+        },
+        {
+          "numeral": 3,
+          "title": "PROPOSED IoT AND IIoT TESTBED ARCHITECTURE",
+          "role": "methods",
+          "words": 1230
+        },
+        {
+          "numeral": 4,
+          "title": "DESCRIPTION OF EDGE-IIoTset DATASET",
+          "role": "methods",
+          "words": 1306
+        },
+        {
+          "numeral": 5,
+          "title": "EXTRAPOLATED FEATURES",
+          "role": "methods",
+          "words": 1366
+        },
+        {
+          "numeral": 6,
+          "title": "THE PERFORMANCE EVALUATION",
+          "role": "results",
+          "words": 1876
+        },
+        {
+          "numeral": 7,
+          "title": "CONCLUSION",
+          "role": "conclusion",
+          "words": 164
+        }
+      ]
+    }
+  }
+}

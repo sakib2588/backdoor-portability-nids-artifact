@@ -1,0 +1,199 @@
+{
+  "cells": [
+    [
+      0.005,
+      8
+    ]
+  ],
+  "seeds": [
+    42
+  ],
+  "victims": [
+    "mlp",
+    "lgb"
+  ],
+  "device": "cuda",
+  "preregistration": "notes/20260903-decision-density-mitigation-preregistration.md",
+  "blocked": false,
+  "params": {
+    "n_features": 4,
+    "min_cluster_size_frac": 0.0025,
+    "min_samples": 50,
+    "window_frac": 0.05,
+    "stop_frac": 0.8,
+    "z_t": 2.0,
+    "z_thresholds": [
+      2.0,
+      2.5,
+      3.0
+    ],
+    "clusterer": "HDBSCAN (declared substitution for OPTICS)",
+    "surrogate": "LightGBM"
+  },
+  "control_bar": 0.9,
+  "controls": [
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "n_poison": 433,
+      "n_target": 8473,
+      "fixed_recall": 0.10392609699769054,
+      "fixed_fpr": 0.09303482587064676,
+      "fixed_flagged_frac": 0.09359140800188835,
+      "delta_recall": 0.004618937644341801,
+      "delta_fpr": 0.00609452736318408,
+      "delta_flagged_frac": 0.0060191195562374605,
+      "auc": 0.5215118116116875,
+      "mad_recall": {
+        "2.0": 0.3741339491916859,
+        "2.5": 0.3302540415704388,
+        "3.0": 0.3163972286374134
+      },
+      "mad_fpr": {
+        "2.0": 0.3417910447761194,
+        "2.5": 0.315547263681592,
+        "3.0": 0.2997512437810945
+      },
+      "n_clusters": 52,
+      "n_unabsorbed": 9,
+      "n_iterations": 14,
+      "few_clusters": false
+    }
+  ],
+  "smoke": true,
+  "rows": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "mlp",
+      "n_poison": 43,
+      "n_target": 8473,
+      "selected_features": [
+        261,
+        370,
+        728,
+        756
+      ],
+      "asr": 0.02127659574468085,
+      "clean_acc": 0.9990409973627428,
+      "asr_clean_victim": 0.02127659574468085,
+      "asr_after_filtering": 0.02127659574468085,
+      "clean_acc_after_filtering": 0.9990409973627428,
+      "n_dropped": 811,
+      "n_poison_left": 34,
+      "fixed_recall": 0.20930232558139536,
+      "fixed_fpr": 0.09513641755634639,
+      "fixed_flagged_frac": 0.09571580313938392,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.0,
+      "delta_flagged_frac": 0.0,
+      "auc": 0.579269772959254,
+      "mad_recall": {
+        "2.0": 0.3953488372093023,
+        "2.5": 0.37209302325581395,
+        "3.0": 0.32558139534883723
+      },
+      "mad_fpr": {
+        "2.0": 0.29347568208778174,
+        "2.5": 0.2760379596678529,
+        "3.0": 0.2453143534994069
+      },
+      "n_clusters": 42,
+      "n_unabsorbed": 8,
+      "n_iterations": 11,
+      "few_clusters": false
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "victim": "lgb",
+      "n_poison": 43,
+      "n_target": 8473,
+      "selected_features": [
+        263,
+        728,
+        733,
+        756
+      ],
+      "asr": 0.06382978723404255,
+      "clean_acc": 0.999280748022057,
+      "asr_clean_victim": 0.06382978723404255,
+      "asr_after_filtering": 0.0851063829787234,
+      "clean_acc_after_filtering": 0.9990409973627428,
+      "n_dropped": 1243,
+      "n_poison_left": 38,
+      "fixed_recall": 0.11627906976744186,
+      "fixed_fpr": 0.1468564650059312,
+      "fixed_flagged_frac": 0.1467012864392777,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.0,
+      "delta_flagged_frac": 0.0,
+      "auc": 0.25277662832078124,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "n_clusters": 52,
+      "n_unabsorbed": 9,
+      "n_iterations": 14,
+      "few_clusters": false
+    }
+  ],
+  "summary": {
+    "n_rows": 2,
+    "per_cell_mlp": {
+      "0.005|8": {
+        "fixed_recall": 0.20930232558139536,
+        "delta_recall": 0.0,
+        "fixed_fpr": 0.09513641755634639,
+        "delta_fpr": 0.0,
+        "auc": 0.579269772959254
+      },
+      "0.005|16": {
+        "fixed_recall": null,
+        "delta_recall": null,
+        "fixed_fpr": null,
+        "delta_fpr": null,
+        "auc": null
+      },
+      "0.01|8": {
+        "fixed_recall": null,
+        "delta_recall": null,
+        "fixed_fpr": null,
+        "delta_fpr": null,
+        "auc": null
+      },
+      "0.01|16": {
+        "fixed_recall": null,
+        "delta_recall": null,
+        "fixed_fpr": null,
+        "delta_fpr": null,
+        "auc": null
+      },
+      "0.1|16": {
+        "fixed_recall": null,
+        "delta_recall": null,
+        "fixed_fpr": null,
+        "delta_fpr": null,
+        "auc": null
+      }
+    },
+    "control_fixed_recall": [
+      0.10392609699769054
+    ],
+    "control_min": 0.10392609699769054,
+    "control_passed": false
+  },
+  "verdict": "INCOMPLETE"
+}

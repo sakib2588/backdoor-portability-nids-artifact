@@ -1,0 +1,618 @@
+{
+  "build_freshness": {
+    "check": "build_freshness",
+    "error": "fdb_latexmk (1788378188) predates main.pdf (1788378278) by 0.0 days: it did not produce this PDF. Prove freshness by rebuilding into a scratch directory and diffing the text layer (see notes/20260820-review-cycle2-tier0.md).",
+    "pass": null
+  },
+  "page_ledger": {
+    "check": "T0-b page ledger",
+    "pages": 20,
+    "page_size_bp": [
+      576.0,
+      782.929
+    ],
+    "is_a4": false,
+    "text_block_width_pt": 528.467,
+    "body_baseline_pt": 12.0,
+    "column_width_pt": 258.234,
+    "last_baseline_per_page": [
+      753.671,
+      748.671,
+      750.2,
+      748.671,
+      748.671,
+      748.671,
+      748.67,
+      748.671,
+      748.671,
+      748.671,
+      748.67,
+      748.671,
+      748.671,
+      748.671,
+      748.671,
+      748.671,
+      748.671,
+      748.67,
+      748.67,
+      748.67
+    ],
+    "deepest_baseline_pt": 753.671,
+    "last_page_baseline_pt": 748.67,
+    "available_points": 5.001,
+    "pass": true,
+    "note": "available_points is the vertical room left on the final page only. Zero means the last page is as full as the fullest page; any addition spills to a new page."
+  },
+  "codepoints": {
+    "check": "T0-c codepoint audit",
+    "distinct_non_ascii": 20,
+    "codepoints": {
+      "U+00B1": {
+        "char": "±",
+        "unicode_name": "PLUS-MINUS SIGN",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "plus-minus (mean +/- sd notation)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+00B7": {
+        "char": "·",
+        "unicode_name": "MIDDLE DOT",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "middle dot (multiplication in maths)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+00D7": {
+        "char": "×",
+        "unicode_name": "MULTIPLICATION SIGN",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "multiplication sign (grid notation)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+00E4": {
+        "char": "ä",
+        "unicode_name": "LATIN SMALL LETTER A WITH DIAERESIS",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "a-diaeresis (author names, e.g. Hyvärinen)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+00E9": {
+        "char": "é",
+        "unicode_name": "LATIN SMALL LETTER E WITH ACUTE",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "e-acute (author names)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+00ED": {
+        "char": "í",
+        "unicode_name": "LATIN SMALL LETTER I WITH ACUTE",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "i-acute (author names)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+0302": {
+        "char": "̂",
+        "unicode_name": "COMBINING CIRCUMFLEX ACCENT",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "combining circumflex -- decomposed accent",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+03C1": {
+        "char": "ρ",
+        "unicode_name": "GREEK SMALL LETTER RHO",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "Greek rho (Spearman correlation)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2013": {
+        "char": "–",
+        "unicode_name": "EN DASH",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "en dash (numeric ranges)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2019": {
+        "char": "’",
+        "unicode_name": "RIGHT SINGLE QUOTATION MARK",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "right single quote / apostrophe (TeX ligature)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+201C": {
+        "char": "“",
+        "unicode_name": "LEFT DOUBLE QUOTATION MARK",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "left double quote (TeX ligature)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+201D": {
+        "char": "”",
+        "unicode_name": "RIGHT DOUBLE QUOTATION MARK",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "right double quote (TeX ligature)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2022": {
+        "char": "•",
+        "unicode_name": "BULLET",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "bullet (itemize marker set by the class)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2208": {
+        "char": "∈",
+        "unicode_name": "ELEMENT OF",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "element-of (set membership in maths)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2212": {
+        "char": "−",
+        "unicode_name": "MINUS SIGN",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "minus sign (math)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2248": {
+        "char": "≈",
+        "unicode_name": "ALMOST EQUAL TO",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "approximately equal (math)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2264": {
+        "char": "≤",
+        "unicode_name": "LESS-THAN OR EQUAL TO",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "less-than-or-equal (math)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2265": {
+        "char": "≥",
+        "unicode_name": "GREATER-THAN OR EQUAL TO",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "greater-than-or-equal (math)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2308": {
+        "char": "⌈",
+        "unicode_name": "LEFT CEILING",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "left ceiling (removal-budget formula)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      },
+      "U+2309": {
+        "char": "⌉",
+        "unicode_name": "RIGHT CEILING",
+        "whitelisted": true,
+        "advisory": false,
+        "reason": "right ceiling (removal-budget formula)",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      }
+    },
+    "not_whitelisted": {},
+    "advisory": {
+      "U+0302": {
+        "char": "̂",
+        "unicode_name": "COMBINING CIRCUMFLEX ACCENT",
+        "whitelisted": true,
+        "advisory": true,
+        "reason": "combining circumflex -- decomposed accent",
+        "sources": [
+          "pdf_text_layer"
+        ]
+      }
+    },
+    "banned_glyph_hits": [],
+    "pass": true
+  },
+  "venue": {
+    "check": "T0-e venue compliance (source side)",
+    "documentclass_options": "",
+    "documentclass": "ieeeaccess",
+    "a4paper_set": false,
+    "conference_mode": false,
+    "override_lockouts": false,
+    "blind_toggle_default": false,
+    "undefined_references": 0,
+    "overfull_boxes_content": 4,
+    "overfull_boxes_from_output_routine": 41,
+    "bib_entries": 32,
+    "pass": false,
+    "note": "IEEE Access journal: ieeeaccess.cls; a4paper/conference do not apply. Live-CFP cross-check (page limit, anonymity wording) is a separate manual step."
+  },
+  "fonts": {
+    "check": "T0-f font submittability",
+    "criterion": "no Type 3 fonts, every font embedded",
+    "fonts": [
+      {
+        "name": "PQUCNH+NimbusSanL-Regu",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "OXKOKJ+NimbusRomNo9L-ReguItal",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "IQFNTW+NimbusSanL-Bold",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "RUERCW+NimbusRomNo9L-Regu",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "UWPBJZ+CMSY7",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "HPJOPS+NimbusSanL-BoldItal",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "GLOILC+NimbusRomNo9L-Medi",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "ECACOO+DejaVuSerif-Bold",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "NJUYBY+CMSY10",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "CWEMTI+CMR10",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "VNOXNK+CMMI10",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "IFTYFT+CMR9",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "YNHBUM+CMMI9",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "NIMSPB+CMSY9",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "FDWXCU+CMR7",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "UZZNUP+CMMI7",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "HCDTYZ+DejaVuSerif-Italic",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "TYIDIX+CMSY8",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "GGQRTC+CMMI8",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "ERSIYL+CMR8",
+        "type": "Type 1 Builtin",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "BXGEVL+DejaVuSerif",
+        "type": "CID TrueType Identity-H",
+        "embedded": true,
+        "unicode_mapped": true
+      },
+      {
+        "name": "RADGEH+NimbusMonL-Regu",
+        "type": "Type 1 Custom",
+        "embedded": true,
+        "unicode_mapped": true
+      }
+    ],
+    "type3": [],
+    "not_embedded": [],
+    "pass": true,
+    "note": "Type 3 usually arrives from matplotlib. Fix at the source with matplotlib.rcParams['pdf.fonttype'] = 42 and regenerate the figures; editing the .tex will not remove it."
+  },
+  "render": {
+    "check": "T0-d render audit",
+    "criterion": "column_fraction >= 0.90 and effective_min_text_pt >= 6.0",
+    "figures": [
+      {
+        "tex": "paper_access/sections/04_methods.tex",
+        "line": 6,
+        "graphic": "figures/fig_pipeline.pdf",
+        "width_fraction": null,
+        "width_unit": null,
+        "full_width_float": true,
+        "native_width_pt": 583.2,
+        "native_height_pt": 208.008,
+        "rendered_width_pt": 528.467,
+        "rendered_width_in": 7.34,
+        "rendered_height_pt": 188.487,
+        "scale": 0.9062,
+        "column_fraction": 1.0,
+        "native_min_text_pt": 8.155,
+        "effective_min_text_pt": 7.39,
+        "pass": true
+      },
+      {
+        "tex": "paper_access/sections/05_results.tex",
+        "line": 8,
+        "graphic": "figures/fig_decomposition.pdf",
+        "width_fraction": 0.96,
+        "width_unit": "columnwidth",
+        "full_width_float": false,
+        "native_width_pt": 247.944,
+        "native_height_pt": 119.5,
+        "rendered_width_pt": 247.905,
+        "rendered_width_in": 3.443,
+        "rendered_height_pt": 119.481,
+        "scale": 0.9998,
+        "column_fraction": 0.96,
+        "native_min_text_pt": 6.99,
+        "effective_min_text_pt": 6.989,
+        "pass": true
+      },
+      {
+        "tex": "paper_access/sections/05_results.tex",
+        "line": 97,
+        "graphic": "figures/fig1_failure_boundary.pdf",
+        "width_fraction": 0.96,
+        "width_unit": "columnwidth",
+        "full_width_float": false,
+        "native_width_pt": 247.972,
+        "native_height_pt": 77.5195,
+        "rendered_width_pt": 247.905,
+        "rendered_width_in": 3.443,
+        "rendered_height_pt": 77.498,
+        "scale": 0.9997,
+        "column_fraction": 0.96,
+        "native_min_text_pt": 7.572,
+        "effective_min_text_pt": 7.57,
+        "pass": true
+      },
+      {
+        "tex": "paper_access/sections/05_results.tex",
+        "line": 132,
+        "graphic": "figures/fig4_evasion_window.pdf",
+        "width_fraction": 0.96,
+        "width_unit": "columnwidth",
+        "full_width_float": false,
+        "native_width_pt": 247.944,
+        "native_height_pt": 148.08,
+        "rendered_width_pt": 247.905,
+        "rendered_width_in": 3.443,
+        "rendered_height_pt": 148.056,
+        "scale": 0.9998,
+        "column_fraction": 0.96,
+        "native_min_text_pt": 7.572,
+        "effective_min_text_pt": 7.571,
+        "pass": true
+      },
+      {
+        "tex": "paper_access/sections/05_results.tex",
+        "line": 225,
+        "graphic": "figures/fig5_adaptive_threshold.pdf",
+        "width_fraction": 0.96,
+        "width_unit": "columnwidth",
+        "full_width_float": false,
+        "native_width_pt": 247.944,
+        "native_height_pt": 155.28,
+        "rendered_width_pt": 247.905,
+        "rendered_width_in": 3.443,
+        "rendered_height_pt": 155.255,
+        "scale": 0.9998,
+        "column_fraction": 0.96,
+        "native_min_text_pt": 6.99,
+        "effective_min_text_pt": 6.989,
+        "pass": true
+      },
+      {
+        "tex": "paper_access/sections/05_results.tex",
+        "line": 289,
+        "graphic": "figures/fig2_portability.pdf",
+        "width_fraction": 0.96,
+        "width_unit": "columnwidth",
+        "full_width_float": false,
+        "native_width_pt": 247.944,
+        "native_height_pt": 141.068,
+        "rendered_width_pt": 247.905,
+        "rendered_width_in": 3.443,
+        "rendered_height_pt": 141.046,
+        "scale": 0.9998,
+        "column_fraction": 0.96,
+        "native_min_text_pt": 7.572,
+        "effective_min_text_pt": 7.571,
+        "pass": true
+      },
+      {
+        "tex": "paper_access/sections/05_results.tex",
+        "line": 470,
+        "graphic": "figures/fig6_nc_masks.pdf",
+        "width_fraction": 0.96,
+        "width_unit": "columnwidth",
+        "full_width_float": false,
+        "native_width_pt": 247.944,
+        "native_height_pt": 101.28,
+        "rendered_width_pt": 247.905,
+        "rendered_width_in": 3.443,
+        "rendered_height_pt": 101.264,
+        "scale": 0.9998,
+        "column_fraction": 0.96,
+        "native_min_text_pt": 6.407,
+        "effective_min_text_pt": 6.406,
+        "pass": true
+      },
+      {
+        "tex": "paper_access/sections/05_results.tex",
+        "line": 537,
+        "graphic": "figures/fig3_h3_confound.pdf",
+        "width_fraction": 0.96,
+        "width_unit": "columnwidth",
+        "full_width_float": false,
+        "native_width_pt": 247.944,
+        "native_height_pt": 140.88,
+        "rendered_width_pt": 247.905,
+        "rendered_width_in": 3.443,
+        "rendered_height_pt": 140.858,
+        "scale": 0.9998,
+        "column_fraction": 0.96,
+        "native_min_text_pt": 7.572,
+        "effective_min_text_pt": 7.571,
+        "pass": true
+      }
+    ],
+    "failing": [],
+    "pass": true
+  }
+}

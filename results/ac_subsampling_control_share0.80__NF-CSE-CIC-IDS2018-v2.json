@@ -1,0 +1,86 @@
+{
+  "tag": "share0.80__NF-CSE-CIC-IDS2018-v2",
+  "cost": 16,
+  "rate": 0.01,
+  "capped_at": 200000,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "rows": [
+    {
+      "seed": 42,
+      "scale": "capped",
+      "n_scored": 200000,
+      "n_poison": 2592,
+      "poison_frac": 0.01296,
+      "n_flagged": 90899,
+      "recall": 0.0,
+      "fpr": 0.4604625952342357,
+      "silhouette": 0.5476931624418933,
+      "asr": 0.9927708333333334
+    },
+    {
+      "seed": 42,
+      "scale": "full",
+      "n_scored": 768000,
+      "n_poison": 9600,
+      "poison_frac": 0.0125,
+      "n_flagged": 349767,
+      "recall": 0.0,
+      "fpr": 0.461190664556962,
+      "silhouette": 0.5448146663910732,
+      "asr": 0.9927708333333334
+    },
+    {
+      "seed": 123,
+      "scale": "capped",
+      "n_scored": 200000,
+      "n_poison": 2474,
+      "poison_frac": 0.01237,
+      "n_flagged": 93083,
+      "recall": 0.0,
+      "fpr": 0.4712442918906878,
+      "silhouette": 0.4843253709979044,
+      "asr": 0.9925625
+    },
+    {
+      "seed": 123,
+      "scale": "full",
+      "n_scored": 768000,
+      "n_poison": 9600,
+      "poison_frac": 0.0125,
+      "n_flagged": 356472,
+      "recall": 0.0,
+      "fpr": 0.47003164556962024,
+      "silhouette": 0.4821109095690893,
+      "asr": 0.9925625
+    },
+    {
+      "seed": 456,
+      "scale": "capped",
+      "n_scored": 200000,
+      "n_poison": 2543,
+      "poison_frac": 0.012715,
+      "n_flagged": 91309,
+      "recall": 0.0,
+      "fpr": 0.46242473044764176,
+      "silhouette": 0.5404616479500488,
+      "asr": 0.9933958333333334
+    },
+    {
+      "seed": 456,
+      "scale": "full",
+      "n_scored": 768000,
+      "n_poison": 9600,
+      "poison_frac": 0.0125,
+      "n_flagged": 351278,
+      "recall": 0.0,
+      "fpr": 0.46318301687763713,
+      "silhouette": 0.555356624085121,
+      "asr": 0.9933958333333334
+    }
+  ],
+  "verdict": "cap exonerated: the outcome is unchanged at full scale"
+}
