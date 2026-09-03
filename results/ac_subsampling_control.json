@@ -1,0 +1,86 @@
+{
+  "tag": "share0.96__NF-CSE-CIC-IDS2018-v2",
+  "cost": 16,
+  "rate": 0.01,
+  "capped_at": 200000,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "rows": [
+    {
+      "seed": 42,
+      "scale": "capped",
+      "n_scored": 200000,
+      "n_poison": 2063,
+      "poison_frac": 0.010315,
+      "n_flagged": 10,
+      "recall": 0.0,
+      "fpr": 5.05211254085896e-05,
+      "silhouette": null,
+      "asr": 0.9936458333333333
+    },
+    {
+      "seed": 42,
+      "scale": "full",
+      "n_scored": 921600,
+      "n_poison": 9600,
+      "poison_frac": 0.010416666666666666,
+      "n_flagged": 50,
+      "recall": 0.00010416666666666667,
+      "fpr": 5.37280701754386e-05,
+      "silhouette": 0.9950793727977031,
+      "asr": 0.9936458333333333
+    },
+    {
+      "seed": 123,
+      "scale": "capped",
+      "n_scored": 200000,
+      "n_poison": 2063,
+      "poison_frac": 0.010315,
+      "n_flagged": 9,
+      "recall": 0.0,
+      "fpr": 4.546901286773064e-05,
+      "silhouette": 0.9940968595710321,
+      "asr": 0.9907291666666667
+    },
+    {
+      "seed": 123,
+      "scale": "full",
+      "n_scored": 921600,
+      "n_poison": 9600,
+      "poison_frac": 0.010416666666666666,
+      "n_flagged": 49,
+      "recall": 0.0,
+      "fpr": 5.37280701754386e-05,
+      "silhouette": null,
+      "asr": 0.9907291666666667
+    },
+    {
+      "seed": 456,
+      "scale": "capped",
+      "n_scored": 200000,
+      "n_poison": 2069,
+      "poison_frac": 0.010345,
+      "n_flagged": 16,
+      "recall": 0.0,
+      "fpr": 8.083625101676847e-05,
+      "silhouette": 0.9920924445594248,
+      "asr": 0.9907291666666667
+    },
+    {
+      "seed": 456,
+      "scale": "full",
+      "n_scored": 921600,
+      "n_poison": 9600,
+      "poison_frac": 0.010416666666666666,
+      "n_flagged": 52,
+      "recall": 0.0,
+      "fpr": 5.701754385964912e-05,
+      "silhouette": null,
+      "asr": 0.9907291666666667
+    }
+  ],
+  "verdict": "cap exonerated: the outcome is unchanged at full scale"
+}
