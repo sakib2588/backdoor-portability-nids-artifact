@@ -1,0 +1,147 @@
+{
+  "preregistered": false,
+  "note": "Post-hoc diagnostic. Report beside the pre-registered verdict in results/netflow_property_analysis.json, never instead of it.",
+  "source": "netflow_poison_sweep.json",
+  "primary_cost": 16,
+  "pooled": {
+    "label": "both corpora",
+    "n_cells": 60,
+    "n_saturated": 44,
+    "clip_vs_clean_stamped_asr": {
+      "rho": -0.7108844094369972,
+      "p_permutation": 0.0,
+      "n": 60,
+      "n_permutations": 20000
+    },
+    "clip_vs_benign_share": {
+      "rho": -0.010049508102973335,
+      "p_permutation": 0.9398,
+      "n": 60,
+      "n_permutations": 20000
+    },
+    "clip_saturated_vs_backdoor": {
+      "median_saturated": 4.0,
+      "median_backdoor": 8.0,
+      "mannwhitney_p": 0.0005614611899486822
+    },
+    "auc_clip_predicts_backdoor": 0.7883522727272727,
+    "mode_by_clip_count": {
+      "3": {
+        "saturated": 15,
+        "backdoor": 0
+      },
+      "4": {
+        "saturated": 9,
+        "backdoor": 4
+      },
+      "5": {
+        "saturated": 2,
+        "backdoor": 0
+      },
+      "6": {
+        "saturated": 6,
+        "backdoor": 2
+      },
+      "7": {
+        "saturated": 2,
+        "backdoor": 1
+      },
+      "8": {
+        "saturated": 10,
+        "backdoor": 2
+      },
+      "9": {
+        "saturated": 0,
+        "backdoor": 6
+      },
+      "10": {
+        "saturated": 0,
+        "backdoor": 1
+      }
+    }
+  },
+  "per_corpus": {
+    "NF-CSE-CIC-IDS2018-v2": {
+      "label": "NF-CSE-CIC-IDS2018-v2",
+      "n_cells": 30,
+      "n_saturated": 18,
+      "clip_vs_clean_stamped_asr": {
+        "rho": -0.36727443460310527,
+        "p_permutation": 0.04615,
+        "n": 30,
+        "n_permutations": 20000
+      },
+      "clip_vs_benign_share": {
+        "rho": 0.52270188208427,
+        "p_permutation": 0.00315,
+        "n": 30,
+        "n_permutations": 20000
+      },
+      "clip_saturated_vs_backdoor": {
+        "median_saturated": 8.0,
+        "median_backdoor": 9.0,
+        "mannwhitney_p": 0.012117974613938555
+      },
+      "auc_clip_predicts_backdoor": 0.763888888888889,
+      "mode_by_clip_count": {
+        "6": {
+          "saturated": 6,
+          "backdoor": 2
+        },
+        "7": {
+          "saturated": 2,
+          "backdoor": 1
+        },
+        "8": {
+          "saturated": 10,
+          "backdoor": 2
+        },
+        "9": {
+          "saturated": 0,
+          "backdoor": 6
+        },
+        "10": {
+          "saturated": 0,
+          "backdoor": 1
+        }
+      }
+    },
+    "NF-ToN-IoT-v2": {
+      "label": "NF-ToN-IoT-v2",
+      "n_cells": 30,
+      "n_saturated": 26,
+      "clip_vs_clean_stamped_asr": {
+        "rho": -0.506343032103836,
+        "p_permutation": 0.0053,
+        "n": 30,
+        "n_permutations": 20000
+      },
+      "clip_vs_benign_share": {
+        "rho": -0.603483286289465,
+        "p_permutation": 0.0005,
+        "n": 30,
+        "n_permutations": 20000
+      },
+      "clip_saturated_vs_backdoor": {
+        "median_saturated": 3.0,
+        "median_backdoor": 4.0,
+        "mannwhitney_p": 0.08086699819131556
+      },
+      "auc_clip_predicts_backdoor": 0.75,
+      "mode_by_clip_count": {
+        "3": {
+          "saturated": 15,
+          "backdoor": 0
+        },
+        "4": {
+          "saturated": 9,
+          "backdoor": 4
+        },
+        "5": {
+          "saturated": 2,
+          "backdoor": 0
+        }
+      }
+    }
+  }
+}

@@ -259,7 +259,9 @@ def fig5_adaptive_threshold(adaptive_threshold, z_primary):
                 fontsize=fs.PT_SMALL - 0.5)
     ax.set_xticks(x, labels)
     ax.set_ylabel("Spectral recall"); ax.set_ylim(0, 1.25)
-    ax.legend(loc="upper left", ncols=1)
+    # The legend goes OUTSIDE the axes. At "upper left" it sat on top of the false-positive
+    # percentages this figure's own caption tells the reader to compare, covering three of the five.
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.19), ncols=2, frameon=False)
     fs.label_small_bars(ax, list(b1) + list(b2), list(fixed) + list(adaptive))
     fs.thin_spines(ax)
     fig.savefig(config.FIGURES / "fig5_adaptive_threshold.pdf")

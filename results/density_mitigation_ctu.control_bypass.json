@@ -1,0 +1,256 @@
+{
+  "preregistration": "notes/20260903-decision-density-mitigation-preregistration.md",
+  "device": "cuda",
+  "blocked": true,
+  "control_ranking": "mlp",
+  "bypass_stage1": true,
+  "control_bar": 0.9,
+  "controls": [
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        749,
+        370,
+        349
+      ],
+      "trigger_features": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        348
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.04590160839688892,
+      "fixed_flagged_frac": 0.04354951372844017,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.014337763346673714,
+      "delta_flagged_frac": 0.013603066286962907,
+      "auc": 0.6011572151325228,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.13773314203730272,
+        "2.5": 0.09705127237030885,
+        "3.0": 0.04590160839688892
+      },
+      "n_clusters": 39,
+      "n_unabsorbed": 8,
+      "n_iterations": 15,
+      "few_clusters": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        370,
+        349,
+        749
+      ],
+      "trigger_features": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        739,
+        600
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.05263157894736842,
+      "fixed_flagged_frac": 0.049934626475381945,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.017027863777089782,
+      "delta_flagged_frac": 0.016155320330270628,
+      "auc": 0.5959091595559918,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.13887525485161972,
+        "2.5": 0.07879634523899419,
+        "3.0": 0.05263157894736842
+      },
+      "n_clusters": 39,
+      "n_unabsorbed": 8,
+      "n_iterations": 15,
+      "few_clusters": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        370,
+        349,
+        749
+      ],
+      "trigger_features": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        600,
+        348
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.040294872762969114,
+      "fixed_flagged_frac": 0.03823007898554618,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.009929774220342823,
+      "delta_flagged_frac": 0.00942095176687622,
+      "auc": 0.6001944423469001,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.1429434418183191,
+        "2.5": 0.1034886355055501,
+        "3.0": 0.05372649701729215
+      },
+      "n_clusters": 40,
+      "n_unabsorbed": 7,
+      "n_iterations": 16,
+      "few_clusters": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        749,
+        370,
+        349
+      ],
+      "trigger_features": [
+        748,
+        749,
+        370,
+        349,
+        350,
+        739,
+        747,
+        600
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.05366042437514158,
+      "fixed_flagged_frac": 0.050910751705980334,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.020718492788643055,
+      "delta_flagged_frac": 0.019656833772141922,
+      "auc": 0.6016763573208488,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.11878917163784641,
+        "2.5": 0.1005436834554104,
+        "3.0": 0.05366042437514158
+      },
+      "n_clusters": 37,
+      "n_unabsorbed": 8,
+      "n_iterations": 14,
+      "few_clusters": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "mlp",
+      "stage1_bypassed": true,
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        748,
+        749,
+        370,
+        349
+      ],
+      "trigger_features": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        600
+      ],
+      "n_trigger_features_selected": 4,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.046467945329608094,
+      "fixed_flagged_frac": 0.044086830369136534,
+      "delta_recall": 1.0,
+      "delta_fpr": 0.013677036925168013,
+      "delta_flagged_frac": 0.06421829384056024,
+      "auc": 0.601043947745979,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.15603526391301065,
+        "2.5": 0.07870195575020765,
+        "3.0": 0.04914860681114551
+      },
+      "n_clusters": 40,
+      "n_unabsorbed": 7,
+      "n_iterations": 16,
+      "few_clusters": false
+    }
+  ],
+  "reason": "the loud control did not reach the pre-registered bar on every seed; the method does not enter the paper and no parameter is tuned to pass"
+}

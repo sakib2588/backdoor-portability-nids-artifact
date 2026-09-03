@@ -1,18 +1,12 @@
 {
   "build_freshness": {
-    "check": "T0-a build freshness",
-    "recorded_inputs_total": 110,
-    "project_inputs_checked": 14,
-    "missing_inputs": [],
-    "stale_inputs": [],
-    "stale_source_inputs": [],
-    "pdf_mtime": 1788251941.1884935,
-    "pass": true,
-    "note": "Generated files (.aux/.bbl/.out) are excluded from the pass criterion; they are rewritten by the run that produced the PDF."
+    "check": "build_freshness",
+    "error": "fdb_latexmk (1788332311) predates main.pdf (1788332361) by 0.0 days: it did not produce this PDF. Prove freshness by rebuilding into a scratch directory and diffing the text layer (see notes/20260820-review-cycle2-tier0.md).",
+    "pass": null
   },
   "page_ledger": {
     "check": "T0-b page ledger",
-    "pages": 6,
+    "pages": 7,
     "page_size_bp": [
       595.276,
       841.89
@@ -24,14 +18,15 @@
     "last_baseline_per_page": [
       745.292,
       745.292,
+      745.291,
       745.292,
       745.292,
-      745.292,
-      745.291
+      745.291,
+      303.86
     ],
     "deepest_baseline_pt": 745.292,
-    "last_page_baseline_pt": 745.291,
-    "available_points": 0.001,
+    "last_page_baseline_pt": 303.86,
+    "available_points": 441.432,
     "pass": true,
     "note": "available_points is the vertical room left on the final page only. Zero means the last page is as full as the fullest page; any addition spills to a new page."
   },
@@ -152,9 +147,9 @@
       "U+2022": {
         "char": "•",
         "unicode_name": "BULLET",
-        "whitelisted": false,
+        "whitelisted": true,
         "advisory": false,
-        "reason": null,
+        "reason": "bullet (itemize marker set by the class)",
         "sources": [
           "pdf_text_layer"
         ]
@@ -220,18 +215,7 @@
         ]
       }
     },
-    "not_whitelisted": {
-      "U+2022": {
-        "char": "•",
-        "unicode_name": "BULLET",
-        "whitelisted": false,
-        "advisory": false,
-        "reason": null,
-        "sources": [
-          "pdf_text_layer"
-        ]
-      }
-    },
+    "not_whitelisted": {},
     "advisory": {
       "U+0131": {
         "char": "ı",
@@ -265,7 +249,7 @@
       }
     },
     "banned_glyph_hits": [],
-    "pass": false
+    "pass": true
   },
   "venue": {
     "check": "T0-e venue compliance (source side)",
@@ -276,17 +260,18 @@
     "override_lockouts": true,
     "blind_toggle_default": true,
     "undefined_references": 0,
-    "overfull_boxes": 1,
-    "bib_entries": 24,
+    "overfull_boxes_content": 1,
+    "overfull_boxes_from_output_routine": 0,
+    "bib_entries": 25,
     "pass": false,
-    "note": "Live-CFP cross-check (page limit, anonymity wording) is a separate manual step."
+    "note": "IEEE conference: IEEEtran with a4paper and conference expected. Live-CFP cross-check (page limit, anonymity wording) is a separate manual step."
   },
   "fonts": {
     "check": "T0-f font submittability",
     "criterion": "no Type 3 fonts, every font embedded",
     "fonts": [
       {
-        "name": "ZKHYBF+NimbusRomNo9L-Regu",
+        "name": "AFLLBO+NimbusRomNo9L-Regu",
         "type": "Type 1 Custom",
         "embedded": true,
         "unicode_mapped": true
@@ -397,16 +382,17 @@
         "graphic": "figures/fig_pipeline.pdf",
         "width_fraction": null,
         "width_unit": null,
+        "full_width_float": true,
         "native_width_pt": 583.2,
         "native_height_pt": 208.008,
-        "rendered_width_pt": 252.002,
-        "rendered_width_in": 3.5,
-        "rendered_height_pt": 89.881,
-        "scale": 0.4321,
+        "rendered_width_pt": 516.004,
+        "rendered_width_in": 7.167,
+        "rendered_height_pt": 184.041,
+        "scale": 0.8848,
         "column_fraction": 1.0,
         "native_min_text_pt": 8.155,
-        "effective_min_text_pt": 3.524,
-        "pass": false
+        "effective_min_text_pt": 7.215,
+        "pass": true
       },
       {
         "tex": "paper/sections/03_results.tex",
@@ -414,21 +400,20 @@
         "graphic": "figures/fig_decomposition.pdf",
         "width_fraction": null,
         "width_unit": null,
-        "native_width_pt": 238.448,
-        "native_height_pt": 136.532,
+        "full_width_float": false,
+        "native_width_pt": 247.944,
+        "native_height_pt": 119.5,
         "rendered_width_pt": 252.002,
         "rendered_width_in": 3.5,
-        "rendered_height_pt": 144.293,
-        "scale": 1.0568,
+        "rendered_height_pt": 121.456,
+        "scale": 1.0164,
         "column_fraction": 1.0,
-        "native_min_text_pt": 8.155,
-        "effective_min_text_pt": 8.619,
+        "native_min_text_pt": 6.99,
+        "effective_min_text_pt": 7.104,
         "pass": true
       }
     ],
-    "failing": [
-      "figures/fig_pipeline.pdf"
-    ],
-    "pass": false
+    "failing": [],
+    "pass": true
   }
 }

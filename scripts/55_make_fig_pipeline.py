@@ -38,6 +38,13 @@ def counts():
     pri = json.load(open(ROOT / "results/detectors.json"))
     sec = json.load(open(ROOT / "results/secondary_detectors.json"))
     mar = json.load(open(ROOT / "results/secondary_threshold_margin.json"))
+    ana = json.load(open(ROOT / "results/analysis.json"))
+    # The removal rule's z grid is the PRE-REGISTERED one the manuscript states in Methods,
+    # {2.0, 2.5, 3.0}. It is not the margin diagnostic's grid, which deliberately probes beyond the
+    # pre-registered range to 3.5 and 4.0 and belongs to the margin panel next door. Reading the
+    # margin grid here printed "z 2.0-4.0" on the MAD z-threshold box and contradicted the paper's
+    # own pre-registration claim.
+    z_pre = ana["adaptive_threshold"]["z_thresholds_tested"]
     return {
         "pri_rates": len(pri["config"]["rates"]),
         "pri_costs": len(pri["config"]["costs"]),
@@ -52,8 +59,10 @@ def counts():
         "mar_rows": len(mar["rows"]),
         "mar_seeds": len(mar["config"]["seeds"]),
         "mar_cells": len(mar["config"]["cells"]),
-        "z_lo": min(mar["z_grid"]),
-        "z_hi": max(mar["z_grid"]),
+        "z_lo": min(z_pre),
+        "z_hi": max(z_pre),
+        "mar_z_lo": min(mar["z_grid"]),
+        "mar_z_hi": max(mar["z_grid"]),
         "det_ok": pri["summary"]["n_determinism_failed"] == 0
         and sec["summary"]["n_determinism_failed"] == 0,
     }

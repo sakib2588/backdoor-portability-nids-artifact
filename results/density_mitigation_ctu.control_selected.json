@@ -1,0 +1,250 @@
+{
+  "preregistration": "notes/20260903-decision-density-mitigation-preregistration.md",
+  "device": "cuda",
+  "blocked": true,
+  "control_ranking": "selected",
+  "control_bar": 0.9,
+  "controls": [
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "selected",
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        261,
+        723,
+        739,
+        756
+      ],
+      "trigger_features": [
+        270,
+        736,
+        756,
+        733,
+        732,
+        744,
+        337,
+        728
+      ],
+      "n_trigger_features_selected": 1,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.06327871328248887,
+      "fixed_flagged_frac": 0.06003617932047355,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.07551159102922299,
+      "delta_flagged_frac": 0.07164221875951499,
+      "auc": 0.6401331374791581,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.26484746658612096,
+        "2.5": 0.1910348863550555,
+        "3.0": 0.08950955221626519
+      },
+      "n_clusters": 52,
+      "n_unabsorbed": 9,
+      "n_iterations": 14,
+      "few_clusters": false
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "selected",
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        261,
+        728,
+        734,
+        756
+      ],
+      "trigger_features": [
+        270,
+        736,
+        756,
+        271,
+        726,
+        733,
+        744,
+        337
+      ],
+      "n_trigger_features_selected": 1,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.15757381258023107,
+      "fixed_flagged_frac": 0.1494993999964179,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.019179944121422637,
+      "delta_flagged_frac": 0.018197123564916807,
+      "auc": 0.5133146766344783,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "n_clusters": 62,
+      "n_unabsorbed": 13,
+      "n_iterations": 12,
+      "few_clusters": false
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "selected",
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        272,
+        725,
+        728,
+        756
+      ],
+      "trigger_features": [
+        270,
+        736,
+        756,
+        272,
+        733,
+        732,
+        744,
+        337
+      ],
+      "n_trigger_features_selected": 2,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.11271992750887261,
+      "fixed_flagged_frac": 0.10694392205326599,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.02624971683153364,
+      "delta_flagged_frac": 0.024904626296276395,
+      "auc": 0.5067923233691904,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.024380804953560372,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "n_clusters": 67,
+      "n_unabsorbed": 14,
+      "n_iterations": 13,
+      "few_clusters": false
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "selected",
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        272,
+        723,
+        728,
+        756
+      ],
+      "trigger_features": [
+        270,
+        736,
+        756,
+        272,
+        733,
+        734,
+        744,
+        337
+      ],
+      "n_trigger_features_selected": 2,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.13459941100958997,
+      "fixed_flagged_frac": 0.12770225493883547,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.012166805104583553,
+      "delta_flagged_frac": 0.011543352497626851,
+      "auc": 0.5925381780243428,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "n_clusters": 61,
+      "n_unabsorbed": 12,
+      "n_iterations": 12,
+      "few_clusters": false
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "victim": "mlp",
+      "variant": "violating",
+      "ranking_kind": "selected",
+      "n_poison": 5722,
+      "n_target": 111666,
+      "selected_features": [
+        261,
+        728,
+        734,
+        756
+      ],
+      "trigger_features": [
+        270,
+        736,
+        756,
+        733,
+        725,
+        744,
+        337,
+        726
+      ],
+      "n_trigger_features_selected": 1,
+      "fixed_recall": 0.0,
+      "fixed_fpr": 0.1331930076266707,
+      "fixed_flagged_frac": 0.1263679186144395,
+      "delta_recall": 0.0,
+      "delta_fpr": 0.041861738276825496,
+      "delta_flagged_frac": 0.03971665502480612,
+      "auc": 0.5934758622092148,
+      "mad_recall": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "mad_fpr": {
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "n_clusters": 82,
+      "n_unabsorbed": 16,
+      "n_iterations": 13,
+      "few_clusters": false
+    }
+  ],
+  "reason": "the loud control did not reach the pre-registered bar on every seed; the method does not enter the paper and no parameter is tuned to pass"
+}

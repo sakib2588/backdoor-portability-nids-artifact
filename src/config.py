@@ -6,6 +6,7 @@ from here; nothing downstream hardcodes a path or a seed.
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 # --- paths (all resolve from the project root, which is this file's grandparent) ---
@@ -160,6 +161,103 @@ AC_EXRE_T_DEFAULT = 1.0          # Chen et al.'s published constant, kept as NC 
 # raise this count first, exactly as NC_CLEAN_REPLICAS went 10 -> 34.
 AC_EXRE_CLEAN_REPLICAS = 10
 AC_EXRE_REPLICA_SEED_STRIDE = 6_133   # prime, distinct from NC_REPLICA_SEED_STRIDE = 7_919
+
+
+# ---------------------------------------------------------------------------
+# NetFlow benign-share manipulation and multi-corpus replication (2026-09-03).
+# See notes/20260903-decision-netflow-multicorpus-preregistration.md and
+# notes/20260903-decision-netflow-plan-adversarial-review.md
+# ---------------------------------------------------------------------------
+
+# Read-only source. Belongs to the ids-compression-benchmark project; never written to.
+#
+# Resolved from the environment at import, defaulting to a path inside this repository, so that no
+# machine-specific absolute path is baked into a tracked file. This is not tidiness:
+# scripts/77_build_artifact_repo.py refuses to export any file carrying an authoring-machine path,
+# and the hardcoded path that used to sit here is what blocked the artifact release, leaving the
+# corpus-family code out of the published artifact while its results were in the manuscript.
+#
+# On a machine that holds the corpus elsewhere, do either of:
+#     export NETFLOW_PARQUET=/abs/path/to/NF-UQ-NIDS-v2.parquet
+#     ln -s /abs/path/to/NF-UQ-NIDS-v2.parquet data/raw/nf_uq/NF-UQ-NIDS-v2.parquet
+#
+# The default sits under data/raw/ rather than a new directory because .gitignore already ignores
+# data/raw/*, so the symlink cannot be committed by accident, and "raw" is what a source corpus is.
+#
+# Pointing this at the wrong file cannot pass silently. src/data_netflow.py keys its cached row-group
+# index on the source's size and mtime, and NETFLOW_POPULATION below is asserted as a gate on the
+# per-corpus row counts, so a substituted corpus fails loudly instead of being studied by mistake.
+NETFLOW_PARQUET = os.environ.get(
+    "NETFLOW_PARQUET",
+    str(DATA_RAW / "nf_uq" / "NF-UQ-NIDS-v2.parquet"),
+)
+
+NETFLOW_CORPORA: tuple[str, ...] = (
+    "NF-BoT-IoT-v2",
+    "NF-ToN-IoT-v2",
+    "NF-CSE-CIC-IDS2018-v2",
+    "NF-UNSW-NB15-v2",
+)
+
+# Measured 2026-09-03 from the Dataset column: (total rows, benign rows). Used as a gate assertion,
+# so a changed source parquet fails loudly instead of silently studying different data, and as the
+# population class ratio, which the loader must not have to infer.
+NETFLOW_POPULATION: dict = {
+    "NF-BoT-IoT-v2":         (37_763_497,    135_037),
+    "NF-ToN-IoT-v2":         (16_940_496,  6_099_469),
+    "NF-CSE-CIC-IDS2018-v2": (18_893_708, 16_635_567),
+    "NF-UNSW-NB15-v2":       ( 2_390_275,  2_295_222),
+}
+
+NETFLOW_SAMPLE_ROWS = 1_200_000   # held constant at every gradient level and every corpus
+NETFLOW_TRAIN_FRAC = 0.8
+NETFLOW_SPLIT_SEED = 20260903
+
+# Q1, the manipulation. Verified 2026-09-03: only these two corpora hold enough rows of both classes
+# to reach every level at NETFLOW_SAMPLE_ROWS.
+NETFLOW_MANIPULATION_CORPUS = "NF-CSE-CIC-IDS2018-v2"
+NETFLOW_REPLICATION_CORPUS = "NF-ToN-IoT-v2"
+NETFLOW_BENIGN_SHARES: tuple[float, ...] = (0.05, 0.20, 0.40, 0.60, 0.80, 0.96)
+
+NETFLOW_RATE = 0.01                                  # fixed for the manipulation
+NETFLOW_COSTS: tuple[int, ...] = (4, 16)
+NETFLOW_PRIMARY_COST = 16                            # the cost the primary statistic is read at
+
+# Q2, the native-balance replication.
+NETFLOW_NATIVE_RATES: tuple[float, ...] = (0.005, 0.01, 0.02)
+
+# Excluded from the property analysis by pre-registration, not by result. 3,433 benign training rows
+# under 279:1 inverse-frequency weighting is memorization, not a learned benign concept.
+NETFLOW_PROPERTY_EXCLUDED: tuple[str, ...] = ("NF-BoT-IoT-v2",)
+
+NETFLOW_EXCLUDED_COLUMNS: tuple[str, ...] = (
+    "IPV4_SRC_ADDR", "IPV4_DST_ADDR", "L4_SRC_PORT", "L4_DST_PORT",
+    "Label", "Attack", "Dataset",
+)
+
+# NF-UQ-NIDS-v2 ships physically impossible values in its two bytes-per-second columns, in every
+# one of the four corpora: measured maxima 8.9e304 (CSE-CIC), 1.9e219 (ToN-IoT), 8.6e22 (BoT-IoT)
+# and 1.6e15 (UNSW-NB15). They arise from dividing a byte count by a flow duration that can be ~0.
+# Squaring them overflows float64 inside StandardScaler, which sets that column's variance to NaN and
+# turns EVERY row of it into NaN, collapsing the victim to a constant prediction. The cap is a line
+# rate, not a fitted statistic: 100 Gbps expressed in bytes per second. The two AVG_THROUGHPUT
+# columns are measured at most 4.3 Gbps and are deliberately NOT capped -- only the two columns whose
+# denominator can vanish are affected. See notes/20260903-bug-netflow-second-bytes-overflow.md
+NETFLOW_RATE_CAP_BYTES_PER_S = 1.25e10
+NETFLOW_RATE_CAPPED_COLUMNS: tuple[str, ...] = (
+    "SRC_TO_DST_SECOND_BYTES",
+    "DST_TO_SRC_SECOND_BYTES",
+)
+
+NETFLOW_RELATION_ADMISSION_FRAC = 0.999
+
+# Pre-registered guards.
+NETFLOW_SATURATION_ASR = 0.95      # clean-model stamped ASR at/above this: cell is `saturated`
+# attack-effectiveness gate reuses the existing ATTACK_EFFECTIVE_ASR = 0.8
+
+# Pre-registered decision thresholds for H-NF1.
+NETFLOW_RHO_CONFIRM = 0.8
+NETFLOW_RHO_REFUTE = 0.4
 
 
 def ensure_dirs() -> None:
