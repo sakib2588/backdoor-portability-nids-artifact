@@ -1,0 +1,740 @@
+{
+  "_criterion": "z_max = 0.6745 * (max - median) / MAD; the rule is inert when z_max < z",
+  "cell": {
+    "rate": 0.005,
+    "cost": 16
+  },
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "z_thresholds": [
+    2.0,
+    2.5,
+    3.0
+  ],
+  "n_relations": 360,
+  "prediction_agreement": {
+    "checks": 75,
+    "agreements": 75,
+    "rate": 1.0
+  },
+  "summary": {
+    "spectral": {
+      "bounded_above": false,
+      "z_max_mean": 339880.3676845053,
+      "z_max_min": 225958.54947365588,
+      "z_max_max": 434470.1887905646,
+      "inert_at": {
+        "2.0": false,
+        "2.5": false,
+        "3.0": false
+      }
+    },
+    "spectre": {
+      "bounded_above": false,
+      "z_max_mean": 150870522.7996107,
+      "z_max_min": 97548195.8341327,
+      "z_max_max": 270290223.9420553,
+      "inert_at": {
+        "2.0": false,
+        "2.5": false,
+        "3.0": false
+      }
+    },
+    "isolation_forest": {
+      "bounded_above": false,
+      "z_max_mean": 38.74277882065018,
+      "z_max_min": 24.377926595726098,
+      "z_max_max": 52.72913417231208,
+      "inert_at": {
+        "2.0": false,
+        "2.5": false,
+        "3.0": false
+      }
+    },
+    "strip": {
+      "bounded_above": true,
+      "z_max_mean": 0.7880248709061954,
+      "z_max_min": 0.675479900525762,
+      "z_max_max": 0.8646770936428966,
+      "inert_at": {
+        "2.0": true,
+        "2.5": true,
+        "3.0": true
+      }
+    },
+    "boundary_departure": {
+      "bounded_above": true,
+      "z_max_mean": Infinity,
+      "z_max_min": Infinity,
+      "z_max_max": Infinity,
+      "inert_at": {
+        "2.0": false,
+        "2.5": false,
+        "3.0": false
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 42,
+      "n_scored": 111666,
+      "per_arm": {
+        "spectral": {
+          "median": 86.41796655871258,
+          "mad": 41.47181949556304,
+          "empirical_max": 13893210.476158861,
+          "z_max": 225958.54947365588,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 8695,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 8415,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 8244,
+              "recall": 1.0
+            }
+          }
+        },
+        "spectre": {
+          "median": 0.07639074498281623,
+          "mad": 0.03770569545319268,
+          "empirical_max": 15109682.608539574,
+          "z_max": 270290223.9420553,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 39753,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 38338,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 37029,
+              "recall": 1.0
+            }
+          }
+        },
+        "strip": {
+          "median": -0.03573852404952049,
+          "mad": 0.035686679106220254,
+          "empirical_max": -2.7631020735330303e-11,
+          "z_max": 0.675479900525762,
+          "analytic_bound": 0.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "2.5": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "3.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "isolation_forest": {
+          "median": 0.3032666600341257,
+          "mad": 0.0054220367310088835,
+          "empirical_max": 0.7271351585909408,
+          "z_max": 52.72913417231208,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 25687,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 23306,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 21330,
+              "recall": 1.0
+            }
+          }
+        },
+        "boundary_departure": {
+          "median": 34.0,
+          "mad": 0.0,
+          "empirical_max": 122.0,
+          "z_max": Infinity,
+          "analytic_bound": 360.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 6064,
+              "recall": 0.32342657342657344
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 3982,
+              "recall": 0.09265734265734266
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 3330,
+              "recall": 0.057692307692307696
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "n_scored": 111666,
+      "per_arm": {
+        "spectral": {
+          "median": 66.39016411538017,
+          "mad": 39.11297329061067,
+          "empirical_max": 25194167.04210174,
+          "z_max": 434470.1887905646,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 8885,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 8463,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 8224,
+              "recall": 1.0
+            }
+          }
+        },
+        "spectre": {
+          "median": 0.12514632709686055,
+          "mad": 0.0807390347672754,
+          "empirical_max": 11936640.77270542,
+          "z_max": 99719598.33289823,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 34586,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 31534,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 29429,
+              "recall": 1.0
+            }
+          }
+        },
+        "strip": {
+          "median": -0.05589488707482815,
+          "mad": 0.046006045769900084,
+          "empirical_max": -2.7631020735330303e-11,
+          "z_max": 0.8194814547178664,
+          "analytic_bound": 0.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "2.5": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "3.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "isolation_forest": {
+          "median": 0.3037171171002241,
+          "mad": 0.0065816240977401574,
+          "empirical_max": 0.6829498641828822,
+          "z_max": 38.86464558118427,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 22906,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 20570,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 18711,
+              "recall": 1.0
+            }
+          }
+        },
+        "boundary_departure": {
+          "median": 34.0,
+          "mad": 0.0,
+          "empirical_max": 122.0,
+          "z_max": Infinity,
+          "analytic_bound": 360.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 5948,
+              "recall": 0.11888111888111888
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 3963,
+              "recall": 0.06118881118881119
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 3320,
+              "recall": 0.04195804195804196
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "n_scored": 111666,
+      "per_arm": {
+        "spectral": {
+          "median": 105.2427927189851,
+          "mad": 55.08877597748966,
+          "empirical_max": 22877310.21637672,
+          "z_max": 280105.60192856134,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 8528,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 8260,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 7980,
+              "recall": 1.0
+            }
+          }
+        },
+        "spectre": {
+          "median": 0.12904273597178828,
+          "mad": 0.0947698229362699,
+          "empirical_max": 13705893.749433154,
+          "z_max": 97548195.8341327,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 26226,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 23530,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 21517,
+              "recall": 1.0
+            }
+          }
+        },
+        "strip": {
+          "median": -0.07017723843455315,
+          "mad": 0.05474245548248291,
+          "empirical_max": -2.7631020735330303e-11,
+          "z_max": 0.8646770936428966,
+          "analytic_bound": 0.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "2.5": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "3.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "isolation_forest": {
+          "median": 0.30541133077942606,
+          "mad": 0.006803868850237371,
+          "empirical_max": 0.7042459145446212,
+          "z_max": 39.53837627840796,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 21369,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 18855,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 16530,
+              "recall": 1.0
+            }
+          }
+        },
+        "boundary_departure": {
+          "median": 34.0,
+          "mad": 0.0,
+          "empirical_max": 122.0,
+          "z_max": Infinity,
+          "analytic_bound": 360.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 6055,
+              "recall": 0.3129370629370629
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 3991,
+              "recall": 0.0979020979020979
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 3334,
+              "recall": 0.06643356643356643
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "n_scored": 111666,
+      "per_arm": {
+        "spectral": {
+          "median": 80.67139588472618,
+          "mad": 45.52328419083527,
+          "empirical_max": 24900780.20811331,
+          "z_max": 368943.54473874206,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 8340,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 7988,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 7761,
+              "recall": 1.0
+            }
+          }
+        },
+        "spectre": {
+          "median": 0.11281179998107832,
+          "mad": 0.060073880481447635,
+          "empirical_max": 16512879.443501605,
+          "z_max": 185403989.54234287,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 32356,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 29645,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 28052,
+              "recall": 1.0
+            }
+          }
+        },
+        "strip": {
+          "median": -0.07472966238856316,
+          "mad": 0.05851506069302559,
+          "empirical_max": -2.7631020735330303e-11,
+          "z_max": 0.8614048531347848,
+          "analytic_bound": 0.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "2.5": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "3.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "isolation_forest": {
+          "median": 0.3084234780303817,
+          "mad": 0.010493218399874105,
+          "empirical_max": 0.6876716735901347,
+          "z_max": 24.377926595726098,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 16213,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 14076,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 12386,
+              "recall": 1.0
+            }
+          }
+        },
+        "boundary_departure": {
+          "median": 34.0,
+          "mad": 0.0,
+          "empirical_max": 122.0,
+          "z_max": Infinity,
+          "analytic_bound": 360.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 5928,
+              "recall": 0.07692307692307693
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 3966,
+              "recall": 0.045454545454545456
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 3321,
+              "recall": 0.024475524475524476
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "n_scored": 111666,
+      "per_arm": {
+        "spectral": {
+          "median": 80.24329703685655,
+          "mad": 44.39435229668264,
+          "empirical_max": 25664159.35403813,
+          "z_max": 389923.95349100255,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 8687,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 8230,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 7877,
+              "recall": 1.0
+            }
+          }
+        },
+        "spectre": {
+          "median": 0.09522139931790377,
+          "mad": 0.050253232331335815,
+          "empirical_max": 7554048.571058216,
+          "z_max": 101390606.3466245,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 42301,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 40585,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 38967,
+              "recall": 1.0
+            }
+          }
+        },
+        "strip": {
+          "median": -0.04241792671382427,
+          "mad": 0.03978813160210848,
+          "empirical_max": -2.7631020735330303e-11,
+          "z_max": 0.7190810525096679,
+          "analytic_bound": 0.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "2.5": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            },
+            "3.0": {
+              "predicted": false,
+              "observed_n_flagged": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "isolation_forest": {
+          "median": 0.30527025100475585,
+          "mad": 0.006660279986148321,
+          "empirical_max": 0.6825098076625152,
+          "z_max": 38.20381147562049,
+          "analytic_bound": null,
+          "bounded_above": false,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 23430,
+              "recall": 1.0
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 20705,
+              "recall": 1.0
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 18468,
+              "recall": 1.0
+            }
+          }
+        },
+        "boundary_departure": {
+          "median": 34.0,
+          "mad": 0.0,
+          "empirical_max": 122.0,
+          "z_max": Infinity,
+          "analytic_bound": 360.0,
+          "bounded_above": true,
+          "fires": {
+            "2.0": {
+              "predicted": true,
+              "observed_n_flagged": 6057,
+              "recall": 0.3094405594405594
+            },
+            "2.5": {
+              "predicted": true,
+              "observed_n_flagged": 3988,
+              "recall": 0.0979020979020979
+            },
+            "3.0": {
+              "predicted": true,
+              "observed_n_flagged": 3336,
+              "recall": 0.05419580419580419
+            }
+          }
+        }
+      }
+    }
+  ],
+  "elapsed_s": 322.4
+}

@@ -130,28 +130,35 @@ def main():
     ps.stage(ax, 5.4, ym + hm - 0.8, "3")
 
     # ------------------------------------------------------------- band 3
-    # The vision control runs first, then the four vision-built detectors on
-    # the identical poisoned models.
+    # The vision control runs first, then the five vision-built detectors on
+    # the identical poisoned models. Six boxes of width 13.5 with 2.2 gaps fill
+    # x=4..96 exactly. The two long names carry an explicit line break because
+    # ps.box centres a single line and does not wrap.
     yd, hd = 26, 16
-    ps.box(ax, 4, yd, 17, hd, "Vision control", "MNIST BadNets, run first",
+    dw, dstep = 13.5, 15.7
+    dx = [4 + i * dstep for i in range(6)]
+    ps.box(ax, dx[0], yd, dw, hd, "Vision control", "MNIST BadNets",
            ps.FILL["c"], ps.EDGE["c"], tfs=8.0, sfs=7.0)
-    ps.box(ax, 23, yd, 17, hd, "Spectral Signatures", "ranked score",
+    ps.box(ax, dx[1], yd, dw, hd, "Spectral\nSignatures", "ranked score",
            ps.FILL["a"], ps.EDGE["a"], tfs=8.0, sfs=7.0)
-    ps.box(ax, 42, yd, 17, hd, "STRIP", "entropy ranked score",
+    ps.box(ax, dx[2], yd, dw, hd, "SPECTRE", "ranked score",
            ps.FILL["a"], ps.EDGE["a"], tfs=8.0, sfs=7.0)
-    ps.box(ax, 61, yd, 17, hd, "Activation Clustering", "no ranked score",
+    ps.box(ax, dx[3], yd, dw, hd, "STRIP", "entropy score",
+           ps.FILL["a"], ps.EDGE["a"], tfs=8.0, sfs=7.0)
+    ps.box(ax, dx[4], yd, dw, hd, "Activation\nClustering", "no ranked score",
            ps.FILL["b"], ps.EDGE["b"], tfs=8.0, sfs=7.0)
-    ps.box(ax, 80, yd, 16, hd, "Neural Cleanse", "model-level statistic",
+    ps.box(ax, dx[5], yd, dw, hd, "Neural\nCleanse", "model-level",
            ps.FILL["b"], ps.EDGE["b"], tfs=8.0, sfs=7.0)
-    # Both sweeps feed all four detectors, so they join a bus rather than
-    # crossing eight arrows over each other.
+    # Both sweeps feed all five detectors, so they join a bus rather than
+    # crossing ten arrows over each other.
+    centres = [x + dw / 2 for x in dx]
     bus = yd + hd + 2.8
     for x in (26, 74):
         ax.plot([x, x], [ym, bus], color="#777777", lw=1.0, zorder=1)
-    ax.plot([26, 88], [bus, bus], color="#777777", lw=1.0, zorder=1)
-    for x in (31.5, 50.5, 69.5, 88):
+    ax.plot([26, centres[-1]], [bus, bus], color="#777777", lw=1.0, zorder=1)
+    for x in centres[1:]:
         ps.arrow(ax, x, bus, x, yd + hd)
-    ps.arrow(ax, 21, yd + hd / 2, 23, yd + hd / 2)
+    ps.arrow(ax, dx[0] + dw, yd + hd / 2, dx[1], yd + hd / 2)
     ps.stage(ax, 5.4, yd + hd - 0.8, "4")
 
     # ------------------------------------------------------------- band 4

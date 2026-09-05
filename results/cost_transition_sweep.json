@@ -1,0 +1,646 @@
+{
+  "_preregistration": "scripts/100 docstring; notes/20260904-critique-ctu13-evasion-claim-ceiling-bound.md",
+  "_decision_rule": {
+    "ceiling": 0.95,
+    "min_seeds_measurable": 4,
+    "ramp": "at least one of costs 5,6,7 measurable",
+    "step": "none measurable"
+  },
+  "device": "cuda",
+  "rate": 0.005,
+  "costs": [
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "table": [
+    {
+      "cost": 4,
+      "n": 5,
+      "clean_stamped_per_seed": [
+        0.0565,
+        0.0418,
+        0.0418,
+        0.0393,
+        0.0369
+      ],
+      "backdoor_B_per_seed": [
+        -0.0025,
+        -0.0049,
+        0.0,
+        0.0049,
+        -0.0025
+      ],
+      "n_ceiling_free": 5,
+      "measurable": true,
+      "mean_B_all": -0.0009828009828009826,
+      "mean_B_ceiling_free": -0.0009828009828009826
+    },
+    {
+      "cost": 5,
+      "n": 5,
+      "clean_stamped_per_seed": [
+        0.9533,
+        0.0541,
+        0.0541,
+        0.0516,
+        0.6929
+      ],
+      "backdoor_B_per_seed": [
+        -0.2482,
+        0.0,
+        0.0,
+        0.0025,
+        -0.3882
+      ],
+      "n_ceiling_free": 4,
+      "measurable": true,
+      "mean_B_all": -0.12678132678132675,
+      "mean_B_ceiling_free": -0.09643734643734642
+    },
+    {
+      "cost": 6,
+      "n": 5,
+      "clean_stamped_per_seed": [
+        0.9533,
+        0.9263,
+        0.4889,
+        0.0516,
+        0.7101
+      ],
+      "backdoor_B_per_seed": [
+        -0.4767,
+        -0.7592,
+        -0.3956,
+        0.0025,
+        0.231
+      ],
+      "n_ceiling_free": 4,
+      "measurable": true,
+      "mean_B_all": -0.2796068796068796,
+      "mean_B_ceiling_free": -0.23034398034398032
+    },
+    {
+      "cost": 7,
+      "n": 5,
+      "clean_stamped_per_seed": [
+        0.9533,
+        0.9263,
+        0.9115,
+        0.0688,
+        0.7101
+      ],
+      "backdoor_B_per_seed": [
+        -0.6953,
+        -0.3464,
+        0.0565,
+        0.8698,
+        0.1867
+      ],
+      "n_ceiling_free": 4,
+      "measurable": true,
+      "mean_B_all": 0.014250614250614291,
+      "mean_B_ceiling_free": 0.19164619164619165
+    },
+    {
+      "cost": 8,
+      "n": 5,
+      "clean_stamped_per_seed": [
+        1.0,
+        0.9902,
+        1.0,
+        0.113,
+        0.9509
+      ],
+      "backdoor_B_per_seed": [
+        0.0,
+        -0.4005,
+        0.0,
+        0.8256,
+        -0.0172
+      ],
+      "n_ceiling_free": 1,
+      "measurable": false,
+      "mean_B_all": 0.08157248157248154,
+      "mean_B_ceiling_free": 0.8255528255528255
+    }
+  ],
+  "measurable_costs": [
+    5,
+    6,
+    7
+  ],
+  "verdict": "RAMP",
+  "rows": {
+    "42|4": {
+      "seed": 42,
+      "cost": 4,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.05405405405405406,
+      "a_clean_stamped": 0.056511056511056514,
+      "a_poisoned_stamped": 0.05405405405405406,
+      "evasion_E": 0.0024570024570024565,
+      "backdoor_B": -0.0024570024570024565,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349
+      ]
+    },
+    "42|5": {
+      "seed": 42,
+      "cost": 5,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.05405405405405406,
+      "a_clean_stamped": 0.9533169533169533,
+      "a_poisoned_stamped": 0.7051597051597052,
+      "evasion_E": 0.8992628992628993,
+      "backdoor_B": -0.24815724815724816,
+      "at_ceiling": true,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747
+      ]
+    },
+    "42|6": {
+      "seed": 42,
+      "cost": 6,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.05405405405405406,
+      "a_clean_stamped": 0.9533169533169533,
+      "a_poisoned_stamped": 0.47665847665847666,
+      "evasion_E": 0.8992628992628993,
+      "backdoor_B": -0.47665847665847666,
+      "at_ceiling": true,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350
+      ]
+    },
+    "42|7": {
+      "seed": 42,
+      "cost": 7,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.05405405405405406,
+      "a_clean_stamped": 0.9533169533169533,
+      "a_poisoned_stamped": 0.257985257985258,
+      "evasion_E": 0.8992628992628993,
+      "backdoor_B": -0.6953316953316953,
+      "at_ceiling": true,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739
+      ]
+    },
+    "42|8": {
+      "seed": 42,
+      "cost": 8,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.05405405405405406,
+      "a_clean_stamped": 1.0,
+      "a_poisoned_stamped": 1.0,
+      "evasion_E": 0.9459459459459459,
+      "backdoor_B": 0.0,
+      "at_ceiling": true,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        348
+      ]
+    },
+    "123|4": {
+      "seed": 123,
+      "cost": 4,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.041769041769041726,
+      "a_clean_stamped": 0.04176904176904177,
+      "a_poisoned_stamped": 0.036855036855036855,
+      "evasion_E": 4.163336342344337e-17,
+      "backdoor_B": -0.004914004914004913,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749
+      ]
+    },
+    "123|5": {
+      "seed": 123,
+      "cost": 5,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.041769041769041726,
+      "a_clean_stamped": 0.05405405405405406,
+      "a_poisoned_stamped": 0.05405405405405406,
+      "evasion_E": 0.012285012285012331,
+      "backdoor_B": 0.0,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350
+      ]
+    },
+    "123|6": {
+      "seed": 123,
+      "cost": 6,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.041769041769041726,
+      "a_clean_stamped": 0.9262899262899262,
+      "a_poisoned_stamped": 0.16707616707616707,
+      "evasion_E": 0.8845208845208845,
+      "backdoor_B": -0.7592137592137591,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747
+      ]
+    },
+    "123|7": {
+      "seed": 123,
+      "cost": 7,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.041769041769041726,
+      "a_clean_stamped": 0.9262899262899262,
+      "a_poisoned_stamped": 0.5798525798525799,
+      "evasion_E": 0.8845208845208845,
+      "backdoor_B": -0.34643734643734636,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        739
+      ]
+    },
+    "123|8": {
+      "seed": 123,
+      "cost": 8,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.041769041769041726,
+      "a_clean_stamped": 0.9901719901719902,
+      "a_poisoned_stamped": 0.5896805896805897,
+      "evasion_E": 0.9484029484029485,
+      "backdoor_B": -0.40049140049140053,
+      "at_ceiling": true,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        739,
+        600
+      ]
+    },
+    "456|4": {
+      "seed": 456,
+      "cost": 4,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.04176904176904177,
+      "a_poisoned_stamped": 0.04176904176904177,
+      "evasion_E": 0.0024570024570024634,
+      "backdoor_B": 0.0,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749
+      ]
+    },
+    "456|5": {
+      "seed": 456,
+      "cost": 5,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.05405405405405406,
+      "a_poisoned_stamped": 0.05405405405405406,
+      "evasion_E": 0.014742014742014753,
+      "backdoor_B": 0.0,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350
+      ]
+    },
+    "456|6": {
+      "seed": 456,
+      "cost": 6,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.48894348894348894,
+      "a_poisoned_stamped": 0.09336609336609336,
+      "evasion_E": 0.44963144963144963,
+      "backdoor_B": -0.3955773955773956,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747
+      ]
+    },
+    "456|7": {
+      "seed": 456,
+      "cost": 7,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.9115479115479116,
+      "a_poisoned_stamped": 0.9680589680589681,
+      "evasion_E": 0.8722358722358723,
+      "backdoor_B": 0.05651105651105648,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        600
+      ]
+    },
+    "456|8": {
+      "seed": 456,
+      "cost": 8,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 1.0,
+      "a_poisoned_stamped": 1.0,
+      "evasion_E": 0.9606879606879607,
+      "backdoor_B": 0.0,
+      "at_ceiling": true,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        600,
+        348
+      ]
+    },
+    "789|4": {
+      "seed": 789,
+      "cost": 4,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.03931203931203931,
+      "a_poisoned_stamped": 0.044226044226044224,
+      "evasion_E": 6.938893903907228e-18,
+      "backdoor_B": 0.004914004914004913,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349
+      ]
+    },
+    "789|5": {
+      "seed": 789,
+      "cost": 5,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.051597051597051594,
+      "a_poisoned_stamped": 0.05405405405405406,
+      "evasion_E": 0.01228501228501229,
+      "backdoor_B": 0.0024570024570024634,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        350
+      ]
+    },
+    "789|6": {
+      "seed": 789,
+      "cost": 6,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.051597051597051594,
+      "a_poisoned_stamped": 0.05405405405405406,
+      "evasion_E": 0.01228501228501229,
+      "backdoor_B": 0.0024570024570024634,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        350,
+        739
+      ]
+    },
+    "789|7": {
+      "seed": 789,
+      "cost": 7,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.0687960687960688,
+      "a_poisoned_stamped": 0.9385749385749386,
+      "evasion_E": 0.029484029484029492,
+      "backdoor_B": 0.8697788697788698,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        350,
+        739,
+        747
+      ]
+    },
+    "789|8": {
+      "seed": 789,
+      "cost": 8,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.039312039312039304,
+      "a_clean_stamped": 0.11302211302211303,
+      "a_poisoned_stamped": 0.9385749385749386,
+      "evasion_E": 0.07371007371007372,
+      "backdoor_B": 0.8255528255528255,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        350,
+        739,
+        747,
+        600
+      ]
+    },
+    "1337|4": {
+      "seed": 1337,
+      "cost": 4,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.03685503685503688,
+      "a_clean_stamped": 0.036855036855036855,
+      "a_poisoned_stamped": 0.0343980343980344,
+      "evasion_E": -2.7755575615628914e-17,
+      "backdoor_B": -0.0024570024570024565,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349
+      ]
+    },
+    "1337|5": {
+      "seed": 1337,
+      "cost": 5,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.03685503685503688,
+      "a_clean_stamped": 0.6928746928746928,
+      "a_poisoned_stamped": 0.3046683046683047,
+      "evasion_E": 0.656019656019656,
+      "backdoor_B": -0.38820638820638814,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747
+      ]
+    },
+    "1337|6": {
+      "seed": 1337,
+      "cost": 6,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.03685503685503688,
+      "a_clean_stamped": 0.7100737100737101,
+      "a_poisoned_stamped": 0.941031941031941,
+      "evasion_E": 0.6732186732186732,
+      "backdoor_B": 0.23095823095823087,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350
+      ]
+    },
+    "1337|7": {
+      "seed": 1337,
+      "cost": 7,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.03685503685503688,
+      "a_clean_stamped": 0.7100737100737101,
+      "a_poisoned_stamped": 0.8968058968058968,
+      "evasion_E": 0.6732186732186732,
+      "backdoor_B": 0.18673218673218672,
+      "at_ceiling": false,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739
+      ]
+    },
+    "1337|8": {
+      "seed": 1337,
+      "cost": 8,
+      "rate": 0.005,
+      "n_botnet_test": 407,
+      "a_clean_plain": 0.03685503685503688,
+      "a_clean_stamped": 0.9508599508599509,
+      "a_poisoned_stamped": 0.9336609336609336,
+      "evasion_E": 0.914004914004914,
+      "backdoor_B": -0.017199017199017286,
+      "at_ceiling": true,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739,
+        600
+      ]
+    }
+  },
+  "elapsed_s": 175.9
+}

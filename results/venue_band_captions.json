@@ -1,0 +1,241 @@
+{
+  "_schema": "venue_band_captions/1",
+  "_instrument": "scripts/93_venue_band_captions.py",
+  "_corpus": {
+    "root": "references/venue_band_md",
+    "n_measured": 18,
+    "n_unmeasurable": 0,
+    "unmeasurable": []
+  },
+  "_caveats": [
+    "NOT additive with results/venue_band_sections.json: that file's corpus side counts caption words inside its section totals while its ours side drops them, so the two files measure overlapping text on the corpus side only.",
+    "scripts/89:122 strips heading lines before paragraph splitting, so the 8 heading-form corpus captions are excluded from that file's section counts but are included here.",
+    "Corpus captions are read from marker-converted markdown and ours from pdftotext; both are rendered text, but they are not the same converter.",
+    "A caption here ends at the first blank line in the PDF text layer. A caption broken across a column boundary can therefore be undercounted."
+  ],
+  "ours": {
+    "figure": [
+      64,
+      62,
+      57,
+      54,
+      50,
+      43,
+      36,
+      28
+    ],
+    "table": [
+      74,
+      72,
+      67,
+      54,
+      44,
+      39,
+      27,
+      19,
+      18,
+      17,
+      12,
+      12,
+      11
+    ],
+    "total_words": 860,
+    "n_captions": 21
+  },
+  "table": [
+    {
+      "metric": "figure",
+      "stat": "total",
+      "ours": 394,
+      "n_ours_captions": 8,
+      "band": {
+        "n": 18,
+        "min": 35,
+        "median": 60.5,
+        "max": 180
+      },
+      "pct": 100,
+      "verdict": "above ceiling by 214"
+    },
+    {
+      "metric": "figure",
+      "stat": "mean_per_caption",
+      "ours": 49.25,
+      "n_ours_captions": 8,
+      "band": {
+        "n": 18,
+        "min": 4.82,
+        "median": 9.29,
+        "max": 22.86
+      },
+      "pct": 100,
+      "verdict": "above ceiling by 26.4"
+    },
+    {
+      "metric": "table",
+      "stat": "total",
+      "ours": 466,
+      "n_ours_captions": 13,
+      "band": {
+        "n": 18,
+        "min": 18,
+        "median": 80.5,
+        "max": 204
+      },
+      "pct": 100,
+      "verdict": "above ceiling by 262"
+    },
+    {
+      "metric": "table",
+      "stat": "mean_per_caption",
+      "ours": 35.85,
+      "n_ours_captions": 13,
+      "band": {
+        "n": 18,
+        "min": 4.0,
+        "median": 7.39,
+        "max": 19.22
+      },
+      "pct": 100,
+      "verdict": "above ceiling by 16.6"
+    },
+    {
+      "metric": "combined",
+      "stat": "total",
+      "ours": 860,
+      "n_ours_captions": 21,
+      "band": {
+        "n": 18,
+        "min": 65,
+        "median": 152.5,
+        "max": 327
+      },
+      "pct": 100,
+      "verdict": "above ceiling by 533"
+    },
+    {
+      "metric": "combined",
+      "stat": "mean_per_caption",
+      "ours": 40.95,
+      "n_ours_captions": 21,
+      "band": {
+        "n": 18,
+        "min": 4.64,
+        "median": 8.4,
+        "max": 17.21
+      },
+      "pct": 100,
+      "verdict": "above ceiling by 23.7"
+    }
+  ],
+  "per_paper": {
+    "2020_a_flexible_sdn_based_architecture_for_identifyin_W3081430061": {
+      "figure_words": 60,
+      "table_words": 18,
+      "total_words": 78,
+      "n_captions": 10
+    },
+    "2020_a_taxonomy_of_network_threats_and_the_effect_of__W3033213260": {
+      "figure_words": 61,
+      "table_words": 45,
+      "total_words": 106,
+      "n_captions": 15
+    },
+    "2020_ai_ids_application_of_deep_learning_to_real_time_W3016266335": {
+      "figure_words": 37,
+      "table_words": 28,
+      "total_words": 65,
+      "n_captions": 14
+    },
+    "2020_an_explainable_machine_learning_framework_for_in_W3017093935": {
+      "figure_words": 59,
+      "table_words": 58,
+      "total_words": 117,
+      "n_captions": 12
+    },
+    "2020_analysis_of_dimensionality_reduction_techniques__W3011249019": {
+      "figure_words": 35,
+      "table_words": 81,
+      "total_words": 116,
+      "n_captions": 22
+    },
+    "2020_anomaly_based_intrusion_detection_from_network_f_W3035311645": {
+      "figure_words": 120,
+      "table_words": 22,
+      "total_words": 142,
+      "n_captions": 10
+    },
+    "2020_increasing_the_performance_of_machine_learning_b_W3006165800": {
+      "figure_words": 40,
+      "table_words": 80,
+      "total_words": 120,
+      "n_captions": 21
+    },
+    "2020_insdn_a_novel_sdn_intrusion_dataset_W3084346886": {
+      "figure_words": 160,
+      "table_words": 112,
+      "total_words": 272,
+      "n_captions": 20
+    },
+    "2020_intrusion_detection_of_imbalanced_network_traffi_W3116274835": {
+      "figure_words": 52,
+      "table_words": 76,
+      "total_words": 128,
+      "n_captions": 14
+    },
+    "2020_lstm_based_intrusion_detection_system_for_in_veh_W3092232275": {
+      "figure_words": 180,
+      "table_words": 107,
+      "total_words": 287,
+      "n_captions": 26
+    },
+    "2020_network_intrusion_detection_combined_hybrid_samp_W3005805195": {
+      "figure_words": 70,
+      "table_words": 57,
+      "total_words": 127,
+      "n_captions": 21
+    },
+    "2020_privacy_and_security_issues_in_deep_learning_a_s_W3112787034": {
+      "figure_words": 154,
+      "table_words": 173,
+      "total_words": 327,
+      "n_captions": 19
+    },
+    "2020_ton_iot_telemetry_dataset_a_new_generation_datas_W3085955590": {
+      "figure_words": 55,
+      "table_words": 204,
+      "total_words": 259,
+      "n_captions": 18
+    },
+    "2021_benchmarking_of_machine_learning_for_anomaly_bas_W3126814579": {
+      "figure_words": 53,
+      "table_words": 115,
+      "total_words": 168,
+      "n_captions": 29
+    },
+    "2021_deep_learning_based_intrusion_detection_systems__W3185244527": {
+      "figure_words": 104,
+      "table_words": 59,
+      "total_words": 163,
+      "n_captions": 23
+    },
+    "2021_design_and_development_of_a_deep_learning_based__W3179240416": {
+      "figure_words": 74,
+      "table_words": 105,
+      "total_words": 179,
+      "n_captions": 29
+    },
+    "2021_internet_of_things_applications_security_challen_W3154485088": {
+      "figure_words": 123,
+      "table_words": 120,
+      "total_words": 243,
+      "n_captions": 26
+    },
+    "2022_edge_iiotset_a_new_comprehensive_realistic_cyber_W4226319939": {
+      "figure_words": 37,
+      "table_words": 143,
+      "total_words": 180,
+      "n_captions": 20
+    }
+  }
+}

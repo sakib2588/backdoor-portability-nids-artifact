@@ -1,0 +1,237 @@
+{
+  "preregistration": "notes/20260905-prereg-active-paths-detector.md",
+  "device": "cuda",
+  "blocked": true,
+  "control_bar": 0.7,
+  "control_recalls": [
+    0.7656413841314226,
+    0.7167074449493184,
+    0.0,
+    0.817721076546662,
+    0.8053128276826285
+  ],
+  "controls": [
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "active_paths": {
+        "fixed_recall": 0.7656413841314226,
+        "auc": 0.7735575915304869,
+        "mad_recall": {
+          "2.0": 0.7677385529535128,
+          "2.5": 0.7677385529535128,
+          "3.0": 0.7677385529535128
+        },
+        "mad_fpr": {
+          "2.0": 0.19497092803745375,
+          "2.5": 0.1910348863550555,
+          "3.0": 0.18440874424224118
+        }
+      },
+      "slope_diagnostics": {
+        "n_rows": 111666,
+        "n_features": 757,
+        "max_feature_std": 1.7512019507952732,
+        "degenerate": false
+      },
+      "n_distinct_scores": 190,
+      "spectral_reference": {
+        "fixed_recall": 0.9980775952464174,
+        "auc": 0.9800390463680494,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.049063656271237634,
+          "2.5": 0.04684550328475421,
+          "3.0": 0.04472173978705731
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "active_paths": {
+        "fixed_recall": 0.7167074449493184,
+        "auc": 0.7652732832706354,
+        "mad_recall": {
+          "2.0": 0.7315623907724572,
+          "2.5": 0.7313876267039496,
+          "3.0": 0.7167074449493184
+        },
+        "mad_fpr": {
+          "2.0": 0.1754700596541569,
+          "2.5": 0.15461942158121272,
+          "3.0": 0.02880767197764857
+        }
+      },
+      "slope_diagnostics": {
+        "n_rows": 111666,
+        "n_features": 757,
+        "max_feature_std": 1.8489379348985513,
+        "degenerate": false
+      },
+      "n_distinct_scores": 217,
+      "spectral_reference": {
+        "fixed_recall": 0.9998252359314925,
+        "auc": 0.9831252263401217,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.05878577361625009,
+          "2.5": 0.055708676281809255,
+          "3.0": 0.05220682624782904
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "active_paths": {
+        "fixed_recall": 0.0,
+        "auc": 0.6531957461755331,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.12802990259004757,
+          "2.5": 0.0203692516801329,
+          "3.0": 0.012836970474967908
+        }
+      },
+      "slope_diagnostics": {
+        "n_rows": 111666,
+        "n_features": 757,
+        "max_feature_std": 1.6087543040849712,
+        "degenerate": false
+      },
+      "n_distinct_scores": 201,
+      "spectral_reference": {
+        "fixed_recall": 1.0,
+        "auc": 0.9818200005051702,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.050639960733972665,
+          "2.5": 0.047657252888318354,
+          "3.0": 0.04524088197538322
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "active_paths": {
+        "fixed_recall": 0.817721076546662,
+        "auc": 0.8627076108517943,
+        "mad_recall": {
+          "2.0": 0.817721076546662,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.013658159027410707,
+          "2.5": 0.0033697047496790756,
+          "3.0": 0.0033697047496790756
+        }
+      },
+      "slope_diagnostics": {
+        "n_rows": 111666,
+        "n_features": 757,
+        "max_feature_std": 1.7163301673099174,
+        "degenerate": false
+      },
+      "n_distinct_scores": 213,
+      "spectral_reference": {
+        "fixed_recall": 1.0,
+        "auc": 0.9868926321775503,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.04218266253869969,
+          "2.5": 0.04066299176923658,
+          "3.0": 0.03958695159707015
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "active_paths": {
+        "fixed_recall": 0.8053128276826285,
+        "auc": 0.8136265637873806,
+        "mad_recall": {
+          "2.0": 0.8053128276826285,
+          "2.5": 0.8053128276826285,
+          "3.0": 0.6024117441454037
+        },
+        "mad_fpr": {
+          "2.0": 0.14518047270255985,
+          "2.5": 0.02660839688892245,
+          "3.0": 0.015394925621082836
+        }
+      },
+      "slope_diagnostics": {
+        "n_rows": 111666,
+        "n_features": 757,
+        "max_feature_std": 1.8833166181217191,
+        "degenerate": false
+      },
+      "n_distinct_scores": 207,
+      "spectral_reference": {
+        "fixed_recall": 0.9994757077944775,
+        "auc": 0.9811700590972556,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.047515668655138565,
+          "2.5": 0.04607150947670467,
+          "3.0": 0.04489164086687306
+        }
+      }
+    }
+  ],
+  "reason": "the loud control did not reach the bar on every seed; the detector does not enter the paper and no parameter is tuned to pass",
+  "elapsed_s": 745.6
+}

@@ -232,6 +232,10 @@ def main() -> int:
         per_corpus_satisfaction=sat_by_corpus,
         manifest_property_arm=report_property,
         manifest_all_corpora=report_all,
+        # Roll-up so the manuscript's capped-value count traces to a stored field rather
+        # than to a sum a reader has to perform over samples[]. Denominator for the
+        # manuscript sentence is len(samples) * n_rows_per_sample * 2 capped columns.
+        rate_capped_values_total=int(sum(r["rate_capped_values"] for r in samples.values())),
         total_elapsed_s=round(sum(r.get("elapsed_s", 0.0) for r in samples.values()), 2),
     )
     RESULT.write_text(json.dumps(blob, indent=2))

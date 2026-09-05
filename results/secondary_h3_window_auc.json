@@ -1,0 +1,491 @@
+{
+  "dataset": "unsw_nb15",
+  "config": {
+    "dataset": "unsw_nb15",
+    "cells": [
+      [
+        0.005,
+        16
+      ],
+      [
+        0.01,
+        8
+      ],
+      [
+        0.01,
+        16
+      ]
+    ],
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "mlp_epochs": 20,
+    "spectral_k": 5,
+    "mad_z": 3.0,
+    "target_ratio": 0.5,
+    "n_sigma": 6.0,
+    "silhouette_sample": 10000,
+    "excluded_trigger_features": [
+      "tcprtt"
+    ],
+    "constraints": "b1b6575ad54751f5",
+    "smoke": false
+  },
+  "summary": {
+    "balanced": {
+      "spectral_recall": {
+        "mean": 0.8813840155945419,
+        "sd": 0.19935712296574856,
+        "n": 15
+      },
+      "spectral_mad_recall": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 15
+      },
+      "spectral_auc": {
+        "mean": 0.9923543232294979,
+        "sd": 0.005816026839951173,
+        "n": 15
+      },
+      "ac_recall": {
+        "mean": 0.7229044834307992,
+        "sd": 0.44903509093796906,
+        "n": 15
+      }
+    },
+    "imbalanced": {
+      "spectral_recall": {
+        "mean": 0.021571721634842986,
+        "sd": 0.04379146069286387,
+        "n": 15
+      },
+      "spectral_mad_recall": {
+        "mean": 0.8861448635000789,
+        "sd": 0.23886958670372227,
+        "n": 15
+      },
+      "spectral_auc": {
+        "mean": 0.95811690062506,
+        "sd": 0.019088603693123155,
+        "n": 15
+      },
+      "ac_recall": {
+        "mean": 0.14434274893482718,
+        "sd": 0.3408254658638139,
+        "n": 15
+      }
+    }
+  },
+  "rows": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 342,
+      "n_benign": 34189,
+      "expected_frac": 0.010003217409108194,
+      "balanced": {
+        "spectral_recall": 0.9649122807017544,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.10792684728336337,
+        "spectral_auc": 0.996472602804813,
+        "ac_recall": 0.0029239766081871343,
+        "ac_silhouette": 0.5099801771322007,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.0009468202619536059,
+        "spectral_mad_recall": 0.9968439324601547,
+        "spectral_auc": 0.983976472070734,
+        "ac_recall": 0.00015780337699226762
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.8654970760233918,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.1128189822414565,
+        "spectral_auc": 0.9878244147901465,
+        "ac_recall": 0.9152046783625731,
+        "ac_silhouette": 0.5006364157910923,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.003866182736310557,
+        "spectral_mad_recall": 0.9990531797380464,
+        "spectral_auc": 0.9470182166000621,
+        "ac_recall": 0.18983746252169797
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 1.0,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.09222504103865095,
+        "spectral_auc": 0.9966950031897134,
+        "ac_recall": 0.9853801169590644,
+        "ac_silhouette": 0.5218837788570704,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.04102887801798959,
+        "spectral_mad_recall": 0.9984219662300773,
+        "spectral_auc": 0.9756712084924306,
+        "ac_recall": 0.0
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 342,
+      "n_benign": 34189,
+      "expected_frac": 0.010003217409108194,
+      "balanced": {
+        "spectral_recall": 0.9912280701754386,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.06452565958578309,
+        "spectral_auc": 0.9961155609599924,
+        "ac_recall": 0.9590643274853801,
+        "ac_silhouette": 0.43006934149913406,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.00015780337699226762,
+        "spectral_mad_recall": 1.0,
+        "spectral_auc": 0.9651277936971775,
+        "ac_recall": 0.964652043553732
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.3654970760233918,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.0642292195194747,
+        "spectral_auc": 0.9765928712743408,
+        "ac_recall": 0.97953216374269,
+        "ac_silhouette": 0.46648919723195875,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.07669244121824208,
+        "spectral_mad_recall": 0.9992109831150386,
+        "spectral_auc": 0.9670618135530346,
+        "ac_recall": 0.985876597759192
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.9912280701754386,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.059961199820922254,
+        "spectral_auc": 0.995732242111023,
+        "ac_recall": 0.9985380116959064,
+        "ac_silhouette": 0.48449887117489254,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.00031560675398453525,
+        "spectral_mad_recall": 0.9803534795644627,
+        "spectral_auc": 0.9327042701275452,
+        "ac_recall": 0.002603755720372416
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 342,
+      "n_benign": 34189,
+      "expected_frac": 0.010003217409108194,
+      "balanced": {
+        "spectral_recall": 0.4766081871345029,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.0643779360061453,
+        "spectral_auc": 0.989478884771634,
+        "ac_recall": 0.008771929824561403,
+        "ac_silhouette": 0.48939461702837417,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.00031560675398453525,
+        "spectral_mad_recall": 0.2550102572195045,
+        "spectral_auc": 0.9132083838197218,
+        "ac_recall": 0.012939876913365947
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.7543859649122807,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.08064467989852261,
+        "spectral_auc": 0.9851238490196539,
+        "ac_recall": 0.0014619883040935672,
+        "ac_silhouette": 0.5039698033703451,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.03889853242859397,
+        "spectral_mad_recall": 0.9991320814265425,
+        "spectral_auc": 0.9753055275737137,
+        "ac_recall": 0.0
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.97953216374269,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.06476645276824354,
+        "spectral_auc": 0.9912079108381311,
+        "ac_recall": 0.9926900584795322,
+        "ac_silhouette": 0.49071344537692657,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.0015780337699226763,
+        "spectral_mad_recall": 0.44248066908631845,
+        "spectral_auc": 0.944178613326014,
+        "ac_recall": 0.0
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 342,
+      "n_benign": 34189,
+      "expected_frac": 0.010003217409108194,
+      "balanced": {
+        "spectral_recall": 0.9590643274853801,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.09223860312583095,
+        "spectral_auc": 0.9959384654405437,
+        "ac_recall": 1.0,
+        "ac_silhouette": 0.4211233533469156,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.0,
+        "spectral_mad_recall": 1.0,
+        "spectral_auc": 0.9617046235028384,
+        "ac_recall": 0.0006312135079690705
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.9678362573099415,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.05369347858528578,
+        "spectral_auc": 0.995222760677249,
+        "ac_recall": 0.0043859649122807015,
+        "ac_silhouette": 0.43892862969476726,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.1572510651727947,
+        "spectral_mad_recall": 0.9918731260848982,
+        "spectral_auc": 0.9826933363315437,
+        "ac_recall": 0.0
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.9941520467836257,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.0539620952096702,
+        "spectral_auc": 0.9966236600804105,
+        "ac_recall": 0.9985380116959064,
+        "ac_silhouette": 0.44024145069626713,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.0003945084424806691,
+        "spectral_mad_recall": 0.9905317973804639,
+        "spectral_auc": 0.9511606759377452,
+        "ac_recall": 0.008442480669086318
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 342,
+      "n_benign": 34189,
+      "expected_frac": 0.010003217409108194,
+      "balanced": {
+        "spectral_recall": 1.0,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.07749578987798032,
+        "spectral_auc": 0.9964515241185956,
+        "ac_recall": 1.0,
+        "ac_silhouette": 0.49475566596820064,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.0,
+        "spectral_mad_recall": 0.9954237020672242,
+        "spectral_auc": 0.9564290542663704,
+        "ac_recall": 0.0
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 0.9108187134502924,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.07685420086554245,
+        "spectral_auc": 0.9894047846572607,
+        "ac_recall": 0.9970760233918129,
+        "ac_silhouette": 0.4762698299763896,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.0004734101309768029,
+        "spectral_mad_recall": 0.643837778128452,
+        "spectral_auc": 0.9526892468231241,
+        "ac_recall": 0.0
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "interpretable": true,
+      "n_poison": 684,
+      "n_benign": 34189,
+      "expected_frac": 0.020006434818216387,
+      "balanced": {
+        "spectral_recall": 1.0,
+        "spectral_mad_recall": 1.0,
+        "spectral_mad_fpr": 0.05775257424265035,
+        "spectral_auc": 0.9964303137089603,
+        "ac_recall": 1.0,
+        "ac_silhouette": 0.46574145737217115,
+        "train_balance": {
+          "n": 68378,
+          "minority": 34189
+        }
+      },
+      "imbalanced": {
+        "spectral_recall": 0.00165693545841881,
+        "spectral_mad_recall": 1.0,
+        "spectral_auc": 0.9628242732538451,
+        "ac_recall": 0.0
+      }
+    }
+  ]
+}

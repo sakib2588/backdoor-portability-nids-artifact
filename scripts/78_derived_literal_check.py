@@ -20,9 +20,12 @@ Exit: 0 if every derived literal reproduces, 1 otherwise.
 from __future__ import annotations
 
 import json
+import math
 import statistics as st
 import sys
 from pathlib import Path
+
+from sklearn.metrics import roc_auc_score
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
@@ -30,6 +33,20 @@ RESULTS = ROOT / "results"
 CTU_WINDOW = [(0.005, 8), (0.005, 16), (0.01, 8), (0.01, 16)]
 UNSW_WINDOW = [(0.005, 16), (0.01, 8), (0.01, 16)]
 ANCHOR = (0.005, 16)
+
+
+def _finite(x) -> bool:
+    return x is not None and math.isfinite(x)
+
+
+def _auc(y, vals) -> float:
+    """Direction-free AUC, matching scripts/101's own convention.
+
+    The statistic may point either way, so 101 reports max(a, 1 - a) and this check must use the
+    same convention or it would disagree with the run that produced the number.
+    """
+    a = float(roc_auc_score(list(y), [float(v) for v in vals]))
+    return max(a, 1.0 - a)
 
 
 def check(label: str, computed: str, printed: str, where: str, out: list) -> None:
@@ -96,6 +113,195 @@ def main() -> int:
     # --- Stated arithmetic identities, which have no disk value by construction.
     check("CTU-13 release total", f"{143046 + 55082:,}", "198,128", "04_methods.tex:49", checks)
     check("median poison rank", f"{1022 + 286:,}", "1,308", "05_results.tex:290", checks)
+
+    # --- Rule selection on the full 25-cell grid (05_results.tex, the moment-statistic
+    # paragraphs). Added 2026-09-04 when the full-grid re-run refuted the narrow-grid claim.
+    # Every figure below is recomputed here rather than read from the file's own summary
+    # fields, so a rerun that changes the answer fails this check instead of silently
+    # agreeing with a stale sentence.
+    rsel = json.load((RESULTS / "rule_selection_statistic.json").open())
+    units = [u for u in rsel["units"]
+             if _finite(u["S1_bimodality"]) and _finite(u["S2_top_gap"])]
+    check("rule-selection units", f"{len(units)}", "625",
+          "05_results.tex (moment statistic)", checks)
+
+    y_all = [bool(u["mad_wins"]) for u in units]
+    check("pooled S1 prediction AUC",
+          f"{_auc(y_all, [u['S1_bimodality'] for u in units]):.4f}", "0.8196",
+          "05_results.tex (moment statistic)", checks)
+    check("pooled rate prediction AUC",
+          f"{_auc(y_all, [u['rate'] for u in units]):.4f}", "0.7138",
+          "05_results.tex (moment statistic)", checks)
+
+    # Stratified by arm. These are the numbers that reverse the pooled ordering.
+    for arm, n_mad, n_bud, s1_want, rate_want in (
+            ("spectral", "80", "45", "0.5392", "0.9861"),
+            ("isolation_forest", None, None, "0.5156", "0.9673"),
+            ("boundary_departure", None, None, "0.6759", "0.8526")):
+        sub = [u for u in units if u["detector"] == arm]
+        ys = [bool(u["mad_wins"]) for u in sub]
+        if n_mad is not None:
+            check(f"{arm} MAD wins", f"{sum(ys)}", n_mad,
+                  "05_results.tex (moment statistic)", checks)
+            check(f"{arm} budget wins", f"{len(ys) - sum(ys)}", n_bud,
+                  "05_results.tex (moment statistic)", checks)
+        check(f"{arm} S1 AUC", f"{_auc(ys, [u['S1_bimodality'] for u in sub]):.4f}", s1_want,
+              "05_results.tex (moment statistic)", checks)
+        check(f"{arm} rate AUC", f"{_auc(ys, [u['rate'] for u in sub]):.4f}", rate_want,
+              "05_results.tex (moment statistic)", checks)
+
+    # The degenerate arms, quoted in the scope paragraph as "all 125".
+    for arm, want in (("spectre", "125"), ("strip", "125")):
+        sub = [u for u in units if u["detector"] == arm]
+        check(f"{arm} units", f"{len(sub)}", want,
+              "05_results.tex (scope paragraph)", checks)
+
+    # Spectral's rate curve, quoted in the starvation paragraph.
+    spec = [u for u in units if u["detector"] == "spectral"]
+    for rate, fx_want, mad_want in ((0.005, "0.0219", "0.4415"), (0.1, "0.4937", "0.4434")):
+        rs = [u for u in spec if u["rate"] == rate]
+        check(f"spectral fixed recall at {rate}",
+              f"{st.mean(u['fixed_recall'] for u in rs):.4f}", fx_want,
+              "05_results.tex (starvation paragraph)", checks)
+        check(f"spectral MAD recall at {rate}",
+              f"{st.mean(u['mad_recall'] for u in rs):.4f}", mad_want,
+              "05_results.tex (starvation paragraph)", checks)
+
+    # --- Post-removal attack success, promoted to a contribution (01_introduction.tex).
+    pr = json.load((RESULTS / "secondary_post_removal_asr.json").open())["per_cell"]
+    post = {(c["rate"], c["cost"]): c["post_removal_asr"]["mean"] for c in pr}
+    for cell, want in (((0.01, 8), "0.0546"), ((0.005, 16), "0.4310"), ((0.01, 16), "0.6154")):
+        check(f"post-removal ASR {cell}", f"{post[cell]:.4f}", want,
+              "01_introduction.tex (contributions)", checks)
+
+    # --- Backdoor fractions across the corpus family, promoted to a contribution.
+    q2 = json.load((RESULTS / "netflow_property_analysis.json").open())["q2_summary"]
+    for corpus, want in (("NF-CSE-CIC-IDS2018-v2", "0.4465"),
+                         ("NF-ToN-IoT-v2", "0.5964"),
+                         ("NF-UNSW-NB15-v2", "0.5478")):
+        check(f"backdoor fraction {corpus}",
+              f"{q2[corpus]['mean_backdoor_fraction']:.4f}", want,
+              "01_introduction.tex (contributions)", checks)
+
+    # --- STRIP under its own published rule (05_results.tex, the STRIP paragraph), added
+    # 2026-09-04 when the FRR rule was wired in. Means over window cells and five seeds.
+    strip = json.load((RESULTS / "strip_detector.json").open())["rows"]
+
+    def strip_cells(ds, cost=None):
+        out = []
+        for k, v in strip.items():
+            d, _seed, rate, c = k.split("|")
+            if d != ds or (float(rate), int(c)) not in (
+                    CTU_WINDOW if ds == "ctu13" else UNSW_WINDOW):
+                continue
+            if cost is not None and int(c) != cost:
+                continue
+            out.append(v["strip"])
+        return out
+
+    ctu = strip_cells("ctu13")
+    ctu16 = strip_cells("ctu13", cost=16)
+    unsw = strip_cells("unsw_nb15")
+    check("STRIP CTU window FRR recall", f"{st.mean(r['frr_recall'] for r in ctu):.4f}", "0.8651",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP CTU window FRR fpr", f"{st.mean(r['frr_fpr'] for r in ctu):.4f}", "0.0286",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP CTU cost-16 FRR recall", f"{st.mean(r['frr_recall'] for r in ctu16):.4f}", "0.9989",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP CTU cost-16 FRR fpr", f"{st.mean(r['frr_fpr'] for r in ctu16):.4f}", "0.0280",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP CTU window budget", f"{st.mean(r['fixed_recall'] for r in ctu):.4f}", "0.2767",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP CTU window MAD", f"{st.mean(r['mad']['3.0']['recall'] for r in ctu):.4f}", "0.0000",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP UNSW FRR recall", f"{st.mean(r['frr_recall'] for r in unsw):.4f}", "0.0115",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP UNSW ranking AUC", f"{st.mean(r['auc'] for r in unsw):.4f}", "0.6598",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP CTU realized FRR",
+          f"{st.mean(r['frr_calibration']['realized_frr'] for r in ctu):.4f}", "0.0230",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP UNSW realized FRR",
+          f"{st.mean(r['frr_calibration']['realized_frr'] for r in unsw):.4f}", "0.0103",
+          "05_results.tex (STRIP)", checks)
+
+    # --- E2, the multiplier sweep on UNSW-NB15 (05_results.tex, the recalibration paragraph).
+    mult = json.load((RESULTS / "secondary_budget_multiplier_sweep.json").open())
+    bm, bz = mult["by_multiplier"], mult["by_z"]
+    for m, r_want, f_want in (("1.5", "0.0216", None), ("7", "0.7204", "0.0536"),
+                              ("10", "0.9234", "0.0782")):
+        check(f"UNSW multiplier {m} recall", f"{bm[m]['recall_mean']:.4f}", r_want,
+              "05_results.tex (recalibration)", checks)
+        if f_want:
+            check(f"UNSW multiplier {m} FPR", f"{bm[m]['clean_fpr_mean']:.4f}", f_want,
+                  "05_results.tex (recalibration)", checks)
+    check("UNSW MAD z=3 recall", f"{bz['3.0']['recall_mean']:.4f}", "0.8861",
+          "05_results.tex (recalibration)", checks)
+    check("UNSW MAD z=3 FPR", f"{bz['3.0']['clean_fpr_mean']:.4f}", "0.0643",
+          "05_results.tex (recalibration)", checks)
+
+    # --- E3, imbalance on UNSW-NB15 (05_results.tex and 07_appendix.tex).
+    h3u = json.load((RESULTS / "secondary_h3_window_auc.json").open())["summary"]
+    for arm, field, want, where in (
+            ("balanced", "spectral_recall", "0.8814", "05_results.tex (H3)"),
+            ("balanced", "spectral_auc", "0.9924", "05_results.tex (H3)"),
+            ("balanced", "ac_recall", "0.7229", "07_appendix.tex (H3)"),
+            ("imbalanced", "spectral_recall", "0.0216", "05_results.tex (H3)"),
+            ("imbalanced", "spectral_auc", "0.9581", "05_results.tex (H3)"),
+            ("imbalanced", "ac_recall", "0.1443", "07_appendix.tex (H3)")):
+        check(f"UNSW H3 {arm} {field}", f"{h3u[arm][field]['mean']:.4f}", want, where, checks)
+
+    h3rows = json.load((RESULTS / "secondary_h3_window_auc.json").open())["rows"]
+    tb = next(r["balanced"]["train_balance"] for r in h3rows if r.get("interpretable"))
+    check("UNSW balanced train rows", f"{tb['n']:,}", "68,378", "05_results.tex (H3)", checks)
+    check("UNSW balanced minority rows", f"{tb['minority']:,}", "34,189",
+          "07_appendix.tex (H3)", checks)
+
+    h3c = json.load((RESULTS / "h3_window_auc.json").open())
+    check("CTU H3 balanced AUC", f"{h3c['summary']['balanced']['spectral_auc']['mean']:.4f}",
+          "0.5559", "05_results.tex (H3)", checks)
+    check("CTU balanced train rows",
+          f"{next(r['balanced']['train_balance']['n'] for r in h3c['rows']):,}", "5,540",
+          "05_results.tex (H3)", checks)
+
+    # --- Why the budget-free cutoff cannot fire on STRIP (05_results.tex, the STRIP paragraph).
+    bound = json.load((RESULTS / "strip_mad_bound.json").open())["summary"]
+    check("STRIP score median", f"{bound['median']:.4f}", "-0.0558",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP score MAD", f"{bound['mad']:.4f}", "0.0469", "05_results.tex (STRIP)", checks)
+    check("STRIP cutoff at z=3.0", f"{bound['threshold']['3.0']:+.4f}", "+0.1530",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP cutoff at z=2.0", f"{bound['threshold']['2.0']:+.4f}", "+0.0834",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP thresholds all above max", f"{bound['all_thresholds_above_max']}", "True",
+          "05_results.tex (STRIP)", checks)
+    check("STRIP rows flagged by MAD", f"{bound['total_flagged']}", "0",
+          "05_results.tex (STRIP)", checks)
+
+    # --- The label-free capability check (06_discussion.tex, third recommendation).
+    cap = json.load((RESULTS / "rule_capability_taxonomy.json").open())
+    check("STRIP z_max", f"{cap['summary']['strip']['z_max_mean']:.2f}", "0.79",
+          "06_discussion.tex (capability)", checks)
+    check("lowest firing arm z_max",
+          f"{min(v['z_max_mean'] for k, v in cap['summary'].items() if k != 'strip' and math.isfinite(v['z_max_mean'])):.1f}",
+          "38.7", "06_discussion.tex (capability)", checks)
+    check("capability agreement",
+          f"{cap['prediction_agreement']['agreements']} of {cap['prediction_agreement']['checks']}",
+          "75 of 75", "06_discussion.tex (capability)", checks)
+
+    # --- Activation Clustering's partition on the corpus family (07_appendix.tex). Added
+    # 2026-09-05 after a reviewer's arithmetic claimed 41 should be 39. The data says 41, and
+    # the real defect was the claim that every failing cell reports exactly 0.000.
+    nfd = json.load((RESULTS / "netflow_detectors.json").open()).get("cells", {})
+    acr = [v["ac"]["recall"] for v in nfd.values()
+           if isinstance(v.get("ac"), dict) and v["ac"].get("recall") is not None]
+    check("AC family interpretable cells", f"{len(acr)}", "75", "07_appendix.tex (AC)", checks)
+    check("AC cells isolating poison", f"{sum(1 for r in acr if r >= 0.9)}", "41",
+          "07_appendix.tex (AC)", checks)
+    check("AC cells at exactly zero", f"{sum(1 for r in acr if r == 0.0)}", "32",
+          "07_appendix.tex (AC)", checks)
+    check("AC cells bimodal", f"{sum(1 for r in acr if r >= 0.9 or r == 0.0)}", "73",
+          "07_appendix.tex (AC)", checks)
 
     width = max(len(c[1]) for c in checks)
     failed = 0

@@ -1,0 +1,623 @@
+{
+  "_purpose": "vision control at matched within-target poison rates; label regime stays dirty",
+  "_reproduction_anchor": "rate 0.3134 must reproduce the committed control's ~0.98 recall",
+  "device": "cuda",
+  "label_regime": "dirty-label BadNets patch, labels flipped",
+  "rows": {
+    "0.005|42": {
+      "requested_rate": 0.005,
+      "achieved_rate": 0.005039475894506971,
+      "non_target_frac": 0.0005503970097356989,
+      "n_poison": 30,
+      "n_target_class": 5953,
+      "budget_rows": 45,
+      "clean_acc": 0.9879999756813049,
+      "asr": 0.8954545259475708,
+      "spectral_auc": 0.7972367606505713,
+      "spectral_fixed_recall": 0.3333333333333333,
+      "spectral_mad_recall": 0.36666666666666664,
+      "spectral_mad_fpr": 0.013000168833361473
+    },
+    "0.005|123": {
+      "requested_rate": 0.005,
+      "achieved_rate": 0.005039475894506971,
+      "non_target_frac": 0.0005503970097356989,
+      "n_poison": 30,
+      "n_target_class": 5953,
+      "budget_rows": 45,
+      "clean_acc": 0.9851999878883362,
+      "asr": 0.9145233035087585,
+      "spectral_auc": 0.7992346220946592,
+      "spectral_fixed_recall": 0.16666666666666666,
+      "spectral_mad_recall": 0.2,
+      "spectral_mad_fpr": 0.015532669255444876
+    },
+    "0.005|456": {
+      "requested_rate": 0.005,
+      "achieved_rate": 0.005039475894506971,
+      "non_target_frac": 0.0005503970097356989,
+      "n_poison": 30,
+      "n_target_class": 5953,
+      "budget_rows": 45,
+      "clean_acc": 0.9876999855041504,
+      "asr": 0.8282704949378967,
+      "spectral_auc": 0.9445776352073837,
+      "spectral_fixed_recall": 0.1,
+      "spectral_mad_recall": 0.3333333333333333,
+      "spectral_mad_fpr": 0.02346783724463954
+    },
+    "0.005|789": {
+      "requested_rate": 0.005,
+      "achieved_rate": 0.005039475894506971,
+      "non_target_frac": 0.0005503970097356989,
+      "n_poison": 30,
+      "n_target_class": 5953,
+      "budget_rows": 45,
+      "clean_acc": 0.9865999817848206,
+      "asr": 0.7893570065498352,
+      "spectral_auc": 0.8320220608925657,
+      "spectral_fixed_recall": 0.06666666666666667,
+      "spectral_mad_recall": 0.23333333333333334,
+      "spectral_mad_fpr": 0.028026338004389667
+    },
+    "0.005|1337": {
+      "requested_rate": 0.005,
+      "achieved_rate": 0.005039475894506971,
+      "non_target_frac": 0.0005503970097356989,
+      "n_poison": 30,
+      "n_target_class": 5953,
+      "budget_rows": 45,
+      "clean_acc": 0.984499990940094,
+      "asr": 0.9650775790214539,
+      "spectral_auc": 0.832449772074962,
+      "spectral_fixed_recall": 0.13333333333333333,
+      "spectral_mad_recall": 0.16666666666666666,
+      "spectral_mad_fpr": 0.014350835725139288
+    },
+    "0.01|42": {
+      "requested_rate": 0.01,
+      "achieved_rate": 0.010028413839211098,
+      "non_target_frac": 0.0011063535852263039,
+      "n_poison": 60,
+      "n_target_class": 5983,
+      "budget_rows": 90,
+      "clean_acc": 0.9876000285148621,
+      "asr": 0.8914633989334106,
+      "spectral_auc": 0.7754037931228545,
+      "spectral_fixed_recall": 0.18333333333333332,
+      "spectral_mad_recall": 0.18333333333333332,
+      "spectral_mad_fpr": 0.009117001519500253
+    },
+    "0.01|123": {
+      "requested_rate": 0.01,
+      "achieved_rate": 0.010028413839211098,
+      "non_target_frac": 0.0011063535852263039,
+      "n_poison": 60,
+      "n_target_class": 5983,
+      "budget_rows": 90,
+      "clean_acc": 0.9861999750137329,
+      "asr": 0.9412416815757751,
+      "spectral_auc": 0.7711126118521019,
+      "spectral_fixed_recall": 0.23333333333333334,
+      "spectral_mad_recall": 0.35,
+      "spectral_mad_fpr": 0.020428836738139455
+    },
+    "0.01|456": {
+      "requested_rate": 0.01,
+      "achieved_rate": 0.010028413839211098,
+      "non_target_frac": 0.0011063535852263039,
+      "n_poison": 60,
+      "n_target_class": 5983,
+      "budget_rows": 90,
+      "clean_acc": 0.9873999953269958,
+      "asr": 0.8649667501449585,
+      "spectral_auc": 0.8915189374753785,
+      "spectral_fixed_recall": 0.2,
+      "spectral_mad_recall": 0.35,
+      "spectral_mad_fpr": 0.020597670099611682
+    },
+    "0.01|789": {
+      "requested_rate": 0.01,
+      "achieved_rate": 0.010028413839211098,
+      "non_target_frac": 0.0011063535852263039,
+      "n_poison": 60,
+      "n_target_class": 5983,
+      "budget_rows": 90,
+      "clean_acc": 0.9871000051498413,
+      "asr": 0.9562084078788757,
+      "spectral_auc": 0.8319095053182509,
+      "spectral_fixed_recall": 0.16666666666666666,
+      "spectral_mad_recall": 0.2833333333333333,
+      "spectral_mad_fpr": 0.03663683943947324
+    },
+    "0.01|1337": {
+      "requested_rate": 0.01,
+      "achieved_rate": 0.010028413839211098,
+      "non_target_frac": 0.0011063535852263039,
+      "n_poison": 60,
+      "n_target_class": 5983,
+      "budget_rows": 90,
+      "clean_acc": 0.9854000210762024,
+      "asr": 0.9914634227752686,
+      "spectral_auc": 0.8832010805335134,
+      "spectral_fixed_recall": 0.3333333333333333,
+      "spectral_mad_recall": 0.38333333333333336,
+      "spectral_mad_fpr": 0.015701502616917103
+    },
+    "0.02|42": {
+      "requested_rate": 0.02,
+      "achieved_rate": 0.0200198544010589,
+      "non_target_frac": 0.002235285815049063,
+      "n_poison": 121,
+      "n_target_class": 6044,
+      "budget_rows": 182,
+      "clean_acc": 0.988099992275238,
+      "asr": 0.9624168276786804,
+      "spectral_auc": 0.8067709154535548,
+      "spectral_fixed_recall": 0.24793388429752067,
+      "spectral_mad_recall": 0.18181818181818182,
+      "spectral_mad_fpr": 0.01367550227925038
+    },
+    "0.02|123": {
+      "requested_rate": 0.02,
+      "achieved_rate": 0.0200198544010589,
+      "non_target_frac": 0.002235285815049063,
+      "n_poison": 121,
+      "n_target_class": 6044,
+      "budget_rows": 182,
+      "clean_acc": 0.9860000014305115,
+      "asr": 0.9924612045288086,
+      "spectral_auc": 0.9092569518183075,
+      "spectral_fixed_recall": 0.6694214876033058,
+      "spectral_mad_recall": 0.6776859504132231,
+      "spectral_mad_fpr": 0.020091170015195003
+    },
+    "0.02|456": {
+      "requested_rate": 0.02,
+      "achieved_rate": 0.0200198544010589,
+      "non_target_frac": 0.002235285815049063,
+      "n_poison": 121,
+      "n_target_class": 6044,
+      "budget_rows": 182,
+      "clean_acc": 0.9872999787330627,
+      "asr": 0.9669622778892517,
+      "spectral_auc": 0.8565795477219357,
+      "spectral_fixed_recall": 0.4297520661157025,
+      "spectral_mad_recall": 0.4297520661157025,
+      "spectral_mad_fpr": 0.02026000337666723
+    },
+    "0.02|789": {
+      "requested_rate": 0.02,
+      "achieved_rate": 0.0200198544010589,
+      "non_target_frac": 0.002235285815049063,
+      "n_poison": 121,
+      "n_target_class": 6044,
+      "budget_rows": 182,
+      "clean_acc": 0.9864000082015991,
+      "asr": 0.9771618843078613,
+      "spectral_auc": 0.8181301914514508,
+      "spectral_fixed_recall": 0.35537190082644626,
+      "spectral_mad_recall": 0.35537190082644626,
+      "spectral_mad_fpr": 0.024480837413472904
+    },
+    "0.02|1337": {
+      "requested_rate": 0.02,
+      "achieved_rate": 0.0200198544010589,
+      "non_target_frac": 0.002235285815049063,
+      "n_poison": 121,
+      "n_target_class": 6044,
+      "budget_rows": 182,
+      "clean_acc": 0.9839000105857849,
+      "asr": 0.9930155277252197,
+      "spectral_auc": 0.9403892655469713,
+      "spectral_fixed_recall": 0.6446280991735537,
+      "spectral_mad_recall": 0.5537190082644629,
+      "spectral_mad_fpr": 0.012493668748944791
+    },
+    "0.05|42": {
+      "requested_rate": 0.05,
+      "achieved_rate": 0.05004009623095429,
+      "non_target_frac": 0.005764684470389689,
+      "n_poison": 312,
+      "n_target_class": 6235,
+      "budget_rows": 468,
+      "clean_acc": 0.9873999953269958,
+      "asr": 0.9976718425750732,
+      "spectral_auc": 0.9813601475343836,
+      "spectral_fixed_recall": 0.9006410256410257,
+      "spectral_mad_recall": 0.8365384615384616,
+      "spectral_mad_fpr": 0.007259834543305757
+    },
+    "0.05|123": {
+      "requested_rate": 0.05,
+      "achieved_rate": 0.05004009623095429,
+      "non_target_frac": 0.005764684470389689,
+      "n_poison": 312,
+      "n_target_class": 6235,
+      "budget_rows": 468,
+      "clean_acc": 0.9850000143051147,
+      "asr": 0.9972283840179443,
+      "spectral_auc": 0.9920210002727308,
+      "spectral_fixed_recall": 0.9198717948717948,
+      "spectral_mad_recall": 0.8814102564102564,
+      "spectral_mad_fpr": 0.0087793347965558
+    },
+    "0.05|456": {
+      "requested_rate": 0.05,
+      "achieved_rate": 0.05004009623095429,
+      "non_target_frac": 0.005764684470389689,
+      "n_poison": 312,
+      "n_target_class": 6235,
+      "budget_rows": 468,
+      "clean_acc": 0.9872999787330627,
+      "asr": 0.9891352653503418,
+      "spectral_auc": 0.9604946168132052,
+      "spectral_fixed_recall": 0.7948717948717948,
+      "spectral_mad_recall": 0.7596153846153846,
+      "spectral_mad_fpr": 0.017221002870167146
+    },
+    "0.05|789": {
+      "requested_rate": 0.05,
+      "achieved_rate": 0.05004009623095429,
+      "non_target_frac": 0.005764684470389689,
+      "n_poison": 312,
+      "n_target_class": 6235,
+      "budget_rows": 468,
+      "clean_acc": 0.9861999750137329,
+      "asr": 0.9980044364929199,
+      "spectral_auc": 0.9808947735251973,
+      "spectral_fixed_recall": 0.8717948717948718,
+      "spectral_mad_recall": 0.8141025641025641,
+      "spectral_mad_fpr": 0.0175586695931116
+    },
+    "0.05|1337": {
+      "requested_rate": 0.05,
+      "achieved_rate": 0.05004009623095429,
+      "non_target_frac": 0.005764684470389689,
+      "n_poison": 312,
+      "n_target_class": 6235,
+      "budget_rows": 468,
+      "clean_acc": 0.9848999977111816,
+      "asr": 0.9977827072143555,
+      "spectral_auc": 0.9824867855426694,
+      "spectral_fixed_recall": 0.9326923076923077,
+      "spectral_mad_recall": 0.8461538461538461,
+      "spectral_mad_fpr": 0.008948168158028026
+    },
+    "0.1|42": {
+      "requested_rate": 0.1,
+      "achieved_rate": 0.09998480474092084,
+      "non_target_frac": 0.012169889437489341,
+      "n_poison": 658,
+      "n_target_class": 6581,
+      "budget_rows": 987,
+      "clean_acc": 0.9866999983787537,
+      "asr": 0.9977827072143555,
+      "spectral_auc": 0.9864420139510752,
+      "spectral_fixed_recall": 0.939209726443769,
+      "spectral_mad_recall": 0.8069908814589666,
+      "spectral_mad_fpr": 0.004558500759750127
+    },
+    "0.1|123": {
+      "requested_rate": 0.1,
+      "achieved_rate": 0.09998480474092084,
+      "non_target_frac": 0.012169889437489341,
+      "n_poison": 658,
+      "n_target_class": 6581,
+      "budget_rows": 987,
+      "clean_acc": 0.9855999946594238,
+      "asr": 1.0,
+      "spectral_auc": 0.9966715708738332,
+      "spectral_fixed_recall": 0.9908814589665653,
+      "spectral_mad_recall": 0.9164133738601824,
+      "spectral_mad_fpr": 0.005740334290055715
+    },
+    "0.1|456": {
+      "requested_rate": 0.1,
+      "achieved_rate": 0.09998480474092084,
+      "non_target_frac": 0.012169889437489341,
+      "n_poison": 658,
+      "n_target_class": 6581,
+      "budget_rows": 987,
+      "clean_acc": 0.9876999855041504,
+      "asr": 0.9973392486572266,
+      "spectral_auc": 0.9930701346099666,
+      "spectral_fixed_recall": 0.9726443768996961,
+      "spectral_mad_recall": 0.8389057750759878,
+      "spectral_mad_fpr": 0.007766334627722438
+    },
+    "0.1|789": {
+      "requested_rate": 0.1,
+      "achieved_rate": 0.09998480474092084,
+      "non_target_frac": 0.012169889437489341,
+      "n_poison": 658,
+      "n_target_class": 6581,
+      "budget_rows": 987,
+      "clean_acc": 0.9865000247955322,
+      "asr": 0.9954545497894287,
+      "spectral_auc": 0.9856045183707632,
+      "spectral_fixed_recall": 0.9361702127659575,
+      "spectral_mad_recall": 0.8085106382978723,
+      "spectral_mad_fpr": 0.008610501435083573
+    },
+    "0.1|1337": {
+      "requested_rate": 0.1,
+      "achieved_rate": 0.09998480474092084,
+      "non_target_frac": 0.012169889437489341,
+      "n_poison": 658,
+      "n_target_class": 6581,
+      "budget_rows": 987,
+      "clean_acc": 0.9847999811172485,
+      "asr": 1.0,
+      "spectral_auc": 0.9884716064879223,
+      "spectral_fixed_recall": 0.9513677811550152,
+      "spectral_mad_recall": 0.7963525835866262,
+      "spectral_mad_fpr": 0.0016883336147222692
+    },
+    "0.3134|42": {
+      "requested_rate": 0.3134,
+      "achieved_rate": 0.31343456589776286,
+      "non_target_frac": 0.049994742422636816,
+      "n_poison": 2704,
+      "n_target_class": 8627,
+      "budget_rows": 4057,
+      "clean_acc": 0.9868999719619751,
+      "asr": 0.9997782707214355,
+      "spectral_auc": 0.9737351109454967,
+      "spectral_fixed_recall": 0.9700443786982249,
+      "spectral_mad_recall": 0.15532544378698224,
+      "spectral_mad_fpr": 0.0
+    },
+    "0.3134|123": {
+      "requested_rate": 0.3134,
+      "achieved_rate": 0.31343456589776286,
+      "non_target_frac": 0.049994742422636816,
+      "n_poison": 2704,
+      "n_target_class": 8627,
+      "budget_rows": 4057,
+      "clean_acc": 0.9860000014305115,
+      "asr": 1.0,
+      "spectral_auc": 0.9846848035988478,
+      "spectral_fixed_recall": 0.9837278106508875,
+      "spectral_mad_recall": 0.22152366863905326,
+      "spectral_mad_fpr": 0.0
+    },
+    "0.3134|456": {
+      "requested_rate": 0.3134,
+      "achieved_rate": 0.31343456589776286,
+      "non_target_frac": 0.049994742422636816,
+      "n_poison": 2704,
+      "n_target_class": 8627,
+      "budget_rows": 4057,
+      "clean_acc": 0.9869999885559082,
+      "asr": 0.9995565414428711,
+      "spectral_auc": 0.9860277905707067,
+      "spectral_fixed_recall": 0.9907544378698225,
+      "spectral_mad_recall": 0.2474112426035503,
+      "spectral_mad_fpr": 0.0
+    },
+    "0.3134|789": {
+      "requested_rate": 0.3134,
+      "achieved_rate": 0.31343456589776286,
+      "non_target_frac": 0.049994742422636816,
+      "n_poison": 2704,
+      "n_target_class": 8627,
+      "budget_rows": 4057,
+      "clean_acc": 0.9861999750137329,
+      "asr": 1.0,
+      "spectral_auc": 0.9837738277320285,
+      "spectral_fixed_recall": 0.9863165680473372,
+      "spectral_mad_recall": 0.20229289940828402,
+      "spectral_mad_fpr": 0.0
+    },
+    "0.3134|1337": {
+      "requested_rate": 0.3134,
+      "achieved_rate": 0.31343456589776286,
+      "non_target_frac": 0.049994742422636816,
+      "n_poison": 2704,
+      "n_target_class": 8627,
+      "budget_rows": 4057,
+      "clean_acc": 0.9843000173568726,
+      "asr": 1.0,
+      "spectral_auc": 0.9787755110705734,
+      "spectral_fixed_recall": 0.9737426035502958,
+      "spectral_mad_recall": 0.09948224852071005,
+      "spectral_mad_fpr": 0.0
+    }
+  },
+  "table": [
+    {
+      "rate": 0.005,
+      "n": 5,
+      "achieved_rate": {
+        "mean": 0.005039475894506971,
+        "sd": 0.0
+      },
+      "n_poison": {
+        "mean": 30.0,
+        "sd": 0.0
+      },
+      "asr": {
+        "mean": 0.878536581993103,
+        "sd": 0.06991116023897036
+      },
+      "auc": {
+        "mean": 0.8411041701840283,
+        "sd": 0.060294174586223215
+      },
+      "fixed_recall": {
+        "mean": 0.15999999999999998,
+        "sd": 0.10381607668264957
+      },
+      "mad_recall": {
+        "mean": 0.26,
+        "sd": 0.08628119403696521
+      },
+      "mad_fpr": {
+        "mean": 0.01887556981259497,
+        "sd": 0.006538234051166541
+      }
+    },
+    {
+      "rate": 0.01,
+      "n": 5,
+      "achieved_rate": {
+        "mean": 0.010028413839211098,
+        "sd": 0.0
+      },
+      "n_poison": {
+        "mean": 60.0,
+        "sd": 0.0
+      },
+      "asr": {
+        "mean": 0.9290687322616578,
+        "sd": 0.050747081930686826
+      },
+      "auc": {
+        "mean": 0.8306291856604199,
+        "sd": 0.05715127243524467
+      },
+      "fixed_recall": {
+        "mean": 0.22333333333333333,
+        "sd": 0.06624868971450597
+      },
+      "mad_recall": {
+        "mean": 0.30999999999999994,
+        "sd": 0.07958224257542215
+      },
+      "mad_fpr": {
+        "mean": 0.020496370082728345,
+        "sd": 0.01016132811711333
+      }
+    },
+    {
+      "rate": 0.02,
+      "n": 5,
+      "achieved_rate": {
+        "mean": 0.0200198544010589,
+        "sd": 0.0
+      },
+      "n_poison": {
+        "mean": 121.0,
+        "sd": 0.0
+      },
+      "asr": {
+        "mean": 0.9784035444259643,
+        "sd": 0.014134596524801243
+      },
+      "auc": {
+        "mean": 0.866225374398444,
+        "sd": 0.05764768141248138
+      },
+      "fixed_recall": {
+        "mean": 0.4694214876033058,
+        "sd": 0.18325875586257953
+      },
+      "mad_recall": {
+        "mean": 0.43966942148760335,
+        "sd": 0.18930852068252305
+      },
+      "mad_fpr": {
+        "mean": 0.018200236366706063,
+        "sd": 0.005007553101196875
+      }
+    },
+    {
+      "rate": 0.05,
+      "n": 5,
+      "achieved_rate": {
+        "mean": 0.05004009623095429,
+        "sd": 0.0
+      },
+      "n_poison": {
+        "mean": 312.0,
+        "sd": 0.0
+      },
+      "asr": {
+        "mean": 0.995964527130127,
+        "sd": 0.0038281224427049593
+      },
+      "auc": {
+        "mean": 0.9794514647376372,
+        "sd": 0.01153575625460166
+      },
+      "fixed_recall": {
+        "mean": 0.8839743589743589,
+        "sd": 0.05483486356023836
+      },
+      "mad_recall": {
+        "mean": 0.8275641025641025,
+        "sd": 0.04506597180352002
+      },
+      "mad_fpr": {
+        "mean": 0.011953401992233667,
+        "sd": 0.005007553101196875
+      }
+    },
+    {
+      "rate": 0.1,
+      "n": 5,
+      "achieved_rate": {
+        "mean": 0.09998480474092084,
+        "sd": 0.0
+      },
+      "n_poison": {
+        "mean": 658.0,
+        "sd": 0.0
+      },
+      "asr": {
+        "mean": 0.9981153011322021,
+        "sd": 0.001929809155767222
+      },
+      "auc": {
+        "mean": 0.990051968858712,
+        "sd": 0.0046967433089742435
+      },
+      "fixed_recall": {
+        "mean": 0.9580547112462007,
+        "sd": 0.02328751526976042
+      },
+      "mad_recall": {
+        "mean": 0.8334346504559271,
+        "sd": 0.04901775373914771
+      },
+      "mad_fpr": {
+        "mean": 0.005672800945466825,
+        "sd": 0.0027447756288867904
+      }
+    },
+    {
+      "rate": 0.3134,
+      "n": 5,
+      "achieved_rate": {
+        "mean": 0.31343456589776286,
+        "sd": 0.0
+      },
+      "n_poison": {
+        "mean": 2704.0,
+        "sd": 0.0
+      },
+      "asr": {
+        "mean": 0.9998669624328613,
+        "sd": 0.00019832069578884168
+      },
+      "auc": {
+        "mean": 0.9813994087835306,
+        "sd": 0.005086253605590155
+      },
+      "fixed_recall": {
+        "mean": 0.9809171597633137,
+        "sd": 0.008710870130436256
+      },
+      "mad_recall": {
+        "mean": 0.18520710059171597,
+        "sd": 0.05857012163927378
+      },
+      "mad_fpr": {
+        "mean": 0.0,
+        "sd": 0.0
+      }
+    }
+  ],
+  "elapsed_s": 75.2
+}

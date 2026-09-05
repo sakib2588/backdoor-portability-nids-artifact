@@ -289,6 +289,15 @@ def run_control(seed, S, cfg, device, ranking, ranking_kind: str = "mlp",
     # defective" from "decision rule fails". Authorized by the user 2026-09-03.
     axes["cluster_composition"] = cluster_composition(labels, is_poison,
                                                       scoring["unabsorbed_clusters"])
+    # H4 (notes/20260904-hypothesis-calibration-not-representation.md): the rule
+    # absorbs the clusters a surrogate fits with lowest loss. Clean-label poison is
+    # correctly labeled and homogeneous, so it should be among the EARLIEST absorbed
+    # rather than merely absorbed. iterative_scoring already computes the order and
+    # this was discarding it; persisting it turns a plausible mechanism into a
+    # measured one. Rank 0 is the seed cluster, rank 1 is absorbed first.
+    axes["absorption_rank_by_cluster"] = scoring["absorption_rank_by_cluster"]
+    axes["loss_delta_by_cluster"] = scoring["loss_delta_by_cluster"]
+    axes["cluster_sizes"] = scoring["cluster_sizes"]
     return dict(seed=seed, rate=CONTROL_RATE, cost=CONTROL_COST, victim="mlp", variant="violating",
                 ranking_kind=ranking_kind, stage1_bypassed=bool(bypass_stage1),
                 n_poison=int(is_poison.sum()), n_target=int(len(is_poison)),

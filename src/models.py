@@ -57,7 +57,8 @@ def _class_weights(y: np.ndarray, n_classes: int = 2) -> torch.Tensor:
 
 
 def train_mlp(x_tr_std, y_tr, seed: int, epochs: int = 20, device: str = "cpu",
-              batch_size: int = 2048, log_every: int = 0) -> MLPVictim:
+              batch_size: int = 2048, log_every: int = 0,
+              n_classes: int | None = None) -> MLPVictim:
     """`in_dim`/class-weighting are already inferred from `x_tr_std`/`y_tr` at call time -- verified
     generic across dataset scale (timed at ~4s/epoch on UNSW-NB15's 1.267M-row/38-feature secondary
     train set on GPU, vs. CTU-13's 143k-row/757-feature primary set; no NaN/Inf, no dtype overflow, no
@@ -75,8 +76,14 @@ def train_mlp(x_tr_std, y_tr, seed: int, epochs: int = 20, device: str = "cpu",
     # small model (the compute per step is tiny; the transfers are not). Big speedup on weak GPUs.
     x = torch.as_tensor(np.asarray(x_tr_std), dtype=torch.float32, device=device)
     y = torch.as_tensor(np.asarray(y_tr), dtype=torch.long, device=device)
-    model = MLPVictim(in_dim=x.shape[1]).to(device)
-    weight = _class_weights(np.asarray(y_tr)).to(device)
+    # n_classes is inferred from the labels unless given. Binary y yields max(2, 1+1) = 2,
+    # so every existing call site is bit-identical to before this parameter existed. It is
+    # here because MLPVictim and _class_weights already accepted n_classes while train_mlp
+    # never forwarded it, so a ten-class label vector raised inside cross_entropy rather
+    # than training a ten-class head. See notes/20260904-decision-nc-multiclass-prep.md.
+    n_cls = int(n_classes) if n_classes is not None else max(2, int(np.asarray(y_tr).max()) + 1)
+    model = MLPVictim(in_dim=x.shape[1], n_classes=n_cls).to(device)
+    weight = _class_weights(np.asarray(y_tr), n_classes=n_cls).to(device)
     opt = torch.optim.Adam(model.parameters(), lr=1e-3)
     n = len(x)
     model.train()
@@ -228,6 +235,32 @@ def mlp_penultimate_features(model: MLPVictim, x_std, device: str = "cpu") -> np
     x = torch.as_tensor(np.asarray(x_std), dtype=torch.float32)
     return np.concatenate(
         batched_apply(lambda xb: model.features(xb).cpu().numpy(), x, device), axis=0)
+
+
+def mlp_input_gradients(model: MLPVictim, x_std, target: int, device: str = "cpu") -> np.ndarray:
+    """Per-row gradient of the target-class logit with respect to the standardized input, (N, D).
+
+    The local linear model of a piecewise-linear network. For a ReLU victim the value of this
+    gradient is fixed by which units are active at that row, so it is the row's active path
+    expressed in input coordinates. Used by `src.detectors.active_paths`.
+
+    This is the gradient-carrying counterpart to `mlp_penultimate_features`, which is decorated
+    `@torch.no_grad()` and therefore cannot supply it. Model parameters are not updated and no
+    optimizer is involved; the graph is built only to differentiate the output with respect to the
+    input, and the model is left in eval mode so dropout and batch statistics do not move.
+
+    Batching follows `batched_apply`'s contract, but the gradient must be taken per chunk rather
+    than under a global no-grad, so the loop is written out here.
+    """
+    model = model.to(device).eval()
+    x = torch.as_tensor(np.asarray(x_std), dtype=torch.float32)
+    out = []
+    for i in range(0, len(x), 1024):
+        xb = x[i:i + 1024].to(device).clone().requires_grad_(True)
+        logit = model(xb)[:, target].sum()
+        (grad,) = torch.autograd.grad(logit, xb)
+        out.append(grad.detach().cpu().numpy())
+    return np.concatenate(out, axis=0) if out else np.zeros((0, x.shape[1]), dtype=np.float32)
 
 
 @torch.no_grad()

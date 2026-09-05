@@ -31,7 +31,8 @@ from src.data import apply_standardiser
 from src.data_secondary import load_secondary_setup
 from src.detectors import poison_recall
 from src.detectors.spectral import flag_by_mad_threshold, flag_by_scores, spectral_scores
-from src.detectors.strip import strip_scores
+from src.detectors.strip import (calibrate_strip_cutoff, strip_scores,
+                                 strip_threshold_flag)
 from src.models import attack_success_rate, clean_accuracy, mlp_penultimate_features, train_mlp
 from src.poison import poison_secondary_trainset, poison_trainset_cleanlabel
 from src.tb_vendor.constraints_numeric import check_constraints
@@ -46,6 +47,8 @@ TARGET = config.ATTACK_TARGET
 Z_THRESHOLDS = (2.0, 2.5, 3.0)
 N_TRIALS = 64
 ALPHA = 0.5
+STRIP_FRR = 0.01     # Gao et al.'s published operating point, 1% false rejection
+STRIP_RULE = "gao-frr-nonstrict"   # tie-inclusive; a strict cut cannot fire on the softmax floor
 
 CTU_WINDOW_CELLS = [(0.005, 8), (0.005, 16), (0.01, 8), (0.01, 16)]
 UNSW_WINDOW_CELLS = [(0.005, 16), (0.01, 8), (0.01, 16)]
@@ -100,6 +103,17 @@ def score_cell(mlp, x_p_std, y_p, poison_idx, x_te_std, device, seed):
                              device=device, seed=seed)
     strip_fixed = flag_by_scores(strip_sc, expected_frac=float(is_poison.mean()))
     strip_fixed_recall = poison_recall(strip_fixed, is_poison) if has_poison else None
+
+    # STRIP's own published rule: an entropy cutoff fit at a 1% false rejection rate on clean
+    # held-out rows, disjoint from the rows scored above. Until this was wired in, STRIP was the
+    # only detector in this project scored solely under a top-k budget it does not publish, and
+    # its recall under that budget feeds two claims in the manuscript.
+    strip_cut, strip_diag = calibrate_strip_cutoff(mlp, x_te_std, n_trials=N_TRIALS, alpha=ALPHA,
+                                                   device=device, seed=seed, frr=STRIP_FRR,
+                                                   return_diagnostics=True)
+    strip_frr_flag = strip_threshold_flag(strip_sc, strip_cut)
+    strip_frr_recall = poison_recall(strip_frr_flag, is_poison) if has_poison else None
+    strip_frr_fpr = (float((strip_frr_flag & ~is_poison).sum() / n_clean) if n_clean > 0 else None)
     strip_auc = (float(roc_auc_score(is_poison, strip_sc))
                  if has_poison and is_poison.sum() < len(is_poison) else None)
     strip_mad = {}
@@ -114,7 +128,10 @@ def score_cell(mlp, x_p_std, y_p, poison_idx, x_te_std, device, seed):
     return dict(
         n_poison=n_poison, n_benign=n_benign,
         spectral=dict(recall=spec_recall, auc=spec_auc),
-        strip=dict(fixed_recall=strip_fixed_recall, auc=strip_auc, mad=strip_mad),
+        strip=dict(fixed_recall=strip_fixed_recall, auc=strip_auc, mad=strip_mad,
+                   frr_recall=strip_frr_recall, frr_fpr=strip_frr_fpr,
+                   frr_target=STRIP_FRR, entropy_cut=float(strip_cut),
+                   frr_calibration=dict(strip_diag)),
     )
 
 
@@ -212,6 +229,7 @@ def main():
     ckpt_path = out_path.with_suffix(".checkpoint.json")
     ckpt_key = dict(smoke=smoke, ctu_cells=CTU_WINDOW_CELLS, unsw_cells=UNSW_WINDOW_CELLS,
                      mlp_epochs=cfg["mlp_epochs"], n_trials=N_TRIALS, alpha=ALPHA,
+                     strip_frr=STRIP_FRR, strip_rule=STRIP_RULE,
                      constraints=manifest_fingerprint())
     rows = load_checkpoint(ckpt_path, ckpt_key)
     save_cb = lambda: save_checkpoint(ckpt_path, ckpt_key, rows)

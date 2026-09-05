@@ -1,0 +1,175 @@
+{
+  "_question": "does the budget-free cutoff lie above STRIP's attainable maximum score?",
+  "cell": {
+    "rate": 0.005,
+    "cost": 16
+  },
+  "z_thresholds": [
+    2.0,
+    2.5,
+    3.0
+  ],
+  "mad_scale": 0.6745,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "summary": {
+    "median": -0.055791647732257844,
+    "mad": 0.04694767453074746,
+    "max_score": -2.7631020735330303e-11,
+    "threshold": {
+      "2.0": 0.08341568964579246,
+      "2.5": 0.11821752399030505,
+      "3.0": 0.1530193583348176
+    },
+    "all_thresholds_above_max": true,
+    "total_flagged": 0
+  },
+  "rows": [
+    {
+      "seed": 42,
+      "n_scored": 111666,
+      "n_poison": 572,
+      "median": -0.03573852404952049,
+      "mad": 0.035686679106220254,
+      "max_score": -2.7631020735330303e-11,
+      "per_z": {
+        "2.0": {
+          "threshold": 0.07007816714757441,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "2.5": {
+          "threshold": 0.09653233994684812,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "3.0": {
+          "threshold": 0.12298651274612185,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "n_scored": 111666,
+      "n_poison": 572,
+      "median": -0.05589488707482815,
+      "mad": 0.046006045769900084,
+      "max_score": -2.7631020735330303e-11,
+      "per_z": {
+        "2.0": {
+          "threshold": 0.0805203709530446,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "2.5": {
+          "threshold": 0.1146241854600128,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "3.0": {
+          "threshold": 0.14872799996698097,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "n_scored": 111666,
+      "n_poison": 572,
+      "median": -0.07017723843455315,
+      "mad": 0.05474245548248291,
+      "max_score": -2.7631020735330303e-11,
+      "per_z": {
+        "2.0": {
+          "threshold": 0.09214286677666378,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "2.5": {
+          "threshold": 0.13272289307946802,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "3.0": {
+          "threshold": 0.17330291938227224,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "n_scored": 111666,
+      "n_poison": 572,
+      "median": -0.07472966238856316,
+      "mad": 0.05851506069302559,
+      "max_score": -2.7631020735330303e-11,
+      "per_z": {
+        "2.0": {
+          "threshold": 0.0987768185396076,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "2.5": {
+          "threshold": 0.1421534387716503,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "3.0": {
+          "threshold": 0.18553005900369302,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "n_scored": 111666,
+      "n_poison": 572,
+      "median": -0.04241792671382427,
+      "mad": 0.03978813160210848,
+      "max_score": -2.7631020735330303e-11,
+      "per_z": {
+        "2.0": {
+          "threshold": 0.07556022481207189,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "2.5": {
+          "threshold": 0.10505476269354594,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        },
+        "3.0": {
+          "threshold": 0.13454930057501996,
+          "above_attainable_max": true,
+          "n_flagged": 0,
+          "recall": 0.0
+        }
+      }
+    }
+  ],
+  "elapsed_s": 226.1
+}

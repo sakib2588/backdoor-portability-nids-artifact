@@ -32,10 +32,11 @@ instrument has the same property, so the two are consistent with each other.
 ASSERT ONLY, NEVER GENERATE: writes results/venue_band_sections.json and prints a table.
 It does not touch the manuscript.
 
-Run:  python3 scripts/89_venue_band_sections.py
+Run:  python3 scripts/89_venue_band_sections.py [--corpus DIR] [--min-pages N] [--out F]
 """
 from __future__ import annotations
 
+import argparse
 import json
 import pathlib
 import re
@@ -48,20 +49,42 @@ from src.prose_metrics import CITE_TOKEN, band, percentile_of, words_in
 from src.reference_corpus import _REFERENCES_HEAD_RE, _split_paragraphs, _strip_markup
 from src.tex_prose import _strip_tex
 
-CORPUS = config.ROOT / "references" / "venue_band_md"
+# The corpus directory this instrument was written against, references/venue_band_md, is not
+# tracked by git -- it exists only on the machine that built it, so the script crashed with
+# FileNotFoundError on the other machine. corpus/venue_band_md/ is the tracked copy of the same
+# marker output and is searched as a fallback. Both are accepted so neither machine has to be
+# special-cased; --corpus overrides.
+CORPUS_CANDIDATES = [
+    config.ROOT / "references" / "venue_band_md",
+    config.ROOT / "corpus" / "venue_band_md",
+]
+# Page counts for the selection filter. The 18-paper set is not the whole corpus: it is the
+# 25-entry manifest filtered to pages > 12, matching scripts/75. The tracked corpus directory
+# holds all 25, so the filter has to be applied here rather than assumed from the directory
+# listing -- on references/venue_band_md it is a no-op because that directory holds only the 18.
+MANIFEST = config.ROOT / "corpus" / "venue_band" / "manifest.json"
+MIN_PAGES_DEFAULT = 13  # pages > 12
 PAPER = config.ROOT / "paper_access"
 OUT = config.RESULTS / "venue_band_sections.json"
 
 OURS = [
     ("introduction", "sections/01_introduction.tex"),
     ("related_work", "sections/02_related_work.tex"),
-    ("threat_model", "sections/03_threat_model.tex"),
     ("methods", "sections/04_methods.tex"),
     ("results", "sections/05_results.tex"),
     ("discussion_conclusion", "sections/06_discussion.tex"),
+    # The appendix is measured even though the corpus gives it no usable band: 15 of the 18
+    # corpus papers have no appendix heading at all, so there is nothing to compare against.
+    # It is here because leaving it out made the instrument gameable, and it was gamed. On
+    # 2026-09-04 five subsections moved out of Results into the appendix, Results fell 5,037
+    # to 3,739, and the appendix rose 436 to 1,912 -- almost the whole improvement was text
+    # relocated into the one file this list did not name. Counting it does not make the move
+    # wrong, appendices are normal at this venue, but it stops the total from shrinking when
+    # nothing was actually cut. See notes/20260904-bug-venue-band-appendix-uncounted.md.
+    ("appendix", "sections/07_appendix.tex"),
 ]
 
-ROLES = ["introduction", "related_work", "threat_model", "methods", "results",
+ROLES = ["introduction", "related_work", "threat_model", "methods", "results", "appendix",
          "discussion", "conclusion", "limitations"]
 
 # A section heading line: optional markdown hashes, optional bold, Roman numeral, dot,
@@ -154,11 +177,65 @@ def measure_ours() -> dict:
     return out
 
 
-def main() -> int:
-    per_paper, unmeasurable = {}, []
-    for d in sorted(p for p in CORPUS.iterdir() if p.is_dir()):
+def resolve_corpus(explicit: str | None) -> pathlib.Path:
+    if explicit:
+        d = pathlib.Path(explicit)
+        if not d.is_dir():
+            raise SystemExit(f"--corpus {explicit} is not a directory")
+        return d
+    for d in CORPUS_CANDIDATES:
+        if d.is_dir():
+            return d
+    raise SystemExit("no corpus directory found; tried "
+                     + ", ".join(str(d.relative_to(config.ROOT)) for d in CORPUS_CANDIDATES))
+
+
+def manifest_pages() -> dict[str, int]:
+    if not MANIFEST.is_file():
+        return {}
+    papers = json.loads(MANIFEST.read_text(encoding="utf-8")).get("papers", [])
+    return {e["slug"]: e["pages"] for e in papers if "slug" in e and "pages" in e}
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--corpus", default=None,
+                    help="corpus directory of marker output (default: first of "
+                         "references/venue_band_md, corpus/venue_band_md that exists)")
+    ap.add_argument("--min-pages", type=int, default=MIN_PAGES_DEFAULT,
+                    help=f"keep corpus papers with at least this many pages "
+                         f"(default {MIN_PAGES_DEFAULT}, i.e. the pages > 12 rule scripts/75 "
+                         f"uses). Pass 0 to measure the whole manifest.")
+    ap.add_argument("--out", default=None,
+                    help="output JSON path (default results/venue_band_sections.json). Use this "
+                         "for a non-default corpus or filter so the committed baseline is not "
+                         "overwritten by a sensitivity run.")
+    return ap.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    corpus = resolve_corpus(args.corpus)
+    out_path = pathlib.Path(args.out) if args.out else OUT
+    pages = manifest_pages()
+
+    per_paper, unmeasurable, excluded = {}, [], []
+    for d in sorted(p for p in corpus.iterdir() if p.is_dir()):
         mds = list(d.glob("*.md"))
         if len(mds) != 1:
+            continue
+        # Ours is stored alongside the corpus in the tracked copy; it is the thing being
+        # measured, so it can never be part of the band it is measured against.
+        if d.name.startswith("00_OURS"):
+            excluded.append({"paper": d.name, "reason": "ours, not a corpus paper"})
+            continue
+        n_pages = pages.get(d.name)
+        if args.min_pages and n_pages is not None and n_pages < args.min_pages:
+            excluded.append({"paper": d.name,
+                             "reason": f"{n_pages} pages < --min-pages {args.min_pages}"})
+            continue
+        if args.min_pages and n_pages is None:
+            excluded.append({"paper": d.name, "reason": "no page count in manifest"})
             continue
         try:
             per_paper[d.name] = measure_corpus_paper(mds[0])
@@ -188,12 +265,14 @@ def main() -> int:
         table.append({"role": role, "n": b["n"], "ours": o, "band": b, "pct": pct,
                       "verdict": verdict})
 
-    OUT.write_text(json.dumps({
+    out_path.write_text(json.dumps({
         "_schema": "venue_band_sections/1",
         "_instrument": "scripts/89_venue_band_sections.py",
-        "_corpus": {"root": str(CORPUS.relative_to(config.ROOT)),
+        "_corpus": {"root": str(corpus.relative_to(config.ROOT)),
+                    "min_pages": args.min_pages,
                     "n_measured": len(per_paper), "n_unmeasurable": len(unmeasurable),
-                    "unmeasurable": unmeasurable},
+                    "unmeasurable": unmeasurable,
+                    "n_excluded": len(excluded), "excluded": excluded},
         "_caveats": [
             "role mapping is a keyword rule over heading text; every assignment is listed",
             "ours merges discussion and conclusion; compared to the corpus tail summed per paper",
@@ -204,7 +283,11 @@ def main() -> int:
         "per_paper": per_paper,
     }, indent=2))
 
-    print(f"corpus papers measured: {len(per_paper)}, unmeasurable: {len(unmeasurable)}")
+    print(f"corpus: {corpus.relative_to(config.ROOT)}  min_pages={args.min_pages}")
+    print(f"corpus papers measured: {len(per_paper)}, unmeasurable: {len(unmeasurable)}, "
+          f"excluded: {len(excluded)}")
+    for e in excluded:
+        print(f"  excluded: {e['paper'][:50]} -- {e['reason']}")
     for u in unmeasurable:
         print(f"  unmeasurable: {u['paper'][:50]} -- {u['reason']}")
     print()
@@ -222,7 +305,7 @@ def main() -> int:
         parts = ", ".join(f"{a['numeral']}.{a['title'][:28]}->{a['role']}({a['words']})"
                           for a in p["assignments"])
         print(f"  {name[:45]}: {parts}")
-    print(f"\nwrote {OUT.relative_to(config.ROOT)}")
+    print(f"\nwrote {out_path}")
     return 0
 
 

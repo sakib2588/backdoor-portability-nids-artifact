@@ -1,0 +1,68 @@
+{
+  "_schema": "anchor_cell_budget_free/1",
+  "_instrument": "scripts/109_anchor_cell_budget_free.py",
+  "_source": "full_grid_mad_sweep.json",
+  "cell": {
+    "corpus": "CTU-13",
+    "rate": 0.005,
+    "cost": 16,
+    "z": 3.0,
+    "n_seeds": 5,
+    "n_benign_denominator": 111666
+  },
+  "_estimators": "mean_n_flagged is the mean of per-seed flagged counts. mean_of_per_seed_precision is the mean of per-seed precisions. precision_of_the_means is n_poison / mean_n_flagged. The last two differ because the mean of a ratio is not the ratio of the means; the manuscript prints mean_n_flagged and mean_of_per_seed_precision.",
+  "n_poison_recovered": 572,
+  "recall_every_seed": 1.0,
+  "mean_n_flagged": 8017.2,
+  "mean_n_flagged_rounded": 8017,
+  "mean_of_per_seed_precision": 0.0713867684706516,
+  "precision_of_the_means": 0.07134660479968069,
+  "mean_fpr": 0.06667383088854262,
+  "per_seed": [
+    {
+      "seed": 42,
+      "n_flagged": 8244,
+      "n_true_positive": 572,
+      "n_false_positive": 7672,
+      "recall": 1.0,
+      "fpr": 0.06870488779037487,
+      "precision": 0.06938379427462397
+    },
+    {
+      "seed": 123,
+      "n_flagged": 8224,
+      "n_true_positive": 572,
+      "n_false_positive": 7652,
+      "recall": 1.0,
+      "fpr": 0.06852578224347608,
+      "precision": 0.06955252918287938
+    },
+    {
+      "seed": 456,
+      "n_flagged": 7980,
+      "n_true_positive": 572,
+      "n_false_positive": 7408,
+      "recall": 1.0,
+      "fpr": 0.06634069457131088,
+      "precision": 0.07167919799498747
+    },
+    {
+      "seed": 789,
+      "n_flagged": 7761,
+      "n_true_positive": 572,
+      "n_false_positive": 7189,
+      "recall": 1.0,
+      "fpr": 0.06437948883276916,
+      "precision": 0.07370184254606366
+    },
+    {
+      "seed": 1337,
+      "n_flagged": 7877,
+      "n_true_positive": 572,
+      "n_false_positive": 7305,
+      "recall": 1.0,
+      "fpr": 0.06541830100478212,
+      "precision": 0.07261647835470357
+    }
+  ]
+}

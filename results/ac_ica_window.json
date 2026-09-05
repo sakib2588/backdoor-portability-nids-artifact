@@ -1,0 +1,401 @@
+{
+  "_WARNING": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+  "interpretable": false,
+  "vision_gate": "notes/20260903-experiment-ac-ica-vision-gate.md: ICA fails 2 of 5 seeds",
+  "device": "cuda",
+  "cells": [
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.985411390788049,
+        "smaller_cluster_frac": 0.0003671663711425143
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9900040225124583,
+        "smaller_cluster_frac": 0.000528361363351423
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9892307499711145,
+        "smaller_cluster_frac": 0.00038507692583239305
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9859939967902194,
+        "smaller_cluster_frac": 0.000313434707072878
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 8,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0017482517482517483,
+        "silhouette": 0.9921450187392958,
+        "smaller_cluster_frac": 0.0004298533125570899
+      },
+      "ica": {
+        "recall": 0.024475524475524476,
+        "silhouette": 0.8608127341854761,
+        "smaller_cluster_frac": 0.0234270055343614
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9858442378197646,
+        "smaller_cluster_frac": 0.0003313452617627568
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9893772340652164,
+        "smaller_cluster_frac": 0.0005641824727311805
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.984424888295422,
+        "smaller_cluster_frac": 0.0005373166406963623
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9845560993317627,
+        "smaller_cluster_frac": 0.000313434707072878
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 1.7910554689878745e-05
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.005,
+      "cost": 16,
+      "n_poison": 572,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9896427278488272,
+        "smaller_cluster_frac": 0.0005373166406963623
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9801012201074818,
+        "smaller_cluster_frac": 0.0006447799688356348
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9892266685100858,
+        "smaller_cluster_frac": 0.0006089588594558774
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0034965034965034965,
+        "silhouette": 0.978110063723338,
+        "smaller_cluster_frac": 0.0009313488438736948
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9816424821558805,
+        "smaller_cluster_frac": 0.0005104508086615443
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 8,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9922967289848944,
+        "smaller_cluster_frac": 0.00043880858990202925
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 42,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0,
+        "silhouette": 0.9853314308555877,
+        "smaller_cluster_frac": 0.00034925581645263556
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.9874149849645695,
+        "smaller_cluster_frac": 0.000671645800870453
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 1.0,
+        "silhouette": 0.9249724072648623,
+        "smaller_cluster_frac": 0.030636003797037594
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 1.0,
+        "silhouette": 0.9299140742088357,
+        "smaller_cluster_frac": 0.029203159421847296
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.01,
+      "cost": 16,
+      "n_poison": 1144,
+      "n_benign": 111666,
+      "interpretable": false,
+      "reason": "FastICA fails the matched MNIST vision control on 2 of 5 seeds (0.4996, 0.5717) where PCA clears it on 5 of 5 (min 0.9778), and changing only the solver seed moves recall by up to 0.4922. A null behind a failed control is uninterpretable, so these values must not be quoted as a result about ICA on tabular NIDS. See notes/20260903-experiment-ac-ica-vision-gate.md.",
+      "pca": {
+        "recall": 0.0008741258741258741,
+        "silhouette": 0.992250553311588,
+        "smaller_cluster_frac": 0.00042089803521215053
+      },
+      "ica": {
+        "recall": 0.0,
+        "silhouette": null,
+        "smaller_cluster_frac": 8.955277344939373e-06
+      }
+    }
+  ],
+  "summary": {
+    "pca_recall": {
+      "mean": 0.10048076923076923,
+      "sd": 0.3076304114465792,
+      "n": 20
+    },
+    "ica_recall": {
+      "mean": 0.0012237762237762239,
+      "sd": 0.005472893651223261,
+      "n": 20
+    }
+  },
+  "elapsed_s": 283.0
+}

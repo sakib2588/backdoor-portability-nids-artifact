@@ -18,6 +18,8 @@
     ],
     "n_trials": 64,
     "alpha": 0.5,
+    "strip_frr": 0.01,
+    "strip_rule": "gao-frr-nonstrict",
     "smoke": false
   },
   "summary": {
@@ -86,6 +88,19 @@
           "2.0": 0.0,
           "2.5": 0.0,
           "3.0": 0.0
+        },
+        "frr_recall": 0.9101712687871374,
+        "frr_fpr": 0.02910027939288681,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0224609375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0224609375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "spectre": {
@@ -130,6 +145,19 @@
           "2.0": 0.0,
           "2.5": 0.0,
           "3.0": 0.0
+        },
+        "frr_recall": 0.9456483746941629,
+        "frr_fpr": 0.029345692063731783,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0224609375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0224609375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "spectre": {
@@ -174,6 +202,19 @@
           "2.0": 0.0,
           "2.5": 0.0,
           "3.0": 0.0
+        },
+        "frr_recall": 0.9570080391471514,
+        "frr_fpr": 0.027316318054821414,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.025390625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.025390625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "spectre": {
@@ -218,6 +259,19 @@
           "2.0": 0.0,
           "2.5": 0.0,
           "3.0": 0.0
+        },
+        "frr_recall": 0.9994757077944775,
+        "frr_fpr": 0.025994865211810013,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0224609375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0224609375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "spectre": {
@@ -262,6 +316,19 @@
           "2.0": 0.0,
           "2.5": 0.0,
           "3.0": 0.0
+        },
+        "frr_recall": 0.9940580216707445,
+        "frr_fpr": 0.031157970248433135,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0224609375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0224609375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "spectre": {

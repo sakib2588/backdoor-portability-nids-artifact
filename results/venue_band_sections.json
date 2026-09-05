@@ -2,10 +2,46 @@
   "_schema": "venue_band_sections/1",
   "_instrument": "scripts/89_venue_band_sections.py",
   "_corpus": {
-    "root": "references/venue_band_md",
+    "root": "corpus/venue_band_md",
+    "min_pages": 13,
     "n_measured": 18,
     "n_unmeasurable": 0,
-    "unmeasurable": []
+    "unmeasurable": [],
+    "n_excluded": 8,
+    "excluded": [
+      {
+        "paper": "00_OURS_iccit_main",
+        "reason": "ours, not a corpus paper"
+      },
+      {
+        "paper": "2020_a_machine_learning_security_framework_for_iot_sy_W3026477862",
+        "reason": "12 pages < --min-pages 13"
+      },
+      {
+        "paper": "2020_bat_deep_learning_methods_on_network_intrusion_d_W3005630930",
+        "reason": "11 pages < --min-pages 13"
+      },
+      {
+        "paper": "2020_canet_an_unsupervised_intrusion_detection_system_W2948384692",
+        "reason": "12 pages < --min-pages 13"
+      },
+      {
+        "paper": "2020_cicids_2017_dataset_feature_analysis_with_inform_W3043530913",
+        "reason": "11 pages < --min-pages 13"
+      },
+      {
+        "paper": "2020_effective_attack_detection_in_internet_of_medica_W3015392399",
+        "reason": "9 pages < --min-pages 13"
+      },
+      {
+        "paper": "2020_intrusion_detection_system_for_healthcare_system_W3033120446",
+        "reason": "9 pages < --min-pages 13"
+      },
+      {
+        "paper": "2020_network_intrusion_detection_based_on_pso_xgboost_W3012981875",
+        "reason": "10 pages < --min-pages 13"
+      }
+    ]
   },
   "_caveats": [
     "role mapping is a keyword rule over heading text; every assignment is listed",
@@ -13,44 +49,44 @@
     "ours undercounts lines carrying \\ref/\\label (stripper drops the line tail)"
   ],
   "ours": {
-    "introduction": 896,
-    "related_work": 1309,
-    "threat_model": 705,
-    "methods": 3444,
-    "results": 5037,
-    "discussion_conclusion": 1699
+    "introduction": 819,
+    "related_work": 1475,
+    "methods": 4978,
+    "results": 4090,
+    "discussion_conclusion": 1670,
+    "appendix": 3556
   },
   "table": [
     {
       "role": "introduction",
       "n": 18,
-      "ours": 896,
+      "ours": 819,
       "band": {
         "n": 18,
         "min": 414,
         "median": 826.5,
         "max": 1600
       },
-      "pct": 61,
+      "pct": 50,
       "verdict": "in band"
     },
     {
       "role": "related_work",
       "n": 16,
-      "ours": 1309,
+      "ours": 1475,
       "band": {
         "n": 16,
         "min": 549,
         "median": 1437.5,
         "max": 3276
       },
-      "pct": 38,
+      "pct": 69,
       "verdict": "in band"
     },
     {
       "role": "threat_model",
       "n": 1,
-      "ours": 705,
+      "ours": null,
       "band": null,
       "pct": null,
       "verdict": "band undefined (fewer than 3 corpus papers carry it)"
@@ -58,20 +94,20 @@
     {
       "role": "methods",
       "n": 16,
-      "ours": 3444,
+      "ours": 4978,
       "band": {
         "n": 16,
         "min": 824,
         "median": 2524.0,
         "max": 11591
       },
-      "pct": 75,
+      "pct": 88,
       "verdict": "in band"
     },
     {
       "role": "results",
       "n": 14,
-      "ours": 5037,
+      "ours": 4090,
       "band": {
         "n": 14,
         "min": 1181,
@@ -79,7 +115,15 @@
         "max": 3537
       },
       "pct": 100,
-      "verdict": "above ceiling by 1500"
+      "verdict": "above ceiling by 553"
+    },
+    {
+      "role": "appendix",
+      "n": 0,
+      "ours": 3556,
+      "band": null,
+      "pct": null,
+      "verdict": "band undefined (fewer than 3 corpus papers carry it)"
     },
     {
       "role": "discussion",
@@ -118,7 +162,7 @@
     {
       "role": "discussion_conclusion",
       "n": 18,
-      "ours": 1699,
+      "ours": 1670,
       "band": {
         "n": 18,
         "min": 164,

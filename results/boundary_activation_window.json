@@ -1,0 +1,159 @@
+{
+  "preregistration": "notes/20260904-prereg-boundary-activation-detector.md",
+  "device": "cuda",
+  "falsifier": {
+    "n_rows": 114436,
+    "mean_active": 319.2926439232409,
+    "median_active": 324.0,
+    "max_active": 325.0,
+    "frac_rows_with_any_active": 1.0,
+    "quantiles": {
+      "0.5": 324.0,
+      "0.9": 324.0,
+      "0.99": 324.0,
+      "1.0": 325.0
+    }
+  },
+  "falsifier_ceiling": 0.5,
+  "premise_in_doubt": true,
+  "gate0_bar": 0.9,
+  "gate0_min_seeds": 4,
+  "gate0_aucs": [
+    0.07361114890503044,
+    0.06294102919527261,
+    0.07374288591602726,
+    0.06375330336817325,
+    0.06325975455486524
+  ],
+  "gate0_seeds_clearing": 0,
+  "controls": [
+    {
+      "seed": 42,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "mean_active_poison": 310.5318070604684,
+      "mean_active_clean": 319.66166087744466,
+      "boundary": {
+        "fixed_recall": 0.0,
+        "auc": 0.07361114890503044,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "mean_active_poison": 308.48060118839567,
+      "mean_active_clean": 319.6716472853583,
+      "boundary": {
+        "fixed_recall": 0.0,
+        "auc": 0.06294102919527261,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        }
+      }
+    },
+    {
+      "seed": 456,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "mean_active_poison": 310.5050681579867,
+      "mean_active_clean": 319.66605942762214,
+      "boundary": {
+        "fixed_recall": 0.0,
+        "auc": 0.07374288591602726,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        }
+      }
+    },
+    {
+      "seed": 789,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "mean_active_poison": 308.64505417686127,
+      "mean_active_clean": 319.6628501850034,
+      "boundary": {
+        "fixed_recall": 0.0,
+        "auc": 0.06375330336817325,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1337,
+      "rate": 0.05,
+      "cost": 8,
+      "violating": true,
+      "n_poison": 5722,
+      "n_benign": 111666,
+      "expected_frac": 0.05124209696774309,
+      "mean_active_poison": 308.51765117091924,
+      "mean_active_clean": 319.6688533564902,
+      "boundary": {
+        "fixed_recall": 0.0,
+        "auc": 0.06325975455486524,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        }
+      }
+    }
+  ],
+  "blocked": true,
+  "reason": "gate 0 did not clear: the loud constraint-violating control did not reach ranking AUC 0.90 on at least 4 seeds. The detector does not enter the paper and no parameter is tuned to pass.",
+  "elapsed_s": 122.7
+}

@@ -4,8 +4,9 @@ Code and result files for the manuscript *One Poisoning Recipe, Two Outcomes: Da
 Backdoor Realization and the Portability of Vision-Built Detectors to Tabular Network Intrusion
 Detection*.
 
-Appendix A of the paper maps every reported quantity to a file in `results/`. This repository is
-that mapping's target: each row of the provenance table names a file here.
+The paper's appendix maps every reported quantity to a file in `results/`. That index lives here
+rather than in the paper, as `docs/artifact/PROVENANCE.md`; each of its rows names a file in
+`results/`. The build refuses to publish if any row names a file the export does not contain.
 
 ## Layout
 
@@ -15,6 +16,7 @@ that mapping's target: each row of the provenance table names a file here.
 | `scripts/` | Numbered experiment scripts. Each writes a JSON file into `results/` and checkpoints its progress |
 | `results/` | Every committed result file the paper cites, plus the resumable checkpoints |
 | `tests/` | Test suite covering the constraint layer, the projectors, the detector gates and the decision logic |
+| `docs/artifact/` | `PROVENANCE.md`, the quantity-to-file index the appendix defers to, and supporting notes |
 
 ## Reproducing
 

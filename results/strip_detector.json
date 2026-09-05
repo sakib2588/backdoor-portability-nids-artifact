@@ -35,7 +35,10 @@
     ],
     "mlp_epochs": 20,
     "n_trials": 64,
-    "alpha": 0.5
+    "alpha": 0.5,
+    "strip_frr": 0.01,
+    "strip_rule": "gao-frr-nonstrict",
+    "constraints": "b1b6575ad54751f5"
   },
   "rows": {
     "ctu13|42|0.005|8": {
@@ -61,6 +64,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.736013986013986,
+        "frr_fpr": 0.02823734855167696,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.021484375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.021484375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -93,6 +109,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.02796730696527265,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.02197265625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.02197265625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -125,6 +154,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.7124125874125874,
+        "frr_fpr": 0.02849206492824958,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.021484375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.021484375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -157,6 +199,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.02828396156421346,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.021484375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.021484375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -189,6 +244,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.6625874125874126,
+        "frr_fpr": 0.02650008101247592,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01904296875,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.01904296875,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -221,6 +289,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.030109636884080148,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0205078125,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0205078125,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -253,6 +334,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.6713286713286714,
+        "frr_fpr": 0.029614013499574744,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0205078125,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0205078125,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -285,6 +379,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.9973776223776224,
+        "frr_fpr": 0.028347297370659236,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.02001953125,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.02001953125,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -317,6 +424,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.03352116225898789,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.03125,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.03125,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -349,6 +469,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.02864241093128342,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.02587890625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.02587890625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -381,6 +514,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.9921328671328671,
+        "frr_fpr": 0.03239174101083947,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.02978515625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.02978515625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -413,6 +559,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.026926765711803986,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.025390625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.025390625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -445,6 +604,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.6398601398601399,
+        "frr_fpr": 0.027058166957711488,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0244140625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0244140625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -477,6 +649,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.02857940122778908,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.02587890625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.02587890625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -509,6 +694,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.5638111888111889,
+        "frr_fpr": 0.025868152946924593,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.02392578125,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.02392578125,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -541,6 +739,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.9912587412587412,
+        "frr_fpr": 0.024375237509274172,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.02197265625,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.02197265625,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -573,6 +784,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.6328671328671329,
+        "frr_fpr": 0.02911948440059769,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.021484375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.021484375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -605,6 +829,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.02831836102759825,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01953125,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.01953125,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -637,6 +874,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.7019230769230769,
+        "frr_fpr": 0.030129747923490345,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.0224609375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.0224609375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -669,6 +919,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 1.0,
+        "frr_fpr": 0.028691120319936304,
+        "frr_target": 0.01,
+        "entropy_cut": 2.7631020735330303e-11,
+        "frr_calibration": {
+          "cutoff": 2.7631020735330303e-11,
+          "requested_frr": 0.01,
+          "realized_frr": 0.021484375,
+          "strict_frr": 0.0,
+          "tie_mass_at_cutoff": 0.021484375,
+          "n_calibration": 2048,
+          "degenerate": true
         }
       },
       "dataset": "ctu13",
@@ -701,6 +964,19 @@
             "recall": 0.02130345589395613,
             "fpr": 0.0024656017983814243
           }
+        },
+        "frr_recall": 0.021776866024932933,
+        "frr_fpr": 0.002486793747722884,
+        "frr_target": 0.01,
+        "entropy_cut": 0.03417937122285378,
+        "frr_calibration": {
+          "cutoff": 0.03417937122285378,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -733,6 +1009,19 @@
             "recall": 0.0028404607858608173,
             "fpr": 0.002448088721094856
           }
+        },
+        "frr_recall": 0.0022881489663878806,
+        "frr_fpr": 0.002312903098946044,
+        "frr_target": 0.01,
+        "entropy_cut": 0.027955456282943512,
+        "frr_calibration": {
+          "cutoff": 0.027955456282943512,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -765,6 +1054,19 @@
             "recall": 0.04300142023039293,
             "fpr": 0.0024677520843165014
           }
+        },
+        "frr_recall": 0.04008205775603598,
+        "frr_fpr": 0.0023997496198416442,
+        "frr_target": 0.01,
+        "entropy_cut": 0.03461158463731441,
+        "frr_calibration": {
+          "cutoff": 0.03461158463731441,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -797,6 +1099,19 @@
             "recall": 0.0004734101309768029,
             "fpr": 0.002187661232018427
           }
+        },
+        "frr_recall": 0.0004734101309768029,
+        "frr_fpr": 0.0023131827781178453,
+        "frr_target": 0.01,
+        "entropy_cut": 0.03845235280692587,
+        "frr_calibration": {
+          "cutoff": 0.03845235280692587,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -829,6 +1144,19 @@
             "recall": 0.04308032191888907,
             "fpr": 0.0026807718525509935
           }
+        },
+        "frr_recall": 0.05349534480037873,
+        "frr_fpr": 0.0031928386031146766,
+        "frr_target": 0.01,
+        "entropy_cut": 0.023977572657168045,
+        "frr_calibration": {
+          "cutoff": 0.023977572657168045,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -861,6 +1189,19 @@
             "recall": 0.0006312135079690705,
             "fpr": 0.0023612422001992556
           }
+        },
+        "frr_recall": 0.0006312135079690705,
+        "frr_fpr": 0.0028569228147449005,
+        "frr_target": 0.01,
+        "entropy_cut": 0.04740862615406519,
+        "frr_calibration": {
+          "cutoff": 0.04740862615406519,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -893,6 +1234,19 @@
             "recall": 0.0,
             "fpr": 0.0
           }
+        },
+        "frr_recall": 0.003471674293829888,
+        "frr_fpr": 0.0030255583059807757,
+        "frr_target": 0.01,
+        "entropy_cut": 0.020980988368392007,
+        "frr_calibration": {
+          "cutoff": 0.020980988368392007,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -925,6 +1279,19 @@
             "recall": 0.017673978223133976,
             "fpr": 0.002670120864139269
           }
+        },
+        "frr_recall": 0.006864446899163642,
+        "frr_fpr": 0.0014575467988044676,
+        "frr_target": 0.01,
+        "entropy_cut": 0.009393554879352523,
+        "frr_calibration": {
+          "cutoff": 0.009393554879352523,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -957,6 +1324,19 @@
             "recall": 0.0006312135079690705,
             "fpr": 0.002072026899480887
           }
+        },
+        "frr_recall": 0.00015780337699226762,
+        "frr_fpr": 0.0007160741439882544,
+        "frr_target": 0.01,
+        "entropy_cut": 0.007341647059656717,
+        "frr_calibration": {
+          "cutoff": 0.007341647059656717,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -989,6 +1369,19 @@
             "recall": 0.001262427015938141,
             "fpr": 0.001948029189464993
           }
+        },
+        "frr_recall": 0.0007890168849613382,
+        "frr_fpr": 0.0018436995927070352,
+        "frr_target": 0.01,
+        "entropy_cut": 0.02493482587859044,
+        "frr_calibration": {
+          "cutoff": 0.02493482587859044,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -1021,6 +1414,19 @@
             "recall": 0.007101151964652043,
             "fpr": 0.0016713858738398616
           }
+        },
+        "frr_recall": 0.009547104308032192,
+        "frr_fpr": 0.002166247181584605,
+        "frr_target": 0.01,
+        "entropy_cut": 0.04188601400703202,
+        "frr_calibration": {
+          "cutoff": 0.04188601400703202,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -1053,6 +1459,19 @@
             "recall": 0.011993056651412341,
             "fpr": 0.002362880813801059
           }
+        },
+        "frr_recall": 0.015859239387722896,
+        "frr_fpr": 0.0030175069477216716,
+        "frr_target": 0.01,
+        "entropy_cut": 0.03689212542027236,
+        "frr_calibration": {
+          "cutoff": 0.03689212542027236,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -1085,6 +1504,19 @@
             "recall": 0.0014202303929304087,
             "fpr": 0.001533971102331848
           }
+        },
+        "frr_recall": 0.0,
+        "frr_fpr": 0.000766985551165924,
+        "frr_target": 0.01,
+        "entropy_cut": 0.009717207048088317,
+        "frr_calibration": {
+          "cutoff": 0.009717207048088317,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -1117,6 +1549,19 @@
             "recall": 0.0031560675398453527,
             "fpr": 0.001729556656703896
           }
+        },
+        "frr_recall": 0.002209247277891747,
+        "frr_fpr": 0.0009995542971003094,
+        "frr_target": 0.01,
+        "entropy_cut": 0.044290727414190816,
+        "frr_calibration": {
+          "cutoff": 0.044290727414190816,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",
@@ -1149,6 +1594,19 @@
             "recall": 0.03534795644626795,
             "fpr": 0.003572177651932253
           }
+        },
+        "frr_recall": 0.014517910683288622,
+        "frr_fpr": 0.0027684376802474962,
+        "frr_target": 0.01,
+        "entropy_cut": 0.021432663761079336,
+        "frr_calibration": {
+          "cutoff": 0.021432663761079336,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "dataset": "unsw_nb15",

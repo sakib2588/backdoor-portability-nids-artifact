@@ -17,7 +17,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import Patch
+from matplotlib.patches import Patch, Rectangle
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -107,6 +107,14 @@ def fig1_failure_boundary(detectors):
                     ax.text(j, i, f"{v:.2f}", ha="center", va="center",
                             color="white" if v < 0.5 else "black",
                             fontsize=PRINT_PT)
+        # The four budget-starvation window cells, rate in {0.005, 0.01} x cost in {8, 16},
+        # are a contiguous block on these axes. The caption names them; outline them so a
+        # reader does not have to cross-reference the rate and cost lists by eye.
+        wi = [i for i, r in enumerate(rates) if r in (0.005, 0.01)]
+        wj = [j for j, c in enumerate(costs) if c in (8, 16)]
+        if wi and wj:
+            ax.add_patch(Rectangle((min(wj) - 0.5, min(wi) - 0.5), len(wj), len(wi),
+                                   fill=False, edgecolor="white", linewidth=1.2, zorder=5))
     axes[0].set_ylabel("poison rate", fontsize=PRINT_PT, labelpad=1.5)
     cb = fig.colorbar(im, ax=axes, label="poison recall", shrink=0.95, pad=0.015)
     cb.ax.tick_params(labelsize=PRINT_PT, length=1.5, width=0.4, pad=1.0)

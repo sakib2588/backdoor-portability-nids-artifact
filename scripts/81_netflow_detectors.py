@@ -63,7 +63,8 @@ from src.detectors.neural_cleanse import (
 )
 from src.detectors.spectral import flag_by_mad_threshold, flag_by_scores, spectral_scores
 from src.detectors.spectre import spectre_scores
-from src.detectors.strip import strip_scores
+from src.detectors.strip import (calibrate_strip_cutoff, strip_scores,
+                                 strip_threshold_flag)
 from src.models import attack_success_rate, clean_accuracy, mlp_penultimate_features, train_mlp
 from src.poison import poison_secondary_trainset_raw
 from src.trigger import apply_secondary_trigger, build_secondary_trigger, shap_rank_features
@@ -76,6 +77,8 @@ BUDGET_MULTIPLIER = 1.5
 SILHOUETTE_SAMPLE = 10_000
 STRIP_N_TRIALS = 64          # matches scripts/62 and 70
 STRIP_ALPHA = 0.5
+STRIP_FRR = 0.01             # Gao et al.'s published operating point
+STRIP_RULE = "gao-frr-nonstrict"   # tie-inclusive; a strict cut cannot fire on the softmax floor
 STRIP_MAX_SCORED = 20_000    # STRIP perturbs each row n_trials times
 MAX_SCORED = 200_000         # uniform subsample of the target-class pool
 SUBSAMPLE_SEED = 20260903
@@ -106,6 +109,7 @@ def config_key(args, gate) -> dict:
                 n_sigma=N_SIGMA, spectral_k=SPECTRAL_K, z=list(Z_THRESHOLDS),
                 multiplier=BUDGET_MULTIPLIER, max_scored=args.max_scored,
                 strip_max_scored=STRIP_MAX_SCORED, strip_trials=STRIP_N_TRIALS,
+                strip_frr=STRIP_FRR, strip_rule=STRIP_RULE,
                 nc_sample=args.nc_sample, nc_steps=args.nc_steps,
                 control=dict(rate=CONTROL_RATE, cost=CONTROL_COST, bar=CONTROL_RECALL_BAR),
                 manifest=manifest_fingerprint(), repairs=repair_fingerprint(),
@@ -146,7 +150,8 @@ def load_sample(gate: dict, tag: str) -> SimpleNamespace:
         x_te_attack_raw=S.x_te_raw[S.y_te != TARGET], benign_share=row["benign_share"])
 
 
-def rule_block(scores, is_poison, expected_frac) -> dict:
+def rule_block(scores, is_poison, expected_frac, entropy_cut=None,
+               cut_diagnostics=None) -> dict:
     """Both decision rules against one score vector, plus the ranking metric and each rule's cost.
 
     The paper's finding is that portability is decided by the RULE, not the score, so the two are
@@ -163,6 +168,23 @@ def rule_block(scores, is_poison, expected_frac) -> dict:
         flag = flag_by_mad_threshold(scores, z_thresh=z)
         out["mad_recall"][str(z)] = poison_recall(flag, is_poison)
         out["mad_fpr"][str(z)] = float((flag & ~is_poison).sum() / n_clean) if n_clean else None
+    if entropy_cut is not None:
+        # STRIP's own published rule (Gao et al., ACSAC 2019): flag below an entropy threshold
+        # fit at a target false rejection rate on clean held-out rows. Reported alongside the
+        # other two rather than replacing them, because the paper's claim is about which RULE a
+        # score supports, and STRIP was previously the only detector here scored solely under a
+        # rule it does not publish.
+        frr_flag = strip_threshold_flag(scores, entropy_cut)
+        out["frr_recall"] = poison_recall(frr_flag, is_poison)
+        out["frr_fpr"] = (float((frr_flag & ~is_poison).sum() / n_clean) if n_clean else None)
+        out["entropy_cut"] = float(entropy_cut)
+        out["frr_target"] = STRIP_FRR
+        # The rate the cutoff actually achieved on the calibration pool, which is not always the
+        # rate requested: STRIP's clamped-softmax floor puts a point mass at the cutoff, and the
+        # achievable rates jump over the target. Recorded so a degenerate fit is visible in the
+        # artifact rather than showing up as a clean-looking zero.
+        if cut_diagnostics is not None:
+            out["frr_calibration"] = dict(cut_diagnostics)
     return out
 
 
@@ -214,7 +236,12 @@ def score_all_detectors(mlp, x_p_std, y_p, poison_idx, S, args, seed, device) ->
         blend = apply_standardiser(S.scaler, S.x_te_raw[S.y_te == TARGET][:5000])
         strip_sc = strip_scores(mlp, x_p_std[benign_pos[s_idx]], blend, n_trials=STRIP_N_TRIALS,
                                 alpha=STRIP_ALPHA, device=device, seed=seed)
-        out["strip"] = rule_block(np.asarray(strip_sc, float), s_poison, float(s_poison.mean()))
+        strip_cut, strip_diag = calibrate_strip_cutoff(
+            mlp, blend, n_trials=STRIP_N_TRIALS, alpha=STRIP_ALPHA, device=device, seed=seed,
+            frr=STRIP_FRR, return_diagnostics=True)
+        out["strip"] = rule_block(np.asarray(strip_sc, float), s_poison, float(s_poison.mean()),
+                                  entropy_cut=strip_cut,
+                                  cut_diagnostics=strip_diag)
         out["strip"]["n_scored"] = int(len(s_idx))
     else:
         out["strip"] = dict(interpretable=False,

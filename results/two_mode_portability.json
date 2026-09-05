@@ -1,0 +1,175 @@
+{
+  "_schema": "two_mode_portability/1",
+  "_instrument": "scripts/94_two_mode_portability.py",
+  "_hypothesis": "notes/20260904-hypothesis-calibration-not-representation.md (H1)",
+  "_window_cells": [
+    [
+      0.005,
+      8
+    ],
+    [
+      0.005,
+      16
+    ],
+    [
+      0.01,
+      8
+    ],
+    [
+      0.01,
+      16
+    ]
+  ],
+  "_thresholds": {
+    "chance_ceiling": 0.7,
+    "starved_ceiling": 0.5,
+    "z": "3.0"
+  },
+  "_caveats": [
+    "The density-mitigation arm failed its own pre-registered loud control and does not enter the paper as a defense. It is used here as evidence about decision rules, which is a different claim, and any manuscript text must keep that distinction explicit.",
+    "The Activation Clustering score reaching AUC 0.9626 is our constructed gated statistic, not the published rule. Its presence is what makes AC a rule failure rather than a representation failure, but the published detector still has no score.",
+    "All five window arms are the four CTU-13 cells at rate 0.005 and 0.01 by cost 8 and 16, five seeds each, but they come from four separate sweep files written by different scripts. Values are compared across code paths and a small disagreement between them is expected."
+  ],
+  "by_mode": {
+    "calibration": [
+      "Spectral Signatures",
+      "SPECTRE",
+      "STRIP"
+    ],
+    "structural": [
+      "Activation Clustering",
+      "Neural Cleanse",
+      "density mitigation (HDBSCAN)"
+    ]
+  },
+  "detectors": [
+    {
+      "detector": "Spectral Signatures",
+      "corpus": "CTU-13",
+      "statistic": "top-k singular projection",
+      "auc": 0.9825,
+      "published_rule_recall": 0.1425,
+      "refit_rule_recall": 1.0,
+      "mode": "calibration",
+      "note": "budget-free MAD rule recovers the signal, which is what a calibration failure predicts",
+      "note_fits_computed_mode": true
+    },
+    {
+      "detector": "Activation Clustering",
+      "corpus": "CTU-13",
+      "statistic": null,
+      "auc": null,
+      "published_rule_recall": 0.1005,
+      "refit_rule_recall": null,
+      "mode": "structural",
+      "note": "the published rule emits a partition, not a score, so there is no threshold to refit; a score has to be constructed first",
+      "note_fits_computed_mode": true
+    },
+    {
+      "detector": "SPECTRE",
+      "corpus": "CTU-13",
+      "statistic": "robust-whitened top eigenvector",
+      "auc": 0.9136,
+      "published_rule_recall": 0.0156,
+      "refit_rule_recall": 1.0,
+      "mode": "calibration",
+      "note": "budget-free rule recovers the signal, at a higher false-positive cost than Spectral pays",
+      "note_fits_computed_mode": true
+    },
+    {
+      "detector": "STRIP",
+      "corpus": "CTU-13",
+      "statistic": "prediction entropy under superimposition",
+      "auc": 0.9625,
+      "published_rule_recall": 0.2767,
+      "refit_rule_recall": 0.0,
+      "mode": "calibration",
+      "note": "the statistic ports but the budget-free rule does not recover it either, flagging nothing at 0 false positives. A calibration failure that our own refit does not repair, which is the honest boundary of the repairable class.",
+      "note_fits_computed_mode": true
+    },
+    {
+      "detector": "Neural Cleanse",
+      "corpus": "CTU-13",
+      "statistic": "MAD anomaly index over per-class mask norms",
+      "auc": null,
+      "published_rule_recall": null,
+      "refit_rule_recall": null,
+      "mode": "structural",
+      "note": "the anomaly index is degenerate at two classes, a provable property of the median-absolute-deviation statistic over two values rather than a tuning failure",
+      "source_keys": [
+        "nids_detection_ci",
+        "nids_detection_rate",
+        "note",
+        "vision_detection_ci",
+        "vision_detection_rate"
+      ]
+    },
+    {
+      "detector": "density mitigation (HDBSCAN)",
+      "corpus": "CTU-13 loud control",
+      "statistic": "cluster membership",
+      "auc": 0.6,
+      "published_rule_recall": 0.0,
+      "refit_rule_recall": null,
+      "mode": "structural",
+      "note": "the clustering separates the poison perfectly, so the failure is not the statistic. The rule absorbs the clusters a surrogate fits with lowest loss, and clean-label poison is by construction the easiest rows in the space, so the ordering is adverse and no constant repairs it. See H4.",
+      "per_seed": [
+        {
+          "seed": 42,
+          "auc": 0.6012,
+          "recall": 0.0,
+          "poison_cluster_size": 5722,
+          "poison_cluster_n_poison": 5722,
+          "poison_cluster_purity": 1.0,
+          "poison_cluster_absorbed": true,
+          "poison_in_noise": 0,
+          "pure_benign_clusters_kept": 8
+        },
+        {
+          "seed": 123,
+          "auc": 0.5959,
+          "recall": 0.0,
+          "poison_cluster_size": 5722,
+          "poison_cluster_n_poison": 5722,
+          "poison_cluster_purity": 1.0,
+          "poison_cluster_absorbed": true,
+          "poison_in_noise": 0,
+          "pure_benign_clusters_kept": 8
+        },
+        {
+          "seed": 456,
+          "auc": 0.6002,
+          "recall": 0.0,
+          "poison_cluster_size": 5722,
+          "poison_cluster_n_poison": 5722,
+          "poison_cluster_purity": 1.0,
+          "poison_cluster_absorbed": true,
+          "poison_in_noise": 0,
+          "pure_benign_clusters_kept": 7
+        },
+        {
+          "seed": 789,
+          "auc": 0.6017,
+          "recall": 0.0,
+          "poison_cluster_size": 5722,
+          "poison_cluster_n_poison": 5722,
+          "poison_cluster_purity": 1.0,
+          "poison_cluster_absorbed": true,
+          "poison_in_noise": 0,
+          "pure_benign_clusters_kept": 8
+        },
+        {
+          "seed": 1337,
+          "auc": 0.601,
+          "recall": 0.0,
+          "poison_cluster_size": 5722,
+          "poison_cluster_n_poison": 5722,
+          "poison_cluster_purity": 1.0,
+          "poison_cluster_absorbed": true,
+          "poison_in_noise": 0,
+          "pure_benign_clusters_kept": 7
+        }
+      ]
+    }
+  ]
+}

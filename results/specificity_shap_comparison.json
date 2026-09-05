@@ -1,0 +1,245 @@
+{
+  "preregistration": "notes/20260905-prereg-specificity-shap-comparison.md",
+  "device": "cuda",
+  "rate": 0.005,
+  "costs": [
+    6,
+    7
+  ],
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1337
+  ],
+  "specific_delta": -0.02,
+  "counterevidence_seeds": [
+    789
+  ],
+  "min_specific_seeds": 2,
+  "cells": [
+    {
+      "seed": 42,
+      "cost": 6,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350
+      ],
+      "clean_share_mean": 0.35364818888472044,
+      "clean_share_sd": 0.06005390408623997,
+      "poison_share_mean": 0.31577541104346957,
+      "poison_share_sd": 0.07159436706443169,
+      "delta": -0.03787277784125087,
+      "specific": true,
+      "counterevidence_seed": false
+    },
+    {
+      "seed": 123,
+      "cost": 6,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747
+      ],
+      "clean_share_mean": 0.36358808028084205,
+      "clean_share_sd": 0.0505169794452579,
+      "poison_share_mean": 0.27464137741881395,
+      "poison_share_sd": 0.07256951817284223,
+      "delta": -0.0889467028620281,
+      "specific": true,
+      "counterevidence_seed": false
+    },
+    {
+      "seed": 456,
+      "cost": 6,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747
+      ],
+      "clean_share_mean": 0.3358552297401095,
+      "clean_share_sd": 0.05922791096253151,
+      "poison_share_mean": 0.26273740993193073,
+      "poison_share_sd": 0.06850779181669535,
+      "delta": -0.07311781980817877,
+      "specific": true,
+      "counterevidence_seed": false
+    },
+    {
+      "seed": 789,
+      "cost": 6,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        350,
+        739
+      ],
+      "clean_share_mean": 0.1773449085376623,
+      "clean_share_sd": 0.06545574130222997,
+      "poison_share_mean": 0.20911951995482245,
+      "poison_share_sd": 0.06700949888472665,
+      "delta": 0.03177461141716015,
+      "specific": false,
+      "counterevidence_seed": true
+    },
+    {
+      "seed": 1337,
+      "cost": 6,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350
+      ],
+      "clean_share_mean": 0.37385060840446427,
+      "clean_share_sd": 0.058881360374757344,
+      "poison_share_mean": 0.38797068171398363,
+      "poison_share_sd": 0.053930492674156276,
+      "delta": 0.014120073309519365,
+      "specific": false,
+      "counterevidence_seed": false
+    },
+    {
+      "seed": 42,
+      "cost": 7,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739
+      ],
+      "clean_share_mean": 0.3674015304121985,
+      "clean_share_sd": 0.059506540825999744,
+      "poison_share_mean": 0.3067030497466004,
+      "poison_share_sd": 0.07454844871683027,
+      "delta": -0.060698480665598076,
+      "specific": true,
+      "counterevidence_seed": false
+    },
+    {
+      "seed": 123,
+      "cost": 7,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        739
+      ],
+      "clean_share_mean": 0.3755886116609596,
+      "clean_share_sd": 0.04999111667652371,
+      "poison_share_mean": 0.3561432882709596,
+      "poison_share_sd": 0.06434715512779345,
+      "delta": -0.01944532338999999,
+      "specific": false,
+      "counterevidence_seed": false
+    },
+    {
+      "seed": 456,
+      "cost": 7,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        370,
+        349,
+        749,
+        350,
+        747,
+        600
+      ],
+      "clean_share_mean": 0.37712490441366936,
+      "clean_share_sd": 0.05662291259407876,
+      "poison_share_mean": 0.37560677636215184,
+      "poison_share_sd": 0.056562193444308254,
+      "delta": -0.00151812805151752,
+      "specific": false,
+      "counterevidence_seed": false
+    },
+    {
+      "seed": 789,
+      "cost": 7,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        350,
+        739,
+        747
+      ],
+      "clean_share_mean": 0.26110239795128937,
+      "clean_share_sd": 0.07356891362337943,
+      "poison_share_mean": 0.3998995241948897,
+      "poison_share_sd": 0.0562241721516839,
+      "delta": 0.13879712624360036,
+      "specific": false,
+      "counterevidence_seed": true
+    },
+    {
+      "seed": 1337,
+      "cost": 7,
+      "rate": 0.005,
+      "n_rows": 407,
+      "trigger_indices": [
+        748,
+        749,
+        370,
+        349,
+        747,
+        350,
+        739
+      ],
+      "clean_share_mean": 0.3883235823178032,
+      "clean_share_sd": 0.05912240411098886,
+      "poison_share_mean": 0.4019640544834726,
+      "poison_share_sd": 0.05633049119888459,
+      "delta": 0.013640472165669437,
+      "specific": false,
+      "counterevidence_seed": false
+    }
+  ],
+  "specific_seeds_eligible": [
+    42,
+    123,
+    456
+  ],
+  "verdict": "MECHANISM SUPPORTED",
+  "elapsed_s": 458.2
+}

@@ -60,7 +60,8 @@ from src.detectors import poison_recall
 from src.detectors.activation_clustering import detect as ac_detect
 from src.detectors.spectral import flag_by_mad_threshold, flag_by_scores, spectral_scores
 from src.detectors.spectre import spectre_scores
-from src.detectors.strip import strip_scores
+from src.detectors.strip import (calibrate_strip_cutoff, strip_scores,
+                                 strip_threshold_flag)
 from src.models import mlp_penultimate_features, train_mlp
 from src.poison import poison_secondary_trainset
 from src.trigger import build_secondary_trigger, shap_rank_features
@@ -70,6 +71,8 @@ SPECTRAL_K = 5
 Z_THRESHOLDS = (2.0, 2.5, 3.0)
 N_TRIALS = 64          # matches scripts/62 and 70
 ALPHA = 0.5            # matches scripts/62 and 70
+STRIP_FRR = 0.01       # Gao et al.'s published operating point, 1% false rejection
+STRIP_RULE = "gao-frr-nonstrict"   # tie-inclusive; a strict cut cannot fire on the softmax floor
 SILHOUETTE_SAMPLE = 10000   # see module docstring; NOT optional at this corpus size
 CONTROL_PASS_BAR = 0.7      # the same bar script 70 and the committed CTU control apply
 
@@ -94,7 +97,7 @@ def config_key(cfg) -> dict:
                 mlp_epochs=cfg["mlp_epochs"], control_rate=cfg["control_rate"],
                 control_cost=cfg["control_cost"], spectral_k=SPECTRAL_K,
                 z=list(Z_THRESHOLDS), n_trials=N_TRIALS, alpha=ALPHA,
-                silhouette_sample=SILHOUETTE_SAMPLE, trigger="violating_identity_projection",
+                strip_frr=STRIP_FRR, strip_rule=STRIP_RULE, silhouette_sample=SILHOUETTE_SAMPLE, trigger="violating_identity_projection",
                 smoke=cfg["smoke"])
 
 
@@ -118,7 +121,7 @@ def save_ckpt(key, rows):
     tmp.replace(CKPT)
 
 
-def rule_block(scores, is_poison, expected_frac):
+def rule_block(scores, is_poison, expected_frac, entropy_cut=None, cut_diagnostics=None):
     """Both decision rules against one score vector, plus the ranking metric.
 
     Identical to scripts/70's rule_block so the two corpora's control columns are produced by the
@@ -137,6 +140,23 @@ def rule_block(scores, is_poison, expected_frac):
         flag = flag_by_mad_threshold(scores, z_thresh=z)
         out["mad_recall"][str(z)] = poison_recall(flag, is_poison)
         out["mad_fpr"][str(z)] = float((flag & ~is_poison).sum() / n_clean) if n_clean else None
+    if entropy_cut is not None:
+        # STRIP's own published rule (Gao et al., ACSAC 2019): flag below an entropy threshold
+        # fit at a target false rejection rate on clean held-out rows. Reported alongside the
+        # other two rather than replacing them, because the paper's claim is about which RULE a
+        # score supports, and STRIP was previously the only detector here scored solely under a
+        # rule it does not publish.
+        frr_flag = strip_threshold_flag(scores, entropy_cut)
+        out["frr_recall"] = poison_recall(frr_flag, is_poison)
+        out["frr_fpr"] = (float((frr_flag & ~is_poison).sum() / n_clean) if n_clean else None)
+        out["entropy_cut"] = float(entropy_cut)
+        out["frr_target"] = STRIP_FRR
+        # The rate the cutoff actually achieved on the calibration pool, which is not always the
+        # rate requested: STRIP's clamped-softmax floor puts a point mass at the cutoff, and the
+        # achievable rates jump over the target. Recorded so a degenerate fit is visible in the
+        # artifact rather than showing up as a clean-looking zero.
+        if cut_diagnostics is not None:
+            out["frr_calibration"] = dict(cut_diagnostics)
     return out
 
 
@@ -198,6 +218,9 @@ def main() -> int:
         ac_recall = poison_recall(ac_mask, is_poison)
         strip_sc = strip_scores(mlp_bd, x_p_std[benign_pos], x_te_std, n_trials=N_TRIALS,
                                 alpha=ALPHA, device=device, seed=seed)
+        strip_cut, strip_diag = calibrate_strip_cutoff(
+            mlp_bd, x_te_std, n_trials=N_TRIALS, alpha=ALPHA, device=device, seed=seed,
+            frr=STRIP_FRR, return_diagnostics=True)
         spct_sc = spectre_scores(feats, expected_frac=expected_frac)
 
         rows[str(seed)] = dict(
@@ -205,7 +228,8 @@ def main() -> int:
             n_poison=int(is_poison.sum()), n_benign=int(len(is_poison)),
             expected_frac=expected_frac,
             spectral_recall=spec_recall, ac_recall=ac_recall, ac_silhouette=ac_sil,
-            strip=rule_block(strip_sc, is_poison, expected_frac),
+            strip=rule_block(strip_sc, is_poison, expected_frac, entropy_cut=strip_cut,
+                             cut_diagnostics=strip_diag),
             spectre=rule_block(spct_sc, is_poison, expected_frac),
             seed_seconds=round(time.time() - t_seed, 1))
         save_ckpt(key, rows)

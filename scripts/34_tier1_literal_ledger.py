@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 from collections import defaultdict
@@ -109,6 +110,12 @@ def build_value_index() -> dict[str, list[str]]:
             continue
         rel = str(jf.relative_to(ROOT))
         for val, path in iter_json_values(data):
+            # A non-finite value indexes to junk keys ("inf", "nan") that no manuscript can print,
+            # and round() raises OverflowError on it. rule_capability_taxonomy.json legitimately
+            # carries inf: the constraint-departure arm's MAD is zero, so its rule falls back to
+            # the standard deviation and its z_max is genuinely unbounded.
+            if not math.isfinite(val):
+                continue
             for dp in range(0, 7):
                 for signed in (val, -val):
                     index[f"{signed:.{dp}f}".rstrip("0").rstrip(".") or "0"].append(f"{rel}:{path}")

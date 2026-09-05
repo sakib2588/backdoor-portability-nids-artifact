@@ -1,0 +1,84 @@
+{
+  "preregistration": "notes/20260905-prereg-tokenizer-magnitude-vs-sign.md",
+  "arch": "ft_transformer",
+  "d_token": 16,
+  "n_layers": 2,
+  "n_heads": 4,
+  "cell": [
+    0.005,
+    16
+  ],
+  "n_sigma": 6.0,
+  "seeds": [
+    42,
+    123
+  ],
+  "rows": [
+    {
+      "seed": 42,
+      "clean_model_acc": 0.9994553574670492,
+      "trigger_indices": [
+        356,
+        727,
+        724,
+        748,
+        728,
+        726,
+        733,
+        718,
+        421,
+        608,
+        428,
+        749,
+        361,
+        600,
+        348,
+        734
+      ],
+      "A_same_sign": {
+        "asr": 1.0,
+        "clean_acc": 0.9992738099560655,
+        "seconds": 348.0082733631134
+      },
+      "B_sign_flip": {
+        "asr": 0.06142506142506143,
+        "clean_acc": 0.9994190479648524,
+        "seconds": 352.4020028114319
+      }
+    },
+    {
+      "seed": 123,
+      "clean_model_acc": 0.9991830362005737,
+      "trigger_indices": [
+        749,
+        728,
+        724,
+        727,
+        733,
+        356,
+        608,
+        427,
+        718,
+        734,
+        595,
+        361,
+        721,
+        349,
+        629,
+        348
+      ],
+      "A_same_sign": {
+        "asr": 1.0,
+        "clean_acc": 0.999201190951672,
+        "seconds": 342.74701166152954
+      },
+      "B_sign_flip": {
+        "asr": 0.05896805896805897,
+        "clean_acc": 0.999201190951672,
+        "seconds": 344.30242013931274
+      }
+    }
+  ],
+  "note": "diagnostic, no pass/fail bar -- see preregistration for what a result does and does not license",
+  "elapsed_seconds": 2573.869975566864
+}
