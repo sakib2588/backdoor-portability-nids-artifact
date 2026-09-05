@@ -131,7 +131,7 @@ def main() -> int:
           "05_results.tex (moment statistic)", checks)
     check("pooled rate prediction AUC",
           f"{_auc(y_all, [u['rate'] for u in units]):.4f}", "0.7138",
-          "05_results.tex (moment statistic)", checks)
+          "docs/artifact/SUPPLEMENTARY.md (moment statistic)", checks)
 
     # Stratified by arm. These are the numbers that reverse the pooled ordering.
     for arm, n_mad, n_bud, s1_want, rate_want in (
@@ -142,13 +142,13 @@ def main() -> int:
         ys = [bool(u["mad_wins"]) for u in sub]
         if n_mad is not None:
             check(f"{arm} MAD wins", f"{sum(ys)}", n_mad,
-                  "05_results.tex (moment statistic)", checks)
+                  "docs/artifact/SUPPLEMENTARY.md (moment statistic)", checks)
             check(f"{arm} budget wins", f"{len(ys) - sum(ys)}", n_bud,
-                  "05_results.tex (moment statistic)", checks)
+                  "docs/artifact/SUPPLEMENTARY.md (moment statistic)", checks)
         check(f"{arm} S1 AUC", f"{_auc(ys, [u['S1_bimodality'] for u in sub]):.4f}", s1_want,
-              "05_results.tex (moment statistic)", checks)
+              "docs/artifact/SUPPLEMENTARY.md (moment statistic)", checks)
         check(f"{arm} rate AUC", f"{_auc(ys, [u['rate'] for u in sub]):.4f}", rate_want,
-              "05_results.tex (moment statistic)", checks)
+              "docs/artifact/SUPPLEMENTARY.md (moment statistic)", checks)
 
     # The degenerate arms, quoted in the scope paragraph as "all 125".
     for arm, want in (("spectre", "125"), ("strip", "125")):
