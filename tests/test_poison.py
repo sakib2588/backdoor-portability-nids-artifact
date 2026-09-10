@@ -182,3 +182,25 @@ def test_secondary_realizable_poison_rows_pass_manifest(secondary_env):
         e["x"], e["y"], trig, 0.05, target=config.ATTACK_TARGET, seed=0)
     audit = audit_constraints(x_poisoned_raw[poison_idx], e["constraints"])
     assert audit["all_projectable_valid"] is True
+
+
+# --- STRIP's clean reference pool must be unpoisonable on the secondary dataset too ------------
+# Added 2026-09-06 when STRIP's blend/calibration pool moved off the test partition. The primary
+# path already had these guarantees; the secondary one did not.
+
+def test_secondary_exclude_none_reproduces_the_committed_draw():
+    """`exclude_idx=None` must leave the secondary candidate pool, and so the draw, bit-identical."""
+    x, y = _data()
+    a = poison_secondary_trainset_raw(x, y, _trigger(x.shape[1]), 0.05, seed=7)[2]
+    b = poison_secondary_trainset_raw(
+        x, y, _trigger(x.shape[1]), 0.05, seed=7, exclude_idx=None)[2]
+    assert np.array_equal(a, b)
+
+
+def test_secondary_excluded_rows_are_never_poisoned():
+    x, y = _data()
+    target_rows = np.where(y == config.ATTACK_TARGET)[0]
+    excluded = target_rows[:1000]
+    idx = poison_secondary_trainset_raw(
+        x, y, _trigger(x.shape[1]), 0.05, seed=7, exclude_idx=excluded)[2]
+    assert np.intersect1d(idx, excluded).size == 0

@@ -19,14 +19,27 @@
     ],
     "n_trials": 64,
     "alpha": 0.5,
+    "strip_frr": 0.01,
+    "strip_rule": "gao-frr-nonstrict",
     "silhouette_sample": 10000,
     "trigger": "violating_identity_projection",
-    "smoke": false
+    "smoke": false,
+    "score_all_arms_both_rules": true
   },
   "summary": {
     "spectral_recall": {
       "mean": 0.9334637841249803,
       "sd": 0.13018425385293553,
+      "n": 5
+    },
+    "spectral_auc": {
+      "mean": 0.9894902827523759,
+      "sd": 0.015457007376818646,
+      "n": 5
+    },
+    "spectral_mad_recall_3": {
+      "mean": 0.9936405239072117,
+      "sd": 0.005583798409072573,
       "n": 5
     },
     "ac_recall": {
@@ -65,14 +78,52 @@
       "n": 5
     },
     "mean_seed_seconds": {
-      "mean": 109.8,
-      "sd": 19.213927240416,
+      "mean": 99.22,
+      "sd": 12.086852361140181,
       "n": 5
     },
     "spectral_control_passes": true,
     "ac_control_passes": true,
     "strip_control_passes": true,
-    "spectre_control_passes": false
+    "spectre_control_passes": false,
+    "dual_rule_admission": {
+      "spectral": {
+        "published_rule_every_seed": true,
+        "budget_free_every_seed": true,
+        "ranking_auc": {
+          "mean": 0.9894902827523759,
+          "sd": 0.015457007376818646,
+          "n": 5
+        },
+        "admitted": true
+      },
+      "strip": {
+        "published_rule_every_seed": true,
+        "budget_free_every_seed": false,
+        "ranking_auc": {
+          "mean": 0.9795066026346172,
+          "sd": 0.02112568718313048,
+          "n": 5
+        },
+        "admitted": true
+      },
+      "spectre": {
+        "published_rule_every_seed": false,
+        "budget_free_every_seed": false,
+        "ranking_auc": {
+          "mean": 0.8581536514639673,
+          "sd": 0.04549152341045199,
+          "n": 5
+        },
+        "admitted": false
+      },
+      "ac": {
+        "published_rule_every_seed": true,
+        "budget_free_every_seed": null,
+        "ranking_auc": null,
+        "admitted": true
+      }
+    }
   },
   "per_seed": [
     {
@@ -84,6 +135,20 @@
       "spectral_recall": 0.9896954394824049,
       "ac_recall": 0.9896007574562096,
       "ac_silhouette": 0.6622999221439375,
+      "spectral": {
+        "fixed_recall": 0.9896954394824049,
+        "auc": 0.9921208146268284,
+        "mad_recall": {
+          "2.0": 0.9949976329493451,
+          "2.5": 0.992835726684551,
+          "3.0": 0.9918257850718005
+        },
+        "mad_fpr": {
+          "2.0": 0.060152259096908314,
+          "2.5": 0.04735914409393357,
+          "3.0": 0.042219160096012474
+        }
+      },
       "strip": {
         "fixed_recall": 0.9443585292725264,
         "auc": 0.9903817421308286,
@@ -96,6 +161,19 @@
           "2.0": 0.016274763900951235,
           "2.5": 0.003742366529668812,
           "3.0": 0.001438648439797307
+        },
+        "frr_recall": 0.5568881174057125,
+        "frr_fpr": 0.0018643447695769024,
+        "entropy_cut": 0.01993653367273543,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.01993653367273543,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "spectre": {
@@ -112,7 +190,7 @@
           "3.0": 0.17713155897176386
         }
       },
-      "seed_seconds": 143.9
+      "seed_seconds": 120.8
     },
     {
       "dataset": "unsw_nb15",
@@ -123,6 +201,20 @@
       "spectral_recall": 0.9948871705854505,
       "ac_recall": 0.9883856714533691,
       "ac_silhouette": 0.8167015884658003,
+      "spectral": {
+        "fixed_recall": 0.9948871705854505,
+        "auc": 0.9994573844480965,
+        "mad_recall": {
+          "2.0": 0.9994792488559255,
+          "2.5": 0.9991952027773394,
+          "3.0": 0.9989900583872495
+        },
+        "mad_fpr": {
+          "2.0": 0.10374339230395743,
+          "2.5": 0.0791393411793669,
+          "3.0": 0.06232604577688725
+        }
+      },
       "strip": {
         "fixed_recall": 0.9620167271579612,
         "auc": 0.9927878130270618,
@@ -135,6 +227,19 @@
           "2.0": 0.016022594388330792,
           "2.5": 0.00412532226408901,
           "3.0": 0.0
+        },
+        "frr_recall": 0.7774025564147072,
+        "frr_fpr": 0.004928845456845675,
+        "entropy_cut": 0.05007844634354125,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.05007844634354125,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "spectre": {
@@ -151,7 +256,7 @@
           "3.0": 0.15588606383051473
         }
       },
-      "seed_seconds": 104.3
+      "seed_seconds": 94.6
     },
     {
       "dataset": "unsw_nb15",
@@ -162,6 +267,20 @@
       "spectral_recall": 0.999857976960707,
       "ac_recall": 0.9892220293514281,
       "ac_silhouette": 0.8182430223835391,
+      "spectral": {
+        "fixed_recall": 0.999857976960707,
+        "auc": 0.9997643279255333,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 0.9999842196623008,
+          "3.0": 0.9999842196623008
+        },
+        "mad_fpr": {
+          "2.0": 0.05185716434955653,
+          "2.5": 0.041445555320007384,
+          "3.0": 0.035890987547100135
+        }
+      },
       "strip": {
         "fixed_recall": 0.9938772289727,
         "auc": 0.9980037123754061,
@@ -174,6 +293,19 @@
           "2.0": 0.01584821275926445,
           "2.5": 0.002996970546600926,
           "3.0": 0.0006693177233281589
+        },
+        "frr_recall": 0.7711062016727158,
+        "frr_fpr": 0.0010018395552242685,
+        "entropy_cut": 0.011520445924252276,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.011520445924252276,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "spectre": {
@@ -190,7 +322,7 @@
           "3.0": 0.17881895767655284
         }
       },
-      "seed_seconds": 102.0
+      "seed_seconds": 94.4
     },
     {
       "dataset": "unsw_nb15",
@@ -201,6 +333,20 @@
       "spectral_recall": 0.7008836989111566,
       "ac_recall": 0.9847404134448478,
       "ac_silhouette": 0.6261649704997212,
+      "spectral": {
+        "fixed_recall": 0.7008836989111566,
+        "auc": 0.9625254278687148,
+        "mad_recall": {
+          "2.0": 0.9946504655199622,
+          "2.5": 0.9910683288622376,
+          "3.0": 0.9873283888275209
+        },
+        "mad_fpr": {
+          "2.0": 0.06905512511027073,
+          "2.5": 0.06398010681729592,
+          "3.0": 0.059850510493670975
+        }
+      },
       "strip": {
         "fixed_recall": 0.7211929935300615,
         "auc": 0.9472547286710891,
@@ -213,6 +359,19 @@
           "2.0": 0.01746551688766404,
           "2.5": 0.004217641950065308,
           "3.0": 0.0012548638797518993
+        },
+        "frr_recall": 0.169102098784914,
+        "frr_fpr": 0.00169081795241775,
+        "entropy_cut": 0.0247222550585867,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.0247222550585867,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "spectre": {
@@ -229,7 +388,7 @@
           "3.0": 0.1682013389773714
         }
       },
-      "seed_seconds": 97.6
+      "seed_seconds": 93.6
     },
     {
       "dataset": "unsw_nb15",
@@ -240,6 +399,20 @@
       "spectral_recall": 0.9819946346851822,
       "ac_recall": 0.9791699542370207,
       "ac_silhouette": 0.6679554377197737,
+      "spectral": {
+        "fixed_recall": 0.9819946346851822,
+        "auc": 0.9935834588927068,
+        "mad_recall": {
+          "2.0": 0.9968123717847562,
+          "2.5": 0.9930566514123402,
+          "3.0": 0.9900741675871864
+        },
+        "mad_fpr": {
+          "2.0": 0.060085583768147655,
+          "2.5": 0.04715484404811565,
+          "3.0": 0.040268479323809586
+        }
+      },
       "strip": {
         "fixed_recall": 0.7859554994476882,
         "auc": 0.9691050169687003,
@@ -252,6 +425,19 @@
           "2.0": 0.015619123168138084,
           "2.5": 0.003467971907461482,
           "3.0": 0.0008992621263617153
+        },
+        "frr_recall": 0.1630266687707117,
+        "frr_fpr": 0.0009377286621851728,
+        "entropy_cut": 0.018157860394567488,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.018157860394567488,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
         }
       },
       "spectre": {
@@ -268,7 +454,7 @@
           "3.0": 0.17285664462391695
         }
       },
-      "seed_seconds": 101.2
+      "seed_seconds": 92.7
     }
   ]
 }

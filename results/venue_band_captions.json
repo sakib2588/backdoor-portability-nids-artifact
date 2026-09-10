@@ -15,38 +15,37 @@
   ],
   "ours": {
     "figure": [
-      64,
-      62,
-      57,
-      54,
-      50,
-      43,
-      36,
-      28
+      33,
+      29,
+      24,
+      24,
+      22,
+      19,
+      17,
+      16
     ],
     "table": [
-      74,
-      72,
-      67,
-      54,
-      44,
-      39,
-      27,
-      19,
+      37,
+      29,
+      21,
       18,
       17,
+      17,
+      13,
       12,
-      12,
-      11
+      11,
+      9,
+      7,
+      7
     ],
-    "total_words": 860,
-    "n_captions": 21
+    "total_words": 382,
+    "n_captions": 20
   },
   "table": [
     {
       "metric": "figure",
       "stat": "total",
-      "ours": 394,
+      "ours": 184,
       "n_ours_captions": 8,
       "band": {
         "n": 18,
@@ -55,12 +54,12 @@
         "max": 180
       },
       "pct": 100,
-      "verdict": "above ceiling by 214"
+      "verdict": "above ceiling by 4"
     },
     {
       "metric": "figure",
       "stat": "mean_per_caption",
-      "ours": 49.25,
+      "ours": 23.0,
       "n_ours_captions": 8,
       "band": {
         "n": 18,
@@ -69,41 +68,41 @@
         "max": 22.86
       },
       "pct": 100,
-      "verdict": "above ceiling by 26.4"
+      "verdict": "above ceiling by 0.1"
     },
     {
       "metric": "table",
       "stat": "total",
-      "ours": 466,
-      "n_ours_captions": 13,
+      "ours": 198,
+      "n_ours_captions": 12,
       "band": {
         "n": 18,
         "min": 18,
         "median": 80.5,
         "max": 204
       },
-      "pct": 100,
-      "verdict": "above ceiling by 262"
+      "pct": 94,
+      "verdict": "in band"
     },
     {
       "metric": "table",
       "stat": "mean_per_caption",
-      "ours": 35.85,
-      "n_ours_captions": 13,
+      "ours": 16.5,
+      "n_ours_captions": 12,
       "band": {
         "n": 18,
         "min": 4.0,
         "median": 7.39,
         "max": 19.22
       },
-      "pct": 100,
-      "verdict": "above ceiling by 16.6"
+      "pct": 94,
+      "verdict": "in band"
     },
     {
       "metric": "combined",
       "stat": "total",
-      "ours": 860,
-      "n_ours_captions": 21,
+      "ours": 382,
+      "n_ours_captions": 20,
       "band": {
         "n": 18,
         "min": 65,
@@ -111,13 +110,13 @@
         "max": 327
       },
       "pct": 100,
-      "verdict": "above ceiling by 533"
+      "verdict": "above ceiling by 55"
     },
     {
       "metric": "combined",
       "stat": "mean_per_caption",
-      "ours": 40.95,
-      "n_ours_captions": 21,
+      "ours": 19.1,
+      "n_ours_captions": 20,
       "band": {
         "n": 18,
         "min": 4.64,
@@ -125,7 +124,7 @@
         "max": 17.21
       },
       "pct": 100,
-      "verdict": "above ceiling by 23.7"
+      "verdict": "above ceiling by 1.9"
     }
   ],
   "per_paper": {

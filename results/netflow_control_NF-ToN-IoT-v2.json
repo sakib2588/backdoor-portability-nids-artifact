@@ -1,0 +1,525 @@
+{
+  "config_key": {
+    "smoke": false,
+    "mlp_epochs": 20,
+    "cost": 16,
+    "rate": 0.01,
+    "n_sigma": 6.0,
+    "spectral_k": 5,
+    "z": [
+      2.0,
+      2.5,
+      3.0
+    ],
+    "multiplier": 1.5,
+    "max_scored": 200000,
+    "strip_max_scored": 20000,
+    "strip_trials": 64,
+    "strip_frr": 0.01,
+    "strip_rule": "gao-frr-nonstrict",
+    "nc_sample": 400,
+    "nc_steps": 300,
+    "control": {
+      "rate": 0.01,
+      "cost": 8,
+      "bar": 0.9,
+      "corpus": "NF-ToN-IoT-v2"
+    },
+    "manifest": "7a8b75af6ac5d816b584acd99767ef225890b641d489a167c87464878351e84f",
+    "repairs": "623bd3f61df50359721760f90e0e4a7e7294d1cf875bde4d198b63819d67e26b",
+    "gate": {
+      "smoke": false,
+      "n_rows": 1200000,
+      "samples": [
+        "native__NF-BoT-IoT-v2",
+        "native__NF-ToN-IoT-v2",
+        "native__NF-CSE-CIC-IDS2018-v2",
+        "native__NF-UNSW-NB15-v2",
+        "share0.05__NF-CSE-CIC-IDS2018-v2",
+        "share0.20__NF-CSE-CIC-IDS2018-v2",
+        "share0.40__NF-CSE-CIC-IDS2018-v2",
+        "share0.60__NF-CSE-CIC-IDS2018-v2",
+        "share0.80__NF-CSE-CIC-IDS2018-v2",
+        "share0.96__NF-CSE-CIC-IDS2018-v2",
+        "share0.05__NF-ToN-IoT-v2",
+        "share0.20__NF-ToN-IoT-v2",
+        "share0.40__NF-ToN-IoT-v2",
+        "share0.60__NF-ToN-IoT-v2",
+        "share0.80__NF-ToN-IoT-v2",
+        "share0.96__NF-ToN-IoT-v2"
+      ],
+      "excluded_columns": [
+        "IPV4_SRC_ADDR",
+        "IPV4_DST_ADDR",
+        "L4_SRC_PORT",
+        "L4_DST_PORT",
+        "Label",
+        "Attack",
+        "Dataset"
+      ],
+      "train_frac": 0.8,
+      "split_seed": 20260903,
+      "rates": [
+        0.005,
+        0.01,
+        0.02
+      ],
+      "admission_threshold": 0.999,
+      "rate_cap": 12500000000.0,
+      "rate_capped_columns": [
+        "SRC_TO_DST_SECOND_BYTES",
+        "DST_TO_SRC_SECOND_BYTES"
+      ],
+      "manifest": "7a8b75af6ac5d816b584acd99767ef225890b641d489a167c87464878351e84f"
+    }
+  },
+  "controls": {
+    "42": {
+      "seed": 42,
+      "corpus": "NF-ToN-IoT-v2",
+      "tag": "native__NF-ToN-IoT-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9989517341962536,
+      "clean_acc": 0.9808375,
+      "n_scored": 200000,
+      "n_poison_scored": 5534,
+      "n_target_class_total": 345650,
+      "poison_fraction_scored": 0.02767,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9980177672690517,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.3792950952865797,
+          "2.5": 0.3731192084991721,
+          "3.0": 0.359924099842646
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.21467293097217202,
+        "auc": 0.787247893521659,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.2735491036993613,
+          "2.5": 0.2735491036993613,
+          "3.0": 0.2735491036993613
+        }
+      },
+      "ac": {
+        "recall": 0.0,
+        "n_flagged": 4,
+        "purity": 0.0,
+        "fpr": 2.0569148334413213e-05,
+        "silhouette": null,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.918825561312608,
+        "auc": 0.9903521276000669,
+        "mad_recall": {
+          "2.0": 0.9913644214162349,
+          "2.5": 0.924006908462867,
+          "3.0": 0.696027633851468
+        },
+        "mad_fpr": {
+          "2.0": 0.034395757170073635,
+          "2.5": 0.019051542145100665,
+          "3.0": 0.010658565470367129
+        },
+        "frr_recall": 0.8514680483592401,
+        "frr_fpr": 0.013284588847124247,
+        "entropy_cut": 0.0776263267546893,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.0776263267546893,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 0,
+        "flags_target": true,
+        "ratio": 194.17871317216122,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "123": {
+      "seed": 123,
+      "corpus": "NF-ToN-IoT-v2",
+      "tag": "native__NF-ToN-IoT-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9998893135486727,
+      "clean_acc": 0.9834,
+      "n_scored": 200000,
+      "n_poison_scored": 5614,
+      "n_target_class_total": 345650,
+      "poison_fraction_scored": 0.02807,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9963484989820294,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.18575926249832808,
+          "2.5": 0.1671673885979443,
+          "3.0": 0.1516775899498935
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.07107231920199501,
+        "auc": 0.7796806766725747,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.27308036586997003,
+          "2.5": 0.27308036586997003,
+          "3.0": 0.27308036586997003
+        }
+      },
+      "ac": {
+        "recall": 0.0,
+        "n_flagged": 4,
+        "purity": 0.0,
+        "fpr": 2.0577613614149166e-05,
+        "silhouette": null,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.9982486865148862,
+        "auc": 0.9969272466213368,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 0.9982486865148862
+        },
+        "mad_fpr": {
+          "2.0": 0.030469916104791807,
+          "2.5": 0.018323125225178857,
+          "3.0": 0.010860054557620052
+        },
+        "frr_recall": 0.9964973730297724,
+        "frr_fpr": 0.008543929178032837,
+        "entropy_cut": 0.05045009434223178,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.05045009434223178,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 0,
+        "flags_target": true,
+        "ratio": 195.28637798246916,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "456": {
+      "seed": 456,
+      "corpus": "NF-ToN-IoT-v2",
+      "tag": "native__NF-ToN-IoT-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9982811045205648,
+      "clean_acc": 0.98375,
+      "n_scored": 200000,
+      "n_poison_scored": 5555,
+      "n_target_class_total": 345650,
+      "poison_fraction_scored": 0.027775,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 0.9998199819981998,
+        "auc": 0.9939811282678834,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.1931857337550464,
+          "2.5": 0.18656175268070663,
+          "3.0": 0.17944920157370978
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.09432943294329434,
+        "auc": 0.7832993408111928,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.272226079354059,
+          "2.5": 0.272226079354059,
+          "3.0": 0.272226079354059
+        }
+      },
+      "ac": {
+        "recall": 0.9992799279927993,
+        "n_flagged": 7067,
+        "purity": 0.7854818168954295,
+        "fpr": 0.007796549152716706,
+        "silhouette": 0.8186078300915002,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.8097928436911488,
+        "auc": 0.9863476042216517,
+        "mad_recall": {
+          "2.0": 0.9792843691148776,
+          "2.5": 0.96045197740113,
+          "3.0": 0.8418079096045198
+        },
+        "mad_fpr": {
+          "2.0": 0.04781961066310545,
+          "2.5": 0.034002773640145874,
+          "3.0": 0.021007755919667165
+        },
+        "frr_recall": 0.664783427495292,
+        "frr_fpr": 0.013457291078124198,
+        "entropy_cut": 0.0487012409418823,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.0487012409418823,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 0,
+        "flags_target": true,
+        "ratio": 191.56470121354624,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "789": {
+      "seed": 789,
+      "corpus": "NF-ToN-IoT-v2",
+      "tag": "native__NF-ToN-IoT-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9996484077428428,
+      "clean_acc": 0.9832416666666667,
+      "n_scored": 200000,
+      "n_poison_scored": 5549,
+      "n_target_class_total": 345650,
+      "poison_fraction_scored": 0.027745,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9940846449176445,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.44154054234742945,
+          "2.5": 0.43713326236429745,
+          "3.0": 0.43101346868876994
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.08469994593620472,
+        "auc": 0.7782997566268699,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.2722948197746476,
+          "2.5": 0.2722948197746476,
+          "3.0": 0.2722948197746476
+        }
+      },
+      "ac": {
+        "recall": 1.0,
+        "n_flagged": 7133,
+        "purity": 0.7779335482966494,
+        "fpr": 0.008146011077340821,
+        "silhouette": 0.8425377035764448,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.9506398537477148,
+        "auc": 0.9836935054922139,
+        "mad_recall": {
+          "2.0": 0.9652650822669104,
+          "2.5": 0.9561243144424132,
+          "3.0": 0.9287020109689214
+        },
+        "mad_fpr": {
+          "2.0": 0.02601141212152367,
+          "2.5": 0.016244281087749963,
+          "3.0": 0.012286022721431141
+        },
+        "frr_recall": 0.943327239488117,
+        "frr_fpr": 0.014702102503469901,
+        "entropy_cut": 0.07503496602177624,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.07503496602177624,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 0,
+        "flags_target": true,
+        "ratio": 211.58040903584055,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "1337": {
+      "seed": 1337,
+      "corpus": "NF-ToN-IoT-v2",
+      "tag": "native__NF-ToN-IoT-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9996874735491936,
+      "clean_acc": 0.9830541666666667,
+      "n_scored": 200000,
+      "n_poison_scored": 5546,
+      "n_target_class_total": 345650,
+      "poison_fraction_scored": 0.02773,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9977212059022736,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.1701739228815041,
+          "2.5": 0.16377138037787858,
+          "3.0": 0.16268114824071503
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.08005769924269744,
+        "auc": 0.7784722852993347,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.27145751694488157,
+          "2.5": 0.27145751694488157,
+          "3.0": 0.27145751694488157
+        }
+      },
+      "ac": {
+        "recall": 0.9998196898665705,
+        "n_flagged": 6298,
+        "purity": 0.8804382343601144,
+        "fpr": 0.0038723811286988184,
+        "silhouette": 0.9018154469824907,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.9707495429616088,
+        "auc": 0.9950117430179768,
+        "mad_recall": {
+          "2.0": 0.9981718464351006,
+          "2.5": 0.9853747714808044,
+          "3.0": 0.9634369287020109
+        },
+        "mad_fpr": {
+          "2.0": 0.04955533850819925,
+          "2.5": 0.03295121575078394,
+          "3.0": 0.009818536986583047
+        },
+        "frr_recall": 0.9652650822669104,
+        "frr_fpr": 0.011052279854007094,
+        "entropy_cut": 0.02070047562941913,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 0.02070047562941913,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 0,
+        "flags_target": true,
+        "ratio": 188.31786520346265,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    }
+  },
+  "cells": {},
+  "control_only": true
+}

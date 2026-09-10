@@ -74,7 +74,7 @@ CKPT = config.RESULTS / "positive_control_strip_spectre.checkpoint.json"
 
 
 def _smoke_paths():
-    """A smoke run must never land on the real artefact path: a killed full run would otherwise
+    """A smoke run must never land on the real artifact path: a killed full run would otherwise
     leave a 1-seed smoke file sitting where the committed result belongs."""
     global OUT, CKPT
     OUT = config.RESULTS / "positive_control_strip_spectre_smoke.json"
@@ -85,7 +85,13 @@ def config_key(cfg) -> dict:
     return dict(seeds=list(cfg["seeds"]), mlp_epochs=cfg["mlp_epochs"],
                 control_rate=cfg["control_rate"], control_cost=cfg["control_cost"],
                 spectral_k=SPECTRAL_K, z=list(Z_THRESHOLDS), n_trials=N_TRIALS, alpha=ALPHA,
-                strip_frr=STRIP_FRR, strip_rule=STRIP_RULE, smoke=cfg["smoke"])
+                strip_frr=STRIP_FRR, strip_rule=STRIP_RULE, smoke=cfg["smoke"],
+                strip_pool="train_holdout_v2",
+                # Round v7 review: the loud control admitted arms under the published rule alone,
+                # which for SPECTRE is the removal budget this paper's whole finding says is the
+                # broken half. Scoring every arm under both rules plus the ranking metric makes
+                # the bar non-circular. Bumped so the old checkpoint cannot skip the new fields.
+                score_all_arms_both_rules=True)
 
 
 def load_ckpt(key):
@@ -174,7 +180,10 @@ def main() -> int:
     S = load_setup(cfg)
     features, constraints, bounds = S["features"], S["constraints"], S["bounds"]
     x_tr_raw, y_tr = S["x_tr_raw"], S["y_tr"]
-    x_te_std = apply_standardiser(S["scaler"], S["x_te_raw"])   # STRIP's blend pool
+    x_te_std = apply_standardiser(S["scaler"], S["x_te_raw"])
+    # STRIP's blend and calibration pool, matching scripts/62: the validation slice, which
+    # temporal_split carves out of the train pool, never the held-out test block.
+    strip_pool_std = apply_standardiser(S["scaler"], S["x_val_raw"])
 
     for seed in cfg["seeds"]:
         if str(seed) in rows:
@@ -208,10 +217,10 @@ def main() -> int:
         ac_recall = poison_recall(ac_mask, is_poison)
 
         # --- the two new arms ---
-        strip_sc = strip_scores(mlp_bd, x_p_std[benign_pos], x_te_std, n_trials=N_TRIALS,
+        strip_sc = strip_scores(mlp_bd, x_p_std[benign_pos], strip_pool_std, n_trials=N_TRIALS,
                                 alpha=ALPHA, device=device, seed=seed)
         strip_cut, strip_diag = calibrate_strip_cutoff(
-            mlp_bd, x_te_std, n_trials=N_TRIALS, alpha=ALPHA, device=device, seed=seed,
+            mlp_bd, strip_pool_std, n_trials=N_TRIALS, alpha=ALPHA, device=device, seed=seed,
             frr=STRIP_FRR, return_diagnostics=True)
         spct_sc = spectre_scores(feats, expected_frac=expected_frac)
 
@@ -219,6 +228,9 @@ def main() -> int:
             seed=seed, n_poison=int(is_poison.sum()), n_benign=int(len(is_poison)),
             expected_frac=expected_frac,
             spectral_recall=spec_recall, ac_recall=ac_recall, ac_silhouette=ac_sil,
+            # Spectral was previously scored only under its published fixed budget here, while
+            # STRIP and SPECTRE got all three. Same score vector, same helper.
+            spectral=rule_block(spec_scores, is_poison, expected_frac),
             strip=rule_block(strip_sc, is_poison, expected_frac, entropy_cut=strip_cut,
                              cut_diagnostics=strip_diag),
             spectre=rule_block(spct_sc, is_poison, expected_frac),
@@ -261,6 +273,8 @@ def main() -> int:
 
     summary = dict(
         spectral_recall=agg(lambda r: r["spectral_recall"]),
+        spectral_auc=agg(lambda r: r["spectral"]["auc"]),
+        spectral_mad_recall_3=agg(lambda r: r["spectral"]["mad_recall"]["3.0"]),
         ac_recall=agg(lambda r: r["ac_recall"]),
         strip_fixed_recall=agg(lambda r: r["strip"]["fixed_recall"]),
         strip_auc=agg(lambda r: r["strip"]["auc"]),
@@ -280,6 +294,36 @@ def main() -> int:
         summary["strip_fixed_recall"] and summary["strip_fixed_recall"]["mean"] >= 0.7)
     summary["spectre_control_passes"] = bool(
         summary["spectre_fixed_recall"] and summary["spectre_fixed_recall"]["mean"] >= 0.7)
+
+    # The paper states the bar per seed, so evaluate it per seed rather than on the mean, and
+    # evaluate it under both rules. An arm clears when either rule recovers 0.70 on every seed.
+    # Reported alongside the published-rule verdict above, not in place of it.
+    def clears_every_seed(path_fn):
+        vals = [path_fn(r) for r in ordered]
+        return bool(vals) and all(v is not None and v >= 0.7 for v in vals)
+
+    summary["dual_rule_admission"] = {
+        arm: dict(
+            published_rule_every_seed=clears_every_seed(pub),
+            budget_free_every_seed=clears_every_seed(free),
+            ranking_auc=summary.get(f"{arm}_auc"),
+            admitted=bool(clears_every_seed(pub) or clears_every_seed(free)),
+        )
+        for arm, pub, free in (
+            ("spectral", lambda r: r["spectral_recall"],
+                         lambda r: r["spectral"]["mad_recall"]["3.0"]),
+            ("strip",    lambda r: r["strip"]["fixed_recall"],
+                         lambda r: r["strip"]["mad_recall"]["3.0"]),
+            ("spectre",  lambda r: r["spectre"]["fixed_recall"],
+                         lambda r: r["spectre"]["mad_recall"]["3.0"]),
+        )
+    }
+    # Activation Clustering emits a partition and no ranked score, so it has no second rule and
+    # no AUC to report. That is a finding of this paper, not a gap in this control.
+    summary["dual_rule_admission"]["ac"] = dict(
+        published_rule_every_seed=clears_every_seed(lambda r: r["ac_recall"]),
+        budget_free_every_seed=None, ranking_auc=None,
+        admitted=clears_every_seed(lambda r: r["ac_recall"]))
 
     OUT.write_text(json.dumps(dict(config=key, summary=summary, per_seed=ordered), indent=2))
     print(f"\nwrote {OUT}  elapsed={time.time() - t0:.0f}s  n_seeds={len(ordered)}")

@@ -9,7 +9,7 @@ One class of exception is stated in the appendix itself: the 30-seed UNSW-NB15 f
 merge three seed arms, and where a merged mean is quoted it is computed across the
 files named for that row rather than stored as a single field.
 
-54 rows.
+61 rows.
 
 | Reported quantity | Source file (`results/`) |
 |---|---|
@@ -23,6 +23,7 @@ files named for that row rather than stored as a single field.
 | Full 25-cell MAD grid | `full_grid_mad_sweep` |
 | Budget multiplier sweep | `spectral_budget_multiplier_sweep` |
 | Spectral k ablation | `spectral_k1_ablation` |
+| Spectral vision-control k sweep | `spectral_vision_k_sweep` |
 | Univariate baseline | `univariate_zfilter_baseline` |
 | SPECTRE | `spectre_window, spectre_vision_control` |
 | STRIP | `strip_detector, strip_vision_control` |
@@ -49,6 +50,7 @@ files named for that row rather than stored as a single field.
 | Corpus-family benign-share test | `netflow_property_analysis` |
 | Projection clipping, post-hoc | `netflow_clipping_diagnostic` |
 | Corpus-family detectors | `netflow_detectors, netflow_detector_analysis` |
+| Corpus-family per-corpus controls | `netflow_control_NF-ToN-IoT-v2, netflow_control_NF-UNSW-NB15-v2` |
 | Activation Clustering scale control | `ac_subsampling_control` |
 | Displacement axis | `displacement_axis` |
 | AC reduction gate | `ac_ica_vision_control` |
@@ -67,3 +69,8 @@ files named for that row rather than stored as a single field.
 | Rule-capability check | `rule_capability_taxonomy` |
 | Active-paths control | `active_paths_window` |
 | Specificity attribution probe | `specificity_shap_comparison` |
+| UNSW threshold margin geometry | `secondary_threshold_margin` |
+| UNSW mirror row and duplicate counts | `secondary_data_audit` |
+| Spectral vision-control k sweep | `spectral_vision_k_sweep` |
+| Spectral k=1 window ablation | `spectral_k1_ablation` |
+| Density-mitigation ranking AUC | `density_mitigation_ctu (controls[].auc), _control_lgb, _control_selected, _control_bypass` |

@@ -30,7 +30,7 @@ Neural Cleanse is deliberately not re-run. It already has a control row, and two
 inversions per seed would dominate this script's wall-clock by an order of magnitude.
 
 Checkpointed per seed, atomic temp-then-rename, config fingerprint. A smoke run writes to a
-separate path so a killed full run cannot leave a one-seed file where the committed artefact
+separate path so a killed full run cannot leave a one-seed file where the committed artifact
 belongs.
 
 Run:  .venv/bin/python scripts/74_secondary_positive_control.py
@@ -98,7 +98,10 @@ def config_key(cfg) -> dict:
                 control_cost=cfg["control_cost"], spectral_k=SPECTRAL_K,
                 z=list(Z_THRESHOLDS), n_trials=N_TRIALS, alpha=ALPHA,
                 strip_frr=STRIP_FRR, strip_rule=STRIP_RULE, silhouette_sample=SILHOUETTE_SAMPLE, trigger="violating_identity_projection",
-                smoke=cfg["smoke"])
+                smoke=cfg["smoke"],
+                # Mirrors scripts/70. Round v7 review: admitting under the published rule alone
+                # makes the bar circular for an arm whose published rule is the removal budget.
+                score_all_arms_both_rules=True)
 
 
 def load_ckpt(key):
@@ -228,6 +231,7 @@ def main() -> int:
             n_poison=int(is_poison.sum()), n_benign=int(len(is_poison)),
             expected_frac=expected_frac,
             spectral_recall=spec_recall, ac_recall=ac_recall, ac_silhouette=ac_sil,
+            spectral=rule_block(spec_scores, is_poison, expected_frac),
             strip=rule_block(strip_sc, is_poison, expected_frac, entropy_cut=strip_cut,
                              cut_diagnostics=strip_diag),
             spectre=rule_block(spct_sc, is_poison, expected_frac),
@@ -252,6 +256,8 @@ def main() -> int:
 
     summary = dict(
         spectral_recall=agg(lambda r: r["spectral_recall"]),
+        spectral_auc=agg(lambda r: r["spectral"]["auc"]),
+        spectral_mad_recall_3=agg(lambda r: r["spectral"]["mad_recall"]["3.0"]),
         ac_recall=agg(lambda r: r["ac_recall"]),
         strip_fixed_recall=agg(lambda r: r["strip"]["fixed_recall"]),
         strip_auc=agg(lambda r: r["strip"]["auc"]),
@@ -266,6 +272,33 @@ def main() -> int:
                        ("strip", "strip_fixed_recall"), ("spectre", "spectre_fixed_recall")):
         s = summary[field]
         summary[f"{det}_control_passes"] = bool(s and s["mean"] >= CONTROL_PASS_BAR)
+
+    # Per-seed, both-rule admission. The paper states the bar per seed; the line above evaluates
+    # it on the mean, which is a weaker test. Reported alongside, not in place of it.
+    def clears_every_seed(path_fn):
+        vals = [path_fn(r) for r in ordered]
+        return bool(vals) and all(v is not None and v >= CONTROL_PASS_BAR for v in vals)
+
+    summary["dual_rule_admission"] = {
+        arm: dict(
+            published_rule_every_seed=clears_every_seed(pub),
+            budget_free_every_seed=clears_every_seed(free),
+            ranking_auc=summary.get(f"{arm}_auc"),
+            admitted=bool(clears_every_seed(pub) or clears_every_seed(free)),
+        )
+        for arm, pub, free in (
+            ("spectral", lambda r: r["spectral_recall"],
+                         lambda r: r["spectral"]["mad_recall"]["3.0"]),
+            ("strip",    lambda r: r["strip"]["fixed_recall"],
+                         lambda r: r["strip"]["mad_recall"]["3.0"]),
+            ("spectre",  lambda r: r["spectre"]["fixed_recall"],
+                         lambda r: r["spectre"]["mad_recall"]["3.0"]),
+        )
+    }
+    summary["dual_rule_admission"]["ac"] = dict(
+        published_rule_every_seed=clears_every_seed(lambda r: r["ac_recall"]),
+        budget_free_every_seed=None, ranking_auc=None,
+        admitted=clears_every_seed(lambda r: r["ac_recall"]))
 
     OUT.write_text(json.dumps(dict(config=key, summary=summary, per_seed=ordered), indent=2))
     print(f"\nwrote {OUT}  elapsed={time.time() - t0:.0f}s  n_seeds={len(ordered)}")

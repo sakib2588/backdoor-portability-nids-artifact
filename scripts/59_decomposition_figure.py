@@ -105,29 +105,60 @@ def main():
         idx = [all_costs.index(c) for c in agg]
         evasion = [data[c][0] for c in agg]
         backdoor = [data[c][1] for c in agg]
-        bars = ax.bar(idx, evasion, color=E_COLOR, label="evasion", width=0.6)
-        ax.bar(idx, backdoor, bottom=evasion, color=B_COLOR, label="backdoor", width=0.6)
-        fs.label_small_bars(ax, list(bars), evasion, floor=0.02, fmt="{:.3f}")
-        for i, c in enumerate(all_costs):
-            if c not in data:
-                fs.mark_not_measured(ax, i)
+        # Round-v8 review: these were stacked, backdoor on top of evasion. A stacked segment
+        # cannot show sign -- a backdoor of -0.400 drew downward from an evasion of 0.948 and
+        # was indistinguishable from a positive segment of the same length, in a figure whose
+        # caption says "signed". Both components are now drawn from zero, side by side, so a
+        # negative component falls below the axis line and reads as negative.
+        bw = 0.30
+        bars = ax.bar([i - bw / 2 for i in idx], evasion, color=E_COLOR,
+                      label="evasion", width=bw)
+        ax.bar([i + bw / 2 for i in idx], backdoor, color=B_COLOR,
+               label="backdoor", width=bw)
+        # UNSW-NB15's evasion components are -0.000145 and -0.000397 and CTU-13's low-cost
+        # ones are 0.000 to 0.001. Printed beside each other at this width they collided, and
+        # at 3 decimals the negatives read as "-0.000", a formatting error rather than a small
+        # value. The magnitudes are given in the body; the axis only has to show that the bar
+        # is a measured near-zero and not a missing one, which a tick mark does.
+        bbars = [r for r in ax.containers[-1]]
+        for series, col in ((list(zip(list(bars), evasion)), E_COLOR),
+                               (list(zip(bbars, backdoor)), B_COLOR)):
+            for bar, v in series:
+                if v is not None and abs(v) < 0.02:
+                    ax.plot(bar.get_x() + bar.get_width() / 2, 0.0, marker="_", ms=5,
+                            color=col, mew=1.1, zorder=6)
+        missing = [i for i, c in enumerate(all_costs) if c not in data]
+        if missing:
+            # Three separate horizontal markers overlapped each other. One centered label spans
+            # the contiguous run of never-measured costs instead.
+            fs.mark_not_measured(ax, sum(missing) / len(missing))
 
         if per_seed_here:
+            # Cost 8 is the one cell whose backdoor component is bimodal across seeds, so the
+            # 5 seeds are drawn individually. Five stacked pairs at this width were unreadable
+            # at print size; the aggregate bar carries the evasion side and the per-seed
+            # backdoor values are points, which is what the spread claim is about.
             slot = all_costs.index(8)
-            w = 0.15
-            offs = [(k - 2) * w for k in range(5)]
-            for off, (seed, e, b, ceil) in zip(offs, ctu8):
-                ax.bar(slot + off, e, width=w * 0.9, color=E_COLOR,
-                       hatch="///" if ceil else None, edgecolor="white", linewidth=0.3)
-                ax.bar(slot + off, b, bottom=e, width=w * 0.9, color=B_COLOR,
-                       hatch="///" if ceil else None, edgecolor="white", linewidth=0.3)
+            e8 = sum(e for _, e, _, _ in ctu8) / len(ctu8)
+            ax.bar(slot - bw / 2, e8, width=bw, color=E_COLOR)
+            jitter = [(k - 2) * 0.055 for k in range(5)]
+            for j, (seed, e, b, ceil) in zip(jitter, ctu8):
+                # `ceil` (the clean-arm ceiling flag) previously selected a hatch pattern here;
+                # the stacked-bar hatching was removed when the axis moved to grouped bars from
+                # zero (round-v8 review), and no replacement encoding was added. Marked here so
+                # the unused field is not silently dropped again without a decision either way.
+                ax.plot(slot + bw / 2 + j, b, marker="o", ms=2.8, mfc=B_COLOR,
+                        mec="white", mew=0.35, ls="none", zorder=5)
             ax.axhline(0.0, color="0.3", linewidth=0.5, zorder=1)
 
         ax.set_xticks(x)
         ax.set_xticklabels([str(c) for c in all_costs])
         ax.set_title(title)
         ax.set_xlabel("trigger cost")
-        ax.set_ylim(-0.1, 1.15)
+        # The axis floor was -0.1, above CTU-13's most negative per-seed backdoor component of
+        # -0.400, so the sign the caption promises had nowhere to be drawn.
+        ax.set_ylim(-0.52, 1.15)
+        ax.set_yticks([-0.5, 0.0, 0.5, 1.0])
         fs.thin_spines(ax)
 
     ax1.set_ylabel("attack success component")

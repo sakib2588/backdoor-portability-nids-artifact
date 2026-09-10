@@ -25,7 +25,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import pipeline_style as ps
 
-OUT = ROOT / "paper/figures/fig_pipeline.pdf"
+ACCESS = "--access" in sys.argv
+OUT = (ROOT / "paper_access/figures/fig_pipeline.pdf") if ACCESS \
+    else (ROOT / "paper/figures/fig_pipeline.pdf")
 CTU, UNSW = "#4477AA", "#EE6677"
 
 # Chip geometry sized so the widest grid, CTU-13's 25 configurations, fits
@@ -98,8 +100,9 @@ def main():
     # ------------------------------------------------------------- band 1
     # One unchanged recipe, applied to both corpora.
     ys, hs = 84, 12
-    ps.box(ax, 4, ys, 20, hs, "Corpora", "CTU-13 Neris  |  UNSW-NB15")
-    ps.box(ax, 28, ys, 20, hs, "Constraints", "TabularBench feasible set")
+    ps.box(ax, 4, ys, 20, hs, "Datasets" if ACCESS else "Corpora",
+           "CTU-13 Neris  |  UNSW-NB15")
+    ps.box(ax, 28, ys, 20, hs, "Constraints", "TabularBench  |  hand-authored")
     ps.box(ax, 52, ys, 20, hs, "Trigger", "SHAP-ranked, clean-label")
     ps.box(ax, 76, ys, 20, hs, "Projection", "6-sigma watermark, projected")
     for x in (24, 48, 72):
@@ -130,27 +133,32 @@ def main():
     ps.stage(ax, 5.4, ym + hm - 0.8, "3")
 
     # ------------------------------------------------------------- band 3
-    # The vision control runs first, then the five vision-built detectors on
-    # the identical poisoned models. Six boxes of width 13.5 with 2.2 gaps fill
-    # x=4..96 exactly. The two long names carry an explicit line break because
-    # ps.box centres a single line and does not wrap.
+    # The vision control runs first, then the four vision-built detectors this
+    # paper actually tests on the identical poisoned models. SPECTRE is
+    # discussed in Related Work as prior work confined to vision and is not
+    # run here, so it does not get a box -- an earlier draft tested five
+    # detectors and this diagram is what is left of that scope. Five boxes of
+    # width 13.5 with 6.1 gaps fill x=4..96 exactly. The two long names carry
+    # an explicit line break because ps.box centres a single line and does not
+    # wrap.
     yd, hd = 26, 16
-    dw, dstep = 13.5, 15.7
-    dx = [4 + i * dstep for i in range(6)]
+    dets = [("Spectral\nSignatures", "ranked score", "a"),
+            ("STRIP", "entropy score", "a"),
+            ("Activation\nClustering", "no ranked score", "b"),
+            ("Neural\nCleanse", "model-level", "b")]
+    if ACCESS:
+        dets.insert(1, ("SPECTRE", "ranked score", "a"))
+    n = len(dets) + 1
+    dstep = 92.0 / n
+    dw = dstep - 6.125
+    dx = [4 + i * dstep for i in range(n)]
     ps.box(ax, dx[0], yd, dw, hd, "Vision control", "MNIST BadNets",
            ps.FILL["c"], ps.EDGE["c"], tfs=8.0, sfs=7.0)
-    ps.box(ax, dx[1], yd, dw, hd, "Spectral\nSignatures", "ranked score",
-           ps.FILL["a"], ps.EDGE["a"], tfs=8.0, sfs=7.0)
-    ps.box(ax, dx[2], yd, dw, hd, "SPECTRE", "ranked score",
-           ps.FILL["a"], ps.EDGE["a"], tfs=8.0, sfs=7.0)
-    ps.box(ax, dx[3], yd, dw, hd, "STRIP", "entropy score",
-           ps.FILL["a"], ps.EDGE["a"], tfs=8.0, sfs=7.0)
-    ps.box(ax, dx[4], yd, dw, hd, "Activation\nClustering", "no ranked score",
-           ps.FILL["b"], ps.EDGE["b"], tfs=8.0, sfs=7.0)
-    ps.box(ax, dx[5], yd, dw, hd, "Neural\nCleanse", "model-level",
-           ps.FILL["b"], ps.EDGE["b"], tfs=8.0, sfs=7.0)
-    # Both sweeps feed all five detectors, so they join a bus rather than
-    # crossing ten arrows over each other.
+    for i, (title, sub, key) in enumerate(dets, start=1):
+        ps.box(ax, dx[i], yd, dw, hd, title, sub,
+               ps.FILL[key], ps.EDGE[key], tfs=8.0, sfs=7.0)
+    # Both sweeps feed all four detectors, so they join a bus rather than
+    # crossing eight arrows over each other.
     centres = [x + dw / 2 for x in dx]
     bus = yd + hd + 2.8
     for x in (26, 74):
@@ -167,7 +175,7 @@ def main():
     yr, hr = 3, 17
     ps.box(ax, 4, yr, 22, hr, "ASR decomposition", "evasion vs backdoor",
            ps.FILL["d"], ps.EDGE["d"], tfs=8.0, sfs=7.0)
-    ps.box(ax, 28, yr, 22, hr, "Fixed vision budget",
+    ps.box(ax, 28, yr, 22, hr, "Inherited fixed budget",
            "true poison fraction granted",
            ps.FILL["d"], ps.EDGE["d"], tfs=8.0, sfs=7.0)
     ps.box(ax, 52, yr, 22, hr, "MAD z-threshold",

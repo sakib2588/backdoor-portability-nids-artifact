@@ -14,7 +14,7 @@ its own docstring records that it is copied rather than imported across three in
 repositories. This module borrows its palette and its font settings and adds the axes, tick and
 grid defaults that data figures need.
 
-Palette is Paul Tol bright, colourblind-safe, matching pipeline_style so the schematic and the
+Palette is Paul Tol bright, colorblind-safe, matching pipeline_style so the schematic and the
 data figures agree. Never use matplotlib's default C0/C1 prop cycle in a figure that ships: the
 tab10 blue/orange pair is not safe for deuteranopia at thin line widths.
 """
@@ -35,7 +35,7 @@ TEXT_IN = 7.14
 PT = 7.0
 PT_SMALL = 6.5
 
-# Paul Tol bright, colourblind-safe. Same hexes as pipeline_style.EDGE.
+# Paul Tol bright, colorblind-safe. Same hexes as pipeline_style.EDGE.
 BLUE, RED, PURPLE, GREEN = "#4477AA", "#EE6677", "#AA3377", "#228833"
 GREY, LIGHT_GREY = "#7f7f7f", "#BBBBBB"
 
@@ -101,11 +101,16 @@ def label_small_bars(ax, bars, values, floor=0.02, fmt="{:.4f}", pad=0.012):
         if v is None:
             continue
         if v < floor:
-            ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + pad,
+            # A negative small bar has its top at ~0, so anchoring to get_height() puts the
+            # label under the axis line and into whatever else sits there. Anchor to max(v, 0).
+            y = max(bar.get_height(), 0.0) + pad
+            ax.text(bar.get_x() + bar.get_width() / 2, y,
                     fmt.format(v), ha="center", va="bottom", fontsize=PT_SMALL - 0.5)
 
 
 def mark_not_measured(ax, x, label="not measured", y=0.03):
     """Explicit marker for a cell that was never run, so it cannot read as a measured zero."""
-    ax.text(x, y, label, ha="center", va="bottom", fontsize=PT_SMALL - 0.5,
-            color=GREY, rotation=90, style="italic")
+    # Round-v8 review: this printed rotated 90 degrees in light grey at roughly 4pt and was
+    # illegible at print size. Horizontal, at the body's small size, in the axis foreground.
+    ax.text(x, y, label, ha="center", va="bottom", fontsize=PT_SMALL,
+            color=GREY, rotation=0, style="italic")

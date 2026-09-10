@@ -5,7 +5,8 @@ Minimum bar per the plan: CTU-13's 4 window cells and UNSW-NB15's 3 window cells
 already reported for Spectral/AC/NC in Table I / Table II), 5 base seeds each. Each cell is an
 independent retrain of the poisoned MLP (same construction as scripts/04/16), scored by both Spectral
 (cross-check against the existing detectors.json/secondary_detectors.json numbers for that cell) and
-STRIP. STRIP's blend pool is the clean standardised test set for that dataset.
+STRIP. STRIP's blend and calibration pool is a clean slice of the TRAINING partition, never
+the test block, so the rule that no transform is fitted on test holds for this arm too.
 
 Run:  python scripts/62_strip_detector.py            # full window-cell sweep, both datasets
       python scripts/62_strip_detector.py --smoke     # 1 seed, 1 cell per dataset
@@ -84,7 +85,7 @@ def save_checkpoint(path, key, rows):
     tmp.replace(path)
 
 
-def score_cell(mlp, x_p_std, y_p, poison_idx, x_te_std, device, seed):
+def score_cell(mlp, x_p_std, y_p, poison_idx, pool_std, device, seed):
     benign_pos = np.where(y_p == TARGET)[0]
     is_poison = np.isin(benign_pos, poison_idx)
     has_poison = bool(is_poison.sum() > 0)
@@ -99,7 +100,7 @@ def score_cell(mlp, x_p_std, y_p, poison_idx, x_te_std, device, seed):
                 if has_poison and is_poison.sum() < len(is_poison) else None)
 
     query = x_p_std[benign_pos]
-    strip_sc = strip_scores(mlp, query, x_te_std, n_trials=N_TRIALS, alpha=ALPHA,
+    strip_sc = strip_scores(mlp, query, pool_std, n_trials=N_TRIALS, alpha=ALPHA,
                              device=device, seed=seed)
     strip_fixed = flag_by_scores(strip_sc, expected_frac=float(is_poison.mean()))
     strip_fixed_recall = poison_recall(strip_fixed, is_poison) if has_poison else None
@@ -108,7 +109,7 @@ def score_cell(mlp, x_p_std, y_p, poison_idx, x_te_std, device, seed):
     # held-out rows, disjoint from the rows scored above. Until this was wired in, STRIP was the
     # only detector in this project scored solely under a top-k budget it does not publish, and
     # its recall under that budget feeds two claims in the manuscript.
-    strip_cut, strip_diag = calibrate_strip_cutoff(mlp, x_te_std, n_trials=N_TRIALS, alpha=ALPHA,
+    strip_cut, strip_diag = calibrate_strip_cutoff(mlp, pool_std, n_trials=N_TRIALS, alpha=ALPHA,
                                                    device=device, seed=seed, frr=STRIP_FRR,
                                                    return_diagnostics=True)
     strip_frr_flag = strip_threshold_flag(strip_sc, strip_cut)
@@ -140,6 +141,9 @@ def run_primary(cfg, rows, save_cb, device):
     constraints, bounds = S["constraints"], S["bounds"]
     x_tr_raw, y_tr = S["x_tr_raw"], S["y_tr"]
     x_te_std = apply_standardiser(S["scaler"], S["x_te_raw"])
+    # STRIP's reference and calibration pool. The validation slice is carved out of the train pool
+    # by temporal_split, so the victim never trains on it and no poison can reach it.
+    strip_pool_std = apply_standardiser(S["scaler"], S["x_val_raw"])
     x_bot_raw = S["x_te_raw"][S["y_te"] == 1]
     stats = raw_trigger_stats(x_tr_raw, constraints)
 
@@ -163,7 +167,7 @@ def run_primary(cfg, rows, save_cb, device):
             asr = attack_success_rate(mlp, apply_standardiser(S["scaler"], x_bot_trig), TARGET, device)
             cacc = clean_accuracy(mlp, x_te_std, S["y_te"], device)
 
-            row = score_cell(mlp, x_p_std, y_p, poison_idx, x_te_std, device, seed)
+            row = score_cell(mlp, x_p_std, y_p, poison_idx, strip_pool_std, device, seed)
             row.update(dataset="ctu13", seed=seed, rate=rate, cost=cost, asr=asr, clean_acc=cacc)
             rows[key] = row
             save_cb()
@@ -174,6 +178,16 @@ def run_primary(cfg, rows, save_cb, device):
 def run_secondary(cfg, rows, save_cb, device):
     S0 = load_secondary_setup(config.SECONDARY_DATASET_ID)
     eligible = eligible_indices_for(S0.feature_names)
+
+    # STRIP's reference and calibration pool for this dataset. UNSW-NB15 ships no validation split,
+    # so one is drawn here from the TRAINING partition and excluded from the poison candidate pool,
+    # which makes it provably clean. It differs from the primary dataset's pool in one respect worth
+    # stating in the paper: the victim does train on these rows, whereas CTU-13's validation slice is
+    # carved out of the train pool. Both satisfy the rule that no transform is fitted on the test
+    # block, which is the property STRIP was violating.
+    n_train = len(S0.x_train_raw)
+    strip_pool_idx = np.sort(np.random.default_rng(config.VAL_SPLIT_SEED).choice(
+        n_train, size=int(round(config.VAL_FRAC * n_train)), replace=False))
 
     for seed in cfg["seeds"]:
         x_tr_std = apply_standardiser(S0.scaler, S0.x_train_raw)
@@ -197,7 +211,11 @@ def run_secondary(cfg, rows, save_cb, device):
             realiz = trig_cache[cost]
 
             x_p_std, y_p, poison_idx = poison_secondary_trainset(
-                S0.x_train_raw, S0.y_train, realiz, rate, S0.scaler, target=TARGET, seed=seed)
+                S0.x_train_raw, S0.y_train, realiz, rate, S0.scaler, target=TARGET, seed=seed,
+                exclude_idx=strip_pool_idx)
+            # excluded above, so these rows carry no trigger and the pool is clean by construction
+            strip_pool_std = x_p_std[strip_pool_idx]
+            assert not np.intersect1d(poison_idx, strip_pool_idx).size
             mlp = train_mlp(x_p_std, y_p, seed, epochs=cfg["mlp_epochs"], device=device)
 
             x_te_attack_trig_raw = apply_secondary_trigger(x_te_attack_raw, realiz)
@@ -205,7 +223,7 @@ def run_secondary(cfg, rows, save_cb, device):
                                        TARGET, device)
             cacc = clean_accuracy(mlp, x_te_std, S0.y_test, device)
 
-            row = score_cell(mlp, x_p_std, y_p, poison_idx, x_te_std, device, seed)
+            row = score_cell(mlp, x_p_std, y_p, poison_idx, strip_pool_std, device, seed)
             row.update(dataset="unsw_nb15", seed=seed, rate=rate, cost=cost, asr=asr, clean_acc=cacc)
             rows[key] = row
             save_cb()
@@ -227,7 +245,8 @@ def main():
 
     out_path = config.RESULTS / (OUT if not smoke else "strip_detector_smoke.json")
     ckpt_path = out_path.with_suffix(".checkpoint.json")
-    ckpt_key = dict(smoke=smoke, ctu_cells=CTU_WINDOW_CELLS, unsw_cells=UNSW_WINDOW_CELLS,
+    ckpt_key = dict(smoke=smoke, strip_pool="train_holdout_v2", ctu_cells=CTU_WINDOW_CELLS,
+                     unsw_cells=UNSW_WINDOW_CELLS,
                      mlp_epochs=cfg["mlp_epochs"], n_trials=N_TRIALS, alpha=ALPHA,
                      strip_frr=STRIP_FRR, strip_rule=STRIP_RULE,
                      constraints=manifest_fingerprint())

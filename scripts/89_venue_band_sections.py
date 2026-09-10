@@ -64,6 +64,8 @@ CORPUS_CANDIDATES = [
 # listing -- on references/venue_band_md it is a no-op because that directory holds only the 18.
 MANIFEST = config.ROOT / "corpus" / "venue_band" / "manifest.json"
 MIN_PAGES_DEFAULT = 13  # pages > 12
+# Default stays paper_access. --paper <dir> retargets both the manuscript and the output
+# path, so a run against another manuscript cannot overwrite the committed baseline.
 PAPER = config.ROOT / "paper_access"
 OUT = config.RESULTS / "venue_band_sections.json"
 
@@ -83,6 +85,26 @@ OURS = [
     # nothing was actually cut. See notes/20260904-bug-venue-band-appendix-uncounted.md.
     ("appendix", "sections/07_appendix.tex"),
 ]
+
+# paper_ojcs has a different section layout: the appendix moved to the artifact, Discussion
+# renumbered, and two files exist that paper_access folds into other sections. Controls-that-
+# did-not-pass is counted with Results and Limitations with Discussion, because that is where
+# the venue corpus puts that content -- and because leaving any .tex uncounted is exactly how
+# this instrument was gamed once before (see the appendix comment above).
+OURS_BY_PAPER = {
+    "paper_ojcs": [
+        ("introduction", "sections/01_introduction.tex"),
+        ("related_work", "sections/02_related_work.tex"),
+        ("methods", "sections/04_methods.tex"),
+        ("results", "sections/05_results.tex"),
+        ("results", "sections/04b_controls_failed.tex"),
+        ("discussion_conclusion", "sections/07_discussion_conclusion.tex"),
+        ("discussion_conclusion", "sections/06_limitations.tex"),
+    ],
+}
+# NOTE: no role map can see text moved OUT of the manuscript into docs/artifact/. This
+# instrument measures what is in the paper, not what left it. The relocation ledger in the
+# response letter is the only control on that.
 
 ROLES = ["introduction", "related_work", "threat_model", "methods", "results", "appendix",
          "discussion", "conclusion", "limitations"]
@@ -167,13 +189,13 @@ def measure_corpus_paper(md: pathlib.Path) -> dict:
     return {"roles": roles, "assignments": assignments}
 
 
-def measure_ours() -> dict:
-    out = {}
-    for role, rel in OURS:
-        tex = (PAPER / rel).read_text(encoding="utf-8")
+def measure_ours(paper_dir: pathlib.Path = PAPER, ours: list | None = None) -> dict:
+    out: dict[str, int] = {}
+    for role, rel in (ours if ours is not None else OURS):
+        tex = (paper_dir / rel).read_text(encoding="utf-8")
         plain = _strip_tex(tex).replace(CITE_TOKEN, "")
         paras = [b for b in re.split(r"\n\s*\n", plain) if b.strip()]
-        out[role] = sum(len(words_in(p)) for p in paras)
+        out[role] = out.get(role, 0) + sum(len(words_in(p)) for p in paras)
     return out
 
 
@@ -206,6 +228,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
                     help=f"keep corpus papers with at least this many pages "
                          f"(default {MIN_PAGES_DEFAULT}, i.e. the pages > 12 rule scripts/75 "
                          f"uses). Pass 0 to measure the whole manifest.")
+    ap.add_argument("--paper", default="paper_access",
+                    help="manuscript directory to measure (default paper_access). A non-default "
+                         "value also suffixes the output file so the committed baseline survives.")
     ap.add_argument("--out", default=None,
                     help="output JSON path (default results/venue_band_sections.json). Use this "
                          "for a non-default corpus or filter so the committed baseline is not "
@@ -216,7 +241,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     corpus = resolve_corpus(args.corpus)
-    out_path = pathlib.Path(args.out) if args.out else OUT
+    paper_dir = config.ROOT / args.paper
+    if not paper_dir.is_dir():
+        raise SystemExit(f"--paper {args.paper} is not a directory")
+    ours_map = OURS_BY_PAPER.get(args.paper, OURS)
+    if args.out:
+        out_path = pathlib.Path(args.out)
+    elif args.paper == "paper_access":
+        out_path = OUT
+    else:
+        out_path = OUT.with_name(f"{OUT.stem}_{args.paper}{OUT.suffix}")
     pages = manifest_pages()
 
     per_paper, unmeasurable, excluded = {}, [], []
@@ -242,7 +276,7 @@ def main(argv: list[str] | None = None) -> int:
         except ValueError as exc:
             unmeasurable.append({"paper": d.name, "reason": str(exc)})
 
-    ours = measure_ours()
+    ours = measure_ours(paper_dir, ours_map)
     table = []
     for role in ROLES + ["discussion_conclusion"]:
         vals = [p["roles"][role] for p in per_paper.values() if role in p["roles"]]

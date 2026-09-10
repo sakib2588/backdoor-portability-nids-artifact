@@ -53,77 +53,89 @@ STEPS = [
     ("setup", None,
      "Pick a trigger that could actually be sent",
      "A NetFlow feature cannot be perturbed like a pixel. Port a clean-label, SHAP-guided"
-     " trigger from malware classifiers, then project every poisoned flow onto TabularBench's"
-     " constraint-valid feasible set, so it stays a record a real sensor could produce."),
+     " trigger from malware classifiers, then project every poisoned flow onto a constraint-valid"
+     " feasible set, so it stays a record a real sensor could produce."),
 
     ("build", "BUILD THE PIPELINE",
-     "Two NIDS datasets, two victims, five seeds",
+     "Two corpora, two victims, five seeds, 125 runs",
      "CTU-13 Neris (198,128 flows, 757 features) and UNSW-NB15 (1.58M rows, 38 features)."
      " An MLP victim whose activations the detectors can inspect, and a LightGBM victim that"
-     " exposes none, as a built-in test of detector applicability."),
+     " exposes none, as a built-in test of detector applicability by architecture."),
     ("build", None,
-     "Validate every detector before trusting a single tabular number",
-     "Spectral Signatures, Activation Clustering and Neural Cleanse are run first on a matched"
-     " vision control (BadNets on MNIST), recalling 0.98, 0.99 and 1.0 there. A loud,"
-     " constraint-violating tabular trigger also gets caught. No tabular null below is a wiring"
-     " error."),
+     "Validate every detector twice before trusting a single tabular number",
+     "All five clear a matched vision control (BadNets on MNIST) at recall 0.98 to 1.0, and a"
+     " loud, constraint-violating tabular trigger as well. Both gates are blocking, because a"
+     " null from a detector that never demonstrated it can find anything is uninterpretable."),
 
-    ("find", "THE HEADLINE SPLIT",
+    ("find", "THE REALIZATION SPLIT",
      "One recipe, two opposite phenomena",
      "At trigger cost 16, CTU-13's clean, never-poisoned model already calls every watermarked"
-     " flow benign -- an evasion component of 0.9577, poisoning adds nothing. UNSW-NB15's clean"
-     " model stays at 0.0001 while the poisoned model reaches 0.9626 -- almost entirely a"
-     " learned backdoor."),
+     " flow benign -- evasion component 0.9577, and a backdoor component bounded by construction"
+     " rather than measured. UNSW-NB15's clean model stays at 0.0001 while the poisoned model"
+     " reaches 0.9626, measured at both costs."),
     ("find", None,
      "The detector's signal survives; its removal rule does not",
-     "At attacker-realistic poison rates, Spectral Signatures' fixed removal budget recovers"
-     " only 0.1425 of the planted rows -- but its ranking AUC stays at 0.9825. The signal is"
-     " there. A budget calibrated for vision-scale poison rates just cannot reach it."),
+     "At attacker-realistic poison rates, Spectral Signatures' inherited budget recovers only"
+     " 0.1425 of the planted rows while its ranking AUC stays at 0.9825. At the anchor cell the"
+     " budget is 858 rows and the median poison row sits at rank 1,308, so the budget is spent"
+     " on false positives before it arrives."),
 
     ("repair", "REPAIR IT, AND PRICE THE REPAIR",
-     "A budget-free threshold recovers full recall",
-     "Replacing the fixed budget with a median-absolute-deviation z-score threshold reaches"
-     " recall 1.0 with zero variance across the window, at 6.58% false positives. Recalibrating"
-     " the original budget's constant also works, cheaper at 2.06%, but only if the poison count"
-     " is already known."),
+     "A budget-free threshold recovers full recall, and the same budget fails on images",
+     "Replacing the fixed budget with a median-absolute-deviation threshold reaches recall 1.0"
+     " at zero variance across the window, at 6.58% false positives. Re-run at matched poison"
+     " rates, the inherited budget collapses on MNIST too, 0.9809 down to 0.1600 -- so starvation"
+     " is not a property of tabular data."),
     ("repair", None,
-     "Not every detector repairs the same way",
-     "Activation Clustering has no ranked score to threshold at all. Its best repair, a"
-     " two-component Gaussian mixture, recovers full recall only at three times the cost, 20.3%"
-     " false positives. Neural Cleanse's substituted statistic does not separate poisoned from"
-     " clean models, and why is left unresolved."),
+     "Five detectors, five different fates",
+     "SPECTRE is rescued at 3.6 times the false-positive cost. Activation Clustering has no"
+     " ranked score until we construct one. Neural Cleanse resists repair across four families of"
+     " decision statistic. STRIP's zero is a bound, not a shape: a label-free check predicts it"
+     " and agrees with observed firing on 75 of 75 units."),
 
-    ("extend", "EXTEND TO A SECOND DATASET",
-     "The pattern recurs, less reliably",
-     "The same pipeline, unchanged, on UNSW-NB15: three cells reproduce the budget-starvation"
-     " window and the adaptive threshold recovers them. But the recovery is far noisier than on"
-     " CTU-13, and a disjoint replication seed set makes two of the three means fall further"
-     " -- the paper says plainly this is not the finding to lead with."),
+    ("extend", "TEST THE FRAMING, AND RETRACT IT",
+     "A four-corpus family kills the dataset-dependent story",
+     "Both outcomes occur inside every corpus able to fund the attack, at mean backdoor fractions"
+     " of +0.4465, +0.5964 and +0.5478 across 240 cells of one shared NetFlow schema. Realization"
+     " tracks the trigger, not the corpus. The title changed on this evidence, and the"
+     " pre-registered benign-share explanation came back inconclusive."),
+    ("extend", None,
+     "The window recurs on a second corpus; the repair does not recur reliably",
+     "UNSW-NB15 reproduces the window in three cells at AUC 0.9287 against fixed recall 0.0292."
+     " But the recovery there is bimodal, not noisy: across 90 merged runs it recovers above 0.9"
+     " in 62 and below 0.5 in 23, roughly one failure in four, with nothing signalling which run"
+     " it is about to be."),
+    ("extend", None,
+     "Removing the poison is not the same as removing the backdoor",
+     "Retraining after the repaired rule strips its flagged rows takes UNSW-NB15's attack success"
+     " from 0.84, 0.96 and 0.99 down to 0.05, 0.43 and 0.62. Poison recall does not rank the three"
+     " cells in the same order as the protection it buys. A restored detector is a partial"
+     " defense, not a clean one."),
 
-    ("review", "A HARSH INDEPENDENT REVIEW",
-     "Major Revision, no fatal flaw, a short and specific list",
-     "Scored 18/30. The reviewer's two biggest objections: the 'signal survives' claim is"
-     " measured on CTU-13, where removal would not even stop the attack, and never measured on"
-     " UNSW-NB15, where it matters. And no experiment ever retrains after removal to show ASR"
-     " actually falls."),
+    ("review", "TWO HOSTILE REVIEW ROUNDS",
+     "Reject, then Major revision from all five reviewers",
+     "The 2026-09-04 round returned Reject with twelve confirmed defects, every one resolvable"
+     " from data already on disk. The 2026-09-05 round put five quarantined reviewers on the"
+     " rendered PDF alone, barred from asserting any number is wrong, and returned 61 raw findings"
+     " and four blockers, all closed the same day."),
     ("review", None,
-     "The paper argues against its own best result, twice",
-     "The reviewer calls this out as the reason the score is not lower: Results says removing"
-     " CTU-13's poison would not stop the attack, and again that UNSW's noisy recovery should"
-     " not be the headline. That candour is rare enough to be named a strength in the same"
-     " review that lists eight fixable weaknesses."),
+     "What the reviews actually cost was framing, not experiments",
+     "No finding required a new experimental direction. What did need real work was claiming more"
+     " than the evidence carried: a dataset-dependent conclusion the corpus family refuted, and a"
+     " rule-selection statistic that turned out to be reading detector identity. Both retracted"
+     " rather than defended."),
 
-    ("now", "WHAT IS ALREADY MOVING",
-     "The post-removal retrain script is written, not yet run",
-     "scripts/56_secondary_post_removal_asr.py exists on disk, self-checks against the already"
-     " committed pre-removal numbers before it will emit anything new, and answers exactly the"
-     " reviewer's sharpest question: does removing the flagged rows actually neutralise the"
-     " backdoor. It has not been executed yet."),
+    ("now", "WHERE IT STANDS",
+     "23 pages, five reported detectors, every number traced to a committed file",
+     "Abstract at 249 words against a 250 cap. Seven supporting sections moved into the artifact"
+     " repository with a 54-row provenance index that refuses to publish if a row names a file it"
+     " does not contain. All 125 detector-sweep runs re-score to their committed values."),
     ("now", None,
-     "Page count needs attention before the next submission",
-     "The reviewed draft held 6 pages. Two commits since then (an executable venue-gate check"
-     " and a redrawn full-width pipeline figure) push the local build to 7. The venue's own gate"
-     " script exists precisely to catch this before it becomes a submission-day surprise."),
+     "Four things still open, and named as open",
+     "Which property of the trigger decides realization. A deployable rule for the constructed"
+     " Activation Clustering score. An adaptive attacker aimed at the repaired detectors. And why"
+     " Neural Cleanse fails, which four independent families of decision statistic did not"
+     " resolve."),
 ]
 
 SPINE_X = 0.42

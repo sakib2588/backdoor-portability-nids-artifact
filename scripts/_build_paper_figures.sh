@@ -23,16 +23,18 @@ DEST=paper_access/figures
 echo "=== regenerating ==="
 "$PY" scripts/07_make_figures.py
 "$PY" scripts/59_decomposition_figure.py
-"$PY" scripts/55_make_fig_pipeline.py
+"$PY" scripts/55_make_fig_pipeline.py --access   # writes straight into paper_access/figures
+"$PY" scripts/55_make_fig_pipeline.py            # the ICCIT four-detector variant
 
 echo "=== placing into $DEST ==="
 for f in fig1_failure_boundary fig2_portability fig3_h3_confound \
          fig4_evasion_window fig5_adaptive_threshold fig6_nc_masks; do
   cp -v "figures/${f}.pdf" "$DEST/${f}.pdf"
 done
-# fig_decomposition now writes straight into $DEST (scripts/59). fig_pipeline still lands in
-# paper/figures/ and is copied across.
-cp -v "paper/figures/fig_pipeline.pdf" "$DEST/fig_pipeline.pdf"
+# fig_decomposition writes straight into $DEST (scripts/59). fig_pipeline now does too, via
+# scripts/55 --access. Do NOT copy paper/figures/fig_pipeline.pdf across: that is the ICCIT
+# four-detector diagram and this manuscript runs five, so copying it silently contradicts every
+# "five detectors" sentence in the Access text.
 
 echo "=== included by the manuscript but not produced above (should be empty) ==="
 grep -ohE 'includegraphics(\[[^]]*\])?\{figures/[^}]+\}' paper_access/sections/*.tex \

@@ -1,0 +1,525 @@
+{
+  "config_key": {
+    "smoke": false,
+    "mlp_epochs": 20,
+    "cost": 16,
+    "rate": 0.01,
+    "n_sigma": 6.0,
+    "spectral_k": 5,
+    "z": [
+      2.0,
+      2.5,
+      3.0
+    ],
+    "multiplier": 1.5,
+    "max_scored": 200000,
+    "strip_max_scored": 20000,
+    "strip_trials": 64,
+    "strip_frr": 0.01,
+    "strip_rule": "gao-frr-nonstrict",
+    "nc_sample": 400,
+    "nc_steps": 300,
+    "control": {
+      "rate": 0.01,
+      "cost": 8,
+      "bar": 0.9,
+      "corpus": "NF-UNSW-NB15-v2"
+    },
+    "manifest": "7a8b75af6ac5d816b584acd99767ef225890b641d489a167c87464878351e84f",
+    "repairs": "623bd3f61df50359721760f90e0e4a7e7294d1cf875bde4d198b63819d67e26b",
+    "gate": {
+      "smoke": false,
+      "n_rows": 1200000,
+      "samples": [
+        "native__NF-BoT-IoT-v2",
+        "native__NF-ToN-IoT-v2",
+        "native__NF-CSE-CIC-IDS2018-v2",
+        "native__NF-UNSW-NB15-v2",
+        "share0.05__NF-CSE-CIC-IDS2018-v2",
+        "share0.20__NF-CSE-CIC-IDS2018-v2",
+        "share0.40__NF-CSE-CIC-IDS2018-v2",
+        "share0.60__NF-CSE-CIC-IDS2018-v2",
+        "share0.80__NF-CSE-CIC-IDS2018-v2",
+        "share0.96__NF-CSE-CIC-IDS2018-v2",
+        "share0.05__NF-ToN-IoT-v2",
+        "share0.20__NF-ToN-IoT-v2",
+        "share0.40__NF-ToN-IoT-v2",
+        "share0.60__NF-ToN-IoT-v2",
+        "share0.80__NF-ToN-IoT-v2",
+        "share0.96__NF-ToN-IoT-v2"
+      ],
+      "excluded_columns": [
+        "IPV4_SRC_ADDR",
+        "IPV4_DST_ADDR",
+        "L4_SRC_PORT",
+        "L4_DST_PORT",
+        "Label",
+        "Attack",
+        "Dataset"
+      ],
+      "train_frac": 0.8,
+      "split_seed": 20260903,
+      "rates": [
+        0.005,
+        0.01,
+        0.02
+      ],
+      "admission_threshold": 0.999,
+      "rate_cap": 12500000000.0,
+      "rate_capped_columns": [
+        "SRC_TO_DST_SECOND_BYTES",
+        "DST_TO_SRC_SECOND_BYTES"
+      ],
+      "manifest": "7a8b75af6ac5d816b584acd99767ef225890b641d489a167c87464878351e84f"
+    }
+  },
+  "controls": {
+    "42": {
+      "seed": 42,
+      "corpus": "NF-UNSW-NB15-v2",
+      "tag": "native__NF-UNSW-NB15-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9976948868398994,
+      "clean_acc": 0.9953708333333333,
+      "n_scored": 200000,
+      "n_poison_scored": 2000,
+      "n_target_class_total": 921824,
+      "poison_fraction_scored": 0.01,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 0.898,
+        "auc": 0.9947958787878788,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0916969696969697,
+          "2.5": 0.07975252525252526,
+          "3.0": 0.07622222222222222
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.236,
+        "auc": 0.978783797979798,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.18044444444444444,
+          "2.5": 0.15414646464646464,
+          "3.0": 0.14407575757575758
+        }
+      },
+      "ac": {
+        "recall": 1.0,
+        "n_flagged": 63711,
+        "purity": 0.0313917533863854,
+        "fpr": 0.31167171717171716,
+        "silhouette": 0.5444836810732738,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.07920792079207921,
+        "auc": 0.8168471862844432,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "frr_recall": 0.07920792079207921,
+        "frr_fpr": 0.014041822406303667,
+        "entropy_cut": 4.020779920210776e-06,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 4.020779920210776e-06,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 1,
+        "flags_target": false,
+        "ratio": 70.00077360006922,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "123": {
+      "seed": 123,
+      "corpus": "NF-UNSW-NB15-v2",
+      "tag": "native__NF-UNSW-NB15-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9979044425817267,
+      "clean_acc": 0.9948041666666667,
+      "n_scored": 200000,
+      "n_poison_scored": 2090,
+      "n_target_class_total": 921824,
+      "poison_fraction_scored": 0.01045,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 0.9947368421052631,
+        "auc": 0.9998740667728964,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.2777221969582133,
+          "2.5": 0.15107372037794958,
+          "3.0": 0.12139861553231267
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.02583732057416268,
+        "auc": 0.9596796451144121,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.17453387903592543,
+          "2.5": 0.1220100045475216,
+          "3.0": 0.11012076196250821
+        }
+      },
+      "ac": {
+        "recall": 0.9995215311004785,
+        "n_flagged": 11683,
+        "purity": 0.17880681331849696,
+        "fpr": 0.04847658026375625,
+        "silhouette": 0.7369874244748386,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.8447488584474886,
+        "auc": 0.9619834909150171,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "frr_recall": 0.8447488584474886,
+        "frr_fpr": 0.004802588342348719,
+        "entropy_cut": 1.5246913262672034e-05,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 1.5246913262672034e-05,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 1,
+        "flags_target": false,
+        "ratio": 69.43784527285611,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "456": {
+      "seed": 456,
+      "corpus": "NF-UNSW-NB15-v2",
+      "tag": "native__NF-UNSW-NB15-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9983235540653814,
+      "clean_acc": 0.995325,
+      "n_scored": 200000,
+      "n_poison_scored": 2115,
+      "n_target_class_total": 921824,
+      "poison_fraction_scored": 0.010575,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 0.9976359338061466,
+        "auc": 0.9999275147928111,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.3328094600399222,
+          "2.5": 0.19396113904540516,
+          "3.0": 0.10190767364883645
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.03451536643026005,
+        "auc": 0.9584718827128802,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.20750941203224094,
+          "2.5": 0.17584455618162065,
+          "3.0": 0.14945043838593122
+        }
+      },
+      "ac": {
+        "recall": 0.9990543735224586,
+        "n_flagged": 11653,
+        "purity": 0.1813266969879001,
+        "fpr": 0.048209818834171365,
+        "silhouette": 0.7500888504144313,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.868421052631579,
+        "auc": 0.9500703857306629,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "frr_recall": 0.868421052631579,
+        "frr_fpr": 0.010519927169734978,
+        "entropy_cut": 3.008920657521232e-07,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 3.008920657521232e-07,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 1,
+        "flags_target": false,
+        "ratio": 75.45374134241631,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "789": {
+      "seed": 789,
+      "corpus": "NF-UNSW-NB15-v2",
+      "tag": "native__NF-UNSW-NB15-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9983235540653814,
+      "clean_acc": 0.9954833333333334,
+      "n_scored": 200000,
+      "n_poison_scored": 2059,
+      "n_target_class_total": 921824,
+      "poison_fraction_scored": 0.010295,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9999981892259786,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.33111381674337304,
+          "2.5": 0.3072834834622438,
+          "3.0": 0.26573574954153006
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.11267605633802817,
+        "auc": 0.9798766523800604,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.22068192037021134,
+          "2.5": 0.18686376243426073,
+          "3.0": 0.1691918298887042
+        }
+      },
+      "ac": {
+        "recall": 0.996600291403594,
+        "n_flagged": 2052,
+        "purity": 1.0,
+        "fpr": 0.0,
+        "silhouette": 0.9096377958477686,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.91005291005291,
+        "auc": 0.9937606145268555,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "frr_recall": 0.9206349206349206,
+        "frr_fpr": 0.008631568320629952,
+        "entropy_cut": 2.527323576941859e-06,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 2.527323576941859e-06,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 1,
+        "flags_target": false,
+        "ratio": 51.454242813041,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    },
+    "1337": {
+      "seed": 1337,
+      "corpus": "NF-UNSW-NB15-v2",
+      "tag": "native__NF-UNSW-NB15-v2",
+      "rate": 0.01,
+      "cost": 8,
+      "variant": "violating",
+      "asr": 0.9979044425817267,
+      "clean_acc": 0.9951708333333333,
+      "n_scored": 200000,
+      "n_poison_scored": 2147,
+      "n_target_class_total": 921824,
+      "poison_fraction_scored": 0.010735,
+      "subsampled": true,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9999817910193737,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.29163570933976235,
+          "2.5": 0.20884191798961854,
+          "3.0": 0.16188281198667698
+        }
+      },
+      "spectre": {
+        "fixed_recall": 0.006054960409874243,
+        "auc": 0.9549131938815443,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.14571424239207897,
+          "2.5": 0.1252040656446958,
+          "3.0": 0.11499446558808812
+        }
+      },
+      "ac": {
+        "recall": 0.9967396367023754,
+        "n_flagged": 2140,
+        "purity": 1.0,
+        "fpr": 0.0,
+        "silhouette": 0.909052310098266,
+        "auc": null,
+        "auc_reason": "Activation Clustering is a hard two-cluster assignment, not a ranked score"
+      },
+      "strip": {
+        "fixed_recall": 0.9908256880733946,
+        "auc": 0.997295289295523,
+        "mad_recall": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "mad_fpr": {
+          "2.0": 0.0,
+          "2.5": 0.0,
+          "3.0": 0.0
+        },
+        "frr_recall": 0.9908256880733946,
+        "frr_fpr": 0.008492569002123142,
+        "entropy_cut": 7.2440623898728705e-06,
+        "frr_target": 0.01,
+        "frr_calibration": {
+          "cutoff": 7.2440623898728705e-06,
+          "requested_frr": 0.01,
+          "realized_frr": 0.01025390625,
+          "strict_frr": 0.01025390625,
+          "tie_mass_at_cutoff": 0.0,
+          "n_calibration": 2048,
+          "degenerate": false
+        },
+        "n_scored": 20000
+      },
+      "nc": {
+        "flagged_class": 1,
+        "flags_target": false,
+        "ratio": 88.88232219537093,
+        "auc": null,
+        "auc_reason": "Neural Cleanse emits a hard flag, not a ranked score"
+      },
+      "interpretable": true,
+      "passes": true
+    }
+  },
+  "cells": {},
+  "control_only": true
+}

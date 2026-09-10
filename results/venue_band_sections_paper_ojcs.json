@@ -16,38 +16,37 @@
     "ours undercounts lines carrying \\ref/\\label (stripper drops the line tail)"
   ],
   "ours": {
-    "introduction": 824,
-    "related_work": 1565,
-    "methods": 4494,
-    "results": 4145,
-    "discussion_conclusion": 1961,
-    "appendix": 3243
+    "introduction": 885,
+    "related_work": 778,
+    "methods": 3415,
+    "results": 3727,
+    "discussion_conclusion": 1719
   },
   "table": [
     {
       "role": "introduction",
       "n": 18,
-      "ours": 824,
+      "ours": 885,
       "band": {
         "n": 18,
         "min": 414,
         "median": 826.5,
         "max": 1600
       },
-      "pct": 50,
+      "pct": 61,
       "verdict": "in band"
     },
     {
       "role": "related_work",
       "n": 16,
-      "ours": 1565,
+      "ours": 778,
       "band": {
         "n": 16,
         "min": 549,
         "median": 1437.5,
         "max": 3276
       },
-      "pct": 69,
+      "pct": 6,
       "verdict": "in band"
     },
     {
@@ -61,20 +60,20 @@
     {
       "role": "methods",
       "n": 16,
-      "ours": 4494,
+      "ours": 3415,
       "band": {
         "n": 16,
         "min": 824,
         "median": 2524.0,
         "max": 11591
       },
-      "pct": 88,
+      "pct": 75,
       "verdict": "in band"
     },
     {
       "role": "results",
       "n": 14,
-      "ours": 4145,
+      "ours": 3727,
       "band": {
         "n": 14,
         "min": 1181,
@@ -82,12 +81,12 @@
         "max": 3537
       },
       "pct": 100,
-      "verdict": "above ceiling by 608"
+      "verdict": "above ceiling by 190"
     },
     {
       "role": "appendix",
       "n": 0,
-      "ours": 3243,
+      "ours": null,
       "band": null,
       "pct": null,
       "verdict": "band undefined (fewer than 3 corpus papers carry it)"
@@ -129,15 +128,15 @@
     {
       "role": "discussion_conclusion",
       "n": 18,
-      "ours": 1961,
+      "ours": 1719,
       "band": {
         "n": 18,
         "min": 164,
         "median": 281.0,
         "max": 1936
       },
-      "pct": 100,
-      "verdict": "above ceiling by 25"
+      "pct": 94,
+      "verdict": "in band"
     }
   ],
   "per_paper": {

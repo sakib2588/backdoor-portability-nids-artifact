@@ -2,7 +2,7 @@
 
 Reads results/detectors.json (per-cell grid) + results/analysis.json (headline stats with CIs) and
 writes vector PDFs to figures/. Plots only -- CIs/effect sizes come from analysis.json; the only
-aggregation done here is a plain per-cell mean-over-seeds for the heatmap colour, a plotting step.
+aggregation done here is a plain per-cell mean-over-seeds for the heatmap color, a plotting step.
 
 Run:  python scripts/07_make_figures.py
 """
@@ -17,7 +17,10 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+# Rectangle lives in matplotlib.patches, not matplotlib.lines. The old import made this whole
+# module unimportable on matplotlib 3.9, so no figure could be regenerated from it.
 from matplotlib.patches import Patch, Rectangle
+from matplotlib.lines import Line2D
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -104,7 +107,22 @@ def fig1_failure_boundary(detectors):
             for j in range(len(costs)):
                 v = grid[i, j]
                 if not np.isnan(v):
-                    ax.text(j, i, f"{v:.2f}", ha="center", va="center",
+                    # Round-v8 review: at 2 decimals every Activation Clustering window cell
+                    # printed "0.00", including 3 that are not zero. Six per-seed partial
+                    # recoveries were invisible in the panel meant to show them, and a true
+                    # zero was pixel-identical to a measured small value. Small non-zero cells
+                    # now carry enough precision to be read as measured.
+                    # Leading zeros are dropped so a 3-decimal cell still fits the column at
+                    # print size; with them the small cells collided with their neighbours.
+                    if v == 0:
+                        txt = "0"
+                    elif v >= 1.0:
+                        txt = "1.00"
+                    elif v < 0.01:
+                        txt = f"{v:.3f}".lstrip("0")
+                    else:
+                        txt = f"{v:.2f}".lstrip("0")
+                    ax.text(j, i, txt, ha="center", va="center",
                             color="white" if v < 0.5 else "black",
                             fontsize=PRINT_PT)
         # The four budget-starvation window cells, rate in {0.005, 0.01} x cost in {8, 16},
@@ -161,7 +179,7 @@ def fig2_portability(analysis):
 def fig4_evasion_window(detectors):
     """Recall vs poison rate at cost=ANCHOR_COST (fixed at 16, matching the M4 analysis anchor),
     with AUC overlaid on a twin axis -- shows recall collapses at low poison rate while AUC (ranking
-    quality) stays ~0.99 throughout, i.e. the miss is a fixed-budget removal artefact, not an absent
+    quality) stays ~0.99 throughout, i.e. the miss is a fixed-budget removal artifact, not an absent
     signal. Recomputed here as a plain per-cell mean-over-seeds (a plotting aggregation), matching
     the CI-bearing anchor/evasion_window numbers already in analysis.json."""
     cost = 16
@@ -185,9 +203,15 @@ def fig4_evasion_window(detectors):
 
     fig, ax1 = plt.subplots(figsize=(fs.COL_IN, 2.1), constrained_layout=True)
     ax1.fill_between(rates, recall_lo, recall_hi, color=fs.BLUE, alpha=0.18, linewidth=0,
-                     label="recall, seed range")
+                     label="Spectral recall, seed range")
     ax1.plot(rates, recall, "o-", color=fs.BLUE, label="Spectral recall")
-    ax1.plot(rates, asr, "s--", color=fs.GREEN, label="attack success")
+    # Round-v8 review: attack success and Spectral AUC both sat pinned to the top of the frame,
+    # about a millimetre apart at print size, and neither series' shape could be read. Attack
+    # success is exactly 1.0000 at every rate here, so it is a constant and belongs on the panel
+    # as a reference line rather than as 5 markers competing for the same pixels.
+    ax1.axhline(1.0, color=fs.GREEN, ls="--", lw=0.9, zorder=2)
+    ax1.text(rates[-1], 1.0, " attack success 1.0", color=fs.GREEN, va="bottom", ha="right",
+             fontsize=fs.PT_SMALL - 0.5)
     # The evasion window lives at 0.005-0.01. On a linear axis it collapses against the
     # left spine, so the figure hides the region its caption is about.
     ax1.set_xscale("log")
@@ -199,12 +223,14 @@ def fig4_evasion_window(detectors):
     ax2 = ax1.twinx()
     ax2.plot(rates, auc, "^-", color=fs.PURPLE, label="Spectral AUC")
     ax2.set_ylabel("Spectral AUC")
-    ax2.set_ylim(0.45, 1.02)
+    # Widened from 0.45 so the AUC line clears the attack-success reference above it without
+    # stretching a 0.0088 spread across the panel, which would read as a trend it does not have.
+    ax2.set_ylim(0.90, 1.005)
     ax2.grid(False)   # one grid only; twin axes drawing two sets of gridlines reads as noise
     lines1, labels1 = ax1.get_legend_handles_labels()
     lines2, labels2 = ax2.get_legend_handles_labels()
     # Was loc="center right", which is exactly where the saturated recall and ASR curves sit at
-    # the high-rate end. Lower centre is the one region all three curves have left empty.
+    # the high-rate end. Lower center is the one region all three curves have left empty.
     ax1.legend(lines1 + lines2, labels1 + labels2, loc="lower center", ncols=2)
     fs.thin_spines(ax1, drop=("top",))
     fs.thin_spines(ax2, drop=("top",))
@@ -214,8 +240,10 @@ def fig4_evasion_window(detectors):
 
 def fig3_h3_confound(analysis):
     h3 = analysis["h3"]
-    groups = [("Spectral", h3["spectral_imbalanced"], h3["spectral_balanced"]),
-              ("AC", h3["ac_imbalanced"], h3["ac_balanced"])]
+    # "AC" appeared nowhere else in either manuscript, so the axis label spelled an
+    # abbreviation the reader had never been given. Both detectors get their full name.
+    groups = [("Spectral\nSignatures", h3["spectral_imbalanced"], h3["spectral_balanced"]),
+              ("Activation\nClustering", h3["ac_imbalanced"], h3["ac_balanced"])]
     labels = [g[0] for g in groups]
     # analysis.json stores each arm as [mean, [lo, hi]]. The intervals were previously discarded
     # here, so a figure about a confound showed no uncertainty at all.
@@ -236,7 +264,15 @@ def fig3_h3_confound(analysis):
     # Activation Clustering's imbalanced arm is a MEASURED 0.00063 with its own interval. On a
     # 0..1 axis that bar has no visible height, so without the printed value it is
     # indistinguishable from a cell that was never run.
-    fs.label_small_bars(ax, list(b1) + list(b2), list(imb) + list(bal))
+    # Round-v8 review: the printed 0.0006 read as floating above the group rather than sitting
+    # on a bar, because the bar it belongs to has no visible height, and the balanced arm beside
+    # it carried no value at all. Both Activation Clustering bars are now labelled, and a bar too
+    # short to see gets a baseline tick so its label has a mark to attach to.
+    fs.label_small_bars(ax, list(b1) + list(b2), list(imb) + list(bal), floor=0.10)
+    for bar, v in zip(list(b1) + list(b2), list(imb) + list(bal)):
+        if v is not None and v < 0.005:
+            ax.plot(bar.get_x() + bar.get_width() / 2, 0.0, marker="_", ms=6,
+                    color=bar.get_facecolor(), mew=1.4, zorder=6)
     fs.thin_spines(ax)
     fig.savefig(config.FIGURES / "fig3_h3_confound.pdf")
     plt.close(fig)
@@ -324,22 +360,60 @@ def fig6_nc_masks():
     cb = fig.colorbar(im, ax=ax_v, fraction=0.046)
     cb.ax.tick_params(labelsize=fs.PT_SMALL - 1, length=1.2, width=0.4, pad=0.8)
     cb.outline.set_linewidth(0.4)
+    # The two panels are the same quantity on different normalizations and were previously
+    # presented side by side with neither scale named.
+    cb.set_label("mask weight", fontsize=fs.PT_SMALL - 1, labelpad=1.5)
 
     tm = np.abs(np.asarray(t["mask"]))
     order = np.argsort(tm)[::-1]
     trig = set(t["trigger_indices"])
     colours = [fs.RED if int(i) in trig else fs.GREY for i in order]
     ax_t.bar(range(len(tm)), tm[order], color=colours, width=1.0)
+    # 757 bars at 1.0 width print at well under a point each, so a red bar among gray ones is not
+    # visible on the page and the panel cannot show what its caption promises. The trigger features
+    # get a stem to the top of the axis plus a marker at their own value, both sized in points so
+    # they survive the downscale.
+    ranks = [r for r, i in enumerate(order) if int(i) in trig]
+    if ranks:
+        # A stem to the top of the axis was tried first and rejected: it drew the trigger features
+        # at the height of the largest mask weight in the vector, roughly 20 times their own, which
+        # reads as concentration where the finding is its absence. Marker at the true value, plus a
+        # tick on the axis for position.
+        ax_t.plot(ranks, tm[order][ranks], "o", ms=2.6, mfc=fs.RED, mec="white",
+                  mew=0.3, ls="none", zorder=4)
+        ax_t.plot(ranks, [0] * len(ranks), marker="|", ms=3.5, color=fs.RED,
+                  ls="none", zorder=4)
     ax_t.set_title("tabular NIDS")
-    ax_t.set_xlabel("feature, sorted by mask weight")
+    ax_t.set_xlabel("feature rank, sorted by mask weight")
     ax_t.set_ylabel("mask weight")
-    ax_t.set_xlim(0, len(tm))
+    # Round-v7 review: the panel was ~85% empty white. Autoscaling to the rank-0 feature
+    # (0.06304 on this seed, roughly 20x everything else) pinned the whole distribution and all
+    # 16 trigger markers onto the axis floor, so the panel could not show what its caption
+    # promises. Restrict x to the region the triggers actually occupy (worst trigger rank is 121
+    # of 757) and y to the bulk, then call the one off-scale feature out in words rather than
+    # letting it flatten the panel.
+    sorted_tm = tm[order]
+    n_show = 150
+    floor = float(sorted_tm.min())
+    top_in_view = float(sorted_tm[1])          # rank 1; rank 0 is the off-scale head
+    pad = 0.08 * (top_in_view - floor)
+    ax_t.set_xlim(-2, n_show)
+    ax_t.set_ylim(floor - pad, top_in_view + pad)
+    # Both facts the reader needs about this axis, that rank 0 sits off scale and that the
+    # features beyond the x-limit are all at the floor, are stated in the body prose rather than
+    # annotated onto the panel: on-axis notes collided with the legend and with the bars, and
+    # this project's convention is that captions and panels name their object while prose
+    # carries the explanation.
     ax_t.grid(False)
 
-    handles = [Patch(facecolor=fs.RED, label="true trigger feature"),
+    # The trigger features are drawn as markers, not bars, so the legend key is a marker too.
+    handles = [Line2D([], [], marker="o", ms=2.6, mfc=fs.RED, mec="white", mew=0.3,
+                      ls="none", label="true trigger feature"),
                Patch(facecolor=fs.GREY, label="other feature")]
     # Was loc="upper right", directly on the peak of a descending-sorted bar series.
-    ax_t.legend(handles=handles, loc="center right")
+    # Center right was empty space only because the panel was empty. With the axis on the data
+    # the bulk fills that region, so the legend moves to the one corner the decay leaves clear.
+    ax_t.legend(handles=handles, loc="upper right", framealpha=0.9)
     fs.thin_spines(ax_t)
     fig.savefig(config.FIGURES / "fig6_nc_masks.pdf")
     plt.close(fig)

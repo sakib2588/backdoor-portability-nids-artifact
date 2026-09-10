@@ -75,6 +75,7 @@ def sweep_grid(poison_rates: Sequence[float] = config.POISON_RATES,
 def poison_secondary_trainset_raw(
     x_tr_raw, y_tr, trigger: Dict, poison_rate: float,
     target: int = config.ATTACK_TARGET, seed: int = 0,
+    exclude_idx: np.ndarray = None,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Clean-label poisoning in RAW space, mirroring `poison_trainset_cleanlabel`'s exact
     denominator/RNG/label-invariant contract above, but stamping via `apply_secondary_trigger` (so ANY
@@ -85,6 +86,12 @@ def poison_secondary_trainset_raw(
     `n_poison = round(poison_rate * len(x_tr_raw))` (whole-training-set denominator, decision 1, same
     as the primary dataset), drawn without replacement from the `target`-class rows only, labels left
     UNCHANGED (clean-label).
+
+    `exclude_idx` removes rows from the poison candidate pool, mirroring
+    `poison_trainset_cleanlabel` above. It exists so STRIP's clean reference and calibration pool can
+    be drawn from the training partition and be provably unpoisonable. Default None leaves the
+    candidate pool and therefore the drawn `poison_idx` bit-identical to every committed result in
+    results/ -- verified by tests/test_poison.py.
     """
     x = np.array(x_tr_raw, dtype=np.float64, copy=True)
     y = np.asarray(y_tr).copy()
@@ -92,6 +99,8 @@ def poison_secondary_trainset_raw(
 
     rng = np.random.default_rng(seed)
     target_pool = np.where(y == target)[0]
+    if exclude_idx is not None:
+        target_pool = np.setdiff1d(target_pool, np.asarray(exclude_idx), assume_unique=False)
     if n_poison > len(target_pool):
         raise ValueError(f"n_poison={n_poison} exceeds target-class pool {len(target_pool)}")
     poison_idx = np.sort(rng.choice(target_pool, size=n_poison, replace=False))
@@ -104,11 +113,12 @@ def poison_secondary_trainset_raw(
 def poison_secondary_trainset(
     x_tr_raw, y_tr, trigger: Dict, poison_rate: float, scaler,
     target: int = config.ATTACK_TARGET, seed: int = 0,
+    exclude_idx: np.ndarray = None,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """`poison_secondary_trainset_raw` plus standardisation for the victim (space discipline: the
     trigger/constraints stay raw; only this last step moves to the standardised space the MLP sees)."""
     x_raw_poisoned, y, poison_idx = poison_secondary_trainset_raw(
-        x_tr_raw, y_tr, trigger, poison_rate, target=target, seed=seed)
+        x_tr_raw, y_tr, trigger, poison_rate, target=target, seed=seed, exclude_idx=exclude_idx)
     x_std = apply_standardiser(scaler, x_raw_poisoned)
     return x_std, y, poison_idx
 

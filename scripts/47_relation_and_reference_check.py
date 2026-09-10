@@ -40,8 +40,16 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src import config
 
-SECTIONS = config.ROOT / "paper" / "sections"
-MAIN = config.ROOT / "paper" / "main.tex"
+# Which manuscript to audit. This defaulted to paper/ and stayed there after
+# paper_access/ became the live submission, so Parts 2 and 3 had never once run
+# against the IEEE Access sections. Pass --paper paper_access for that manuscript.
+# Part 1's registered relations read results/ and are manuscript-independent.
+_PAPER = "paper"
+for _i, _a in enumerate(sys.argv):
+    if _a == "--paper" and _i + 1 < len(sys.argv):
+        _PAPER = sys.argv[_i + 1]
+SECTIONS = config.ROOT / _PAPER / "sections"
+MAIN = config.ROOT / _PAPER / "main.tex"
 TOL = 5e-4
 
 CONNECTIVES = re.compile(
@@ -107,6 +115,8 @@ def sentences(text):
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--show-sweep", action="store_true")
+    ap.add_argument("--paper", default="paper",
+                    help="manuscript directory to audit (paper or paper_access)")
     args = ap.parse_args()
 
     man = json.loads((config.RESULTS / "reframe_manifest.json").read_text())

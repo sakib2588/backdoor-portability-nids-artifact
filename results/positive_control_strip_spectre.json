@@ -20,12 +20,24 @@
     "alpha": 0.5,
     "strip_frr": 0.01,
     "strip_rule": "gao-frr-nonstrict",
-    "smoke": false
+    "smoke": false,
+    "strip_pool": "train_holdout_v2",
+    "score_all_arms_both_rules": true
   },
   "summary": {
     "spectral_recall": {
       "mean": 0.9994757077944774,
       "sd": 0.000810347649029674,
+      "n": 5
+    },
+    "spectral_auc": {
+      "mean": 0.9826093928976295,
+      "sd": 0.0026416721167541613,
+      "n": 5
+    },
+    "spectral_mad_recall_3": {
+      "mean": 1.0,
+      "sd": 0.0,
       "n": 5
     },
     "ac_recall": {
@@ -34,13 +46,13 @@
       "n": 5
     },
     "strip_fixed_recall": {
-      "mean": 0.9646976581614821,
-      "sd": 0.02352313974922185,
+      "mean": 0.9356518699755331,
+      "sd": 0.00867453209644586,
       "n": 5
     },
     "strip_auc": {
-      "mean": 0.9850532952878259,
-      "sd": 0.001276409645635212,
+      "mean": 0.9786978867087539,
+      "sd": 0.001896443784433218,
       "n": 5
     },
     "strip_mad_recall_3": {
@@ -65,7 +77,45 @@
     },
     "reproduction_ok": true,
     "strip_control_passes": true,
-    "spectre_control_passes": false
+    "spectre_control_passes": false,
+    "dual_rule_admission": {
+      "spectral": {
+        "published_rule_every_seed": true,
+        "budget_free_every_seed": true,
+        "ranking_auc": {
+          "mean": 0.9826093928976295,
+          "sd": 0.0026416721167541613,
+          "n": 5
+        },
+        "admitted": true
+      },
+      "strip": {
+        "published_rule_every_seed": true,
+        "budget_free_every_seed": false,
+        "ranking_auc": {
+          "mean": 0.9786978867087539,
+          "sd": 0.001896443784433218,
+          "n": 5
+        },
+        "admitted": true
+      },
+      "spectre": {
+        "published_rule_every_seed": false,
+        "budget_free_every_seed": false,
+        "ranking_auc": {
+          "mean": 0.7909229145557974,
+          "sd": 0.006133048816852168,
+          "n": 5
+        },
+        "admitted": false
+      },
+      "ac": {
+        "published_rule_every_seed": true,
+        "budget_free_every_seed": null,
+        "ranking_auc": null,
+        "admitted": true
+      }
+    }
   },
   "per_seed": [
     {
@@ -76,9 +126,23 @@
       "spectral_recall": 0.9980775952464174,
       "ac_recall": 0.998951415588955,
       "ac_silhouette": 0.8969472526047294,
+      "spectral": {
+        "fixed_recall": 0.9980775952464174,
+        "auc": 0.9800390463680494,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.049063656271237634,
+          "2.5": 0.04684550328475421,
+          "3.0": 0.04472173978705731
+        }
+      },
       "strip": {
-        "fixed_recall": 0.9428521495980426,
-        "auc": 0.983910914085361,
+        "fixed_recall": 0.9325410695560993,
+        "auc": 0.9773142130141602,
         "mad_recall": {
           "2.0": 0.0,
           "2.5": 0.0,
@@ -89,16 +153,16 @@
           "2.5": 0.0,
           "3.0": 0.0
         },
-        "frr_recall": 0.9101712687871374,
-        "frr_fpr": 0.02910027939288681,
+        "frr_recall": 0.8227892345333799,
+        "frr_fpr": 0.02244582043343653,
         "entropy_cut": 2.7631020735330303e-11,
         "frr_target": 0.01,
         "frr_calibration": {
           "cutoff": 2.7631020735330303e-11,
           "requested_frr": 0.01,
-          "realized_frr": 0.0224609375,
+          "realized_frr": 0.02783203125,
           "strict_frr": 0.0,
-          "tie_mass_at_cutoff": 0.0224609375,
+          "tie_mass_at_cutoff": 0.02783203125,
           "n_calibration": 2048,
           "degenerate": true
         }
@@ -133,9 +197,23 @@
       "spectral_recall": 0.9998252359314925,
       "ac_recall": 0.9998252359314925,
       "ac_silhouette": 0.9004076261372816,
+      "spectral": {
+        "fixed_recall": 0.9998252359314925,
+        "auc": 0.9831252263401217,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.05878577361625009,
+          "2.5": 0.055708676281809255,
+          "3.0": 0.05220682624782904
+        }
+      },
       "strip": {
-        "fixed_recall": 0.9512408248864034,
-        "auc": 0.9843534534794625,
+        "fixed_recall": 0.9250262146102761,
+        "auc": 0.9765675611455835,
         "mad_recall": {
           "2.0": 0.0,
           "2.5": 0.0,
@@ -146,16 +224,16 @@
           "2.5": 0.0,
           "3.0": 0.0
         },
-        "frr_recall": 0.9456483746941629,
-        "frr_fpr": 0.029345692063731783,
+        "frr_recall": 0.88325760223698,
+        "frr_fpr": 0.019755720003020463,
         "entropy_cut": 2.7631020735330303e-11,
         "frr_target": 0.01,
         "frr_calibration": {
           "cutoff": 2.7631020735330303e-11,
           "requested_frr": 0.01,
-          "realized_frr": 0.0224609375,
+          "realized_frr": 0.01953125,
           "strict_frr": 0.0,
-          "tie_mass_at_cutoff": 0.0224609375,
+          "tie_mass_at_cutoff": 0.01953125,
           "n_calibration": 2048,
           "degenerate": true
         }
@@ -190,9 +268,23 @@
       "spectral_recall": 1.0,
       "ac_recall": 1.0,
       "ac_silhouette": 0.8988908551202689,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9818200005051702,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.050639960733972665,
+          "2.5": 0.047657252888318354,
+          "3.0": 0.04524088197538322
+        }
+      },
       "strip": {
-        "fixed_recall": 0.9774554351625306,
-        "auc": 0.9856930064389666,
+        "fixed_recall": 0.9489688919958057,
+        "auc": 0.9807751994267453,
         "mad_recall": {
           "2.0": 0.0,
           "2.5": 0.0,
@@ -203,16 +295,16 @@
           "2.5": 0.0,
           "3.0": 0.0
         },
-        "frr_recall": 0.9570080391471514,
-        "frr_fpr": 0.027316318054821414,
+        "frr_recall": 0.8984620761971339,
+        "frr_fpr": 0.021077172846031864,
         "entropy_cut": 2.7631020735330303e-11,
         "frr_target": 0.01,
         "frr_calibration": {
           "cutoff": 2.7631020735330303e-11,
           "requested_frr": 0.01,
-          "realized_frr": 0.025390625,
+          "realized_frr": 0.02001953125,
           "strict_frr": 0.0,
-          "tie_mass_at_cutoff": 0.025390625,
+          "tie_mass_at_cutoff": 0.02001953125,
           "n_calibration": 2048,
           "degenerate": true
         }
@@ -247,9 +339,23 @@
       "spectral_recall": 1.0,
       "ac_recall": 1.0,
       "ac_silhouette": 0.9073531931727397,
+      "spectral": {
+        "fixed_recall": 1.0,
+        "auc": 0.9868926321775503,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.04218266253869969,
+          "2.5": 0.04066299176923658,
+          "3.0": 0.03958695159707015
+        }
+      },
       "strip": {
-        "fixed_recall": 0.9998252359314925,
-        "auc": 0.986994294704716,
+        "fixed_recall": 0.9365606431317721,
+        "auc": 0.9805533082469979,
         "mad_recall": {
           "2.0": 0.0,
           "2.5": 0.0,
@@ -260,16 +366,16 @@
           "2.5": 0.0,
           "3.0": 0.0
         },
-        "frr_recall": 0.9994757077944775,
-        "frr_fpr": 0.025994865211810013,
+        "frr_recall": 0.9136665501572877,
+        "frr_fpr": 0.019850109491806992,
         "entropy_cut": 2.7631020735330303e-11,
         "frr_target": 0.01,
         "frr_calibration": {
           "cutoff": 2.7631020735330303e-11,
           "requested_frr": 0.01,
-          "realized_frr": 0.0224609375,
+          "realized_frr": 0.0205078125,
           "strict_frr": 0.0,
-          "tie_mass_at_cutoff": 0.0224609375,
+          "tie_mass_at_cutoff": 0.0205078125,
           "n_calibration": 2048,
           "degenerate": true
         }
@@ -304,9 +410,23 @@
       "spectral_recall": 0.9994757077944775,
       "ac_recall": 1.0,
       "ac_silhouette": 0.9027566185827541,
+      "spectral": {
+        "fixed_recall": 0.9994757077944775,
+        "auc": 0.9811700590972556,
+        "mad_recall": {
+          "2.0": 1.0,
+          "2.5": 1.0,
+          "3.0": 1.0
+        },
+        "mad_fpr": {
+          "2.0": 0.047515668655138565,
+          "2.5": 0.04607150947670467,
+          "3.0": 0.04489164086687306
+        }
+      },
       "strip": {
-        "fixed_recall": 0.952114645228941,
-        "auc": 0.9843148077306237,
+        "fixed_recall": 0.935162530583712,
+        "auc": 0.9782791517102821,
         "mad_recall": {
           "2.0": 0.0,
           "2.5": 0.0,
@@ -317,16 +437,16 @@
           "2.5": 0.0,
           "3.0": 0.0
         },
-        "frr_recall": 0.9940580216707445,
-        "frr_fpr": 0.031157970248433135,
+        "frr_recall": 0.9176861237329605,
+        "frr_fpr": 0.024616778675526692,
         "entropy_cut": 2.7631020735330303e-11,
         "frr_target": 0.01,
         "frr_calibration": {
           "cutoff": 2.7631020735330303e-11,
           "requested_frr": 0.01,
-          "realized_frr": 0.0224609375,
+          "realized_frr": 0.0244140625,
           "strict_frr": 0.0,
-          "tie_mass_at_cutoff": 0.0224609375,
+          "tie_mass_at_cutoff": 0.0244140625,
           "n_calibration": 2048,
           "degenerate": true
         }

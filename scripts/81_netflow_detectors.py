@@ -92,10 +92,16 @@ GATE = config.RESULTS / "netflow_data_gate.json"
 SWEEP = config.RESULTS / "netflow_poison_sweep.json"
 
 
-def results_paths(smoke: bool):
+def results_paths(smoke: bool, control_corpus: str = None):
     if smoke:
         return (config.RESULTS / "netflow_detectors_smoke.json",
                 config.RESULTS / "netflow_detectors_smoke.checkpoint.json")
+    if control_corpus and control_corpus != config.NETFLOW_MANIPULATION_CORPUS:
+        # The committed netflow_detectors.json holds the run whose control was planted on the
+        # manipulation corpus. A control on any other corpus writes beside it, never over it.
+        stem = f"netflow_control_{control_corpus}"
+        return (config.RESULTS / f"{stem}.json",
+                config.RESULTS / f"{stem}.checkpoint.json")
     return (config.RESULTS / "netflow_detectors.json",
             config.RESULTS / "netflow_detectors.checkpoint.json")
 
@@ -111,7 +117,8 @@ def config_key(args, gate) -> dict:
                 strip_max_scored=STRIP_MAX_SCORED, strip_trials=STRIP_N_TRIALS,
                 strip_frr=STRIP_FRR, strip_rule=STRIP_RULE,
                 nc_sample=args.nc_sample, nc_steps=args.nc_steps,
-                control=dict(rate=CONTROL_RATE, cost=CONTROL_COST, bar=CONTROL_RECALL_BAR),
+                control=dict(rate=CONTROL_RATE, cost=CONTROL_COST, bar=CONTROL_RECALL_BAR,
+                             corpus=getattr(args, "control_corpus", None)),
                 manifest=manifest_fingerprint(), repairs=repair_fingerprint(),
                 gate=gate["config_key"])
 
@@ -288,6 +295,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--control-only", action="store_true")
+    ap.add_argument("--control-corpus", default=config.NETFLOW_MANIPULATION_CORPUS,
+                    help="corpus the loud control is planted on; the family's other corpora "
+                         "carried no control of their own until this was added")
     ap.add_argument("--limit-cells", type=int, default=None)
     ap.add_argument("--mlp-epochs", type=int, default=None)
     ap.add_argument("--cost", type=int, default=config.NETFLOW_PRIMARY_COST)
@@ -319,14 +329,14 @@ def main() -> int:
     kept_q1, _ = admitted_manifest(gate["per_corpus_satisfaction"], corpora=q1)
     kept_q2, _ = admitted_manifest(gate["per_corpus_satisfaction"], corpora=list(config.NETFLOW_CORPORA))
     key = config_key(args, gate)
-    out_path, ckpt_path = results_paths(args.smoke)
+    out_path, ckpt_path = results_paths(args.smoke, args.control_corpus)
     controls, cells = load_checkpoint(ckpt_path, key)
     t0 = time.time()
     print(f"device={device} smoke={args.smoke} epochs={args.mlp_epochs} cost={args.cost} "
           f"rate={args.rate} max_scored={args.max_scored:,} seeds={seeds}")
 
     # ---- the gate: loud constraint-violating control on the manipulation corpus ----
-    ctag = f"native__{config.NETFLOW_MANIPULATION_CORPUS}"
+    ctag = f"native__{args.control_corpus}"
     control_seeds = seeds[:1] if args.smoke else seeds
     if any(str(s) not in controls for s in control_seeds):
         print(f"\n=== loud control on {ctag}: violating trigger, rate {CONTROL_RATE}, "

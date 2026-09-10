@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import pathlib
 import subprocess
 import sys
 
@@ -40,7 +41,16 @@ def main() -> int:
     ap.add_argument("--tolerance", type=int, default=2)
     args = ap.parse_args()
 
+    # Without this the script exits 0 on a missing or unbuilt PDF: pdftotext writes nothing,
+    # zero floats are found, nothing is flagged, and a green pass is reported for a file that
+    # does not exist. The default target is paper_access, so a run against another manuscript
+    # that forgot --pdf would have passed on the wrong paper.
+    if not pathlib.Path(args.pdf).is_file():
+        raise SystemExit(f"--pdf {args.pdf} does not exist; build it first")
+
     txt = subprocess.run(["pdftotext", args.pdf, "-"], capture_output=True, text=True).stdout
+    if not txt.strip():
+        raise SystemExit(f"--pdf {args.pdf} produced no text layer")
     pages = txt.split("\f")
     cap: dict[tuple[str, int], int] = {}
     ref: dict[tuple[str, int], int] = {}
